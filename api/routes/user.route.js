@@ -1,11 +1,10 @@
 import express from 'express';
+import user from '../controllers/user.controller.js';
 
 const router = express.Router();
 
-router.get('/test',(req,res)=>{
-  res.send('Hello world')
-})
+router.get('/test',user)
 
 export default router;
 
-//the word default is usefull when you want to give the function a new name when importing it in another file it sholud be the only function being exported
+//controllers are where functions are stored
