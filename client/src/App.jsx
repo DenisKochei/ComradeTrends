@@ -10,13 +10,13 @@ import { Header } from './components/header'
 export default function App() {
   return (
     <div>
-      <Header />
       <BrowserRouter>
+      <Header />
       <Routes>
         <Route path='/' element={<Home />} />
         <Route path='/about' element={<About />} />
         <Route path='/sign-in' element={<Signin />} />
-        <Route path='/sign-ip' element={<Signup />} />
+        <Route path='/sign-up' element={<Signup />} />
         <Route path='/projects' element={<Projects />} />
         <Route path='/dashboard' element={<Dashboard />} />
       </Routes>
