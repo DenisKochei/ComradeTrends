@@ -44,7 +44,7 @@ export const signin = async (req,res,next)=>{
     console.log(validPassword)
     //password is what we get from the form while validuser.passowrd is what database
     if(!validPassword){
-      return next(errorHandler(400,'Invalid User')); 
+      return next(errorHandler(400,'Invalid Password')); 
     }
     //When comparing both the email and the password it is best to make the message not clear by saying that either or both the email or the password is incorrect
     const token = jwt.sign({id : validUser._id}, process.env.JWT_SECRET);
