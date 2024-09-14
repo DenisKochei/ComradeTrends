@@ -6,7 +6,7 @@ import {BsFacebook,BsTwitter,BsInstagram,BsYoutube,} from 'react-icons/bs'
 
 export default function FooterComp() {
   return (
-  <Footer container className='border border-t-8 border-teal-500'>
+  <Footer container className='border border-t-8  border-teal-500'>
     <div className="">
       <div>
         <div>
@@ -28,16 +28,15 @@ export default function FooterComp() {
           </div>
         </div>
       </div>
-      <div>
-      <Footer.Divider/> 
-      <Footer.Copyright href='#' by='DenisKochei' year={new Date().getFullYear()} />
-      </div>
-      <div className='flex gap-3'>
-        <Footer.Icon href='#' icon={BsFacebook} />
-        <Footer.Icon href='#' icon={BsInstagram} />
-        <Footer.Icon href='#' icon={BsYoutube} />
-        <Footer.Icon href='#' icon={BsTwitter} />
-        
+      <Footer.Divider />
+      <div className='flex justify-between items-center'>
+        <div><Footer.Copyright href='#' by='DenisKochei' year={new Date().getFullYear()} /></div>
+        <div className='flex gap-3'>
+          <Footer.Icon href='#' icon={BsFacebook} />
+          <Footer.Icon href='#' icon={BsInstagram} />
+          <Footer.Icon href='#' icon={BsYoutube} />
+          <Footer.Icon href='#' icon={BsTwitter} />
+        </div>
       </div>
     </div>
    </Footer>
