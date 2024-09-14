@@ -36,12 +36,12 @@ export const signin = async (req,res,next)=>{
   }
   try{
     const validUser = await User.findOne({email})
-    console.log(validUser)
+   
     if(!validUser){
      return next(errorHandler(404,'User not found')); 
     }
     const validPassword = bcryptjs.compareSync(password, validUser.password);
-    console.log(validPassword)
+
     //password is what we get from the form while validuser.passowrd is what database
     if(!validPassword){
       return next(errorHandler(400,'Invalid Password')); 
