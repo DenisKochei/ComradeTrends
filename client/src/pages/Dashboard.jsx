@@ -2,7 +2,7 @@ import React from 'react'
 
 export  function Dashboard() {
   return (
-    <div>
+    <div className='min-h-screen'>
       Dashboard
     </div>
   )
