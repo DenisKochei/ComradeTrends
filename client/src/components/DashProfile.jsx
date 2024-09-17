@@ -9,6 +9,7 @@ import 'react-circular-progressbar/dist/styles.css';
 import {updateStart,updateFail,updateSuccess,updateStartAgain,refresh,deleteStart,deleteSuccess,deleteFail,signoutSuccess} from '../../redux/user/userSlice'
 import { useDispatch } from 'react-redux';
 import { HiOutlineExclamationCircle } from 'react-icons/hi';
+import {Link} from 'react-router-dom'
 
 export  function DashProfile() {
   const dispatch = useDispatch();
@@ -217,7 +218,7 @@ export  function DashProfile() {
             )
           }
         
-        <Button disabled={loading} type='submit' gradientDuoTone='purpleToBlue' outline >
+        <Button disabled={loading || imageFileUploading} type='submit' gradientDuoTone='purpleToBlue' outline >
         {loading ? (
               <>
                 <Spinner size="sm" />
@@ -225,6 +226,13 @@ export  function DashProfile() {
               </> 
             ) : 'Update'}
         </Button>
+        <Link to={'/create-post'}>
+        {currentUser.isAdmin && (
+          <Button gradientDuoTone='purpleToPink' type='button' className='w-full'>
+            Create Post
+          </Button>
+        )}
+        </Link>
         <div className='flex justify-between text-red-500 mt-5'>
           <span onClick={()=>setShowModal(true)} className='cursor-pointer'>Delete Account</span>
           <span onClick={handleSignout} className='cursor-pointer'> Sign Out </span>
