@@ -24,7 +24,10 @@ export const signup = async (req,res,next)=>{
     await newUser.save();
     res.json({message:"Signup Successful"})
   }catch(err){
-    next(err);
+    if (err.message.includes("email_1 dup key")) {
+      next(errorHandler(400,"The email is already in use"))
+    }
+    next(errorHandler(400,"Network interuption,please try again"))
   }
 }
 
@@ -38,13 +41,13 @@ export const signin = async (req,res,next)=>{
     const validUser = await User.findOne({email})
    
     if(!validUser){
-     return next(errorHandler(404,'User not found')); 
+     return next(errorHandler(404,'User not found, please signup')); 
     }
     const validPassword = bcryptjs.compareSync(password, validUser.password);
 
     //password is what we get from the form while validuser.passowrd is what database
     if(!validPassword){
-      return next(errorHandler(400,'Invalid Password')); 
+      return next(errorHandler(400,'Invalid Password or email')); 
     }
     //When comparing both the email and the password it is best to make the message not clear by saying that either or both the email or the password is incorrect
     const token = jwt.sign({id : validUser._id}, process.env.JWT_SECRET);
@@ -56,7 +59,12 @@ export const signin = async (req,res,next)=>{
     }).json(rest)
   }
   catch(err){
-    next(err)
+    if(err.message.includes("buffering")){
+      next(errorHandler(400,"network interuption,please try again"))
+    }else{
+      next(errorHandler(400,"Network interuption,please try again"))
+    }
+    
   }
 }
 export const google = async (req,res,next)=>{
@@ -91,6 +99,6 @@ export const google = async (req,res,next)=>{
     }
   }
   catch(err){
-    next(err)
+    next(errorHandler(400,"Network interuption,please try again"))
   }
 }
