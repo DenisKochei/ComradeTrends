@@ -12,7 +12,7 @@ export  function Header() {
   const dispatch = useDispatch();
 
   return (
-    <Navbar className='border-b-2 '>
+    <Navbar className='border-b-2 w-full'>
       <Link to="/" className='self-center whitespace-nowrap text-sm sm:text-xl font-semibold dark:text-white'>
         <span className=' px-2 py-1 bg-gradient-to-r from-cyan-500 to-blue-600 rounded-md text-white'>Comrade</span>
         Trends

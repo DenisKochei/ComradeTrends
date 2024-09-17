@@ -1,4 +1,5 @@
-import { Alert, Button, TextInput,Spinner, } from 'flowbite-react'
+import { Alert, Button, TextInput,Spinner } from 'flowbite-react'
+//import {MdAdd} from 'react-icons/md'
 import { useEffect, useRef, useState } from 'react';
 import {useSelector} from 'react-redux'
 import {getDownloadURL, getStorage,ref, uploadBytesResumable} from 'firebase/storage'
@@ -172,6 +173,7 @@ export  function DashProfile() {
           placeholder='password' 
           onChange={handleChange} 
         />
+        
         {
             errorMessage && (
               <Alert className='mt-5' color='failure'>
