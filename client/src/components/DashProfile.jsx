@@ -6,7 +6,7 @@ import {getDownloadURL, getStorage,ref, uploadBytesResumable} from 'firebase/sto
 import {app} from '../firebase'
 import { CircularProgressbar } from 'react-circular-progressbar';
 import 'react-circular-progressbar/dist/styles.css';
-import {updateStart,updateFail,updateSuccess,updateStartAgain,refresh,deleteStart,deleteSuccess,deleteFail} from '../../redux/user/userSlice'
+import {updateStart,updateFail,updateSuccess,updateStartAgain,refresh,deleteStart,deleteSuccess,deleteFail,signoutSuccess} from '../../redux/user/userSlice'
 import { useDispatch } from 'react-redux';
 import { HiOutlineExclamationCircle } from 'react-icons/hi';
 
@@ -137,6 +137,21 @@ export  function DashProfile() {
     }
 
   }
+  const handleSignout = async (req,res,next) =>{
+    try{
+      const res = await fetch('/api/user/sign-out',{
+        method: 'POST'
+      })
+      const data = await res.json();
+      if(!res.ok){
+        console.log(data.message)
+      }else{
+        dispatch(signoutSuccess())
+      }
+    }catch(err){
+      console.log(err.message)
+    }
+  }
   return (
     <div className='max-w-lg mx-auto p-3 w-full'>
       <h1 className='my-7 text-center font-semibold text-3xl'>Profile</h1>
@@ -212,7 +227,7 @@ export  function DashProfile() {
         </Button>
         <div className='flex justify-between text-red-500 mt-5'>
           <span onClick={()=>setShowModal(true)} className='cursor-pointer'>Delete Account</span>
-          <span className='cursor-pointer'> Sign Out </span>
+          <span onClick={handleSignout} className='cursor-pointer'> Sign Out </span>
         </div>
         
       </form>
