@@ -1,29 +1,41 @@
-import { Alert, Button, TextInput } from 'flowbite-react'
+import { Alert, Button, TextInput,Spinner, } from 'flowbite-react'
 import { useEffect, useRef, useState } from 'react';
 import {useSelector} from 'react-redux'
 import {getDownloadURL, getStorage,ref, uploadBytesResumable} from 'firebase/storage'
 import {app} from '../firebase'
 import { CircularProgressbar } from 'react-circular-progressbar';
 import 'react-circular-progressbar/dist/styles.css';
+import {updateStart,updateFail,updateSuccess,updateStartAgain,refresh} from '../../redux/user/userSlice'
+import { useDispatch } from 'react-redux';
 
 export  function DashProfile() {
+  const dispatch = useDispatch();
+  useEffect(()=>{
+    dispatch(refresh());
+  },[])
   const {currentUser} = useSelector( state=> state.user);
   const [imgFile,setImgFile] = useState(null);
   const [imgFileUrl,setImgFileUrl] = useState(null);
   const [imageFileUploadingProgress,setImageFileUploadingProgress] = useState(null);
   const [imageFileUploaderror,setImageFileUploadError] = useState(null);
+  const [imageFileUploading,setImageFileUploading] = useState(false);
+  const [updateUserSuccess,setUpdateUserSuccess] = useState(null)
+  const {loading, error:errorMessage} = useSelector(state => state.user)
+  const [formData,setFormData] = useState({})
   const filePickerRef = useRef();
   const handleImageClick = (e)=>{
     const file = e.target.files[0];
+    setUpdateUserSuccess(null)
     if(file){
       setImgFile(file);
+      dispatch(updateStartAgain());
       setImgFileUrl(URL.createObjectURL(file));
     }
     console.log(imgFileUrl)
   }
   useEffect(()=>{
     if(imgFile){
-      uploadImg();
+      uploadIng();
       /*service firebase.storage {
         match /b/{bucket}/o {
           match /{allPaths=**} {
@@ -37,7 +49,8 @@ export  function DashProfile() {
     }
   },[imgFile])
   
-  const uploadImg = ()=>{
+  const uploadIng = ()=>{
+    setImageFileUploading(true)
     setImageFileUploadError(null);
     const storage = getStorage(app);
     const fileName =new Date().getTime() + imgFile.name;
@@ -52,6 +65,7 @@ export  function DashProfile() {
       },
       (error)=>{
         setImageFileUploadError('Could not upload image(File Must be atmost 2MB');
+        setImageFileUploading(false);
         setImgFile(null);
         setImgFileUrl(null)
         
@@ -59,14 +73,53 @@ export  function DashProfile() {
       ()=>{
         getDownloadURL(uploadTask.snapshot.ref).then((downloadURL)=>{
           setImgFileUrl(downloadURL);
+          setFormData({...formData,profilePicture:downloadURL});
+          setImageFileUploading(false)
         });
       },
     );
   }
+  const handleChange = (e)=>{
+    setUpdateUserSuccess(null);
+    dispatch(updateStartAgain());
+    setFormData({...formData, [e.target.id]: e.target.value})
+  }
+  const handleSubmit =async (e)=>{
+    e.preventDefault();
+    if(Object.keys(formData).length === 0){
+      return dispatch(updateFail("You haven't made any Changes"))
+      //This checks if the formData is empty
+    }
+    if(imageFileUploading){
+      return dispatch(updateFail("The new Profile picture is still uploading,Please wait"))
+    }
+    try{
+      dispatch(updateStart());
+      const res = await fetch(`/api/user/update/${currentUser._id}`,{
+        method:'PUT',
+        headers : { 
+          "Content-Type": "application/json"
+        },
+        body : JSON.stringify(formData),
+      })
+      const data =await res.json();
+      if(!res.ok){
+        dispatch(updateFail(data.message));
+      }else{
+        dispatch(updateSuccess(data));
+        setUpdateUserSuccess("UserProfile Updated successfully")
+      }
+     
+      
+    }
+    catch(err){
+      dispatch(updateFail(err.message))
+    }
+  }
   return (
     <div className='max-w-lg mx-auto p-3 w-full'>
       <h1 className='my-7 text-center font-semibold text-3xl'>Profile</h1>
-      <form className='gap-4 flex flex-col'>
+      <form onSubmit={handleSubmit} className='gap-4 flex flex-col'>
         <input type='file' accept='image/*' hidden onChange={handleImageClick} ref={filePickerRef}/>
         <div className='relative w-32 h-32 self-center cursor-pointer shadow-md overflow-hidden rounded-full' onClick={()=>filePickerRef.current.click()}>
         <img 
@@ -94,25 +147,46 @@ export  function DashProfile() {
         {imageFileUploaderror && (
           <Alert color='failure'>{imageFileUploaderror}</Alert>
         )}
+        {updateUserSuccess && (
+          <Alert color= 'success'>
+            {updateUserSuccess}
+          </Alert>
+        )}
         <TextInput
         type='text'
           id='username'
           placeholder='Username'
           defaultValue={currentUser.username} 
+          onChange={handleChange}
         />
         <TextInput 
           type='email' 
           id='email' 
           placeholder='email' 
           defaultValue={currentUser.email} 
+          onChange={handleChange}
         />
         <TextInput 
           type='password' 
           id='password' 
-          placeholder='password'  
+          placeholder='password' 
+          onChange={handleChange} 
         />
-        <Button type='submit' gradientDuoTone='purpleToBlue' outline >
-          Update
+        {
+            errorMessage && (
+              <Alert className='mt-5' color='failure'>
+                {errorMessage}
+              </Alert>
+            )
+          }
+        
+        <Button disabled={loading} type='submit' gradientDuoTone='purpleToBlue' outline >
+        {loading ? (
+              <>
+                <Spinner size="sm" />
+                <span className='pl-3'>Updating...</span>
+              </> 
+            ) : 'Update'}
         </Button>
         <div className='flex justify-between text-red-500 mt-5'>
           <span className='cursor-pointer'>Delete Account</span>

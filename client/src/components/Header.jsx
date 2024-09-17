@@ -18,12 +18,22 @@ export  function Header() {
         Trends
       </Link>
       <form>
-        <TextInput
+        {path === '/dashboard' || '/projects' || '/about' ? 
+        (<div></div>): 
+        (<TextInput
           type='text'
           placeholder='Search...'
           rightIcon={AiOutlineSearch}
           className='w-28 lg:w-full sm:w-full'
-        />
+        />)}
+        {path === '/' ? 
+        (<TextInput
+          type='text'
+          placeholder='Search...'
+          rightIcon={AiOutlineSearch}
+          className='w-28 lg:w-full sm:w-full'
+        />) : (<div></div>) 
+      } 
       </form>
       <div className='flex justify-between items-center gap-2 md:order-2'>
         <Button 

@@ -2,8 +2,15 @@ import { Alert, Button, Label, Spinner, TextInput } from 'flowbite-react'
 import React, { useState } from 'react'
 import { Link,useNavigate } from 'react-router-dom'
 import Oauth from '../components/Oauth';
+import { useDispatch } from 'react-redux';
+import { useEffect } from 'react';
+import { refresh } from '../../redux/user/userSlice';
 
 export  function Signup() {
+  const dispatch = useDispatch();
+  useEffect(()=>{
+    dispatch(refresh());
+  },[])
 
   const [formData,setFormData] = useState({});
   const [error,setError] = useState(null);
@@ -82,6 +89,13 @@ export  function Signup() {
                 onChange={changeHandler}
               />
             </div>
+            {
+            error && (
+              <Alert className='mt-5' color='failure'>
+                {error}
+              </Alert>
+            )
+          }
             <Button className='bg-gradient-to-r from-cyan-500 to-blue-600' type='submit' disabled={loading}>
             {loading ? (
               <>
@@ -96,13 +110,7 @@ export  function Signup() {
             <span>Have an account?</span>
             <Link to='/sign-in' className='text-cyan-500'>Signin</Link>
           </div>
-          {
-            error && (
-              <Alert className='mt-5' color='failure'>
-                {error}
-              </Alert>
-            )
-          }
+          
         </div>
         
       </div>

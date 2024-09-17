@@ -1,13 +1,16 @@
 import { Alert, Button, Label, Spinner, TextInput } from 'flowbite-react'
-import React, { useState } from 'react'
+import React, { useState,useEffect } from 'react'
 import { Link,useNavigate } from 'react-router-dom'
 import { useDispatch,useSelector } from 'react-redux'
 import { signinFailure,signinSuccess,signinStart } from '../../redux/user/userSlice'
 import Oauth from '../components/Oauth'
+import { refresh } from '../../redux/user/userSlice'
 
 export  function Signin() {
-
-  const dispatch  = useDispatch()
+  const dispatch = useDispatch();
+  useEffect(()=>{
+    dispatch(refresh());
+  },[])
   const [formData,setFormData] = useState({});
   const {loading, error:errorMessage} = useSelector(state => state.user)
   const navigate = useNavigate();
@@ -75,6 +78,13 @@ export  function Signin() {
                 onChange={changeHandler}
               />
             </div>
+            {
+            errorMessage && (
+              <Alert className='mt-5' color='failure'>
+                {errorMessage}
+              </Alert>
+            )
+          }
             <Button className='bg-gradient-to-r from-cyan-500 to-blue-600' type='submit' disabled={loading}>
             {loading ? (
               <>
@@ -89,13 +99,6 @@ export  function Signin() {
             <span>Don't have an account?</span>
             <Link to='/sign-up' className='text-cyan-500'>Signup</Link>
           </div>
-          {
-            errorMessage && (
-              <Alert className='mt-5' color='failure'>
-                {errorMessage}
-              </Alert>
-            )
-          }
         </div>
         
       </div>

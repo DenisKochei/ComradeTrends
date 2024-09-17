@@ -26,7 +26,7 @@ export const updateUser = async (req,res,next)=>{
       return next(errorHandler(400,"The username cannot include spaces"))
     }
     if(req.body.username !== req.body.username.toLowerCase()){
-      return next(errorHandler(400,"he Username must be in lower Case"))
+      return next(errorHandler(400,"The Username must be in lower Case"))
     }
   }
   try{  
