@@ -23,7 +23,7 @@ app.use(express.json());
 app.use(cookieParser());
 
 app.listen(5000,()=>{
-  console.log("The port is listening to port 5000")
+  console.log("The Server is listening to port 5000")
 })
 
 app.use('/api/user', userRoute);
