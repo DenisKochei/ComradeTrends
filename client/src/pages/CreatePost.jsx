@@ -6,13 +6,15 @@ import {getDownloadURL, getStorage, ref, uploadBytesResumable} from 'firebase/st
 import {app} from '../firebase'
 import {CircularProgressbar} from 'react-circular-progressbar'
 import 'react-circular-progressbar/dist/styles.css';
+import { useNavigate } from 'react-router-dom';
 
 export default function CreatePost() {
+  const navigate = useNavigate();
   const [file,setFile] = useState(null);
   const [imageUploudProgress,setImageUploudProgress] = useState(null);
   const [imageUploadError,setImageUploadError] = useState(null);
   const [formData,setFormData] = useState({});
-  
+  const [publishError,setPublishError] = useState()
   const handleauploadImage = async()=>{
     try{
       if(!file){
@@ -51,13 +53,34 @@ export default function CreatePost() {
       console.log(err)
     }
   }
+  const handleSubmit = async (e)=>{
+    e.preventDefault();
+    try{
+      const res = await fetch('/api/post/create', {
+        method:'POST',
+        headers: {'Content-Type' : 'application/json'},
+        body: JSON.stringify(formData)
+      });
+      const data = await res.json();
+      if(!res.ok){
+        setPublishError(data.message);
+        return;
+      }
+      if(res.ok){
+        setPublishError(null);
+        navigate(`/post/${data.slug}`)
+      }
+    }catch(err){
+      setPublishError('Something went wrong.')
+    }
+  }
   return (
     <div className='p-3 mx-auto max-w-3xl min-h-screen'>
       <h1 className='text-center font-semibold text-3xl my-7'>Create Post</h1>
-      <form className='flex flex-col gap-4'>
+      <form className='flex flex-col gap-4' onSubmit={handleSubmit}>
       <div className='flex flex-col gap-4 sm:flex-row justify-between'>
-        <TextInput required placeholder='Title' id='title' className='flex-1'/>
-        <Select>
+        <TextInput required placeholder='Title' id='title' className='flex-1' onChange={(e)=> setFormData({...formData, title: e.target.value})}/>
+        <Select onChange={(e)=> setFormData({...formData, category: e.target.value})}>
           <option value='uncategorized'>Select category</option>
           <option value='sports'>sports</option>
           <option value='business'>business</option>
@@ -89,7 +112,8 @@ export default function CreatePost() {
           )
         }
       {imageUploadError && <Alert color='failure'>{imageUploadError}</Alert>}
-      <ReactQuill theme='snow' placeholder='Write something' className='h-72 mb-12' required />
+      {publishError && <Alert color='failure'>{publishError}</Alert>}
+      <ReactQuill theme='snow' placeholder='Write something' className='h-72 mb-12' required onChange={(value)=> setFormData({...formData, content:value})}/>
       <Button gradientDuoTone='purpleToPink' type='submit'>Publish</Button>
       </form>
     </div>
