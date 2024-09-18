@@ -42,7 +42,7 @@ export  function DashSidebar() {
               Profile
             </Sidebar.Item>
           </Link>
-          {currentUser && <Link to='/dashboard?tab=posts'>
+          {currentUser && currentUser.isAdmin && <Link to='/dashboard?tab=posts'>
             <Sidebar.Item as='div' active={tab === 'posts'} icon={HiDocumentText}>
               Posts
             </Sidebar.Item>

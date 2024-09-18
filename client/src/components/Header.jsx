@@ -11,6 +11,7 @@ export  function Header() {
   const {theme} = useSelector( state=> state.theme)
   const path = useLocation().pathname
   const dispatch = useDispatch();
+  console.log(currentUser)
 
   const handleSignout = async (req,res,next) =>{
     try{
@@ -35,7 +36,7 @@ export  function Header() {
         Trends
       </Link>
       <form>
-        {path === '/dashboard' || '/projects' || '/about' ? 
+        {path === '/projects' || '/about' ? 
         (<div></div>): 
         (<TextInput
           type='text'
@@ -50,7 +51,15 @@ export  function Header() {
           rightIcon={AiOutlineSearch}
           className='w-28 lg:w-full sm:w-full'
         />) : (<div></div>) 
-      } 
+        } 
+        { path === '/dashboard' ? 
+        (<TextInput
+          type='text'
+          placeholder='Search...'
+          rightIcon={AiOutlineSearch}
+          className='w-28 lg:w-full sm:w-full'
+        />) : (<div></div>) 
+        } 
       </form>
       <div className='flex justify-between items-center gap-2 md:order-2'>
         <Button 

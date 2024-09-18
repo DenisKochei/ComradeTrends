@@ -3,8 +3,10 @@ import {useLocation} from 'react-router-dom'
 import { DashSidebar } from '../components/DashSidebar';
 import { DashProfile } from '../components/DashProfile';
 import {DashPosts} from '../components/DashPosts';
+import { useSelector } from 'react-redux';
 
 export  function Dashboard() {
+  const {currentUser} = useSelector(state=>state.user)
   const location = useLocation();
   const [tab,setTab] = useState('')
   useEffect(()=>{
