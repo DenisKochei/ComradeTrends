@@ -53,7 +53,7 @@ export  function DashProfile() {
     }
   },[imgFile])
   
-  const uploadIng = ()=>{
+  const uploadIng =async ()=>{
     setImageFileUploading(true)
     setImageFileUploadError(null);
     const storage = getStorage(app);
