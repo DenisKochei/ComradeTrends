@@ -11,7 +11,6 @@ export  function Header() {
   const {theme} = useSelector( state=> state.theme)
   const path = useLocation().pathname
   const dispatch = useDispatch();
-  console.log(currentUser)
 
   const handleSignout = async (req,res,next) =>{
     try{
