@@ -49,6 +49,7 @@ export function DashPosts() {
   }
   const handleDeletePost = async () => {
     setShowModal(false);
+    
     try {
       const res = await fetch(
         `/api/post/deletepost/${postIdToDelete}/${currentUser._id}`,
@@ -62,6 +63,7 @@ export function DashPosts() {
       } else {
         setPosts((prev) =>
           prev.filter((post) => post._id !== postIdToDelete)
+
         );
       }
     } catch (error) {
@@ -112,7 +114,7 @@ export function DashPosts() {
                       </span>
                     </Table.Cell>
                     <Table.Cell>
-                      <Link  className='text-teal-500' to={`/update-post/${post._id}`}>
+                      <Link  className='text-teal-500'to={`/update-post/${post._id}`}>
                         <span>
                           Edit
                         </span>
