@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react'
 import { useSelector } from 'react-redux'
-import {Table,Modal,Button} from 'flowbite-react'
+import {Table,Modal,Button, Spinner} from 'flowbite-react'
 import {Link} from 'react-router-dom'
 import { HiOutlineExclamationCircle } from 'react-icons/hi';
 
@@ -129,7 +129,9 @@ export function DashPosts() {
           )}
         </>
       ):(
-        <p className='text-gray-500 italic'>You dont have any posts yet</p>
+        <div className="flex justify-center items-center min-h-screen">
+        <Spinner size='xl' />
+      </div>
       )}
         <Modal
         show={showModal}

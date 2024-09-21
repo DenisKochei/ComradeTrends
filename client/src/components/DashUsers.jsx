@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react'
 import { useSelector } from 'react-redux'
-import {Table,Modal,Button} from 'flowbite-react'
+import {Table,Modal,Button, Spinner} from 'flowbite-react'
 import {FaCheck, FaTimes} from 'react-icons/fa'
 import { HiOutlineExclamationCircle } from 'react-icons/hi';
 
@@ -112,7 +112,9 @@ export function DashUsers() {
           )}
         </>
       ):(
-        <p className='text-gray-500 italic'>No Users have joined yet</p>
+        <div className="flex justify-center items-center min-h-screen">
+        <Spinner size='xl' />
+      </div>
       )}
         <Modal
         show={showModal}
