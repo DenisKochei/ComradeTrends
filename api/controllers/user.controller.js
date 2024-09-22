@@ -105,6 +105,16 @@ export const getUsers = async (req, res, next) => {
   }
 };
 
-export const adminDeleteUser = (req,res,next)=>{
-
+export const setUsersComment = async (req,res,next)=>{
+  try{
+    const user = await User.findById(req.params.userId);
+    if(!user){
+      return next(errorHandler(404,'User not found'));
+    }
+    const {password,...rest} = user._doc;
+    res.status(200).json(rest)
+  }
+  catch(err){
+    next(err)
+  }
 }

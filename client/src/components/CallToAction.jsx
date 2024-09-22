@@ -1,4 +1,3 @@
-import {Button } from 'flowbite-react'
 
 export  function CallToAction() {
   return (
@@ -8,13 +7,13 @@ export  function CallToAction() {
                 Unlock your audience with Comrade Trends!
             </h2>
             <p className='text-gray-500 my-2'>
-                To advertise with us contact us through:
+                To advertise here, contact us through:
             </p>
            <div>
-            +254759117496
+            +(254)759117496
            </div>
            <div>
-           +254753868958
+           +(254)753868958
            </div>
         </div>
         <div className="p-7 flex-1">
