@@ -1,11 +1,12 @@
 import { Alert, Button, Textarea } from "flowbite-react";
 import { useEffect, useState } from "react";
 import { useSelector } from "react-redux"
-import { Link } from "react-router-dom"
+import { Link,useNavigate } from "react-router-dom"
 import {CommentSec} from "./CommentSec";
 
 
 export  function CommentSection({postId}) {
+  const navigate = useNavigate();
   const {currentUser} = useSelector(state=> state.user);
   const [comment,setComment] = useState('')
   const [disabled,setDisabled] = useState(true)
@@ -85,6 +86,33 @@ export  function CommentSection({postId}) {
       console.log(err)
     }
   }
+  const handleLike = async (commentId) => {
+    try {
+      if (!currentUser) {
+        navigate('/sign-in');
+        return;
+      }
+      const res = await fetch(`/api/comment/likeComment/${commentId}`, {
+        method: 'PUT',
+      });
+      if (res.ok) {
+        const data = await res.json();
+        setComments(
+          comments.map((comment) =>
+            comment._id === commentId
+              ? {
+                  ...comment,
+                  likes: data.likes,
+                  numberOfLikes: data.likes.length,
+                }
+              : comment
+          )
+        );
+      }
+    } catch (error) {
+      console.log(error.message);
+    }
+  };
   return (
     <div className="w-full mx-auto max-w-2xl p-3">
       {currentUser ? (
@@ -140,7 +168,7 @@ export  function CommentSection({postId}) {
           </div>
         </div>
         {comments.map((comment=>
-          <CommentSec comment={comment} key={comment._id}/>
+          <CommentSec onLike={handleLike} comment={comment} key={comment._id}/>
         ))}
         {showMore && (
             <button onClick={handleShowMore} className='w-full text-teal-500 self-center py-7'>Show More</button>
