@@ -57,7 +57,7 @@ export  function DashSidebar() {
               Users
             </Sidebar.Item>
           </Link>}
-          {currentUser && currentUser.isAdmin && <Link to='/dashboard?tab=users'>
+          {currentUser && currentUser.isAdmin && <Link to='/dashboard?tab=comments'>
             <Sidebar.Item as='div' active={tab === 'comments'} icon={HiAnnotation}>
               Comments
             </Sidebar.Item>
