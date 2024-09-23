@@ -44,7 +44,7 @@ export function DashPosts() {
       }
     }
     catch(err){
-
+      console.log(err)
     }
   }
   const handleDeletePost = async () => {
@@ -103,7 +103,7 @@ export function DashPosts() {
                          />
                       </Link>
                     </Table.Cell>
-                    <Table.Cell className='font-medium'>{post.title}</Table.Cell>
+                    <Table.Cell className='font-medium line-clamp-2'>{post.title}</Table.Cell>
                     <Table.Cell>{post.category}</Table.Cell>
                     <Table.Cell>
                       <span onClick={()=>{

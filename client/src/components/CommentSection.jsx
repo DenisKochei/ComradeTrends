@@ -16,8 +16,7 @@ export  function CommentSection({postId}) {
   const [comments,setComments] = useState([])
   const [commentError,setCommentError] = useState(null)
   const [totalComments,setTotalComments] = useState()
-  const [showMore,setShowMore] = useState(true); 
-  console.log(comments)
+  const [showMore,setShowMore] = useState(true);
   useEffect(()=>{
     if(comment.length > 0){
       setDisabled(false);
@@ -62,7 +61,6 @@ export  function CommentSection({postId}) {
           const data = await res.json();
           setComments(data.postComments)
           setTotalComments(data.totalComments)
-          console.log(data)
           if(data.postComments.length < 3){
             setShowMore(false)
           }

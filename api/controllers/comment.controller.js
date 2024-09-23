@@ -22,7 +22,7 @@ export const createComment = async (req,res,next)=>{
 export const getComments = async (req,res,next)=>{
   try{
     const startIndex = parseInt(req.query.startIndex) || 0;
-    const limit = parseInt(req.query.limit) || 5;
+    const limit = parseInt(req.query.limit) || 3;
     const sortDirection = req.query.order === 'asc' ? 1 : -1;
 
     const postComments = await Comment.find(
