@@ -37,8 +37,8 @@ export  function DashSidebar() {
     <Sidebar className='w-full sm:w-52'>
       <Sidebar.Items>
         <Sidebar.ItemGroup className='flex flex-col gap-1'>
-        <Link to='/dashboard?tab=profile'>
-            <Sidebar.Item active={tab === 'dash' || !tab} icon={HiChartPie} label={currentUser.isAdmin ? 'Admin' : 'User'} labelColor='dark'as='div'>
+        <Link to='/dashboard?tab=dash'>
+            <Sidebar.Item active={tab === 'dash' || !tab} icon={HiChartPie}  labelColor='dark'as='div'>
               Dashboard
             </Sidebar.Item>
           </Link>
