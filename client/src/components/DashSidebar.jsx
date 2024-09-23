@@ -37,16 +37,16 @@ export  function DashSidebar() {
     <Sidebar className='w-full sm:w-52'>
       <Sidebar.Items>
         <Sidebar.ItemGroup className='flex flex-col gap-1'>
-        <Link to='/dashboard?tab=dash'>
-            <Sidebar.Item active={tab === 'dash' || !tab} icon={HiChartPie}  labelColor='dark'as='div'>
-              Dashboard
-            </Sidebar.Item>
-          </Link>
           <Link to='/dashboard?tab=profile'>
             <Sidebar.Item active={tab === 'profile'} icon={HiUser} label={currentUser.isAdmin ? 'Admin' : 'User'} labelColor='dark'as='div'>
               Profile
             </Sidebar.Item>
           </Link>
+          {currentUser && currentUser.isAdmin && <Link to='/dashboard?tab=dash'>
+            <Sidebar.Item active={tab === 'dash' || !tab} icon={HiChartPie}  labelColor='dark'as='div'>
+              Dashboard
+            </Sidebar.Item>
+          </Link>}
           {currentUser && currentUser.isAdmin && <Link to='/dashboard?tab=posts'>
             <Sidebar.Item as='div' active={tab === 'posts'} icon={HiDocumentText}>
               Posts

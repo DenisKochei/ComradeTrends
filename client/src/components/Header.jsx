@@ -26,7 +26,7 @@ export  function Header() {
 
   const handleSignout = async () => {
     try {
-      const res = await fetch('/api/user/signout', {
+      const res = await fetch('/api/user/sign-out', {
         method: 'POST',
       });
       const data = await res.json();
@@ -99,6 +99,13 @@ export  function Header() {
               <span className='block text-sm'>@{currentUser.username}</span>
               <span className='block text-sm font-medium truncate'>@{currentUser.email}</span>
             </Dropdown.Header>
+            {currentUser && currentUser.isAdmin && (
+             <>
+              <Link to={'/dashboard?tab=dash'}>
+              <Dropdown.Item>Dashboard</Dropdown.Item>
+            </Link>
+            <Dropdown.Divider /></>
+            )}
             <Link to={'/dashboard?tab=profile'}>
               <Dropdown.Item>Profile</Dropdown.Item>
             </Link>

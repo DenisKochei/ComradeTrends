@@ -1,8 +1,7 @@
-import { Modal, Table, Button } from 'flowbite-react';
+import { Modal, Table, Button,Spinner } from 'flowbite-react';
 import { useEffect, useState } from 'react';
 import { useSelector } from 'react-redux';
 import { HiOutlineExclamationCircle } from 'react-icons/hi';
-import { FaCheck, FaTimes } from 'react-icons/fa';
 
 export function DashComments() {
   const { currentUser } = useSelector((state) => state.user);
@@ -120,7 +119,9 @@ export function DashComments() {
           )}
         </>
       ) : (
-        <p>You have no comments yet!</p>
+        <div className="flex justify-center items-center min-h-screen">
+        <Spinner size='xl' />
+      </div>
       )}
       <Modal
         show={showModal}
