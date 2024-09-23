@@ -5,7 +5,7 @@ import { useSelector } from "react-redux";
 import { Textarea ,Button} from "flowbite-react";
 
 
-export function CommentSec({comment,onLike,onEdit}) {
+export function CommentSec({comment,onLike,onEdit,onDelete}) {
   const {currentUser} = useSelector(state=>state.user)
   const [user,setUser] = useState({});
   const [isEditing,setIsEditing] = useState(false);
@@ -112,9 +112,13 @@ export function CommentSec({comment,onLike,onEdit}) {
             comment.numberOfLikes > 0 && comment.numberOfLikes + " " + (comment.numberOfLikes === 1 ? "like" : "likes")
           }
           {currentUser && (comment.userId === currentUser._id || currentUser.isAdmin) && (
-            <button onClick={handleEdit} className="`text-gray-400 hover:text-blue-500">
+            <>
+            <button onClick={handleEdit} className="text-gray-400 hover:text-blue-500">
               Edit
             </button>
+            <button onClick={()=>onDelete(comment._id)} className="text-gray-400 hover:text-red-600">
+              Delete
+            </button></> 
           )}
         </div>
           </div>
