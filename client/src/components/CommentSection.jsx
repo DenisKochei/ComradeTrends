@@ -14,6 +14,7 @@ export  function CommentSection({postId}) {
   const [commentError,setCommentError] = useState(null)
   const [totalComments,setTotalComments] = useState()
   const [showMore,setShowMore] = useState(true); 
+  console.log(comments)
   useEffect(()=>{
     if(comment.length > 0){
       setDisabled(false);
@@ -113,6 +114,13 @@ export  function CommentSection({postId}) {
       console.log(error.message);
     }
   };
+  const handleEdit = async(comment,editedComment)=>{
+    setComments(
+      comments.map((c)=>
+        c._id === comment._id ? {...c,content:editedComment} : c 
+      )
+    );
+  };
   return (
     <div className="w-full mx-auto max-w-2xl p-3">
       {currentUser ? (
@@ -168,7 +176,7 @@ export  function CommentSection({postId}) {
           </div>
         </div>
         {comments.map((comment=>
-          <CommentSec onLike={handleLike} comment={comment} key={comment._id}/>
+          <CommentSec onLike={handleLike} comment={comment} key={comment._id} onEdit={handleEdit}/>
         ))}
         {showMore && (
             <button onClick={handleShowMore} className='w-full text-teal-500 self-center py-7'>Show More</button>

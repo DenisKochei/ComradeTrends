@@ -2,12 +2,14 @@ import { useEffect, useState } from "react"
 import moment from 'moment'
 import {FaThumbsUp} from 'react-icons/fa'
 import { useSelector } from "react-redux";
+import { Textarea ,Button} from "flowbite-react";
 
 
-export function CommentSec({comment,onLike}) {
+export function CommentSec({comment,onLike,onEdit}) {
   const {currentUser} = useSelector(state=>state.user)
   const [user,setUser] = useState({});
-  console.log(user)
+  const [isEditing,setIsEditing] = useState(false);
+  const [editedContent,setEditedContent] = useState(comment.content)
   useEffect(()=>{
     const fetchUser = async ()=>{
       try{
@@ -23,6 +25,29 @@ export function CommentSec({comment,onLike}) {
     };
     fetchUser()
   },[comment])
+  const handleEdit = ()=>{
+    setIsEditing(true) ; 
+    setEditedContent(comment.content)
+  }
+  const handleSave = async () => {
+    try {
+      const res = await fetch(`/api/comment/editComment/${comment._id}`, {
+        method: 'PUT',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({
+          content: editedContent,
+        }),
+      });
+      if (res.ok) {
+        setIsEditing(false);
+        onEdit(comment, editedContent);
+      }
+    } catch (error) {
+      console.log(error.message);
+    }
+  };
   return (
     <div className='flex p-4 border-b dark:border-gray-600 text-sm'>
       <div className='flex-shrink-0 mr-3'>
@@ -41,7 +66,36 @@ export function CommentSec({comment,onLike}) {
             {moment(comment.createdAt).fromNow()}
           </span>
         </div>
-        <p className='text-gray-300 pb-2'>{comment.content}</p>
+        {isEditing ? (
+          <>
+            <Textarea
+              className='mb-2'
+              value={editedContent}
+              onChange={(e) => setEditedContent(e.target.value)}
+            />
+            <div className='flex justify-end gap-2 text-xs'>
+              <Button
+                type='button'
+                size='sm'
+                gradientDuoTone='purpleToBlue'
+                onClick={handleSave}
+              >
+                Save
+              </Button>
+              <Button
+                type='button'
+                size='sm'
+                gradientDuoTone='purpleToBlue'
+                outline
+                onClick={() => setIsEditing(false)}
+              >
+                Cancel
+              </Button>
+            </div>
+          </>
+        ) : (
+          <div>
+             <p className='text-gray-300 pb-2'>{comment.content}</p>
         <div className="flex items-center pt-2 border-t dark:border-gray-600 text-xs max-w-fit gap-2">
         <button
                 type='button'
@@ -53,11 +107,19 @@ export function CommentSec({comment,onLike}) {
                 }`}
               >
                 <FaThumbsUp className='text-sm' />
-              </button>
+        </button>
           {
             comment.numberOfLikes > 0 && comment.numberOfLikes + " " + (comment.numberOfLikes === 1 ? "like" : "likes")
           }
+          {currentUser && (comment.userId === currentUser._id || currentUser.isAdmin) && (
+            <button onClick={handleEdit} className="`text-gray-400 hover:text-blue-500">
+              Edit
+            </button>
+          )}
         </div>
+          </div>
+        )}
+       
         </div>
     </div>
   )
