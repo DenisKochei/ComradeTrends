@@ -17,6 +17,7 @@ export  function CommentSection({postId}) {
   const [commentError,setCommentError] = useState(null)
   const [totalComments,setTotalComments] = useState()
   const [showMore,setShowMore] = useState(true);
+  console.log(showMore)
   useEffect(()=>{
     if(comment.length > 0){
       setDisabled(false);
@@ -31,7 +32,7 @@ export  function CommentSection({postId}) {
     if(comment.length > 500){
       return;
     }
-    
+  
     const res = await fetch('/api/comment/create',{
       method:"POST",
       headers:
@@ -53,34 +54,42 @@ export  function CommentSection({postId}) {
       console.log(err.message)
     }
   }
-  useEffect(()=>{
-    const fetchComments = async ()=>{
-      try{
-        const res = await fetch(`/api/comment/getComments?postId=${postId}`);
-        if(res.ok){
+  useEffect(() => {
+    const getComments = async () => {
+      try {
+        const res = await fetch(`/api/comment/getPostComments?postId=${postId}`);
+        if (res.ok) {
           const data = await res.json();
-          setComments(data.postComments)
-          setTotalComments(data.totalComments)
-          if(data.postComments.length < 3){
-            setShowMore(false)
+          setComments(data.comments);
+          setTotalComments(data.totalComments);
+          if(data.totalComments < 3){
+            setShowMore(false);
+          }
+          else{
+            setShowMore(true);
+  
           }
         }
-      }
-      catch(err){
-        console.log(err)
+      } catch (error) {
+        console.log(error.message);
       }
     };
-    fetchComments()
-  },[postId])
+    getComments();
+  }, [postId]);
   const handleShowMore = async ()=>{
     const startIndex = comments.length
     try{
-      const res = await fetch(`/api/comment/getComments?postId=${postId}&startIndex=${startIndex}`);
+      const res = await fetch(`/api/comment/getPostComments?postId=${postId}&startIndex=${startIndex}`);
       const data = await res.json();
       if(res.ok){
-        setComments((prev)=> [...prev,...data.postComments]);
-        if(data.postComments.length < 3){
+        setComments((prev)=> [...prev,...data.comments]);
+       
+        if(data.totalComments < 3){
           setShowMore(false);
+        }
+        else{
+          setShowMore(true);
+
         }
       }
     }
@@ -180,7 +189,7 @@ export  function CommentSection({postId}) {
       }
       {comments.length === 0 ?
       (
-        <p className="text-xs my-5 text-gray-500">Np comments yet!</p>
+        <p className="text-xs my-5 text-gray-500">No comments yet!</p>
       ) : (
         <>
           <div className="flex items-center my-5 gap-1 text-xs">

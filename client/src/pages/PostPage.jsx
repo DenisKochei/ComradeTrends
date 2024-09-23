@@ -35,14 +35,16 @@ export  function PostPage() {
     fetchPost();
   }, [postslug]);
 
-  const fetchRecentPosts = async ()=>{
-    const res = await fetch('/api/post/getposts?limit=3');
-    const data =await res.json();
-    if(res.ok){
-      setRecentPosts(data.posts)
+  useEffect(()=>{
+    const fetchRecentPosts = async ()=>{
+      const res = await fetch('/api/post/getposts?limit=3');
+      const data =await res.json();
+      if(res.ok){
+        setRecentPosts(data.posts)
+      }
     }
-  }
-  fetchRecentPosts()
+    fetchRecentPosts()
+  },[])
 
   if(loading){
     return (
