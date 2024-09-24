@@ -1,42 +1,78 @@
 import React from 'react'
 import { Footer } from 'flowbite-react'
-import {BsFacebook,BsTwitter,BsInstagram,BsYoutube,} from 'react-icons/bs'
+import {BsFacebook,BsTwitter,BsTiktok,} from 'react-icons/bs'
+import { Link } from 'react-router-dom'
 //import { Link } from 'react-router-dom'
 
 
 export default function FooterComp() {
   return (
-  <Footer container className='border border-t-8  border-teal-500'>
+  <Footer container className='border border-t-8 border-teal-500'>
     <div className="">
       <div>
         <div>
         <span className=' px-2 py-1 bg-gradient-to-r from-cyan-500 to-blue-600 rounded-md text-white'>Comrade</span>
           Trends
         </div>
-        <div className='grid grid-col grid-cols-2 gap-3 mt-4 sm:grid-cols-3 sm:gap-6'>
-          <div>
-            <Footer.Title title='About'/>
-            <Footer.LinkGroup col>
+        <div className='flex justify-around'>
+          
+          <div className='flex justify-start flex-col gap-1'>
+          <Footer.Title className='my-3' title='Socials:'/>
+            <Footer.LinkGroup col >
               <Footer.Link
-                href='http://www.tiktok.com/Denis_Kochei'
+                href='https://www.tiktok.com/@comrade.trends'
                 target='_blank'
                 rel='noopener noreferrer'
               >
-                TikTok
+                <div className='flex gap-1'>
+                <Footer.Icon icon={BsTiktok} /> 
+                Titok
+                </div>
               </Footer.Link>
-            </Footer.LinkGroup>
+              </Footer.LinkGroup>
+              <Footer.LinkGroup col>
+              <Footer.Link
+                href='https://www.facebook.com/profile.php?id=61566437698996'
+                target='_blank'
+                rel='noopener noreferrer'
+              >
+                <div className='flex gap-1'>
+                <Footer.Icon icon={BsFacebook} />
+                Facebook
+                </div>
+              </Footer.Link>
+              </Footer.LinkGroup>
+             <Footer.LinkGroup >
+             <Footer.Link
+                href='https://www.x.com/@ComradeTrends'
+                target='_blank'
+                rel='noopener noreferrer' 
+              >
+              
+              <div className='flex gap-1'>
+                <Footer.Icon  icon={BsTwitter} />
+                Twitter
+              </div>
+              </Footer.Link>
+             </Footer.LinkGroup>
+            
+          </div>
+          <div className='flex flex-col mt-9 gap-1 underline text-cyan-500'>
+            <Link to='/projects'>
+              Projects
+            </Link>
+            <Link to='/about'>
+              About
+            </Link>
+            <Link to='/'>
+              Home
+            </Link>
           </div>
         </div>
       </div>
       <Footer.Divider />
       <div className='flex justify-between items-center'>
-        <div><Footer.Copyright href='#' by='DenisKochei' year={new Date().getFullYear()} /></div>
-        <div className='flex gap-3'>
-          <Footer.Icon href='#' icon={BsFacebook} />
-          <Footer.Icon href='#' icon={BsInstagram} />
-          <Footer.Icon href='#' icon={BsYoutube} />
-          <Footer.Icon href='#' icon={BsTwitter} />
-        </div>
+        <div><Footer.Copyright href='#' by='ComradeTrends' year={new Date().getFullYear()} /></div>
       </div>
     </div>
    </Footer>
