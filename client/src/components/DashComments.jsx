@@ -6,17 +6,20 @@ import { HiOutlineExclamationCircle } from 'react-icons/hi';
 export function DashComments() {
   const { currentUser } = useSelector((state) => state.user);
   const [comments, setComments] = useState([]);
+  const [totalComments,setTotalComments] = useState()
   const [showMore, setShowMore] = useState(true);
   const [showModal, setShowModal] = useState(false);
   const [commentIdToDelete, setCommentIdToDelete] = useState('');
   console.log(comments)
+  
   useEffect(() => {
     const fetchComments = async () => {
       try {
-        const res = await fetch(`/api/comment/getAllComments`);
+        const res = await fetch(`/api/comment/getAllComments?sort=desc`);
         const data = await res.json();
         if (res.ok) {
           setComments(data.comments);
+          setTotalComments(data.totalComments)
           if (data.comments.length < 9) {
             setShowMore(false);
           }
@@ -70,6 +73,13 @@ export function DashComments() {
       console.log(error.message);
     }
   };
+  useEffect(()=>{
+    if(comments.length >= totalComments){
+      setShowMore(false);
+    }else{
+      setShowMore(true)
+    }
+  },[comments])
 
   return (
     <div className='table-auto overflow-x-scroll md:mx-auto p-3 scrollbar scrollbar-track-slate-100 scrollbar-thumb-slate-300 dark:scrollbar-track-slate-700 dark:scrollbar-thumb-slate-500'>

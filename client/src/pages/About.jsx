@@ -29,7 +29,7 @@ export  function About() {
         </div>
       </div>
     </div>
-    <div className='m-3'>
+    <div className='flex m-3 justify-center'>
       <CallToAction/>
     </div>
     </div>

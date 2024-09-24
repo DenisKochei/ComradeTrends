@@ -23,7 +23,7 @@ export  function Home() {
         View All Posts
       </Link>
     </div>
-    <div className='mx-3'>
+    <div className='flex justify-center m-3'>
     <CallToAction/>
     </div>
     <div className='max-w-6xl mx-auto p-3 flex flex-col gap-8 py-7'>

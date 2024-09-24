@@ -105,7 +105,7 @@ export const getAllComments = async (req, res, next) => {
       .sort({ createdAt: sortDirection })
       .skip(startIndex)
       .limit(limit);
-    const totalComments = await Comment.countDocuments();
+   const totalComments = await Comment.countDocuments();
     const now = new Date();
     const oneMonthAgo = new Date(
       now.getFullYear(),
