@@ -3,7 +3,7 @@ import { CallToAction } from "../components/CallToAction"
 export  function Projects() {
   
   return (
-    <div>
+    <div className='min-h-screen'>
       <div className='min-h-screen max-w-2xl mx-auto flex justify-center items-center flex-col gap-6 p-3 text-center'>
       <h1 className='text-3xl font-semibold'>What Sets Us Apart!</h1>
       <p className='text-md text-gray-500'>

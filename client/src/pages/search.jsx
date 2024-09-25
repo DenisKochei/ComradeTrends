@@ -101,12 +101,13 @@ export function Search() {
   };
 
   return (
-    <div className='flex flex-col md:flex-row'>
+    <div className='flex flex-col min-h-screen md:flex-row'>
       <div className='p-3 border-b md:border-r md:min-h-screen border-gray-500'>
-        <form className='flex flex-col gap-2' onSubmit={handleSubmit}>
-          <div className='flex   items-center gap-2'>
-            <label className='whitespace-nowrap font-semibold'>
-              Search Term:
+      <form onSubmit={handleSubmit}>
+       <div className='flex flex-col  gap-2' >
+          <div className='flex  items-center gap-2'>
+            <label className='whitespace-nowrap ml-4 font-semibold'>
+              Term:
             </label>
             <TextInput
               placeholder='Search...'
@@ -114,39 +115,48 @@ export function Search() {
               type='text'
               value={sidebarData.searchTerm}
               onChange={handleChange}
+              className='w-64'
             />
           </div>
-          <div className='flex items-center gap-2'>
-            <label className='font-semibold'>Sort:</label>
-            <Select onChange={handleChange} value={sidebarData.sort} id='sort'>
-              <option value='desc'>Latest</option>
-              <option value='asc'>Oldest</option>
-            </Select>
+          <div className='flex sm:flex-col gap-2 justify-around'>
+            <div className='flex sm:flex items-center gap-2'>
+              <label className='font-semibold'>Sort:</label>
+              <Select className='sm:w-64' onChange={handleChange} value={sidebarData.sort} id='sort'>
+                <option value='desc'>Latest</option>
+                <option value='asc'>Oldest</option>
+              </Select>
+            </div>
+            <div className='flex items-center gap-2'>
+              <label className='font-semibold'>Category:</label>
+              <Select
+                onChange={handleChange}
+                value={sidebarData.category}
+                id='category'
+                className='w-24 sm:w-52'
+              >
+                <option value='uncategorized'>Select category</option>
+            <option value='sports'>sports</option>
+            <option value='business'>business</option>
+            <option value='health'>health</option>
+            <option value='politics'>politics</option>
+            <option value='entertainment'>entertainment</option>
+            <option value='general'>general</option>
+            <option value='Technology'>technology</option>
+            <option value='international'>international</option>
+            <option value='education'>education</option>
+              </Select>
+            </div>
           </div>
-          <div className='flex items-center gap-2'>
-            <label className='font-semibold'>Category:</label>
-            <Select
-              onChange={handleChange}
-              value={sidebarData.category}
-              id='category'
-            >
-              <option value='uncategorized'>Select category</option>
-          <option value='sports'>sports</option>
-          <option value='business'>business</option>
-          <option value='health'>health</option>
-          <option value='politics'>politics</option>
-          <option value='entertainment'>entertainment</option>
-          <option value='general'>general</option>
-          <option value='Technology'>Technology</option>
-          <option value='international'>international</option>
-          <option value='education'>education</option>
-            </Select>
-          </div>
-          <Button type='submit' outline gradientDuoTone='purpleToPink'>
-            Apply Filters
-          </Button>
-        </form>
+
+        </div>
+        <div className=' flex justify-center'>
+        <Button className='mt-2 self-center' type='submit' outline gradientDuoTone='purpleToPink'>
+          Apply Filters
+        </Button>
+        </div>
+       </form>
       </div>
+      
       <div className='w-full'>
         <h1 className='text-3xl font-semibold sm:border-b border-gray-500 p-3 mt-5 '>
           Posts results:

@@ -3,7 +3,7 @@ import { useNavigate } from "react-router-dom"
 export  function PostCard({post}) {
   const navigate = useNavigate ()
   return (
-    <div onClick={()=>navigate(`/post/${post.slug}`)} className="group relative w-full border border-teal-500 hover:border-2 h-[350px] overflow-hidden rounded-lg sm:w-[350px] hover:cursor-pointer transition-all">
+    <div onClick={()=>navigate(`/post/${post.slug}`)} className="group relative w-full border border-teal-500 hover:border-2 h-[380px] overflow-hidden rounded-lg sm:w-[350px] hover:cursor-pointer transition-all">
       <div>
         <img src={post.image} alt="Post-card" className="h-[260px] w-full  object-cover group-hover:h-[200px] transition-all duration-300 z-20" />
       </div>

@@ -55,7 +55,7 @@ export  function PostPage() {
   }else{
     return(
       <main className="min-h-screen flex flex-col mx-auto p-3 max-w-6xl">
-        <h1 className="twxt-3xl mt-10 p-3 self-center font-serif max-w-2xl mx-auto lg:text-4xl">
+        <h1 className="sm:text-3xl text-xl text-center mt-10 p-3  self-center font-serif max-w-2xl mx-auto lg:text-4xl">
           {post && post.title }
         </h1>
         <Link to={`/search?category=${post && post.category}`} className="self-center mt-5">
@@ -63,7 +63,7 @@ export  function PostPage() {
             {post && post.category}
           </Button>
         </Link>
-        <img src={post && post.image} alt={post.title} className="object-cover self-center mt-10 p-3 max-h-[600px] w-full"/>
+        <img src={post && post.image} alt={post.title} className="object-cover self-center mt-10 p-3 max-h-[600px] w-full !max-w-2xl"/>
         <div className="flex justify-between p-3 border-b border-slate-500 mx-auto w-full max-w-2xl text-xs">
           <span>
             {post && new Date(post.createdAt).toLocaleDateString()}

@@ -7,7 +7,7 @@ import { Link } from 'react-router-dom'
 
 export default function FooterComp() {
   return (
-  <Footer container className='border border-t-8 border-teal-500'>
+  <Footer container className='border border-t-8 m-0 border-teal-500'>
     <div className="">
       <div>
         <div>
@@ -75,6 +75,7 @@ export default function FooterComp() {
         <div><Footer.Copyright href='#' by='ComradeTrends' year={new Date().getFullYear()} /></div>
       </div>
     </div>
+    
    </Footer>
   )
 }

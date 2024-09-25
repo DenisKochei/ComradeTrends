@@ -15,7 +15,7 @@ export  function Header() {
   const { currentUser } = useSelector((state) => state.user);
   const { theme } = useSelector((state) => state.theme);
   const [searchTerm, setSearchTerm] = useState('');
-
+console.log(searchTerm)
   useEffect(() => {
     const urlParams = new URLSearchParams(location.search);
     const searchTermFromUrl = urlParams.get('searchTerm');
@@ -61,7 +61,9 @@ export  function Header() {
           type='text'
           placeholder='Search...'
           rightIcon={AiOutlineSearch}
-          className='w-28 lg:w-full sm:w-full'
+          className='w-28 lg:w-full'
+          onChange={(e)=>setSearchTerm(e.target.value)}
+          sizing='sm'
         />)}
         {path === '/' ? 
         (<TextInput
@@ -69,6 +71,8 @@ export  function Header() {
           placeholder='Search...'
           rightIcon={AiOutlineSearch}
           className='w-28 lg:w-full sm:w-full'
+          onChange={(e)=>setSearchTerm(e.target.value)}
+          sizing='sm'
         />) : (<div></div>) 
         } 
         { path === '/dashboard' ? 
@@ -77,6 +81,8 @@ export  function Header() {
           placeholder='Search...'
           rightIcon={AiOutlineSearch}
           className='w-28 lg:w-full sm:w-full'
+          onChange={(e)=>setSearchTerm(e.target.value)}
+          sizing='sm'
         />) : (<div></div>) 
         } 
       </form>
