@@ -15,7 +15,7 @@ export  function PostBar({post}) {
         </div>
         <div className="text-gray-600">
           <div className=" text-sm flex  justify-between">
-            <span>{post.category}</span>
+            <span>{post.category} {(post.category === "breaking") && <span>news</span>}</span>
             <span>
             {moment(post.createdAt).fromNow()}
           </span>
