@@ -38,7 +38,7 @@ export default function Oauth() {
 
   return (
     <Button type='button' gradientDuoTone='pinkToOrange' outline onClick={handleGoogleClick}>
-      <AiFillGoogleCircle className='w-6 h-6 mr-2' />
+      <AiFillGoogleCircle className='w-6 h-6 mr-2 focus:ring-0' />
       <span>Continue with Google</span>
     </Button>
   )

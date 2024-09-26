@@ -1,7 +1,7 @@
 
 export  function CallToAction() {
   return (
-    <div className='flex flex-col sm:flex-row p-1 border max-w-6xl border-teal-500 justify-center items-center rounded-tl-3xl rounded-br-3xl text-center'>
+    <div className='flex flex-col sm:flex-row p-2 border max-w-6xl border-teal-500 justify-center items-center rounded-tl-3xl rounded-br-3xl text-center'>
         <div className="flex-1 justify-center flex flex-col">
             <h2 className='text-2xl'>
                 Unlock your audience with Comrade Trends!
@@ -18,7 +18,7 @@ export  function CallToAction() {
            </a>
            </div>
         </div>
-        <div className="p-7 flex-1">
+        <div className="p-2 flex-1">
             <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRjCAfVgATBaPFFWX2WWJF6x-gVW4P1mdvfKA&s" />
         </div>
     </div>

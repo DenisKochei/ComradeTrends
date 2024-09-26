@@ -150,7 +150,7 @@ export function Search() {
 
         </div>
         <div className=' flex justify-center'>
-        <Button className='mt-2 self-center' type='submit' outline gradientDuoTone='purpleToPink'>
+        <Button className='mt-2 self-center focus:ring-0' type='submit' outline gradientDuoTone='purpleToPink'>
           Apply Filters
         </Button>
         </div>

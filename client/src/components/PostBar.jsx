@@ -1,5 +1,6 @@
 import { useNavigate } from "react-router-dom"
 import moment from "moment"
+import { FaClock } from "react-icons/fa"
 
 export  function PostBar({post}) {
   console.log(post)
@@ -16,8 +17,9 @@ export  function PostBar({post}) {
         <div className="text-gray-600">
           <div className=" text-sm flex  justify-between">
             <span>{post.category} {(post.category === "breaking") && <span>news</span>}</span>
-            <span>
-            {moment(post.createdAt).fromNow()}
+            <span className="flex gap-1 items-center justify-center">
+              <span className="mt-1"><FaClock className="text-blue-500" /></span>
+              <span>{moment(post.createdAt).fromNow()}</span>
           </span>
           </div>
         </div>

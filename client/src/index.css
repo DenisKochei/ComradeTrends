@@ -4,7 +4,7 @@
 
 body{
   height: 100vh;
-  background-color: ;
+  font-size:0.8rem;
 }
 .ql-editor{
   font-size: 1.05rem;
@@ -32,4 +32,13 @@ margin-bottom: 0.5rem;
 }
 .dark .post-content a{
   color: red;
+}
+.no-scrollbar::-webkit-scrollbar {
+  display: none;
+}
+
+/* Hide scrollbar for IE, Edge, and Firefox */
+.no-scrollbar {
+  -ms-overflow-style: none; /* IE and Edge */
+  scrollbar-width: none; /* Firefox */
 }

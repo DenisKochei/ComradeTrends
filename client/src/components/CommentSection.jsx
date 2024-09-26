@@ -179,7 +179,7 @@ export  function CommentSection({postId}) {
         />
         <div className="flex justify-between items-center mt-5">
           <p className="text-xs text-gray-500">{500-comment.length} characters remaining</p>
-          <Button disabled={disabled} type="submit" gradientDuoTone='purpleToBlue' outline>
+          <Button className="focus:ring-0" disabled={disabled} type="submit" gradientDuoTone='purpleToBlue' outline>
             Submit
           </Button>
         </div>
@@ -223,10 +223,10 @@ export  function CommentSection({postId}) {
               Are you sure you want to delete this Comment?
             </h3>
             <div className='flex justify-center gap-4'>
-              <Button color='failure' onClick={()=>handleDeleteComment(commentToDelete)}>
+              <Button className="focus:ring-0" color='failure' onClick={()=>handleDeleteComment(commentToDelete)}>
                 Yes, I'm sure
               </Button>
-              <Button color='gray' onClick={() => setShowModal(false)}>
+              <Button className="focus:ring-0" color='gray' onClick={() => setShowModal(false)}>
                 No, cancel
               </Button>
             </div>

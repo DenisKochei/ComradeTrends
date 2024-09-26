@@ -85,7 +85,7 @@ export  function Signin() {
               </Alert>
             )
           }
-            <Button className='bg-gradient-to-r from-cyan-500 to-blue-600' type='submit' disabled={loading}>
+            <Button className='bg-gradient-to-r from-cyan-500 to-blue-600 focus:ring-0' type='submit' disabled={loading}>
             {loading ? (
               <>
                 <Spinner size="sm" />

@@ -59,7 +59,7 @@ export  function PostPage() {
           {post && post.title }
         </h1>
         <Link to={`/search?category=${post && post.category}`} className="self-center mt-5">
-          <Button pill color='gray' size='xs' >
+          <Button className="focus:ring-0" pill color='gray' size='xs' >
             {post && post.category}
           </Button>
         </Link>

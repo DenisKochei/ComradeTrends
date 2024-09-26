@@ -146,10 +146,10 @@ export function DashPosts() {
               Are you sure you want to delete this post?
             </h3>
             <div className='flex justify-center gap-4'>
-              <Button color='failure' onClick={handleDeletePost}>
+              <Button className='focus:ring-0' color='failure' onClick={handleDeletePost}>
                 Yes, I'm sure
               </Button>
-              <Button color='gray' onClick={() => setShowModal(false)}>
+              <Button className='focus:ring-0' color='gray' onClick={() => setShowModal(false)}>
                 No, cancel
               </Button>
             </div>

@@ -218,7 +218,7 @@ export  function DashProfile() {
             )
           }
         
-        <Button disabled={loading || imageFileUploading} type='submit' gradientDuoTone='purpleToBlue' outline >
+        <Button disabled={loading || imageFileUploading} type='submit' gradientDuoTone='purpleToBlue' className='focus:ring-0' outline >
         {loading ? (
               <>
                 <Spinner size="sm" />
@@ -228,7 +228,7 @@ export  function DashProfile() {
         </Button>
         <Link to={'/create-post'}>
         {currentUser.isAdmin && (
-          <Button gradientDuoTone='purpleToPink' type='button' className='w-full'>
+          <Button gradientDuoTone='purpleToPink' type='button' className='w-full focus:ring-0'>
             Create Post
           </Button>
         )}
@@ -246,8 +246,8 @@ export  function DashProfile() {
             <HiOutlineExclamationCircle className='w-14 h-14 mx-auto text-gray-400 dark:text-gray-200' />
             <h3 className='text-lg text-gray-500 dark:text-gray-400 mb-5'>Are you sure you want to delete your account?</h3>
             <div className="flex justify-center gap-4">
-              <Button color='failure' onClick={handleDeleteUser}>Yes, I'm sure</Button>
-              <Button onClick={()=>setShowModal(false)}>Cancel</Button>
+              <Button className='focus:ring-0' color='failure' onClick={handleDeleteUser}>Yes, I'm sure</Button>
+              <Button className='focus:ring-0' onClick={()=>setShowModal(false)}>Cancel</Button>
             </div>
           </div>
         </Modal.Body>

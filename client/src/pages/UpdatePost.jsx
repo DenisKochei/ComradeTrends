@@ -129,7 +129,7 @@ export default function UpdatePost() {
       </div>
       <div className="flex gap-4 items-center justify-between border-4 border-dotted border-teal-500 p-3">
         <FileInput type='file' accept='images/*' onChange={(e)=> setFile(e.target.files[0])} />
-        <Button type='button' onClick={handleauploadImage} gradientDuoTone='purpleToBlue' outline disabled={imageUploudProgress}>
+        <Button className='focus:ring-0' type='button' onClick={handleauploadImage} gradientDuoTone='purpleToBlue' outline disabled={imageUploudProgress}>
           {imageUploudProgress ? 
           (
             <div className='w-16 h-16'>
@@ -148,7 +148,7 @@ export default function UpdatePost() {
       {imageUploadError && <Alert color='failure'>{imageUploadError}</Alert>}
       {fetchError && <Alert color='failure'>{fetchError}</Alert>}
       <ReactQuill value={formData.content} theme='snow' placeholder='Write something' className='h-72 mb-12' required onChange={(value)=> setFormData({...formData, content:value})}/>
-      <Button gradientDuoTone='purpleToPink' type='submit'>Update Post</Button>
+      <Button className='focus:ring-0' gradientDuoTone='purpleToPink' type='submit'>Update Post</Button>
       </form>
     </div>
   )

@@ -6,6 +6,7 @@ import { useSelector,useDispatch } from 'react-redux'
 import { toggleTheme } from '../../redux/theme/themeSlice'
 import { signoutSuccess } from '../../redux/user/userSlice'
 import { useEffect,useState } from 'react'
+import Headroom from 'react-headroom'
 
 export  function Header() {
   const path = useLocation().pathname;
@@ -49,7 +50,8 @@ console.log(searchTerm)
   };
 
   return (
-    <Navbar className='border-b-2 w-full'>
+    <Headroom>
+      <Navbar className='border-b-2 w-full'>
       <Link to="/" className='self-center whitespace-nowrap text-sm sm:text-xs  font-semibold dark:text-white'>
         <span className=' px-2 py-1 bg-gradient-to-r from-cyan-500 to-blue-600 rounded-md text-white'>Comrade</span>
         Trends
@@ -86,10 +88,10 @@ console.log(searchTerm)
         />) : (<div></div>) 
         } 
       </form>
-      <div className='flex justify-between items-center gap-2 md:order-2'>
+      <div className=' flex justify-between items-center gap-2 md:order-2'>
         <Button 
           color='gray' 
-          className='w-9 h-9' 
+          className='w-9 h-9 focus:ring-0' 
           pill
           onClick={()=>dispatch(toggleTheme())}
         >
@@ -120,7 +122,7 @@ console.log(searchTerm)
           </Dropdown>
         ) : (
           <Link to='sign-in'>
-            <Button className='' gradientDuoTone='purpleToBlue' outline>
+            <Button className='focus:ring-0' gradientDuoTone='purpleToBlue' outline>
               SignIn
             </Button>
           </Link>
@@ -144,5 +146,6 @@ console.log(searchTerm)
         </Navbar.Link>
       </Navbar.Collapse>
     </Navbar>
+    </Headroom>
   )
 }
