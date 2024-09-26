@@ -1,81 +1,84 @@
-import React from 'react'
 import { Footer } from 'flowbite-react'
-import {BsFacebook,BsTwitter,BsTiktok,} from 'react-icons/bs'
+import {BsFacebook,BsTiktok,} from 'react-icons/bs'
+import { RiTwitterXFill } from "react-icons/ri";
 import { Link } from 'react-router-dom'
+import { Logo } from './Logo'
+import { FaPhone,FaWhatsapp } from 'react-icons/fa'
+import { CiMail } from "react-icons/ci";
+import { IoIosArrowForward } from "react-icons/io";
 //import { Link } from 'react-router-dom'
 
 
 export default function FooterComp() {
   return (
-  <Footer container className='border border-t-8 m-0 border-teal-500'>
-    <div className="">
-      <div>
-        <div>
-        <span className=' px-2 py-1 bg-gradient-to-r from-cyan-500 to-blue-600 rounded-md text-white'>Comrade</span>
-          Trends
+  <Footer  className='flex flex-col gap-2 sm:flex-row p-5 sm:justify-around sm:items-center justify-center items-start'>
+   <div className='flex mt-0.5 flex-col gap-2 sm:w-1/3 w-full'>
+   <Footer.Title className='mb-0 sm:mt-7' title={<Logo/>}/>
+   <Footer.Divider className='mt-2'/>
+   <Link to='/privacy-policy'>
+      <span className='flex items-center gap-1'><IoIosArrowForward className='text-sky-600'/>Pricacy Policy</span>
+    </Link>
+   <Link to='/projects'>
+      <span className='flex items-center gap-1'><IoIosArrowForward className='text-sky-600'/>Projects</span>
+    </Link>
+    <Link to='/about'>
+      <span className='flex items-center gap-1'><IoIosArrowForward className='text-sky-600'/>About</span>
+    </Link>
+    <Link to='/'>
+      <span className='flex items-center gap-1'><IoIosArrowForward className='text-sky-600'/>Home</span>
+    </Link>
+   </div>
+   <div className='flex flex-col sm:justify-start gap-2 sm:w-1/3 w-full'>
+   <Footer.Title className='mb-0 sm:mb-1 mt-5 sm:mt-0' title='Contacts'/>
+   <Footer.Divider className='mt-1'/>
+   <span className='flex items-center gap-1'><FaPhone className='text-sky-600'/><a href='tel:+254759117496'>+(254)759117496</a></span>
+   <span className='flex items-center gap-1'><FaWhatsapp className='text-sky-600'/><a href="https://wa.me/+254753868958?text=Hello!">+(254)753868958</a></span>
+   <span className='flex items-center gap-1'><CiMail className='text-sky-600'/><a href='mailto:dennokochei@gmail.com'>dennokochei@gmail.com</a></span>
+   </div>
+   <div className='sm:w-1/3 mt-5 sm:mt-0 w-full flex flex-col'>
+    <Footer.Title className='mb-1.5 ' title='Socials' />
+    <Footer.Divider className='mt-0.5'/>
+    <div className='flex flex-col gap-2'>
+    <Footer.LinkGroup >
+      <Footer.Link
+        href='https://www.tiktok.com/@comrade.trends'
+        target='_blank'
+        rel='noopener noreferrer'
+      >
+        <div className='flex gap-1'>
+        <Footer.Icon fill='rgb(2,132,199,100)' icon={BsTiktok} /> 
+        Tiktok
         </div>
-        <div className='flex justify-around'>
-          
-          <div className='flex justify-start flex-col gap-1'>
-          <Footer.Title className='my-3' title='Socials:'/>
-            <Footer.LinkGroup col >
-              <Footer.Link
-                href='https://www.tiktok.com/@comrade.trends'
-                target='_blank'
-                rel='noopener noreferrer'
-              >
-                <div className='flex gap-1'>
-                <Footer.Icon icon={BsTiktok} /> 
-                Titok
-                </div>
-              </Footer.Link>
-              </Footer.LinkGroup>
-              <Footer.LinkGroup col>
-              <Footer.Link
-                href='https://www.facebook.com/profile.php?id=61566437698996'
-                target='_blank'
-                rel='noopener noreferrer'
-              >
-                <div className='flex gap-1'>
-                <Footer.Icon icon={BsFacebook} />
-                Facebook
-                </div>
-              </Footer.Link>
-              </Footer.LinkGroup>
-             <Footer.LinkGroup >
-             <Footer.Link
-                href='https://www.x.com/@ComradeTrends'
-                target='_blank'
-                rel='noopener noreferrer' 
-              >
-              
-              <div className='flex gap-1'>
-                <Footer.Icon  icon={BsTwitter} />
-                Twitter
-              </div>
-              </Footer.Link>
-             </Footer.LinkGroup>
-            
-          </div>
-          <div className='flex flex-col mt-9 gap-1 underline text-cyan-500'>
-            <Link to='/projects'>
-              Projects
-            </Link>
-            <Link to='/about'>
-              About
-            </Link>
-            <Link to='/'>
-              Home
-            </Link>
-          </div>
+      </Footer.Link>
+      </Footer.LinkGroup>
+      <Footer.LinkGroup col>
+      <Footer.Link
+        href='https://www.facebook.com/profile.php?id=61566437698996'
+        target='_blank'
+        rel='noopener noreferrer'
+      >
+        <div className='flex gap-1'>
+        <Footer.Icon fill='rgb(2,132,199,100)' icon={BsFacebook} />
+        Facebook
         </div>
+      </Footer.Link>
+      </Footer.LinkGroup>
+      <Footer.LinkGroup >
+      <Footer.Link
+        href='https://www.x.com/@ComradeTrends'
+        target='_blank'
+        rel='noopener noreferrer' 
+      >
+      
+      <div className='flex gap-1'>
+        <Footer.Icon fill='rgb(2,132,199,100)' icon={RiTwitterXFill} />
+        X
       </div>
-      <Footer.Divider />
-      <div className='flex justify-between items-center'>
-        <div><Footer.Copyright href='#' by='ComradeTrends' year={new Date().getFullYear()} /></div>
-      </div>
+      </Footer.Link>
+      </Footer.LinkGroup>
+
     </div>
-    
-   </Footer>
+   </div>
+  </Footer>
   )
 }

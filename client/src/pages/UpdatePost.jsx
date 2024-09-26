@@ -147,7 +147,8 @@ export default function UpdatePost() {
         }
       {imageUploadError && <Alert color='failure'>{imageUploadError}</Alert>}
       {fetchError && <Alert color='failure'>{fetchError}</Alert>}
-      <ReactQuill value={formData.content} theme='snow' placeholder='Write something' className='h-72 mb-12' required onChange={(value)=> setFormData({...formData, content:value})}/>
+      <ReactQuill value={formData.content1} theme='snow' placeholder='Write something' className='h-72 mb-12' required onChange={(value)=> setFormData({...formData, content1:value})}/>
+      <ReactQuill value={formData.content2} theme='snow' placeholder='Write something' className='h-72 mb-12' required onChange={(value)=> setFormData({...formData, content2:value})}/>
       <Button className='focus:ring-0' gradientDuoTone='purpleToPink' type='submit'>Update Post</Button>
       </form>
     </div>

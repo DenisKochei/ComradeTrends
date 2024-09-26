@@ -6,7 +6,7 @@ import { Signup } from './pages/Signup'
 import { Projects } from './pages/Projects'
 import { Dashboard } from './pages/Dashboard'
 import { Header } from './components/Header.jsx'
-import Footer from './components/Footer'
+import  Footer  from './components/Footer.jsx'
 import { PrivateRoute } from './components/PrivateRoute'
 import { OnlyAdminPrivateRoute } from './components/OnlyAdminPrivateRoute copy'
 import CreatePost from './pages/CreatePost'
@@ -14,6 +14,7 @@ import UpdatePost from './pages/UpdatePost'
 import { PostPage } from './pages/PostPage'
 import ScrollToTop from './components/ScrollToTop'
 import {Search} from './pages/search'
+import {PolicyPage} from './pages/PolicyPage.jsx'
 
 export default function App() {
   return (
@@ -36,6 +37,7 @@ export default function App() {
         </Route>
         <Route path='/post/:postslug' element={<PostPage />} />
         <Route path='/search' element={<Search/>} />
+        <Route path='/privacy-policy' element={<PolicyPage/>} />
       </Routes>
       <Footer/>
     </BrowserRouter>

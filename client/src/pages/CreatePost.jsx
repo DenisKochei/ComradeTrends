@@ -116,7 +116,8 @@ export default function CreatePost() {
         }
       {imageUploadError && <Alert color='failure'>{imageUploadError}</Alert>}
       {publishError && <Alert color='failure'>{publishError}</Alert>}
-      <ReactQuill theme='snow' placeholder='Write something' className='h-72 mb-12' required onChange={(value)=> setFormData({...formData, content:value})}/>
+      <ReactQuill theme='snow' placeholder='Write something' className='h-72 mb-12' required onChange={(value)=> setFormData({...formData, content1:value})}/>
+      <ReactQuill theme='snow' placeholder='Write something' className='h-72 mb-12' required onChange={(value)=> setFormData({...formData, content2:value})}/>
       <Button className='focus:ring-0' gradientDuoTone='purpleToPink' type='submit'>Publish</Button>
       </form>
     </div>
