@@ -11,7 +11,6 @@ export  function Home() {
       const res = await fetch('/api/post/getposts?category=trending')
       const data = await res.json();
       setTrending(data.posts)
-      console.log(data.posts)
     }
     fetchPosts();
   },[])
@@ -20,7 +19,6 @@ export  function Home() {
       const res = await fetch('/api/post/getposts?category=breaking')
       const data = await res.json();
       setBreaking(data.posts)
-      console.log(data.posts)
     }
     fetchPosts();
   },[])

@@ -11,7 +11,7 @@ import { IoIosArrowForward } from "react-icons/io";
 
 export default function FooterComp() {
   return (
-  <Footer  className='flex flex-col gap-2 sm:flex-row p-5 sm:justify-around sm:items-center justify-center items-start'>
+  <Footer container className='flex-col gap-4 border border-t-2 border-cyan-800 sm:flex-row p-5 sm:justify-around sm:items-center justify-center items-start'>
    <div className='flex mt-0.5 flex-col gap-2 sm:w-1/3 w-full'>
    <Footer.Title className='mb-0 sm:mt-7' title={<Logo/>}/>
    <Footer.Divider className='mt-2'/>
@@ -36,7 +36,7 @@ export default function FooterComp() {
    <span className='flex items-center gap-1'><CiMail className='text-sky-600'/><a href='mailto:dennokochei@gmail.com'>dennokochei@gmail.com</a></span>
    </div>
    <div className='sm:w-1/3 mt-5 sm:mt-0 w-full flex flex-col'>
-    <Footer.Title className='mb-1.5 ' title='Socials' />
+    <Footer.Title className='mb-1 ' title='Socials' />
     <Footer.Divider className='mt-0.5'/>
     <div className='flex flex-col gap-2'>
     <Footer.LinkGroup >
@@ -46,7 +46,7 @@ export default function FooterComp() {
         rel='noopener noreferrer'
       >
         <div className='flex gap-1'>
-        <Footer.Icon fill='rgb(2,132,199,100)' icon={BsTiktok} /> 
+        <Footer.Icon fill='rgb(2,132,199,100)' className='w-6 h-6' icon={BsTiktok} /> 
         Tiktok
         </div>
       </Footer.Link>

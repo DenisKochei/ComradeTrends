@@ -88,7 +88,8 @@ export const updatepost = async (req, res, next) => {
       {
         $set: {
           title: req.body.title,
-          content: req.body.content,
+          content1: req.body.content1,
+          content2: req.body.content2,
           category: req.body.category,
           image: req.body.image,
         },
