@@ -33,7 +33,7 @@ export default function FooterComp() {
    <Footer.Divider className='mt-1'/>
    <span className='flex items-center gap-1'><FaPhone className='text-sky-600'/><a href='tel:+254759117496'>+(254)759117496</a></span>
    <span className='flex items-center gap-1'><FaWhatsapp className='text-sky-600'/><a href="https://wa.me/+254753868958?text=Hello!">+(254)753868958</a></span>
-   <span className='flex items-center gap-1'><CiMail className='text-sky-600'/><a href='mailto:dennokochei@gmail.com'>dennokochei@gmail.com</a></span>
+   <span className='flex items-center gap-1'><CiMail className='text-sky-600'/><a href='mailto:comradetrends.info@gmail.com'>comradetrends.info@gmail.com</a></span>
    </div>
    <div className='md:w-1/3 mt-5 sm:mt-0 w-full flex flex-col'>
     <Footer.Title className='mb-1 ' title='Socials' />
