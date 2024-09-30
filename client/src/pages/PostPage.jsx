@@ -75,7 +75,7 @@ export  function PostPage() {
         <div className="p-3 w-full max-w-2xl post-content mx-auto"
           dangerouslySetInnerHTML={{__html : post && post.content1}}>
         </div>
-        <div><CallToAction /></div>
+        <div className="w-full mx-auto max-w-4xl"><CallToAction /></div>
         <div className="p-3 w-full max-w-2xl post-content mx-auto"
           dangerouslySetInnerHTML={{__html : post && post.content2}}>
         </div>
@@ -83,7 +83,7 @@ export  function PostPage() {
           <CallToAction />
         </div>
         <CommentSection postId={post._id}/>
-        <div><CallToAction /></div>
+        <div className="w-full mx-auto max-w-4xl"><CallToAction /></div>
         <div className="flex flex-col justify-center items-center mb-5">
           <h1 className="text-xl mb-5">Recent Posts</h1>
         </div>

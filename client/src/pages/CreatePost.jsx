@@ -8,6 +8,7 @@ import {CircularProgressbar} from 'react-circular-progressbar'
 import 'react-circular-progressbar/dist/styles.css';
 import { useNavigate } from 'react-router-dom';
 
+
 export default function CreatePost() {
   const navigate = useNavigate();
   const [file,setFile] = useState(null);
@@ -94,6 +95,9 @@ export default function CreatePost() {
           <option value='education'>Education</option>
           <option value='breaking'>Breaking news</option>
           <option value='trending'>Trending</option>
+          <option value='most-trending'>Most trending</option>
+          <option value='climate'>Climate</option>
+          <option value='mind-health'>Mind health</option>
         </Select>
       </div>
       <div className="flex gap-4 items-center justify-between border-4 border-dotted border-teal-500 p-3">
@@ -117,7 +121,7 @@ export default function CreatePost() {
       {imageUploadError && <Alert color='failure'>{imageUploadError}</Alert>}
       {publishError && <Alert color='failure'>{publishError}</Alert>}
       <ReactQuill theme='snow' placeholder='Write something' className='h-72 mb-12' required onChange={(value)=> setFormData({...formData, content1:value})}/>
-      <ReactQuill theme='snow' placeholder='Write something' className='h-72 mb-12' required onChange={(value)=> setFormData({...formData, content2:value})}/>
+      <ReactQuill theme='snow' placeholder='Write something' className='h-72 mb-12' required onChange={(value)=> {console.log(value); setFormData({...formData, content2:value})}}/>
       <Button className='focus:ring-0' gradientDuoTone='purpleToPink' type='submit'>Publish</Button>
       </form>
     </div>

@@ -125,6 +125,7 @@ export default function UpdatePost() {
           <option value='education'>Education</option>
           <option value='breaking'>Breaking news</option>
           <option value='trending'>Trending</option>
+          <option value='most-trending'>Most Trending</option>
 
         </Select>
       </div>

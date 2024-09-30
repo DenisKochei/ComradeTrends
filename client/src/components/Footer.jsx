@@ -12,7 +12,7 @@ import { IoIosArrowForward } from "react-icons/io";
 export default function FooterComp() {
   return (
   <Footer container className='flex-col gap-4 border border-t-2 border-cyan-800 sm:flex-row p-5 sm:justify-around sm:items-center justify-center items-start'>
-   <div className='flex mt-0.5 flex-col gap-2 sm:w-1/3 w-full'>
+   <div className='flex mt-0.5 flex-col gap-2 md:w-1/3 w-full'>
    <Footer.Title className='mb-0 sm:mt-7' title={<Logo/>}/>
    <Footer.Divider className='mt-2'/>
    <Link to='/privacy-policy'>
@@ -28,14 +28,14 @@ export default function FooterComp() {
       <span className='flex items-center gap-1'><IoIosArrowForward className='text-sky-600'/>Home</span>
     </Link>
    </div>
-   <div className='flex flex-col sm:justify-start gap-2 sm:w-1/3 w-full'>
+   <div className='flex flex-col sm:justify-start gap-2 md:w-1/3 w-full'>
    <Footer.Title className='mb-0 sm:mb-1 mt-5 sm:mt-0' title='Contacts'/>
    <Footer.Divider className='mt-1'/>
    <span className='flex items-center gap-1'><FaPhone className='text-sky-600'/><a href='tel:+254759117496'>+(254)759117496</a></span>
    <span className='flex items-center gap-1'><FaWhatsapp className='text-sky-600'/><a href="https://wa.me/+254753868958?text=Hello!">+(254)753868958</a></span>
    <span className='flex items-center gap-1'><CiMail className='text-sky-600'/><a href='mailto:dennokochei@gmail.com'>dennokochei@gmail.com</a></span>
    </div>
-   <div className='sm:w-1/3 mt-5 sm:mt-0 w-full flex flex-col'>
+   <div className='md:w-1/3 mt-5 sm:mt-0 w-full flex flex-col'>
     <Footer.Title className='mb-1 ' title='Socials' />
     <Footer.Divider className='mt-0.5'/>
     <div className='flex flex-col gap-2'>
@@ -79,6 +79,7 @@ export default function FooterComp() {
 
     </div>
    </div>
+   
   </Footer>
   )
 }
