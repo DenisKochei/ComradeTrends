@@ -62,12 +62,10 @@ export  function CommentSection({postId}) {
           const data = await res.json();
           setComments(data.comments);
           setTotalComments(data.totalComments);
-          if(data.totalComments < 3){
+          if(data.totalComments < 3 ){
             setShowMore(false);
-          }
-          else{
-            setShowMore(true);
-  
+          }else {
+            setShowMore(true)
           }
         }
       } catch (error) {
@@ -83,20 +81,19 @@ export  function CommentSection({postId}) {
       const data = await res.json();
       if(res.ok){
         setComments((prev)=> [...prev,...data.comments]);
-       
-        if(data.totalComments < 3){
-          setShowMore(false);
-        }
-        else{
-          setShowMore(true);
-
-        }
       }
     }
     catch(err){
       console.log(err)
     }
   }
+  useEffect(()=>{
+    if(totalComments <= comments.length){
+      setShowMore(false);
+    }else{
+      setShowMore(true)
+    }
+  },[comments])
   const handleLike = async (commentId) => {
     try {
       if (!currentUser) {

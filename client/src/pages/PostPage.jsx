@@ -4,6 +4,10 @@ import { Link, useParams } from "react-router-dom"
 import { CallToAction } from "../components/CallToAction"
 import { CommentSection } from "../components/CommentSection"
 import { PostCard } from "../components/PostCard"
+import {FacebookShareButton,TwitterShareButton,WhatsappShareButton} from 'react-share'
+import { FaShare } from "react-icons/fa6";
+import { FaWhatsapp } from "react-icons/fa";
+import { CiTwitter,CiFacebook } from "react-icons/ci";
 
 export  function PostPage() {
   const {postslug} = useParams()
@@ -11,6 +15,7 @@ export  function PostPage() {
   const [error,setError] = useState(false)
   const [recentPosts,setRecentPosts] = useState()
   const [post,setPost] = useState(null)
+  const currentPageURL = window.location.href
   useEffect(() => {
     const fetchPost = async () => {
       try {
@@ -79,8 +84,26 @@ export  function PostPage() {
         <div className="p-3 w-full max-w-2xl post-content mx-auto"
           dangerouslySetInnerHTML={{__html : post && post.content2}}>
         </div>
+        
         <div className="w-full mx-auto max-w-4xl">
           <CallToAction />
+        </div>
+        <div className="m-4 flex flex-col items-start">
+          <div className="flex flex-col justify-start items-center">
+            <FaShare/> 
+            <p>Share:</p>
+          </div>
+          <div>
+          <FacebookShareButton url={currentPageURL} >
+            <CiFacebook/>
+          </FacebookShareButton>
+          <TwitterShareButton url={currentPageURL}>
+            <CiTwitter/>
+          </TwitterShareButton>
+          <WhatsappShareButton url={currentPageURL} title={post.title}>
+            <FaWhatsapp/>
+          </WhatsappShareButton>
+          </div>
         </div>
         <CommentSection postId={post._id}/>
         <div className="w-full mx-auto max-w-4xl"><CallToAction /></div>
