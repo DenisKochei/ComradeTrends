@@ -13,7 +13,7 @@ export  function HomePostCard({post}) {
         </Link>
         <div className=' object-cover my-2 overflow-hidden'><img className='w-full h-72 sm:h-96 object-cover' src={post.image} /></div>
         <div className='line-clamp-2' dangerouslySetInnerHTML={{__html : post.content1}}></div>
-        <span className="text-cyan-500">Read More</span>
+        <span className="text-cyan-500 text-nowrap">Read More</span>
       </div>
     </div>
   )
