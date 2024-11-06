@@ -65,7 +65,7 @@ export  function PostPage() {
         <Helmet>
           <title>Comrade Trends</title>
           <meta name="description" content={post.title} />
-          <meta property="og:title" content="Comrade Trends"/>
+          <meta property="og:title" content={post.title}/>
           <meta property="og:type" content="article" />
           <meta property="og:image" content={post.image}/>
           <meta property="og:url" content={currentPageURL}/>
