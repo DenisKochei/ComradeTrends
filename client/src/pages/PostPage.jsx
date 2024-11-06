@@ -64,7 +64,7 @@ export  function PostPage() {
       <div>
         <Helmet>
           <title>Comrade Trends</title>
-          <meta name="description" content="Comrade Trends" />
+          <meta name="description" content={post.title} />
           <meta property="og:title" content="Comrade Trends"/>
           <meta property="og:type" content="article" />
           <meta property="og:image" content={post.image}/>
