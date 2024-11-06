@@ -75,6 +75,22 @@ export default function CreatePost() {
       setPublishError('Something went wrong.')
     }
   }
+
+  const  modules  = {
+    toolbar: [
+        [{ font: [] }],
+        [{ header: [1, 2, 3, 4, 5, 6, false] }],
+        ["bold", "italic", "underline", "strike"],
+        [{ color: [] }, { background: [] }],
+        [{ script:  "sub" }, { script:  "super" }],
+        ["blockquote", "code-block"],
+        [{ list:  "ordered" }, { list:  "bullet" }],
+        [{ indent:  "-1" }, { indent:  "+1" }, { align: [] }],
+        ["link", "image", "video"],
+        ["clean"],
+    ]
+};
+
   return (
     <div className='p-3 mx-auto max-w-3xl min-h-screen'>
       <h1 className='text-center font-semibold text-3xl my-7'>Create Post</h1>
@@ -120,8 +136,8 @@ export default function CreatePost() {
         }
       {imageUploadError && <Alert color='failure'>{imageUploadError}</Alert>}
       {publishError && <Alert color='failure'>{publishError}</Alert>}
-      <ReactQuill theme='snow' placeholder='Write something' className='h-72 mb-12' required onChange={(value)=> setFormData({...formData, content1:value})}/>
-      <ReactQuill theme='snow' placeholder='Write something' className='h-72 mb-12' required onChange={(value)=> {console.log(value); setFormData({...formData, content2:value})}}/>
+      <ReactQuill modules={modules} theme='snow' placeholder='Write something' className='h-full mb-12' required onChange={(value)=> setFormData({...formData, content1:value})}/>
+      <ReactQuill modules={modules} theme='snow' placeholder='Write something' className='h-full mb-12' required onChange={(value)=> {; setFormData({...formData, content2:value})}}/>
       <Button className='focus:ring-0' gradientDuoTone='purpleToPink' type='submit'>Publish</Button>
       </form>
     </div>

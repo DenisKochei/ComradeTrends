@@ -105,6 +105,20 @@ export default function UpdatePost() {
       setFetchError('Something went wrong.')
     }
   }
+  const  modules  = {
+    toolbar: [
+        [{ font: [] }],
+        [{ header: [1, 2, 3, 4, 5, 6, false] }],
+        ["bold", "italic", "underline", "strike"],
+        [{ color: [] }, { background: [] }],
+        [{ script:  "sub" }, { script:  "super" }],
+        ["blockquote", "code-block"],
+        [{ list:  "ordered" }, { list:  "bullet" }],
+        [{ indent:  "-1" }, { indent:  "+1" }, { align: [] }],
+        ["link", "image", "video"],
+        ["clean"],
+    ]
+};
   return (
     <div className='p-3 mx-auto max-w-3xl min-h-screen'>
       <h1 className='text-center font-semibold text-3xl my-7'>Update Post</h1>
@@ -150,9 +164,9 @@ export default function UpdatePost() {
       {imageUploadError && <Alert color='failure'>{imageUploadError}</Alert>}
       {fetchError && <Alert color='failure'>{fetchError}</Alert>}
       {formData.content1 && formData.content2 && 
-        <div>
-          <ReactQuill value={formData.content1} theme='snow' placeholder='Write something' className='h-72 mb-12' required onChange={(value)=> setFormData({...formData, content1:value})}/>
-          <ReactQuill value={formData.content2} theme='snow' placeholder='Write something' className='h-72 mb-12' required onChange={(value)=> setFormData({...formData, content2:value})}/>
+        <div className='flex flex-col gap-2'>
+          <ReactQuill modules={modules} value={formData.content1} theme='snow' placeholder='Write something' className='h-full mb-12' required onChange={(value)=> setFormData({...formData, content1:value})}/>
+          <ReactQuill modules={modules} value={formData.content2} theme='snow' placeholder='Write something' className='h-full mb-12' required onChange={(value)=> setFormData({...formData, content2:value})}/>
         </div>
       }
       <Button className='focus:ring-0' gradientDuoTone='purpleToPink' type='submit'>Update Post</Button>

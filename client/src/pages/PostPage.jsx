@@ -94,13 +94,13 @@ export  function PostPage() {
             <p>Share:</p>
           </div>
           <div>
-          <FacebookShareButton url={currentPageURL} >
+          <FacebookShareButton url={currentPageURL} quote={post.title} hashtag='#ComradeTrends'>
             <CiFacebook/>
           </FacebookShareButton>
           <TwitterShareButton url={currentPageURL}>
             <CiTwitter/>
           </TwitterShareButton>
-          <WhatsappShareButton url={currentPageURL} title={post.title}>
+          <WhatsappShareButton url={currentPageURL} separator="::" title={post.title}>
             <FaWhatsapp/>
           </WhatsappShareButton>
           </div>
