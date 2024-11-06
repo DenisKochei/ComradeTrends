@@ -7,7 +7,8 @@ import { PostCard } from "../components/PostCard"
 import {FacebookShareButton,TwitterShareButton,WhatsappShareButton} from 'react-share'
 import { FaShare } from "react-icons/fa6";
 import { FaWhatsapp } from "react-icons/fa";
-import { CiTwitter,CiFacebook } from "react-icons/ci";
+import { CiFacebook } from "react-icons/ci";
+import { FaXTwitter } from "react-icons/fa6";
 
 export  function PostPage() {
   const {postslug} = useParams()
@@ -84,26 +85,26 @@ export  function PostPage() {
         <div className="p-3 w-full max-w-2xl post-content mx-auto"
           dangerouslySetInnerHTML={{__html : post && post.content2}}>
         </div>
-        
-        <div className="w-full mx-auto max-w-4xl">
-          <CallToAction />
-        </div>
-        <div className="m-4 flex flex-col items-start">
+        <div className="m-4 max-w-4xl self-center gap-3 flex justify-center items-center">
           <div className="flex flex-col justify-start items-center">
             <FaShare/> 
             <p>Share:</p>
           </div>
-          <div>
+          <div className="flex  gap-3">
           <FacebookShareButton url={currentPageURL} quote={post.title} hashtag='#ComradeTrends'>
-            <CiFacebook/>
+            <CiFacebook fill='rgb(7,101,254,100)' className="text-3xl"/>
           </FacebookShareButton>
           <TwitterShareButton url={currentPageURL}>
-            <CiTwitter/>
+            <FaXTwitter fill='rgb(0,0,0,100)' className="text-2xl"/>
           </TwitterShareButton>
           <WhatsappShareButton url={currentPageURL} separator="::" title={post.title}>
-            <FaWhatsapp/>
+            <FaWhatsapp fill='rgb(36,196,96,100)' className="text-2xl"/>
           </WhatsappShareButton>
           </div>
+        </div>
+        
+        <div className="w-full mx-auto max-w-4xl">
+          <CallToAction />
         </div>
         <CommentSection postId={post._id}/>
         <div className="w-full mx-auto max-w-4xl"><CallToAction /></div>
