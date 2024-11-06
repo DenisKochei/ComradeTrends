@@ -4,6 +4,7 @@ import { Link, useParams } from "react-router-dom"
 import { CallToAction } from "../components/CallToAction"
 import { CommentSection } from "../components/CommentSection"
 import { PostCard } from "../components/PostCard"
+import {Helmet} from "react-helmet";
 import {FacebookShareButton,TwitterShareButton,WhatsappShareButton} from 'react-share'
 import { FaShare } from "react-icons/fa6";
 import { FaWhatsapp } from "react-icons/fa";
@@ -60,7 +61,19 @@ export  function PostPage() {
     )
   }else{
     return(
-      <main className="min-h-screen flex flex-col mx-auto p-3 max-w-6xl">
+      <div>
+        <Helmet>
+          <title>Comrade Trends</title>
+          <meta name="description" content="Comrade Trends" />
+          <meta property="og:title" content="Comrade Trends"/>
+          <meta property="og:type" content="article" />
+          <meta property="og:image" content={post.image}/>
+          <meta property="og:url" content={currentPageURL}/>
+          <meta name="twitter:card" content="summary_large_image"/>
+          <meta property="og:description" content={post.title}/>
+          <meta name="twitter:image:alt" content={post.title}></meta>
+        </Helmet>
+        <main className="min-h-screen flex flex-col mx-auto p-3 max-w-6xl">
         <h1 className="sm:text-3xl text-xl text-center mt-3 p-3  self-center font-serif max-w-2xl mx-auto lg:text-4xl">
           {post && post.title }
         </h1>
@@ -119,6 +132,8 @@ export  function PostPage() {
           }
         </div>
       </main>
+      </div>
+      
     )
   }
 
