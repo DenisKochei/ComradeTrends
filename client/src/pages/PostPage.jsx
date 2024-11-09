@@ -18,6 +18,7 @@ export  function PostPage() {
   const [recentPosts,setRecentPosts] = useState()
   const [post,setPost] = useState(null)
   const currentPageURL = window.location.href
+  
   useEffect(() => {
     const fetchPost = async () => {
       try {
@@ -48,11 +49,13 @@ export  function PostPage() {
       const data =await res.json();
       if(res.ok){
         setRecentPosts(data.posts)
+        
       }
     }
     fetchRecentPosts()
   },[])
-
+  const currentUrl = window.location.href;
+ 
   if(loading){
     return (
       <div className="flex justify-center items-center min-h-screen">
@@ -63,11 +66,24 @@ export  function PostPage() {
     return(
       <div>
         <Helmet>
-          <title>{`ComradeTrends | ${post.title}`}</title>
-          <meta name="description" content={post.title} />
-          <meta name="keywords" content={post.title} />
-          <meta property="og:image" content={post.image} />
-          <meta property="og:description" content={post.title} />
+          <title>{`Comrade Trends | ${post.title}`}</title>
+          <meta name="description" content={post.title}/>
+
+
+          <meta property="og:url" content={currentUrl}/>
+          <meta property="og:type" content="website"/>
+          <meta property="og:title" content={post.title}/>
+          <meta property="og:description" content={`Comrade Trends | ${post.title}`}/>
+          <meta property="og:image" content={post.image}/>
+
+
+          <meta name="twitter:card" content="summary_large_image"/>
+          <meta property="twitter:domain" content="comradetrends.onrender.com"/>
+          <meta property="twitter:url" content={currentUrl}/>
+          <meta name="twitter:title" content="Comrade Trends"/>
+          <meta name="twitter:description" content={`Comrade Trends | ${post.title}`}/>
+          <meta name="twitter:image" content={post.image}/>
+
         </Helmet>
         <main className="min-h-screen flex flex-col mx-auto p-3 max-w-6xl">
         <h1 className="sm:text-3xl text-xl text-center mt-3 p-3  self-center font-serif max-w-2xl mx-auto lg:text-4xl">
