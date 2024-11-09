@@ -1,4 +1,4 @@
-import { Alert, Button, Textarea } from "flowbite-react";
+import { Alert, Button, Textarea,Spinner } from "flowbite-react";
 import { useEffect, useState } from "react";
 import { useSelector } from "react-redux"
 import { Link,useNavigate } from "react-router-dom"
@@ -17,6 +17,8 @@ export  function CommentSection({postId}) {
   const [commentError,setCommentError] = useState(null)
   const [totalComments,setTotalComments] = useState()
   const [showMore,setShowMore] = useState(true);
+  const [loading,setLoading] = useState(false)
+  const [submitLoading,setubmitLoading] = useState(false)
   console.log(showMore)
   useEffect(()=>{
     if(comment.length > 0){
@@ -32,7 +34,7 @@ export  function CommentSection({postId}) {
     if(comment.length > 500){
       return;
     }
-  
+    setubmitLoading(true)
     const res = await fetch('/api/comment/create',{
       method:"POST",
       headers:
@@ -41,6 +43,7 @@ export  function CommentSection({postId}) {
     });
     const data = await res.json();
     if(res.ok){
+    setubmitLoading(false)
       setTotalComments(totalComments + 1)
       setComment('');
       setCommentError(null);
@@ -77,9 +80,11 @@ export  function CommentSection({postId}) {
   const handleShowMore = async ()=>{
     const startIndex = comments.length
     try{
+      setLoading(true);
       const res = await fetch(`/api/comment/getPostComments?postId=${postId}&startIndex=${startIndex}`);
       const data = await res.json();
       if(res.ok){
+        setLoading(false);
         setComments((prev)=> [...prev,...data.comments]);
       }
     }
@@ -177,7 +182,7 @@ export  function CommentSection({postId}) {
         <div className="flex justify-between items-center mt-5">
           <p className="text-xs text-gray-500">{500-comment.length} characters remaining</p>
           <Button className="focus:ring-0" disabled={disabled} type="submit" gradientDuoTone='purpleToBlue' outline>
-            Submit
+            {submitLoading ?<Spinner  className="w-5 h-5"/> : "Submit"}
           </Button>
         </div>
         {commentError &&
@@ -202,7 +207,7 @@ export  function CommentSection({postId}) {
           }}/>
         ))}
         {showMore && (
-            <button onClick={handleShowMore} className='w-full text-teal-500 self-center py-7'>Show More</button>
+            <button onClick={handleShowMore} className='w-full text-teal-500 self-center py-7'>{loading ? <Spinner/> : "Show More"}</button>
           )}
         </>
       )}

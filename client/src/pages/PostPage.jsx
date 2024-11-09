@@ -15,7 +15,7 @@ export  function PostPage() {
   const {postslug} = useParams()
   const [loading,setLoading] = useState(true)
   const [error,setError] = useState(false)
-  const [recentPosts,setRecentPosts] = useState()
+  const [alsoRead,setAlsoRead] = useState()
   const [post,setPost] = useState(null)
   const currentPageURL = window.location.href
   
@@ -44,16 +44,17 @@ export  function PostPage() {
   }, [postslug]);
 
   useEffect(()=>{
-    const fetchRecentPosts = async ()=>{
-      const res = await fetch('/api/post/getposts?limit=3');
+    const fetchAlsoRead = async ()=>{
+      const res = await fetch(`/api/post/getposts?limit=4&category=${post.category}`);
       const data =await res.json();
       if(res.ok){
-        setRecentPosts(data.posts)
-        
+        const allAlsoRead = data.posts;
+        const alsoRead = allAlsoRead.filter((alsoReadPost)=>alsoReadPost.slug !== post.slug)
+        setAlsoRead(alsoRead)
       }
     }
-    fetchRecentPosts()
-  },[])
+    fetchAlsoRead()
+  },[post])
   const currentUrl = window.location.href;
  
   if(loading){
@@ -134,15 +135,16 @@ export  function PostPage() {
         <CommentSection postId={post._id}/>
         <div className="w-full mx-auto max-w-4xl"><CallToAction /></div>
         <div className="flex flex-col justify-center items-center mb-5">
-          <h1 className="text-xl mb-5">Recent Posts</h1>
+          <h1 className="text-xl mb-5">You might also like:</h1>
         </div>
+        {alsoRead && 
         <div className="flex flex-wrap justify-center gap-5 mt-5">
-          {recentPosts &&
-          recentPosts.map((post)=>(
-            <PostCard post={post} key={post._id}/>
-          ))
-          }
-        </div>
+        {alsoRead &&
+        alsoRead.map((post)=>(
+          <PostCard post={post} key={post._id}/>
+        ))
+        }
+      </div>}
       </main>
       </div>
       

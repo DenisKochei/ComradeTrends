@@ -1,4 +1,4 @@
-import { Button } from 'flowbite-react';
+import { Button, Spinner } from 'flowbite-react';
 import { useEffect, useState } from 'react';
 import { useLocation, useNavigate } from 'react-router-dom';
 import {PostCard} from '../components/PostCard';
@@ -8,13 +8,14 @@ export function Search() {
   const [sidebarData, setSidebarData] = useState({
     searchTerm: '',
     sort: 'desc',
-    category: 'uncategorized',
+    category: '',
   });
 
   console.log(sidebarData);
   const [posts, setPosts] = useState([]);
   const [loading, setLoading] = useState(false);
   const [showMore, setShowMore] = useState(false);
+  const [readMoreLoading, setReadMoreLoading] = useState(false)
 
   const location = useLocation();
 
@@ -36,10 +37,10 @@ export function Search() {
 
     const fetchPosts = async () => {
       setLoading(true);
+      setReadMoreLoading(false)
       const searchQuery = urlParams.toString();
       const res = await fetch(`/api/post/getposts?${searchQuery}`);
       if (!res.ok) {
-        setLoading(false);
         return;
       }
       if (res.ok) {
@@ -65,7 +66,7 @@ export function Search() {
       setSidebarData({ ...sidebarData, sort: order });
     }
     if (e.target.id === 'category') {
-      const category = e.target.value || 'uncategorized';
+      const category = e.target.value || '';
       setSidebarData({ ...sidebarData, category });
     }
   };
@@ -86,11 +87,13 @@ export function Search() {
     const urlParams = new URLSearchParams(location.search);
     urlParams.set('startIndex', startIndex);
     const searchQuery = urlParams.toString();
+    setReadMoreLoading(true);
     const res = await fetch(`/api/post/getposts?${searchQuery}`);
     if (!res.ok) {
       return;
     }
     if (res.ok) {
+    setReadMoreLoading(false);
       const data = await res.json();
       setPosts([...posts, ...data.posts]);
       if (data.posts.length === 9) {
@@ -127,7 +130,7 @@ export function Search() {
          id='category'
          className=' dark:bg-slate-800 border-none focus:ring-0 w-1/4'
        >
-          <option value='uncategorized'>uncategorized</option>
+          <option value=''>uncategorized</option>
           <option value='sports'>sports</option>
           <option value='business'>business</option>
           <option value='health'>health</option>
@@ -154,12 +157,12 @@ export function Search() {
           {!loading &&
             posts &&
             posts.map((post) => <PostCard key={post._id} post={post} />)}
-          {showMore && (
+          {(showMore && !loading) && (
             <button
               onClick={handleShowMore}
               className='text-teal-500 text-lg hover:underline p-7 w-full'
             >
-              Show More
+              {(readMoreLoading) ? <Spinner /> : "Read More"}
             </button>
           )}
         </div>
