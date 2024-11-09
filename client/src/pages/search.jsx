@@ -2,6 +2,7 @@ import { Button } from 'flowbite-react';
 import { useEffect, useState } from 'react';
 import { useLocation, useNavigate } from 'react-router-dom';
 import {PostCard} from '../components/PostCard';
+import { Helmet } from 'react-helmet';
 
 export function Search() {
   const [sidebarData, setSidebarData] = useState({
@@ -102,6 +103,10 @@ export function Search() {
 
   return (
     <div className='flex flex-col min-h-screen md:flex-row'>
+      <Helmet>
+        <title>{`ComradeTrends | Search Page`}</title>
+        <meta name="description" content="We're your trusted source for the latest news, insightful analysis, and trending stories from around the world." />
+      </Helmet>
       <div className='p-3 border-b md:border-r md:min-h-screen border-gray-500'>
      <form className='flex flex-col gap-2 justify-start' onSubmit={handleSubmit}>
       <div className='w-full flex gap-0'>

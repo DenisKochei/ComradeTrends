@@ -1,9 +1,14 @@
 import { CallToAction } from "../components/CallToAction"
+import { Helmet } from "react-helmet"
 
 export  function Projects() {
   
   return (
     <div className='min-h-screen'>
+      <Helmet>
+        <title>{`ComradeTrends | Projects Page`}</title>
+        <meta name="description" content="We're your trusted source for the latest news, insightful analysis, and trending stories from around the world." />
+      </Helmet>
       <div className='min-h-screen max-w-2xl mx-auto flex justify-center items-center flex-col gap-6 p-3 text-center'>
       <h1 className='text-3xl font-semibold'>What Sets Us Apart!</h1>
       <p className='text-md text-gray-500'>

@@ -1,8 +1,12 @@
-import { IoIosArrowForward } from "react-icons/io";
+import { Helmet } from "react-helmet"
 
 export function PolicyPage() {
   return (
     <div className="min-h-screen p-8">
+      <Helmet>
+        <title>{`ComradeTrends | PrivacyPolicyPage`}</title>
+        <meta name="description" content="We're your trusted source for the latest news, insightful analysis, and trending stories from around the world." />
+      </Helmet>
      <h3 className="text-2xl font-bold">Introduction</h3>
      <p className="text-sm">Welcome to Comrade Trends! This privacy policy explains how we collect, use, and protect your personal information when you visit our website. By using our site, you agree to the terms outlined in this policy.</p>
      <div>

@@ -5,6 +5,7 @@ import { useDispatch,useSelector } from 'react-redux'
 import { signinFailure,signinSuccess,signinStart } from '../../redux/user/userSlice'
 import Oauth from '../components/Oauth'
 import { refresh } from '../../redux/user/userSlice'
+import { Helmet } from 'react-helmet'
 
 export  function Signin() {
   const dispatch = useDispatch();
@@ -49,6 +50,10 @@ export  function Signin() {
 
   return (
     <div className='min-h-screen mt-20'>
+      <Helmet>
+        <title>{`ComradeTrends | SignIn Page`}</title>
+        <meta name="description" content="We're your trusted source for the latest news, insightful analysis, and trending stories from around the world." />
+      </Helmet>
       <div className='flex flex-col md:flex-row md:items-center p-3 max-w-3xl mx-auto gap-5'>
         <div className='flex-1 '>
         <Link to="/" className=' whitespace-nowrap sm:text-4xl text-xl  font-bold dark:text-white'>

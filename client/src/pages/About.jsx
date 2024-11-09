@@ -1,9 +1,14 @@
 import React from 'react'
 import {CallToAction} from '../components/CallToAction'
+import { Helmet } from 'react-helmet';
 
 export  function About() {
   return (
     <div className='min-h-screen'>
+      <Helmet>
+        <title>{`ComradeTrends | About Page`}</title>
+        <meta name="description" content="We're your trusted source for the latest news, insightful analysis, and trending stories from around the world." />
+      </Helmet>
       <div className='min-h-screen flex items-center justify-center'>
       <div className='max-w-2xl mx-auto p-3 text-center'>
         <div>

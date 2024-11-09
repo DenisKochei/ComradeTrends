@@ -5,6 +5,7 @@ import { HomePostCard } from '../components/HomePostCard.jsx'
 import { useNavigate } from 'react-router-dom'
 import { PostCard } from '../components/PostCard.jsx'
 import { Spinner } from 'flowbite-react'
+import { Helmet } from 'react-helmet'
 
 export  function Home() {
   const navigate = useNavigate();
@@ -82,6 +83,11 @@ export  function Home() {
   },[])
   return (
    <div className='flex flex-col my-5 mx-5 lg:mx-10 min-h-screen'>
+   <Helmet>
+      <title>{`ComradeTrends | Home Page`}</title>
+      <meta name="description" content="We're your trusted source for the latest news, insightful analysis, and trending stories from around the world."/>
+      <meta name='keywords' content='trusted source for the latest news, insightful analysis, and trending stories in Kenya and from around the world.' />
+    </Helmet>
     <div className='flex flex-col md:flex-row gap-2'>
       
      <div className='md:w-1/2 text-center'>
