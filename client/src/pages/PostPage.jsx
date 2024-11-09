@@ -66,6 +66,8 @@ export  function PostPage() {
           <title>{`ComradeTrends | ${post.title}`}</title>
           <meta name="description" content={post.title} />
           <meta name="keywords" content={post.title} />
+          <meta property="og:image" content={post.image} />
+          <meta property="og:description" content={post.title} />
         </Helmet>
         <main className="min-h-screen flex flex-col mx-auto p-3 max-w-6xl">
         <h1 className="sm:text-3xl text-xl text-center mt-3 p-3  self-center font-serif max-w-2xl mx-auto lg:text-4xl">
