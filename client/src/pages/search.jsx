@@ -147,7 +147,7 @@ export function Search() {
       </div>
       <div className='w-full'>
         <h1 className='text-3xl font-semibold sm:border-b border-gray-500 p-3 mt-5 '>
-          Posts results:
+          Search results:
         </h1>
         <div className='p-7 flex justify-center flex-wrap gap-4'>
           {!loading && posts.length === 0 && (
