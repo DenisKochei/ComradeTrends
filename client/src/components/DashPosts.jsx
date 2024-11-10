@@ -10,6 +10,7 @@ export function DashPosts() {
   const [showMore,setShowMore] = useState(true);
   const [showModal,setShowModal] = useState(false);
   const [postIdToDelete,setPostIdToDelete] = useState('');
+  const [showMoreLoading,setShowMoreLoading] = useState(false)
   useEffect(() => {
     const fetchPosts = async () => {
       try {
@@ -32,10 +33,12 @@ export function DashPosts() {
 
   const handleShowMore = async ()=>{
     const startIndex = posts.length
+    setShowMoreLoading(true)
     try{
       const res = await fetch(`/api/post/getposts?userId=${currentUser._id}&startIndex=${startIndex}`)
       const data = await res.json();
       if(res.ok){
+        setShowMoreLoading(false)
         setPosts((prev)=> [...prev,...data.posts]);
         if(data.posts.length < 9){
           setShowMore(false);
@@ -124,7 +127,7 @@ export function DashPosts() {
               ))}
           </Table>
           {showMore && (
-            <button onClick={handleShowMore} className='w-full text-teal-500 self-center py-7'>Show More</button>
+            <button onClick={handleShowMore} className='w-full text-teal-500 self-center py-7'>{showMoreLoading ? <Spinner className='w-5 h-5'/> : "Show More"}</button>
           )}
         </>
       ):(

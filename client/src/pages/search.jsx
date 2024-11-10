@@ -162,7 +162,7 @@ export function Search() {
               onClick={handleShowMore}
               className='text-teal-500 text-lg hover:underline p-7 w-full'
             >
-              {(readMoreLoading) ? <Spinner /> : "Read More"}
+              {(readMoreLoading) ? <Spinner /> : "Show More"}
             </button>
           )}
         </div>

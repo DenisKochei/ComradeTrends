@@ -10,7 +10,7 @@ export function DashComments() {
   const [showMore, setShowMore] = useState(true);
   const [showModal, setShowModal] = useState(false);
   const [commentIdToDelete, setCommentIdToDelete] = useState('');
-  console.log(comments)
+  const [showMoreLoading,setShowMoreLoading] = useState(false);
   
   useEffect(() => {
     const fetchComments = async () => {
@@ -35,12 +35,15 @@ export function DashComments() {
 
   const handleShowMore = async () => {
     const startIndex = comments.length;
+    setShowMoreLoading(true)
     try {
       const res = await fetch(
         `/api/comment/getAllComments?startIndex=${startIndex}`
       );
       const data = await res.json();
       if (res.ok) {
+        setShowMoreLoading(false)
+
         setComments((prev) => [...prev, ...data.comments]);
         if (data.comments.length < 9) {
           setShowMore(false);
@@ -124,7 +127,7 @@ export function DashComments() {
               onClick={handleShowMore}
               className='w-full text-teal-500 self-center text-sm py-7'
             >
-              Show more
+              {showMoreLoading ? <Spinner className='w-5 h-5'/> : "Show More"}
             </button>
           )}
         </>

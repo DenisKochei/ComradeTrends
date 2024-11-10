@@ -10,6 +10,7 @@ export function DashUsers() {
   const [showMore,setShowMore] = useState(true);
   const [showModal,setShowModal] = useState(false);
   const [userIdToDelete,setUserIdToDelete] = useState('');
+  const [showMoreloading,setShowMoreloading] = useState(false)
   useEffect(() => {
     const fetchUsers = async () => {
       try {
@@ -33,10 +34,12 @@ export function DashUsers() {
 
   const handleShowMore = async ()=>{
     const startIndex = users.length
+    setShowMoreloading(true)
     try{
       const res = await fetch(`/api/user/getusers?startIndex=${startIndex}`)
       const data = await res.json();
       if(res.ok){
+        setShowMoreloading(false)
         setUsers((prev)=> [...prev,...data.users]);
         if(data.users.length < 9){
           setShowMore(false);
@@ -108,7 +111,7 @@ export function DashUsers() {
               ))}
           </Table>
           {showMore && (
-            <button onClick={handleShowMore} className='w-full text-teal-500 self-center py-7'>Show More</button>
+            <button onClick={handleShowMore} className='w-full text-teal-500 self-center py-7'>{showMoreloading ? <Spinner className='w-5 h-5'/> : "Show More"}</button>
           )}
         </>
       ):(
