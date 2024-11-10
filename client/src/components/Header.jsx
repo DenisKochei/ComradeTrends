@@ -86,7 +86,7 @@ export  function Header() {
       }
       arrow={false}
     >
-      <div>
+      <div className='absolute left-1/2'>
         <div ref={searchref}></div>
       </div>
     </Popover>
