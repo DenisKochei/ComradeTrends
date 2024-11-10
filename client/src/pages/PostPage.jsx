@@ -45,7 +45,7 @@ export  function PostPage() {
 
   useEffect(()=>{
     const fetchAlsoRead = async ()=>{
-      const res = await fetch(`/api/post/getposts?limit=4&category=${(post.category === "most-trending") ? "trending" : post.category}`);
+      const res = await fetch(`/api/post/getposts?limit=4&category=${(post.category === "most-trending" || "breaking") ? "trending" : post.category}`);
       const data =await res.json();
       if(res.ok){
         const allAlsoRead = data.posts;
