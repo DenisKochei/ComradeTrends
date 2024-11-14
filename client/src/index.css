@@ -60,3 +60,132 @@ margin-bottom: 0.5rem;
   -ms-overflow-style: none; /* IE and Edge */
   scrollbar-width: none; /* Firefox */
 }
+.static-page {
+  padding-bottom: 40px;
+  
+
+  padding-left: 20px;
+  padding-right: 20px;
+}
+
+@media screen and (min-width: 800px) {
+  .static-page {
+    display: flex;
+    flex-wrap: wrap;
+  }
+}
+
+.static-page__centered {
+  max-width: 45em;
+  margin: auto;
+  flex-grow: 1;
+}
+
+.static-page__body {
+  padding-top: 20px;
+  overflow: auto;
+  font-size: 1rem;
+  line-height: 1.5;
+  counter-reset: chapter;
+}
+
+.static-page__body h1,
+.static-page__body h2,
+.static-page__body h3,
+.static-page__body h4 {
+  margin-top: 1.5rem;
+  margin-bottom: 0.75rem;
+}
+
+.static-page__body h2 {
+  font-size: 1.4rem;
+  margin-top: 3.75rem;
+}
+
+.static-page__body h3 {
+  font-size: 1.15rem;
+  margin-top: 2.6rem;
+  margin-bottom: 0.375rem;
+}
+
+.static-page__body p {
+  line-height: 1.5;
+}
+
+.static-page__body p + p {
+  margin-top: 1.5rem;
+}
+
+.static-page__body a {
+  color: #17682f;
+  font-weight: bold;
+}
+
+.static-page__body a:hover {
+    text-decoration: none;
+}
+
+.static-page__body ul,
+.static-page__body ol {
+  margin-top: 1.5rem;
+  margin-bottom: 1.5rem;
+  padding-left: 3rem;
+}
+
+.static-page__body li + li,
+.static-page__body li > p {
+  margin-top: 0.75rem;
+}
+
+.static-page__body ul > li {
+  list-style-type: disc;
+}
+
+.static-page__body em {
+  font-style: normal;
+  font-weight: bold;
+}
+
+.static-page__body table {
+  border-collapse: collapse;
+  margin: 1.5rem auto;
+}
+
+.static-page__body th,
+.static-page__body td {
+  border: 1px solid black;
+  padding: 0.5rem;
+}
+
+@media screen and (min-width: 800px) {
+  .static-page__border {
+    padding: 0.75rem 0;
+    border-bottom: 1px solid #d8d8d8;
+  }
+}
+
+.static-page__chapter {
+  counter-reset: section;
+  counter-increment: chapter;
+}
+
+.static-page__section {
+  counter-increment: section;
+  counter-reset: paragraph;
+  list-style-type: none;
+}
+
+.static-page__section::before {
+  content: counters(chapter, ".") "." counters(section, ".") ". ";
+  font-weight: bold;
+}
+
+.static-page__paragraph {
+  list-style-type: none;
+}
+
+.static-page__paragraph::before {
+  content: counters(chapter, ".") "." counters(section, ".") "." counters(paragraph, ".") ". ";
+  counter-increment: paragraph;
+  font-weight: bold;
+}
