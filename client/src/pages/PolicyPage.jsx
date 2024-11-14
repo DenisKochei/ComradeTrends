@@ -16,7 +16,7 @@ export function PolicyPage() {
           <div>
             <div>
               <h1 className="font-bold m-5 text-3xl">Privacy Policy</h1>
-              <h1 className="md:text-xl">Last updated: November 14,2024</h1>
+              <h1 className="md:text-xl m-2">Last updated: November 14,2024</h1>
               <p className="md:text-xl">
                 This Privacy Policy describes Our policies and procedures on the
                 collection, use and disclosure of Your information when You use
