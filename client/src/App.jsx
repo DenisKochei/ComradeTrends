@@ -15,6 +15,7 @@ import { PostPage } from './pages/PostPage'
 import ScrollToTop from './components/ScrollToTop'
 import {Search} from './pages/search'
 import {PolicyPage} from './pages/PolicyPage.jsx'
+import { TermsAndConditions } from './pages/TermsAndConditions.jsx'
 
 export default function App() {
   return (
@@ -28,6 +29,7 @@ export default function App() {
         <Route path='/sign-in' element={<Signin />} />
         <Route path='/sign-up' element={<Signup />} />
         <Route path='/projects' element={<Projects />} />
+        <Route path='/terms-and-conditions' element={<TermsAndConditions />} />
         <Route element={ <PrivateRoute/>}>
           <Route path='/dashboard' element={<Dashboard />} />
         </Route>

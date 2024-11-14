@@ -18,6 +18,9 @@ export default function FooterComp() {
    <Link to='/privacy-policy'>
       <span className='flex items-center gap-1'><IoIosArrowForward className='text-sky-600'/>Pricacy Policy</span>
     </Link>
+    <Link to='/terms-and-conditions'>
+      <span className='flex items-center gap-1'><IoIosArrowForward className='text-sky-600'/>Terms and Conditions</span>
+    </Link>
    <Link to='/projects'>
       <span className='flex items-center gap-1'><IoIosArrowForward className='text-sky-600'/>Projects</span>
     </Link>
