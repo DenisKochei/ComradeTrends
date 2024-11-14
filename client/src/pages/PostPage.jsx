@@ -18,7 +18,7 @@ export  function PostPage() {
   const [alsoRead,setAlsoRead] = useState()
   const [post,setPost] = useState(null)
   const currentPageURL = window.location.href
-  
+  console.log(post)
   useEffect(() => {
     const fetchPost = async () => {
       try {
@@ -134,17 +134,19 @@ export  function PostPage() {
         </div>
         <CommentSection postId={post._id}/>
         <div className="w-full mx-auto max-w-4xl"><CallToAction /></div>
-        <div className="flex flex-col justify-center items-center mb-5">
+        {alsoRead && 
+        <div>
+          <div className="flex flex-col justify-center items-center mb-5">
           <h1 className="text-xl mb-5">You might also like:</h1>
         </div>
-        {alsoRead && 
         <div className="flex flex-wrap justify-center gap-5 mt-5">
         {alsoRead &&
         alsoRead.map((post)=>(
           <PostCard post={post} key={post._id}/>
         ))
         }
-      </div>}
+      </div>
+        </div>}
       </main>
       </div>
       

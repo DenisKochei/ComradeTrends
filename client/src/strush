@@ -365,4 +365,21 @@ export default function UpdatePost() {
     </div>
    </div>
 
+   <div>
+   <head>
+    <title>Suspects in murder at Shiners Boys High School to sit KCSE exams in custody</title>
+    <meta data-n-head="ssr" charset="utf-8"/>
+    <meta data-n-head="ssr" name="msapplication-TileColor" content="#da532c"/>
+    <meta data-n-head="ssr" name="theme-color" content="#da532c"/>
+    <meta data-n-head="ssr" name="viewport" content="width=device-width, initial-scale=1"/>
+    <meta data-n-head="ssr" name="robots" content="index, follow"/>
+    <meta data-n-head="ssr" data-hid="og:site_name" property="og:site_name" content="Citizen Digital"/>
+    <meta data-n-head="ssr" data-hid="og:locale" property="og:locale" content="en"/>
+    <meta data-n-head="ssr" data-hid="fb:app_id" property="fb:app_id" content="1773843079528698"/>
+    <meta data-n-head="ssr" data-hid="og:locale:alternate" property="og:locale:alternate" content="en_KE"/>
+    <meta data-n-head="ssr" data-hid="twitter:site" name="twitter:site" content="@citizentvkenya"/>
+    <meta data-n-head="ssr" data-hid="twitter:card" name="twitter:card" content="summary_large_image"/>
+  </head>
+   </div>
+
 </div>

@@ -9,7 +9,10 @@ import { useNavigate } from 'react-router-dom';
 export default function Oauth() {
   const auth = getAuth(app);
   const dispatch = useDispatch();
-  const navigate = useNavigate();
+  const goBack = ()=> {
+    window.history.back();
+  }
+  
   const handleGoogleClick =async()=>{
     const provider = new GoogleAuthProvider();
     provider.setCustomParameters({prompt:'select_account'});
@@ -29,7 +32,7 @@ export default function Oauth() {
       console.log(data)
       if(res.ok){
         dispatch(signinSuccess(data));
-        navigate('/');
+        goBack();
       }
     }catch(err){
       console.log(err)

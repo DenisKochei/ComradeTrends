@@ -19,6 +19,10 @@ export  function Signin() {
     setFormData({...formData,[e.target.id] : e.target.value.trim()})
   
   }
+  const goBack = ()=> {
+    window.history.back();
+  }
+  
   const handleSubmit = async (e)=>{
     e.preventDefault();
     if(!formData.email || !formData.password ){
@@ -40,7 +44,7 @@ export  function Signin() {
       
       if(res.ok){
         dispatch(signinSuccess(data));
-        navigate('/')
+        goBack();
       }
 
     }catch(err){
