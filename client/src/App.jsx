@@ -3,7 +3,7 @@ import { Home } from "./pages/Home";
 import { About } from "./pages/About";
 import { Signin } from "./pages/Signin";
 import { Signup } from "./pages/Signup";
-import { Contacts } from "./pages/Contacts.jsx";
+import { Contacts } from "./pages/contacts.jsx";
 import { Dashboard } from "./pages/Dashboard";
 import { Header } from "./components/Header.jsx";
 import Footer from "./components/Footer.jsx";
