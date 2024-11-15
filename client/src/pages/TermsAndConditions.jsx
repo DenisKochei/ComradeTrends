@@ -10,24 +10,24 @@ const TermsAndConditions = () => {
         <h2 className="text-2xl font-semibold mb-2">1. Definitions</h2>
         <ul className="list-disc ml-6">
           <li className="md:text-xl" >
-            <strong>Service:</strong> The website and any related services
+            <strong className="font-semibold">Service:</strong> The website and any related services
             provided by Comrade Trends Media, available through the URL
             comradetrends.com.
           </li>
           <li className="md:text-xl" >
-            <strong>Content:</strong> All textual, graphic, video, music,
+            <strong className="font-semibold">Content:</strong> All textual, graphic, video, music,
             software, and other materials available on the Service.
           </li>
           <li className="md:text-xl" >
-            <strong>User:</strong> Any individual accessing or using the
+            <strong className="font-semibold">User:</strong> Any individual accessing or using the
             Service.
           </li>
           <li className="md:text-xl" >
-            <strong>Administrator:</strong> The individual running Comrade
+            <strong className="font-semibold">Administrator:</strong> The individual running Comrade
             Trends Media and managing the Service.
           </li>
           <li className="md:text-xl" >
-            <strong>Feedback:</strong> Any comments, suggestions, or other
+            <strong className="font-semibold">Feedback:</strong> Any comments, suggestions, or other
             feedback provided by Users concerning the Service.
           </li>
         </ul>
@@ -41,7 +41,7 @@ const TermsAndConditions = () => {
           your use of the Service. By accessing and using the Service, you agree
           to be bound by these Terms, forming a legally binding contract between
           you and Comrade Trends Media.{" "}
-          <strong>
+          <strong className="font-semibold">
             PLEASE READ THE TERMS CAREFULLY BEFORE USING THE SERVICE.
           </strong>
         </p>
