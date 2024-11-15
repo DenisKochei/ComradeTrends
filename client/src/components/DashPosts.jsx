@@ -1,16 +1,16 @@
-import React, { useEffect, useState } from 'react'
-import { useSelector } from 'react-redux'
-import {Table,Modal,Button, Spinner} from 'flowbite-react'
-import {Link} from 'react-router-dom'
-import { HiOutlineExclamationCircle } from 'react-icons/hi';
+import React, { useEffect, useState } from "react";
+import { useSelector } from "react-redux";
+import { Table, Modal, Button, Spinner } from "flowbite-react";
+import { Link } from "react-router-dom";
+import { HiOutlineExclamationCircle } from "react-icons/hi";
 
 export function DashPosts() {
-  const {currentUser} = useSelector(state=>state.user)
-  const [posts,setPosts] = useState([]);
-  const [showMore,setShowMore] = useState(true);
-  const [showModal,setShowModal] = useState(false);
-  const [postIdToDelete,setPostIdToDelete] = useState('');
-  const [showMoreLoading,setShowMoreLoading] = useState(false)
+  const { currentUser } = useSelector((state) => state.user);
+  const [posts, setPosts] = useState([]);
+  const [showMore, setShowMore] = useState(true);
+  const [showModal, setShowModal] = useState(false);
+  const [postIdToDelete, setPostIdToDelete] = useState("");
+  const [showMoreLoading, setShowMoreLoading] = useState(false);
   useEffect(() => {
     const fetchPosts = async () => {
       try {
@@ -18,8 +18,8 @@ export function DashPosts() {
         const data = await res.json();
         if (res.ok) {
           setPosts(data.posts);
-          if(data.posts.length < 9){
-            setShowMore(false)
+          if (data.posts.length < 9) {
+            setShowMore(false);
           }
         }
       } catch (error) {
@@ -31,56 +31,52 @@ export function DashPosts() {
     }
   }, [currentUser._id]);
 
-  const handleShowMore = async ()=>{
-    const startIndex = posts.length
-    setShowMoreLoading(true)
-    try{
-      const res = await fetch(`/api/post/getposts?userId=${currentUser._id}&startIndex=${startIndex}`)
+  const handleShowMore = async () => {
+    const startIndex = posts.length;
+    setShowMoreLoading(true);
+    try {
+      const res = await fetch(
+        `/api/post/getposts?userId=${currentUser._id}&startIndex=${startIndex}`
+      );
       const data = await res.json();
-      if(res.ok){
-        setShowMoreLoading(false)
-        setPosts((prev)=> [...prev,...data.posts]);
-        if(data.posts.length < 9){
+      if (res.ok) {
+        setShowMoreLoading(false);
+        setPosts((prev) => [...prev, ...data.posts]);
+        if (data.posts.length < 9) {
           setShowMore(false);
         }
       }
+    } catch (err) {
+      console.log(err);
     }
-    catch(err){
-      console.log(err)
-    }
-  }
+  };
   const handleDeletePost = async () => {
     setShowModal(false);
-    
+
     try {
       const res = await fetch(
         `/api/post/deletepost/${postIdToDelete}/${currentUser._id}`,
         {
-          method: 'DELETE',
+          method: "DELETE",
         }
       );
       const data = await res.json();
       if (!res.ok) {
         console.log(data.message);
       } else {
-        setPosts((prev) =>
-          prev.filter((post) => post._id !== postIdToDelete)
-
-        );
+        setPosts((prev) => prev.filter((post) => post._id !== postIdToDelete));
       }
     } catch (error) {
       console.log(error.message);
-      
     }
   };
-  
 
   return (
-    <div className='table-auto overflow-x-scroll md:mx-auto p-3 scrollbar scrollbar-track-slate-100 scrollbar-thumb-slate-300 dark:scrollbar-track-slate-100'>
-      {(currentUser.isAdmin && posts.length > 0 ) ? (
+    <div className="table-auto overflow-x-scroll md:mx-auto p-3 scrollbar scrollbar-track-slate-100 scrollbar-thumb-slate-300 dark:scrollbar-track-slate-100">
+      {currentUser.isAdmin && posts.length > 0 ? (
         <>
-          <Table hoverable className='shadow-mb'>
-            <Table.Head className=''>
+          <Table hoverable className="shadow-mb">
+            <Table.Head className="">
               <Table.HeadCell>Date updated</Table.HeadCell>
               <Table.HeadCell>Post Image</Table.HeadCell>
               <Table.HeadCell>Post Title</Table.HeadCell>
@@ -90,69 +86,88 @@ export function DashPosts() {
                 <span>Edit</span>
               </Table.HeadCell>
             </Table.Head>
-              {posts.map((post)=>(
-                <Table.Body className='divide-y'key={post._id}>
-                  <Table.Row className='bg-white dark:border-gray-700 dark:bg-gray-800'>
-                    <Table.Cell>
-                      {new  Date(post.updatedAt).toLocaleDateString()}
-                    </Table.Cell>
-                    <Table.Cell>
-                      <Link to={`/post/${post.slug}`}>
-                        <img 
-                          src={post.image}
-                          alt={post.title}
-                          className='w-20 h-10 object-cover bg-gray-500'
-                         />
-                      </Link>
-                    </Table.Cell>
-                    <Table.Cell className='font-medium line-clamp-2'>{post.title}</Table.Cell>
-                    <Table.Cell>{post.category}</Table.Cell>
-                    <Table.Cell>
-                      <span onClick={()=>{
-                        setShowModal(true)
+            {posts.map((post) => (
+              <Table.Body className="divide-y" key={post._id}>
+                <Table.Row className="bg-white dark:border-gray-700 dark:bg-gray-800">
+                  <Table.Cell>
+                    {new Date(post.updatedAt).toLocaleDateString()}
+                  </Table.Cell>
+                  <Table.Cell>
+                    <Link to={`/post/${post.slug}`}>
+                      <img
+                        src={post.image}
+                        alt={post.title}
+                        className="w-20 h-10 object-cover bg-gray-500"
+                      />
+                    </Link>
+                  </Table.Cell>
+                  <Table.Cell className="font-medium line-clamp-2">
+                    {post.title}
+                  </Table.Cell>
+                  <Table.Cell>{post.category}</Table.Cell>
+                  <Table.Cell>
+                    <span
+                      onClick={() => {
+                        setShowModal(true);
                         setPostIdToDelete(post._id);
-                      }} className='text-red-600 font-medium hover:cursor-pointer  underline'>
-                        Delete
-                      </span>
-                    </Table.Cell>
-                    <Table.Cell>
-                      <Link  className='text-teal-500'to={`/update-post/${post._id}`}>
-                        <span>
-                          Edit
-                        </span>
-                      </Link>
-                    </Table.Cell>
-                    </Table.Row>
-                  </Table.Body>
-              ))}
+                      }}
+                      className="text-red-600 font-medium hover:cursor-pointer  underline"
+                    >
+                      Delete
+                    </span>
+                  </Table.Cell>
+                  <Table.Cell>
+                    <Link
+                      className="text-teal-500"
+                      to={`/update-post/${post._id}`}
+                    >
+                      <span>Edit</span>
+                    </Link>
+                  </Table.Cell>
+                </Table.Row>
+              </Table.Body>
+            ))}
           </Table>
           {showMore && (
-            <button onClick={handleShowMore} className='w-full text-teal-500 self-center py-7'>{showMoreLoading ? <Spinner className='w-5 h-5'/> : "Show More"}</button>
+            <button
+              onClick={handleShowMore}
+              className="w-full text-teal-500 self-center py-7"
+            >
+              {showMoreLoading ? <Spinner className="w-5 h-5" /> : "Show More"}
+            </button>
           )}
         </>
-      ):(
+      ) : (
         <div className="flex justify-center items-center min-h-screen">
-        <Spinner size='xl' />
-      </div>
+          <Spinner size="xl" />
+        </div>
       )}
-        <Modal
+      <Modal
         show={showModal}
         onClose={() => setShowModal(false)}
         popup
-        size='md'
+        size="md"
       >
         <Modal.Header />
         <Modal.Body>
-          <div className='text-center'>
-            <HiOutlineExclamationCircle className='h-14 w-14 text-gray-400 dark:text-gray-200 mb-4 mx-auto' />
-            <h3 className='mb-5 text-lg text-gray-500 dark:text-gray-400'>
+          <div className="text-center">
+            <HiOutlineExclamationCircle className="h-14 w-14 text-gray-400 dark:text-gray-200 mb-4 mx-auto" />
+            <h3 className="mb-5 text-lg text-gray-500 dark:text-gray-400">
               Are you sure you want to delete this post?
             </h3>
-            <div className='flex justify-center gap-4'>
-              <Button className='focus:ring-0' color='failure' onClick={handleDeletePost}>
+            <div className="flex justify-center gap-4">
+              <Button
+                className="focus:ring-0"
+                color="failure"
+                onClick={handleDeletePost}
+              >
                 Yes, I'm sure
               </Button>
-              <Button className='focus:ring-0' color='gray' onClick={() => setShowModal(false)}>
+              <Button
+                className="focus:ring-0"
+                color="gray"
+                onClick={() => setShowModal(false)}
+              >
                 No, cancel
               </Button>
             </div>
@@ -160,5 +175,5 @@ export function DashPosts() {
         </Modal.Body>
       </Modal>
     </div>
-  )
+  );
 }

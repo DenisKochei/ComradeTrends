@@ -14,7 +14,7 @@ export function PolicyPage() {
       <div className="sm:mx-10 mx-2">
         <div>
           <div className="max-w-4xl mx-auto">
-            <div >
+            <div>
               <h1 className="font-bold m-5 text-3xl">Privacy Policy</h1>
               <h1 className="md:text-xl m-2">Last updated: November 14,2024</h1>
               <p className="md:text-xl">
@@ -35,7 +35,9 @@ export function PolicyPage() {
                 they appear in singular or in plural.
               </p>
               <h3 className="text-xl font-semibold  m-1">2. Definitions</h3>
-              <p className="md:text-xl">For the purposes of this Privacy Policy:</p>
+              <p className="md:text-xl">
+                For the purposes of this Privacy Policy:
+              </p>
               <ul>
                 <li className="m-5">
                   <p className="md:text-xl">
@@ -142,7 +144,9 @@ export function PolicyPage() {
               <h3 className="text-xl font-semibold  m-1">
                 Types of Data Collected
               </h3>
-              <h4 className="text-xl underline  underline-offset-8 m-1">Personal Data</h4>
+              <h4 className="text-xl underline  underline-offset-8 m-1">
+                Personal Data
+              </h4>
               <p className="md:text-xl">
                 While using Our Service, We may ask You to provide Us with
                 certain personally identifiable information that can be used to
@@ -160,7 +164,9 @@ export function PolicyPage() {
                   <p className="md:text-xl">3. Usage Data</p>
                 </li>
               </ul>
-              <h4 className="text-xl underline  underline-offset-8 m-1">Usage Data</h4>
+              <h4 className="text-xl underline  underline-offset-8 m-1">
+                Usage Data
+              </h4>
               <p className="md:text-xl">
                 Usage Data is collected automatically when using the Service.
               </p>
@@ -252,13 +258,13 @@ export function PolicyPage() {
                     <p className="md:text-xl">Administered by: Us</p>
                   </div>
                   <p className="md:text-xl">
-                    <strong>Purpose:</strong> These Cookies are essential to provide You with
-                    services available through the Website and to enable You to
-                    use some of its features. They help to authenticate users
-                    and prevent fraudulent use of user accounts. Without these
-                    Cookies, the services that You have asked for cannot be
-                    provided, and We only use these Cookies to provide You with
-                    those services.
+                    <strong>Purpose:</strong> These Cookies are essential to
+                    provide You with services available through the Website and
+                    to enable You to use some of its features. They help to
+                    authenticate users and prevent fraudulent use of user
+                    accounts. Without these Cookies, the services that You have
+                    asked for cannot be provided, and We only use these Cookies
+                    to provide You with those services.
                   </p>
                 </li>
                 <li className="m-5">
@@ -268,12 +274,12 @@ export function PolicyPage() {
                     </strong>
                   </p>
                   <div className="m-2">
-                  <p className="md:text-xl">Type: Persistent Cookies</p>
-                  <p className="md:text-xl">Administered by: Us</p>
+                    <p className="md:text-xl">Type: Persistent Cookies</p>
+                    <p className="md:text-xl">Administered by: Us</p>
                   </div>
                   <p className="md:text-xl">
-                    <strong>Purpose:</strong> These Cookies identify if users have accepted the
-                    use of cookies on the Website.
+                    <strong>Purpose:</strong> These Cookies identify if users
+                    have accepted the use of cookies on the Website.
                   </p>
                 </li>
                 <li className="m-5">
@@ -285,12 +291,12 @@ export function PolicyPage() {
                     <p className="md:text-xl">Administered by: Us</p>
                   </div>
                   <p className="md:text-xl">
-                    <strong>Purpose:</strong> These Cookies allow us to remember choices You make
-                    when You use the Website, such as remembering your login
-                    details or language preference. The purpose of these Cookies
-                    is to provide You with a more personal experience and to
-                    avoid You having to re-enter your preferences every time You
-                    use the Website.
+                    <strong>Purpose:</strong> These Cookies allow us to remember
+                    choices You make when You use the Website, such as
+                    remembering your login details or language preference. The
+                    purpose of these Cookies is to provide You with a more
+                    personal experience and to avoid You having to re-enter your
+                    preferences every time You use the Website.
                   </p>
                 </li>
               </ul>
@@ -512,16 +518,20 @@ export function PolicyPage() {
                 do so.
               </p>
               <h3 className="text-xl font-semibold  m-1">
-               4. Disclosure of Your Personal Data
+                4. Disclosure of Your Personal Data
               </h3>
-              <h4 className="text-xl  underline  underline-offset-8-offset-2 m-1">Business Transactions</h4>
+              <h4 className="text-xl  underline  underline-offset-8-offset-2 m-1">
+                Business Transactions
+              </h4>
               <p className="md:text-xl">
                 If the Company is involved in a merger, acquisition or asset
                 sale, Your Personal Data may be transferred. We will provide
                 notice before Your Personal Data is transferred and becomes
                 subject to a different Privacy Policy.
               </p>
-              <h4 className="text-xl underline  underline-offset-8 m-1">Law enforcement</h4>
+              <h4 className="text-xl underline  underline-offset-8 m-1">
+                Law enforcement
+              </h4>
               <p className="md:text-xl">
                 Under certain circumstances, the Company may be required to
                 disclose Your Personal Data if required to do so by law or in
@@ -536,9 +546,7 @@ export function PolicyPage() {
                 belief that such action is necessary to:
               </p>
               <ul>
-                <li className="mx-5">
-                  1. Comply with a legal obligation
-                </li>
+                <li className="mx-5">1. Comply with a legal obligation</li>
                 <li className="mx-5">
                   2. Protect and defend the rights or property of the Company
                 </li>
@@ -550,9 +558,7 @@ export function PolicyPage() {
                   4. Protect the personal safety of Users of the Service or the
                   public
                 </li>
-                <li className="mx-5">
-                  5. Protect against legal liability
-                </li>
+                <li className="mx-5">5. Protect against legal liability</li>
               </ul>
               <h2 className="text-2xl font-semibold  m-3">
                 Security of Your Personal Data
@@ -622,10 +628,18 @@ export function PolicyPage() {
               </p>
               <ul className="m-3">
                 <li className="mx-5">
-                  <p className="md:text-xl">By email: <a href='mailto:comradetrends.info@gmail.com'>comradetrends.info@gmail.com</a></p>
+                  <p className="md:text-xl">
+                    By email:{" "}
+                    <a href="mailto:comradetrends.info@gmail.com">
+                      comradetrends.info@gmail.com
+                    </a>
+                  </p>
                 </li>
                 <li className="mx-5">
-                  <p className="md:text-xl">By phone number: <a href='tel:+254759117496'>+(254)759117496</a></p>
+                  <p className="md:text-xl">
+                    By phone number:{" "}
+                    <a href="tel:+254759117496">+(254)759117496</a>
+                  </p>
                 </li>
               </ul>
             </div>
