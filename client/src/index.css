@@ -184,8 +184,4 @@ margin-bottom: 0.5rem;
   list-style-type: none;
 }
 
-.static-page__paragraph::before {
-  content: counters(chapter, ".") "." counters(section, ".") "." counters(paragraph, ".") ". ";
-  counter-increment: paragraph;
-  font-weight: bold;
-}
+
