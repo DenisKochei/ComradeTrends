@@ -19,7 +19,7 @@ export  function Signup() {
   const navigate = useNavigate();
   const changeHandler = (e)=>{
     setFormData({...formData,[e.target.id] : e.target.value.trim()})
-    console.log(formData)
+    
   }
   const handleSubmit = async (e)=>{
     e.preventDefault();

@@ -35,7 +35,6 @@ export  function DashProfile() {
       dispatch(updateStartAgain());
       setImgFileUrl(URL.createObjectURL(file));
     }
-    console.log(imgFileUrl)
   }
   useEffect(()=>{
     if(imgFile){

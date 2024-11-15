@@ -3,7 +3,6 @@ import moment from "moment"
 import { FaClock } from "react-icons/fa"
 
 export  function PostBar({post}) {
-  console.log(post)
   const navigate = useNavigate ()
   return (
     <div onClick={()=>navigate(`/post/${post.slug}`)} className="flex px-2 hover:cursor-pointer border-b w-full dark:border-slate-500 border-slate-300 pb-3 justify-start gap-2 sm:gap-5">

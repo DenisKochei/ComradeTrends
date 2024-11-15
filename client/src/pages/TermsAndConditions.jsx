@@ -1,6 +1,7 @@
-import React from "react";
+import { useNavigate } from "react-router-dom";
 
 const TermsAndConditions = () => {
+  const navigate = useNavigate();
   return (
     <div className="max-w-4xl mx-auto py-8 px-4 sm:px-6 lg:px-8">
       <h1 className="text-3xl font-bold mb-6">Terms and Conditions of Use</h1>
@@ -45,7 +46,7 @@ const TermsAndConditions = () => {
           </strong>
         </p>
         <p className="m-2 md:text-xl">
-          Please also review our Privacy Policy. The terms of the Privacy Policy
+          Please also review our <a className="text-[rgb(2,132,199,100)] cursor-pointer" onClick={()=>navigate("/privacy-policy")}>Privacy Policy</a>. The terms of the Privacy Policy
           and any other supplemental terms, policies, or documents that may be
           posted on the Service from time to time are hereby incorporated by
           reference into these Terms. We reserve the right to modify these Terms
@@ -262,8 +263,8 @@ const TermsAndConditions = () => {
         <h2 className="text-2xl font-semibold mb-2">16. Contact Information</h2>
         <p className="m-2 md:text-xl">For any questions regarding these Terms, please contact us at:</p>
         <ul className="list-none ml-0">
-          <li className="md:text-xl" >Email: comradetrends.info@gmail.com</li>
-          <li className="md:text-xl" >Telephone: 0759117496</li>
+          <li className="md:text-xl" >Email: <a className="text-[rgb(2,132,199,100)] cursor-pointer" href='mailto:comradetrends.info@gmail.com'>comradetrends.info@gmail.com</a></li>
+          <li className="md:text-xl" >Telephone: <a className="text-[rgb(2,132,199,100)] cursor-pointer" href='tel:+254759117496'>+(254)759117496</a></li>
         </ul>
       </section>
     </div>

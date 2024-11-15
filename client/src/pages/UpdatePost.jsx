@@ -18,7 +18,7 @@ export default function UpdatePost() {
   const [formData,setFormData] = useState({});
   const [fetchError,setFetchError] = useState()
   const {postId} = useParams()
-  console.log(formData)
+
 
   useEffect(()=>{
     try{
@@ -32,7 +32,7 @@ export default function UpdatePost() {
           return;
         }
         if(res.ok){
-          console.log(data.posts[0].image)
+          
           setFetchError(null);
           setFormData(data.posts[0])
         }

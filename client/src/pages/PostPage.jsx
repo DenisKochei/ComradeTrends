@@ -18,7 +18,6 @@ export  function PostPage() {
   const [alsoRead,setAlsoRead] = useState()
   const [post,setPost] = useState(null)
   const currentPageURL = window.location.href
-  console.log(post)
   useEffect(() => {
     const fetchPost = async () => {
       try {

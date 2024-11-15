@@ -19,7 +19,7 @@ export  function CommentSection({postId}) {
   const [showMore,setShowMore] = useState(true);
   const [loading,setLoading] = useState(false)
   const [submitLoading,setubmitLoading] = useState(false)
-  console.log(showMore)
+  
   useEffect(()=>{
     if(comment.length > 0){
       setDisabled(false);
