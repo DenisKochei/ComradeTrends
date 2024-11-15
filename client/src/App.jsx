@@ -15,7 +15,7 @@ import { PostPage } from './pages/PostPage'
 import ScrollToTop from './components/ScrollToTop'
 import {Search} from './pages/search'
 import {PolicyPage} from './pages/PolicyPage.jsx'
-import { TermsAndConditions } from './pages/TermsAndConditions.jsx'
+import  TermsAndConditions  from './pages/TermsAndConditions.jsx'
 
 export default function App() {
   return (

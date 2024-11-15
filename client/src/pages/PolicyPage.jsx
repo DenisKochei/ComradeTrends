@@ -13,8 +13,8 @@ export function PolicyPage() {
       </Helmet>
       <div className="sm:mx-10 mx-2">
         <div>
-          <div>
-            <div>
+          <div className="max-w-2xl mx-auto">
+            <div >
               <h1 className="font-bold m-5 text-3xl">Privacy Policy</h1>
               <h1 className="md:text-xl m-2">Last updated: November 14,2024</h1>
               <p className="md:text-xl">
