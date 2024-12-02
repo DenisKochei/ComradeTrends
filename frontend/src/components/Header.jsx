@@ -2,6 +2,8 @@ import { Avatar, Button, Dropdown, Navbar } from "flowbite-react";
 import { Link, useLocation, useNavigate } from "react-router-dom";
 import { AiOutlineSearch } from "react-icons/ai";
 import { FaMoon, FaSun } from "react-icons/fa";
+import { CiShop } from "react-icons/ci";
+import { IoCartOutline } from "react-icons/io5";
 import { useSelector, useDispatch } from "react-redux";
 import { toggleTheme } from "../../redux/theme/themeSlice";
 import { signoutSuccess } from "../../redux/user/userSlice";
@@ -58,15 +60,20 @@ export function Header() {
   return (
     <Headroom>
       <Navbar className="w-full backdrop-blur flex-none transition-colors duration-500  border border-b-slate-500 rounded-bl-lg rounded-br-lg bg-slate-300 supports-backdrop-blur:bg-white/95 dark:bg-slate-900/25">
-        <Link
-          to="/"
-          className="self-center whitespace-nowrap text-sm sm:text-xs  font-semibold dark:text-white"
-        >
-          <span className=" px-2 py-1 bg-gradient-to-r from-cyan-500 to-blue-600 rounded-md text-white">
-            Comrade
-          </span>
-          Trends
-        </Link>
+        <div className="flex flex-col gap-1">
+          <Link
+            to="/"
+            className="self-center whitespace-nowrap text-sm sm:text-xs  font-semibold dark:text-white"
+          >
+            <span className=" px-2 py-1 bg-gradient-to-r from-cyan-500 to-blue-600 rounded-md text-white">
+              Comrade
+            </span>
+            Trends
+          </Link>
+          {(path === "/marketplace" || path === "/marketplace/cart") && (
+            <div className="text-slate-600 italic">Market Place</div>
+          )}
+        </div>
         <Popover
           className="flex h-auto items-center justify-center mt-6"
           aria-labelledby="default-popover"
@@ -96,7 +103,7 @@ export function Header() {
                     className="border  dark:bg-slate-800 border-slate-500 h-10 w-10 flex  justify-center items-center rounded-2xl"
                     onClick={handleSubmit}
                   >
-                    <AiOutlineSearch className="w-5 hover:cursor-pointer  h-5" />
+                    <AiOutlineSearch className="w-5 hover:cursor-pointer dark:text-slate-400 h-5" />
                   </button>
                 </div>
               </div>
@@ -108,6 +115,7 @@ export function Header() {
             <div ref={searchref}></div>
           </div>
         </Popover>
+
         <div className="flex gap-2 items-center sm:flex-row-reverse">
           <div className="flex  justify-start gap-2 items-center">
             <div className=" flex justify-between items-center gap-2 md:order-2">
@@ -117,8 +125,17 @@ export function Header() {
                 <div>
                   <AiOutlineSearch
                     onClick={() => SetOpen(!open)}
-                    className="w-5 hover:cursor-pointer sm:mx-4 h-5 text-slate-400"
+                    className="w-5 hover:cursor-pointer sm:mx-4 h-5 dark:text-slate-400"
                   />
+                </div>
+              )}
+              {path === "/marketplace" ? (
+                <div onClick={() => navigate("/marketplace/cart")}>
+                  <IoCartOutline className="w-5 h-5 dark:text-slate-400 mx-2 sm:mx-4 hover:cursor-pointer" />
+                </div>
+              ) : (
+                <div onClick={() => navigate("/marketplace")}>
+                  <CiShop className="w-5 h-5 mx-2 sm:mx-4 hover:cursor-pointer" />
                 </div>
               )}
               <Button
@@ -177,6 +194,7 @@ export function Header() {
                 </Link>
               )}
             </div>
+
             <div className="md:hidden hover:cursor-pointer">
               <DropDownMenu />
             </div>

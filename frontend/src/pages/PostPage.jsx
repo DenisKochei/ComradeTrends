@@ -50,7 +50,7 @@ export function PostPage() {
     const fetchAlsoRead = async () => {
       const res = await fetch(
         `/api/post/getposts?limit=4&category=${
-          post.category === "most-trending" || "breaking"
+          (post.category === "most-trending" || post.category === "breaking")
             ? "trending"
             : post.category
         }`

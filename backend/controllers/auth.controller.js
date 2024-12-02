@@ -1,16 +1,22 @@
 import User from "../models/user.model.js";
-import bcryptjs from 'bcryptjs'; 
+import bcryptjs from "bcryptjs";
 import { errorHandler } from "../utils/error.js";
-import jwt from 'jsonwebtoken'
+import jwt from "jsonwebtoken";
 
-
-export const signup = async (req,res,next)=>{
-  const {username,email,password} = req.body;
-  if(!username || !email || !password || username === "" || email ==="" || password === "" ){
-    next(errorHandler(400,'All fields are required'))
+export const signup = async (req, res, next) => {
+  const { username, email, password } = req.body;
+  if (
+    !username ||
+    !email ||
+    !password ||
+    username === "" ||
+    email === "" ||
+    password === ""
+  ) {
+    next(errorHandler(400, "All fields are required"));
   }
 
-  const hashedPassword = bcryptjs.hashSync(password,10)
+  const hashedPassword = bcryptjs.hashSync(password, 10);
 
   //The "10" is the the salt rounds. It represents the number of times bcrypt stirs the cauldron (i.e., the number of hashing rounds).
 
@@ -20,53 +26,57 @@ export const signup = async (req,res,next)=>{
     password: hashedPassword,
   });
 
-  try{
+  try {
     await newUser.save();
-    res.json({message:"Signup Successful"})
-  }catch(err){
+    res.json({ message: "Signup Successful" });
+  } catch (err) {
     if (err.message.includes("email_1 dup key")) {
-      next(errorHandler(400,"The email is already in use"))
+      next(errorHandler(400, "The email is already in use"));
     }
-    next(errorHandler(400,"Network interuption,please try again"))
+    next(errorHandler(400, "Network interuption,please try again"));
   }
-}
+};
 
-export const signin = async (req,res,next)=>{
-  const {email,password} = req.body;
+export const signin = async (req, res, next) => {
+  const { email, password } = req.body;
 
-  if(!email || !password || email === "" || password === ""){
-    next(errorHandler(400,'All fields are required'));
+  if (!email || !password || email === "" || password === "") {
+    next(errorHandler(400, "All fields are required"));
   }
-  try{
-    const validUser = await User.findOne({email})
-   
-    if(!validUser){
-     return next(errorHandler(404,'User not found, please signup')); 
+  try {
+    const validUser = await User.findOne({ email });
+
+    if (!validUser) {
+      return next(errorHandler(404, "User not found, please signup"));
     }
     const validPassword = bcryptjs.compareSync(password, validUser.password);
 
     //password is what we get from the form while validuser.passowrd is what database
-    if(!validPassword){
-      return next(errorHandler(400,'Invalid Password or email')); 
+    if (!validPassword) {
+      return next(errorHandler(400, "Invalid Password or email"));
     }
     //When comparing both the email and the password it is best to make the message not clear by saying that either or both the email or the password is incorrect
-    const token = jwt.sign({id : validUser._id, isAdmin : validUser.isAdmin}, process.env.JWT_SECRET);
+    const token = jwt.sign(
+      { id: validUser._id, isAdmin: validUser.isAdmin },
+      process.env.JWT_SECRET
+    );
 
-    const {password : pass , ...rest} = validUser._doc;
+    const { password: pass, ...rest } = validUser._doc;
 
-    res.status(200).cookie("access_token", token , {
-      httpOnly : true,
-    }).json(rest)
-  }
-  catch(err){
-    if(err.message.includes("buffering")){
-      next(errorHandler(400,"network interuption,please try again"))
-    }else{
-      next(errorHandler(400,"Network interuption,please try again"))
+    res
+      .status(200)
+      .cookie("access_token", token, {
+        httpOnly: true,
+      })
+      .json(rest);
+  } catch (err) {
+    if (err.message.includes("buffering")) {
+      next(errorHandler(400, "network interuption,please try again"));
+    } else {
+      next(errorHandler(400, "Network interuption,please try again"));
     }
-    
   }
-}
+};
 export const google = async (req, res, next) => {
   const { email, name, googlePhotoUrl } = req.body;
   try {
@@ -79,7 +89,7 @@ export const google = async (req, res, next) => {
       const { password, ...rest } = user._doc;
       res
         .status(200)
-        .cookie('access_token', token, {
+        .cookie("access_token", token, {
           httpOnly: true,
         })
         .json(rest);
@@ -90,7 +100,7 @@ export const google = async (req, res, next) => {
       const hashedPassword = bcryptjs.hashSync(generatedPassword, 10);
       const newUser = new User({
         username:
-          name.toLowerCase().split(' ').join('') +
+          name.toLowerCase().split(" ").join("") +
           Math.random().toString(9).slice(-4),
         email,
         password: hashedPassword,
@@ -104,7 +114,7 @@ export const google = async (req, res, next) => {
       const { password, ...rest } = newUser._doc;
       res
         .status(200)
-        .cookie('access_token', token, {
+        .cookie("access_token", token, {
           httpOnly: true,
         })
         .json(rest);
