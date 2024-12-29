@@ -30,7 +30,7 @@ const postSchema = new mongoose.Schema(
     slug:{
       type:String,
       required:true,
-      unoque:true
+      unique:true
     }
   },{timestamps:true}
 )
