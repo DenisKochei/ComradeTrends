@@ -27,19 +27,19 @@ margin-bottom: 0.5rem;
   margin-left: auto;
   margin-right: auto;
   width: 100%;
-  height: 100%;
+  height: 350px;
 }
 .post-content object{
   margin-left: auto;
   margin-right: auto;
   width: 100%;
-  height: 100%;
+  height: 350px;
 }
 .post-content embed{
   margin-left: auto;
   margin-right: auto;
   width: 100%;
-  height: 100%;
+  height: 350px;
 }
 .post-content a{
   color: rgb(73, 149, 199);
