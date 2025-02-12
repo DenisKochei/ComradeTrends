@@ -17,6 +17,8 @@ export function Home() {
   const [politics, setPolitics] = useState([]);
   const [international, setInternational] = useState([]);
   const [entertainment, setEntertainment] = useState([]);
+  const [flexDirection,setFlexDirection] = useState("");
+  const [width,setWidth] = useState(window.innerWidth);
   useEffect(() => {
     const fetchPosts = async () => {
       const res = await fetch("/api/post/getposts?category=trending&limit=3");
@@ -87,6 +89,23 @@ export function Home() {
     };
     fetchPosts();
   }, []);
+
+  useEffect(() => { 
+    const handleResize = () => {
+       if (window.innerWidth > width) { 
+        setWidth(window.innerWidth);
+       } };
+        window.addEventListener('resize', handleResize); return () => { window.removeEventListener('resize', handleResize); }; }, 
+    [width]);
+
+  useEffect(()=>{
+    const style = getComputedStyle(document.getElementById("parent"));
+    const direction = style.flexDirection;
+    setFlexDirection(direction)
+    console.log(width)
+  },[width])
+  
+
   return (
     <div className="flex flex-col my-5 mx-5 lg:mx-10 min-h-screen">
       <Helmet>
@@ -100,7 +119,7 @@ export function Home() {
           content="trusted source for the latest news, insightful analysis, and trending stories in Kenya and from around the world."
         />
       </Helmet>
-      <div className="flex flex-col md:flex-row gap-2">
+      <div id="parent" className="flex flex-col md:flex-row gap-2">
         <div className="md:w-1/2 text-center">
           {breaking && breaking.length > 0 ? (
             <div
@@ -153,7 +172,7 @@ export function Home() {
           <div></div>
         )}
         <div className="flex md:flex-row md:w-1/2 gap-2 flex-col">
-          <div className="sm:w-1/2 w-full">
+          <div className={`${flexDirection === "column" && "sm:w-1/2"} w-full`}>
             {trending && trending.length > 0 && (
               <>
                 <div className="flex flex-col gap-6">
@@ -170,7 +189,7 @@ export function Home() {
             )}
           </div>
           {breaking && breaking.length > 0 ? (
-            <div className="sm:w-1/2 w-full">
+            <div className={`${flexDirection === "column" && "sm:w-1/2"} w-full`}>
               <div className="flex flex-col gap-6">
                 <h1 className=" text-2xl font-semibold text-center">
                   Breaking News
@@ -183,7 +202,7 @@ export function Home() {
               </div>
             </div>
           ) : (
-            <div className="sm:w-1/2 w-full">
+            <div className={`${flexDirection === "column" && "sm:w-1/2"} w-full`}>
               {sports && sports.length > 0 ? (
                 <div className="flex flex-col  gap-6">
                   <h1 className=" text-2xl font-semibold text-center">

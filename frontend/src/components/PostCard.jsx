@@ -5,7 +5,7 @@ export function PostCard({ post }) {
   return (
     <div
       onClick={() => navigate(`/post/${post.slug}`)}
-      className="group relative border border-teal-500 hover:border-2 h-[360px] overflow-hidden rounded-lg w-[320px] hover:cursor-pointer transition-all"
+      className="group relative border border-teal-500 hover:border-2 h-[360px] overflow-hidden rounded-lg w-full hover:cursor-pointer transition-all"
     >
       <div>
         <img
