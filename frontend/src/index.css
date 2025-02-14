@@ -27,31 +27,24 @@ margin-bottom: 0.5rem;
   margin-left: auto;
   margin-right: auto;
   width: 100%;
-<<<<<<< HEAD:frontend/src/index.css
   height:320px;
-=======
   height: 350px;
->>>>>>> 9d2a2da966e9f3e9b511d6cea8b92f1b7953b2cb:client/src/index.css
 }
 .post-content object{
   margin-left: auto;
   margin-right: auto;
   width: 100%;
-<<<<<<< HEAD:frontend/src/index.css
   height:320px;
-=======
   height: 350px;
->>>>>>> 9d2a2da966e9f3e9b511d6cea8b92f1b7953b2cb:client/src/index.css
 }
 .post-content embed{
   margin-left: auto;
   margin-right: auto;
   width: 100%;
-<<<<<<< HEAD:frontend/src/index.css
   height:320px;
-=======
+
   height: 350px;
->>>>>>> 9d2a2da966e9f3e9b511d6cea8b92f1b7953b2cb:client/src/index.css
+
 }
 .post-content a{
   color: rgb(73, 149, 199);
