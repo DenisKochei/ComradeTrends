@@ -132,9 +132,9 @@ export function PostPage() {
               {post && post.category}
             </Button>
           </Link>
-          <div className="max-w-2xl flex justify-center mt-1">
+          <div className="max-w-2xl self-center w-full">
             {auther ? 
-            <div className="flex justify-start gap-1 my-0 text-gray-500 text-xs max-w-2xl items-center">
+            <div className="flex justify-start gap-1 my-0 text-gray-500 text-xs items-center">
             <p>Auther: </p>
             <img
               className="rounded-full mx-1 object-cover w-5 h-5"
