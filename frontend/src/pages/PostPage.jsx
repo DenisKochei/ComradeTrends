@@ -20,8 +20,11 @@ export function PostPage() {
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(false);
   const [alsoRead, setAlsoRead] = useState();
+  const [auther,setAuther] = useState();
   const [post, setPost] = useState(null);
+  const [autherId,setAutherId] = useState();
   const currentPageURL = window.location.href;
+  //console.log(post.userId)
   useEffect(() => {
     const fetchPost = async () => {
       try {
@@ -35,6 +38,7 @@ export function PostPage() {
         }
         if (res.ok) {
           setPost(data.posts[0]);
+          setAutherId(data.posts[0].userId)
           setLoading(false);
           setError(false);
         }
@@ -46,13 +50,14 @@ export function PostPage() {
     fetchPost();
   }, [postslug]);
 
+  
   useEffect(() => {
     const fetchAlsoRead = async () => {
       const res = await fetch(
         `/api/post/getposts?limit=4&category=${
           (post.category === "most-trending" || post.category === "breaking")
-            ? "trending"
-            : post.category
+          ? "trending"
+          : post.category
         }`
       );
       const data = await res.json();
@@ -66,8 +71,20 @@ export function PostPage() {
     };
     fetchAlsoRead();
   }, [post]);
-  const currentUrl = window.location.href;
+  
+  useEffect(() => {
+    const fetchAuther = async () => {
+      const res = await fetch(`/api/user/${autherId}`);
+      const data = await res.json();
+      if (res.ok) {
+        setAuther(data);
+      }
+    };
+    fetchAuther();
+  }, [autherId]);
 
+  const currentUrl = window.location.href;
+  
   if (loading) {
     return (
       <div className="flex justify-center items-center min-h-screen">
@@ -115,10 +132,25 @@ export function PostPage() {
               {post && post.category}
             </Button>
           </Link>
+          <div className="max-w-2xl flex justify-center mt-1">
+            {auther ? 
+            <div className="flex justify-start gap-1 my-0 text-gray-500 text-xs max-w-2xl items-center">
+            <p>Auther: </p>
+            <img
+              className="rounded-full mx-1 object-cover w-5 h-5"
+              src={auther.profilePicture}
+            />
+            <p className="text-xs text-cyan-500 hover:underline">
+              @{auther.username}
+            </p>
+            </div> 
+            : 
+            <div></div>}
+          </div>
           <img
             src={post && post.image}
             alt={post.title}
-            className="object-cover self-center mt-3 p-3 max-h-[600px] w-full !max-w-2xl"
+            className="object-cover self-center mt-1 pt-1 p-1 max-h-[600px] w-full !max-w-2xl"
           />
           <div className="flex justify-between p-3 border-b border-slate-500 mx-auto w-full max-w-2xl text-xs">
             <span>{post && new Date(post.createdAt).toLocaleDateString()}</span>
