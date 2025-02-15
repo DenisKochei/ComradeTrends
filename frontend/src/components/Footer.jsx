@@ -20,7 +20,7 @@ export default function FooterComp() {
           <Link to="/privacy-policy">
             <span className="flex items-center gap-1">
               <IoIosArrowForward className="text-sky-600" />
-              Pricacy Policy
+              Privacy Policy
             </span>
           </Link>
           <Link to="/terms-and-conditions">
