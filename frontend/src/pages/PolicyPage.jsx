@@ -630,15 +630,15 @@ export function PolicyPage() {
                 <li className="mx-5">
                   <p className="md:text-xl">
                     By email:{" "}
-                    <a href="mailto:comradetrends.info@gmail.com">
+                    <a className="text-[rgb(2,132,199,100)] cursor-pointer" href="mailto:comradetrends.info@gmail.com">
                       comradetrends.info@gmail.com
                     </a>
                   </p>
                 </li>
                 <li className="mx-5">
-                  <p className="md:text-xl">
+                  <p className="md:text-xl ">
                     By phone number:{" "}
-                    <a href="tel:+254759117496">+(254)759117496</a>
+                    <a className="text-[rgb(2,132,199,100)] cursor-pointer" href="tel:+254759117496">+(254)759117496</a>
                   </p>
                 </li>
               </ul>

@@ -221,7 +221,7 @@ export function Home() {
           )}
         </div>
       </div>
-      <div className="flex flex-col w-full items-center">
+      <div className="flex flex-col mt-2 w-full items-center">
         {politics && politics.length > 0 && (
           <div className="flex flex-col gap-3 text-center">
             <h1 className=" text-2xl font-semibold text-center">Politics</h1>
