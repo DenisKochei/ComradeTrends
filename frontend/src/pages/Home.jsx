@@ -102,7 +102,6 @@ export function Home() {
     const style = getComputedStyle(document.getElementById("parent"));
     const direction = style.flexDirection;
     setFlexDirection(direction)
-    console.log(width)
   },[width])
   
 

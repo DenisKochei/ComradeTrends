@@ -22,7 +22,11 @@ const userSchema = new mongoose.Schema({
   isAdmin : {
     type : Boolean,
     default : false,
-  }
+  },
+  isSuperAdmin : {
+    type : Boolean,
+    default : false,
+  },
 },{timestamps:true}
 //timestamp is used to save the time of creation and the time af update
 );

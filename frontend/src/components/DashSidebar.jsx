@@ -40,6 +40,7 @@ export function DashSidebar() {
       console.log(err.message);
     }
   };
+  
   return (
     <Sidebar className="w-full sm:w-52">
       <Sidebar.Items>
@@ -48,7 +49,7 @@ export function DashSidebar() {
             <Sidebar.Item
               active={tab === "profile"}
               icon={HiUser}
-              label={currentUser.isAdmin ? "Admin" : "User"}
+              label={(currentUser.isAdmin && currentUser.isSuperAdmin) ? "Super.Admin" : (!currentUser.isSuperAdmin && currentUser.isAdmin) ? "Admin" : "User"}
               labelColor="dark"
               as="div"
             >

@@ -14,14 +14,27 @@ export function DashPosts() {
   useEffect(() => {
     const fetchPosts = async () => {
       try {
-        const res = await fetch(`/api/post/getposts?userId=${currentUser._id}`);
-        const data = await res.json();
+        if(currentUser.isSuperAdmin){
+          const res = await fetch(`/api/post/getposts`);
+          const data = await res.json();
+          if (res.ok) {
+            setPosts(data.posts);
+            if (data.posts.length < 9) {
+              setShowMore(false);
+            }
+          }
+        }
+        else{
+          const res = await fetch(`/api/post/getposts?userId=${currentUser._id}`);
+          const data = await res.json();
         if (res.ok) {
           setPosts(data.posts);
           if (data.posts.length < 9) {
             setShowMore(false);
           }
         }
+        }
+        
       } catch (error) {
         console.log(error.message);
       }
