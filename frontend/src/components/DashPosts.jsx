@@ -114,7 +114,7 @@ export function DashPosts() {
                       />
                     </Link>
                   </Table.Cell>
-                  <Table.Cell className="font-medium line-clamp-2">
+                  <Table.Cell className="font-medium min-w-72">
                     {post.title}
                   </Table.Cell>
                   <Table.Cell>{post.category}</Table.Cell>

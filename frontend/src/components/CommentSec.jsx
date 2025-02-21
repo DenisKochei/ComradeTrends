@@ -9,6 +9,7 @@ export function CommentSec({ comment, onLike, onEdit, onDelete }) {
   const [user, setUser] = useState({});
   const [isEditing, setIsEditing] = useState(false);
   const [editedContent, setEditedContent] = useState(comment.content);
+  
   useEffect(() => {
     const fetchUser = async () => {
       try {

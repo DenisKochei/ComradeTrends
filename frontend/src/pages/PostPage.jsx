@@ -24,7 +24,7 @@ export function PostPage() {
   const [post, setPost] = useState(null);
   const [autherId,setAutherId] = useState();
   const currentPageURL = window.location.href;
-  //console.log(post.userId)
+  
   useEffect(() => {
     const fetchPost = async () => {
       try {

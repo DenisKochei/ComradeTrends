@@ -11,7 +11,7 @@ export function DashComments() {
   const [showModal, setShowModal] = useState(false);
   const [commentIdToDelete, setCommentIdToDelete] = useState("");
   const [showMoreLoading, setShowMoreLoading] = useState(false);
-
+console.log(comments)
   useEffect(() => {
     const fetchComments = async () => {
       try {
@@ -103,7 +103,7 @@ export function DashComments() {
                   <Table.Cell>
                     {new Date(comment.updatedAt).toLocaleDateString()}
                   </Table.Cell>
-                  <Table.Cell>{comment.content}</Table.Cell>
+                  <Table.Cell className="min-w-72">{comment.content}</Table.Cell>
                   <Table.Cell>{comment.numberOfLikes}</Table.Cell>
                   <Table.Cell>{comment.postId}</Table.Cell>
                   <Table.Cell>{comment.userId}</Table.Cell>
