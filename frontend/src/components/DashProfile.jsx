@@ -275,10 +275,10 @@ export function DashProfile() {
           )}
         </Link>
         <div className="flex justify-between text-red-500 mt-5">
-          <span onClick={() => setShowModal(true)} className="cursor-pointer">
+          <span onClick={() => setShowModal(true)} className="cursor-pointer select-none">
             Delete Account
           </span>
-          <span onClick={handleSignout} className="cursor-pointer">
+          <span onClick={handleSignout} className="cursor-pointer select-none">
             {" "}
             Sign Out{" "}
           </span>

@@ -163,14 +163,14 @@ export function PostPage() {
             </span>
           </div>
           <div
-            className="p-3 w-full max-w-2xl post-content mx-auto"
+            className="p-3 w-full max-w-2xl select-none post-content mx-auto"
             dangerouslySetInnerHTML={{ __html: post && post.content1 }}
           ></div>
           <div className="w-full mx-auto max-w-4xl">
             <CallToAction />
           </div>
           <div
-            className="p-3 w-full max-w-2xl post-content mx-auto"
+            className="p-3 w-full max-w-2xl select-none post-content mx-auto"
             dangerouslySetInnerHTML={{ __html: post && post.content2 }}
           ></div>
           <div className="m-4 max-w-4xl self-center gap-3 flex justify-center items-center">
