@@ -171,7 +171,7 @@ export function Home() {
           <div></div>
         )}
         <div className="flex md:flex-row md:w-1/2 gap-2 flex-col">
-          <div className={`${flexDirection === "column" && "sm:w-1/2"} w-full`}>
+          <div className="md:w-1/2 w-full">
             {trending && trending.length > 0 && (
               <>
                 <div className="flex flex-col gap-6">
@@ -188,7 +188,7 @@ export function Home() {
             )}
           </div>
           {breaking && breaking.length > 0 ? (
-            <div className={`${flexDirection === "column" && "sm:w-1/2"} w-full`}>
+            <div className="md:w-1/2 w-full">
               <div className="flex flex-col gap-6">
                 <h1 className=" text-2xl font-semibold text-center">
                   Breaking News
@@ -201,7 +201,7 @@ export function Home() {
               </div>
             </div>
           ) : (
-            <div className={`${flexDirection === "column" && "sm:w-1/2"} w-full`}>
+           <div className="md:w-1/2 w-full">
               {sports && sports.length > 0 ? (
                 <div className="flex flex-col  gap-6">
                   <h1 className=" text-2xl font-semibold text-center">
