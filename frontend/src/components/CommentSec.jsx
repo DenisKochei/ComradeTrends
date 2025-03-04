@@ -94,7 +94,7 @@ export function CommentSec({ comment, onLike, onEdit, onDelete }) {
           </>
         ) : (
           <div>
-            <p className="text-gray-300 pb-2">{comment.content}</p>
+            <p className="dark:text-gray-300 pb-2">{comment.content}</p>
             <div className="flex items-center pt-2 border-t dark:border-gray-600 text-xs max-w-fit gap-2">
               <button
                 type="button"
