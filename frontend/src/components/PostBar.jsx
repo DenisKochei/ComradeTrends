@@ -14,7 +14,7 @@ export function PostBar({ post }) {
       </div>
       <div className="w-full flex flex-col justify-center gap-3">
         <div className="font-bold ">
-          <h3 className="line-clamp-2">{post.title}</h3>
+          <h3 className="line-clamp-2 text-l">{post.title}</h3>
         </div>
         <div className="text-gray-600">
           <div className=" text-sm flex  justify-between">
