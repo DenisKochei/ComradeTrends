@@ -13,8 +13,8 @@ export function PostBar({ post }) {
         <img className="object-cover w-28 h-28 rounded-lg" src={post.image} />
       </div>
       <div className="w-full flex flex-col justify-center gap-3">
-        <div className="font-bold ">
-          <h3 className="line-clamp-2 text-xl">{post.title}</h3>
+        <div className="">
+          <h3 className="line-clamp-2 font-thin text-xl">{post.title}</h3>
         </div>
         <div className="text-gray-600">
           <div className=" text-sm flex  justify-between">

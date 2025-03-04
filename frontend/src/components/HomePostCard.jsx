@@ -5,7 +5,7 @@ export function HomePostCard({ post }) {
   return (
     <div>
       <div className="flex flex-col justify-start items-center">
-        <h1 className="font-bold text-xl">{post.title}</h1>
+        <h1 className="font-semi font-serif text-xl">{post.title}</h1>
         <Link
           to={`/search?category=${post.category}`}
           className="self-center mt-2"
