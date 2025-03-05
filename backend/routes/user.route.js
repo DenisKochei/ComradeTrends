@@ -7,9 +7,9 @@ import { setUsersComment } from '../controllers/user.controller.js';
 const router = express.Router();
 
 router.get('/test',user);
-router.get('/getusers',verifyToken,getUsers)
-router.put('/update/:userId',verifyToken,updateUser);
-router.delete('/delete/:userId',verifyToken,deleteUser)
+router.get('/getusers',getUsers)
+router.put('/update/:userId',updateUser);
+router.delete('/delete/:userId',deleteUser)
 router.post('/sign-out', signout)
 router.get('/:userId',setUsersComment)
 
