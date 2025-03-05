@@ -6,9 +6,9 @@ const router = express.Router();
 
 router.post('/create',verifyToken, createComment)
 router.get('/getPostComments', getPostComments);
-router.put('/likeComment/:commentId',likeComment)
-router.put('/editComment/:commentId',editComment)
-router.delete('/deleteComment/:commentId',deleteComment)
-router.get('/getAllComments', getAllComments);
+router.put('/likeComment/:commentId',verifyToken,likeComment)
+router.put('/editComment/:commentId',verifyToken,editComment)
+router.delete('/deleteComment/:commentId',verifyToken,deleteComment)
+router.get('/getAllComments', verifyToken, getAllComments);
 
 export default router;
