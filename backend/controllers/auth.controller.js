@@ -84,15 +84,20 @@ export const google = async (req, res, next) => {
     if (user) {
       const token = jwt.sign(
         { id: user._id, isAdmin: user.isAdmin },
-        process.env.JWT_SECRET,{expiresIn:"1y"}
+        process.env.JWT_SECRET,
+        { expiresIn: "10y" } // JWT expiration (not the cookie expiration)
       );
+      
       const { password, ...rest } = user._doc;
+      
       res
         .status(200)
         .cookie("access_token", token, {
           httpOnly: true,
+          maxAge: 10 * 365 * 24 * 60 * 60 * 1000, // 10 years in milliseconds
         })
         .json(rest);
+      
     } else {
       const generatedPassword =
         Math.random().toString(36).slice(-8) +
