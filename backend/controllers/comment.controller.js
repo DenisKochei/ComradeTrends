@@ -17,6 +17,7 @@ export const createComment = async (req,res,next)=>{
   }
   catch(err){
     next(err)
+    
   }
 }
 export const getPostComments = async (req, res, next) => {
