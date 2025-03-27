@@ -58,8 +58,7 @@ export const signin = async (req, res, next) => {
     //When comparing both the email and the password it is best to make the message not clear by saying that either or both the email or the password is incorrect
     const token = jwt.sign(
       { id: validUser._id, isAdmin: validUser.isAdmin },
-      process.env.JWT_SECRET,
-      { expiresIn: "10d" }
+      process.env.JWT_SECRET, {expiresIn: "10y"},
     );
 
     const { password: pass, ...rest } = validUser._doc;
@@ -84,9 +83,8 @@ export const google = async (req, res, next) => {
     const user = await User.findOne({ email });
     if (user) {
       const token = jwt.sign(
-        { id: validUser._id, isAdmin: validUser.isAdmin },
-        process.env.JWT_SECRET,
-        { expiresIn: "10y" }
+        { id: user._id, isAdmin: user.isAdmin },
+        process.env.JWT_SECRET, {expiresIn: "10y"},
       );
       const { password, ...rest } = user._doc;
       res
@@ -110,9 +108,8 @@ export const google = async (req, res, next) => {
       });
       await newUser.save();
       const token = jwt.sign(
-        { id: validUser._id, isAdmin: validUser.isAdmin },
-        process.env.JWT_SECRET,
-        { expiresIn: "10d" }
+        { id: newUser._id, isAdmin: newUser.isAdmin },
+        process.env.JWT_SECRET, {expiresIn: "10y"},
       );
       const { password, ...rest } = newUser._doc;
       res
