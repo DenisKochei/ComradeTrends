@@ -15,8 +15,10 @@ export function Cart() {
         />
       </Helmet>
       
-      <p className="text-2xl">Coming Soon 🙂</p>
-      <CallToAction />
+      <p className="text-2xl self-center">ComradeTrends Market Place, Coming Soon 🙂</p>
+      <div className="w-full p-4">
+        <CallToAction/>
+      </div>
     </div>
   );
 }

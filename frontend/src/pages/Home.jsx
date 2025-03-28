@@ -106,7 +106,7 @@ export function Home() {
   
 
   return (
-    <div className="flex flex-col my-5 mx-5 lg:mx-10 min-h-screen">
+    <div className="flex flex-col my-5 mx-2 lg:mx-10 min-h-screen">
       <Helmet>
         <title>{`ComradeTrends | Home Page`}</title>
         <meta

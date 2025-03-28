@@ -15,8 +15,10 @@ export function MarketPlace() {
           content="trusted source for the latest news, insightful analysis, and trending stories in Kenya and from around the world."
         />
       </Helmet>
-      <p className="text-2xl self-center">Coming Soon 🙂</p>
+      <p className="text-2xl self-center">ComradeTrends Market Place, Coming Soon 🙂</p>
+      <div className="w-full p-4">
       <CallToAction/>
+      </div>
     </div>
   );
 }
