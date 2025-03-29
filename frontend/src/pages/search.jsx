@@ -165,10 +165,10 @@ export function Search() {
         </form>
       </div>
       <div className="w-full">
-        <h1 className="text-3xl font-semibold sm:border-b border-gray-500 p-3 mt-5 ">
+        <h1 className="text-3xl font-semibold sm:border-b border-gray-500 p-3 m-1 ">
           Search results:
         </h1>
-        <div className="p-7 flex justify-center flex-wrap gap-4">
+        <div className="p-2 flex justify-center flex-wrap gap-4">
           {!loading && posts.length === 0 && (
             <p className="text-xl text-gray-500">No posts found.</p>
           )}
@@ -179,7 +179,7 @@ export function Search() {
           {showMore && !loading && (
             <button
               onClick={handleShowMore}
-              className="text-teal-500 text-lg hover:underline p-7 w-full"
+              className="text-teal-500 text-lg hover:underline p-2 w-full"
             >
               {readMoreLoading ? <Spinner /> : "Show More"}
             </button>

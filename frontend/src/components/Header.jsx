@@ -59,7 +59,7 @@ export function Header() {
   };
   return (
     <Headroom>
-      <Navbar className="w-full backdrop-blur flex-none transition-colors duration-500  border border-b-slate-500 rounded-bl-lg rounded-br-lg bg-slate-300 supports-backdrop-blur:bg-white/95 dark:bg-slate-900/25">
+      <Navbar className="w-full p-1 backdrop-blur flex-none transition-colors duration-500  border border-b-slate-500 rounded-bl-lg rounded-br-lg bg-slate-300 supports-backdrop-blur:bg-white/95 dark:bg-slate-900/25">
         <div className="flex flex-col gap-1">
           <Link
             to="/"
