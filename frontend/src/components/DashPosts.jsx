@@ -47,6 +47,23 @@ export function DashPosts() {
   const handleShowMore = async () => {
     const startIndex = posts.length;
     setShowMoreLoading(true);
+    if(currentUser.isAdmin && currentUser.isSuperAdmin){
+      try {
+        const res = await fetch(
+          `/api/post/getposts?startIndex=${startIndex}`
+        );
+        const data = await res.json();
+        if (res.ok) {
+          setShowMoreLoading(false);
+          setPosts((prev) => [...prev, ...data.posts]);
+          if (data.posts.length < 9) {
+            setShowMore(false);
+          }
+        }
+      } catch (err) {
+        console.log(err);
+      }
+    }else{
     try {
       const res = await fetch(
         `/api/post/getposts?userId=${currentUser._id}&startIndex=${startIndex}`
@@ -61,6 +78,7 @@ export function DashPosts() {
       }
     } catch (err) {
       console.log(err);
+    }
     }
   };
   const handleDeletePost = async () => {

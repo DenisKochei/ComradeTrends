@@ -153,7 +153,7 @@ export function CommentSection({ postId }) {
     }
   };
   return (
-    <div className="w-full mx-auto max-w-2xl p-3">
+    <div className="w-full mx-auto max-w-2xl p-1">
       {currentUser ? (
         <div className="flex justify-start gap-1 my-5 text-gray-500 text-xs items-center">
           <p>Signed in as:</p>
@@ -241,7 +241,7 @@ export function CommentSection({ postId }) {
           {showMore && (
             <button
               onClick={handleShowMore}
-              className="w-full text-teal-500 self-center py-7"
+              className="w-full text-teal-500 self-center py-4"
             >
               {loading ? <Spinner /> : "Show More"}
             </button>

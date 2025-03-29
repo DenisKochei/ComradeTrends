@@ -116,11 +116,11 @@ export default function CreatePost() {
             <option value="sports">Sports</option>
             <option value="business">Business</option>
             <option value="health">Health</option>
-            <option value="health">People</option>
+            <option value="people">People</option>
             <option value="politics">Politics</option>
             <option value="entertainment">Entertainment</option>
             <option value="general">General</option>
-            <option value="Technology">Technology</option>
+            <option value="technology">Technology</option>
             <option value="international">International</option>
             <option value="education">Education</option>
             <option value="breaking">Breaking news</option>

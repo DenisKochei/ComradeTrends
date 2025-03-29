@@ -7,14 +7,14 @@ export function PostBar({ post }) {
   return (
     <div
       onClick={() => navigate(`/post/${post.slug}`)}
-      className="flex px-2 hover:cursor-pointer border-b w-full dark:border-slate-500 border-slate-300 pb-3 justify-start gap-2 sm:gap-5"
+      className="flex px-2 hover:cursor-pointer border-b w-full dark:border-slate-500 border-slate-300 py-2 justify-start gap-2 sm:gap-5"
     >
       <div className="w-28 h-28 ">
         <img className="object-cover w-28 h-28 rounded-lg" src={post.image} />
       </div>
       <div className="w-full flex flex-col justify-center gap-3">
         <div className="">
-          <h3 className="line-clamp-2 font-serif text-xl">{post.title}</h3>
+          <h3 className="line-clamp-2 font-serif">{post.title}</h3>
         </div>
         <div className="text-gray-600">
           <div className=" text-sm flex  justify-between">

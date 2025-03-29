@@ -120,8 +120,8 @@ export function PostPage() {
           />
           <meta name="twitter:image" content={post.image} />
         </Helmet>
-        <main className="min-h-screen flex flex-col mx-auto p-3 max-w-6xl">
-          <h1 className="sm:text-3xl text-xl text-center mt-3 p-3  self-center font-serif max-w-2xl mx-auto lg:text-4xl">
+        <main className="min-h-screen flex flex-col mx-auto p-1 max-w-6xl">
+          <h1 className="sm:text-3xl text-xl text-center mt-1 p-1  self-center font-serif max-w-2xl mx-auto lg:text-4xl">
             {post && post.title}
           </h1>
           <Link
@@ -173,7 +173,7 @@ export function PostPage() {
             className="p-3 w-full max-w-2xl select-none post-content mx-auto"
             dangerouslySetInnerHTML={{ __html: post && post.content2 }}
           ></div>
-          <div className="m-4 max-w-4xl self-center gap-3 flex justify-center items-center">
+          <div className="m-2 max-w-4xl self-center gap-1 flex justify-center items-center">
             <div className="flex flex-col justify-start items-center">
               <FaShare />
               <p>Share:</p>
@@ -209,7 +209,7 @@ export function PostPage() {
           {alsoRead && (
             <div>
               <div className="flex flex-col justify-center items-center mb-5">
-                <h1 className="text-xl mb-5">You might also like:</h1>
+                <h1 className="text-xl m-1">You might also like:</h1>
               </div>
               <div className="flex flex-wrap justify-center gap-5 mt-5">
                 {alsoRead &&

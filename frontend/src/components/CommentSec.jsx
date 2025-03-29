@@ -48,8 +48,8 @@ export function CommentSec({ comment, onLike, onEdit, onDelete }) {
     }
   };
   return (
-    <div className="flex p-4 border-b dark:border-gray-600 text-sm">
-      <div className="flex-shrink-0 mr-3">
+    <div className="flex p-2 border-b dark:border-gray-600 text-sm">
+      <div className="flex-shrink-0 mr-2">
         <img
           className="w-10 h-10 rounded-full bg-gray-200"
           src={(user && user.profilePicture) ? user.profilePicture : "https://cdn.pixabay.com/photo/2015/10/05/22/37/blank-profile-picture-973460_960_720.png" }
