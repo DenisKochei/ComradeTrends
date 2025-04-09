@@ -205,7 +205,7 @@ export function Home() {
         />
       </Helmet>
       <div className=" overflow-x-scroll overflow-y-hidden border  flex w-full border-slate-600 border-x-0 dark:text-slate-500 scrollbar-thin text-nowrap scrollbar-thumb-transparent gap-2 scrollbar-track-transparent justify-between  items-center ">
-        <div className="flex justify-center -mb-2 items-center">
+        <div className="flex justify-center md:-mb-2 items-center">
         <span className="dark:text-slate-700">|</span>
         <Link
           to={`/search?category=trending`}
@@ -320,7 +320,7 @@ export function Home() {
           </Button>
         </Link><span className="dark:text-slate-700">|</span>
         </div>
-        <div className="flex gap-5 ml-10 -mb-2 justify-center items-center">
+        <div className="flex gap-5 ml-10 md:-mb-2 justify-center items-center">
         <span className="flex items-center gap-1">
             <a href="tel:+254759117496">
             <FaPhoneAlt className="text-slate-300 text-sm" />
