@@ -4,7 +4,7 @@ import { Button } from "flowbite-react";
 export function HomePostCard({ post }) {
   return (
     <div>
-      <div className="flex flex-col justify-start items-center">
+      <div className="flex flex-col mt-5 justify-start items-center">
         <h1 className="font-semi font-serif text-xl">{post.title}</h1>
         <Link
           to={`/search?category=${post.category}`}
@@ -20,7 +20,7 @@ export function HomePostCard({ post }) {
           <img className="w-full h-72 sm:h-96 object-cover" src={post.image} />
         </div>
         <div
-          className="line-clamp-2 text-l"
+          className="line-clamp-4 text-l"
           dangerouslySetInnerHTML={{ __html: post.content1 }}
         ></div>
         <span className="text-cyan-500 text-nowrap">Read More</span>

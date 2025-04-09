@@ -15,11 +15,10 @@ export function Search() {
   const [loading, setLoading] = useState(false);
   const [showMore, setShowMore] = useState(false);
   const [readMoreLoading, setReadMoreLoading] = useState(false);
+  const [totalPosts,setTotalPosts] = useState(null)
 
   const location = useLocation();
-
   const navigate = useNavigate();
-
   useEffect(() => {
     const urlParams = new URLSearchParams(location.search);
     const searchTermFromUrl = urlParams.get("searchTerm");
@@ -45,6 +44,7 @@ export function Search() {
       if (res.ok) {
         const data = await res.json();
         setPosts(data.posts);
+        setTotalPosts(data.totalPosts)
         setLoading(false);
         if (data.posts.length === 9) {
           setShowMore(true);
@@ -165,9 +165,12 @@ export function Search() {
         </form>
       </div>
       <div className="w-full">
-        <h1 className="text-3xl font-semibold sm:border-b border-gray-500 p-3 m-1 ">
+        <div className="flex justify-start sm:border-b border-gray-500 items-center gap-1">
+        <h1 className="text-xl font-semibold   p-1 m-1 ">
           Search results:
         </h1>
+          <span className="text-teal-500 text-xl">{totalPosts}</span>
+        </div>
         <div className="p-2 flex justify-center flex-wrap gap-4">
           {!loading && posts.length === 0 && (
             <p className="text-xl text-gray-500">No posts found.</p>

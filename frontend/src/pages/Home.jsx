@@ -4,8 +4,11 @@ import { PostBar } from "../components/PostBar.jsx";
 import { HomePostCard } from "../components/HomePostCard.jsx";
 import { useNavigate } from "react-router-dom";
 import { PostCard } from "../components/PostCard.jsx";
-import { Spinner } from "flowbite-react";
+import { Spinner,Button } from "flowbite-react";
 import { Helmet } from "react-helmet";
+import { FaPhoneAlt } from "react-icons/fa";
+import { IoLogoWhatsapp } from "react-icons/io";
+import { IoMdMail } from "react-icons/io";
 
 export function Home() {
   const navigate = useNavigate();
@@ -23,8 +26,6 @@ export function Home() {
   const [climate, setClimate] = useState([]);
   const [general, setGeneral] = useState([]);
   const [education, setEducation] = useState([]);
-  const [flexDirection,setFlexDirection] = useState("");
-  const [width,setWidth] = useState(window.innerWidth);
   const [loadedSections, setLoadedSections] = useState({
     //politics: false,
     //international: false,
@@ -55,7 +56,7 @@ export function Home() {
 
     try {
       const res = await fetch(
-        category ? `/api/post/getposts?category=${category}&limit=3` : `/api/post/getposts?limit=3`
+        category ? `/api/post/getposts?category=${category}&limit=4` : `/api/post/getposts?limit=4`
       );
       const data = await res.json();
       setter(data.posts);
@@ -133,7 +134,7 @@ export function Home() {
   
   useEffect(() => {
     const fetchPosts = async () => {
-      const res = await fetch("/api/post/getposts?limit=3&category=politics");
+      const res = await fetch("/api/post/getposts?limit=4&category=politics");
       const data = await res.json();
       setPolitics(data.posts);
     };
@@ -142,7 +143,7 @@ export function Home() {
   useEffect(() => {
     const fetchPosts = async () => {
       const res = await fetch(
-        "/api/post/getposts?limit=3&category=international"
+        "/api/post/getposts?limit=4&category=international"
       );
       const data = await res.json();
       setInternational(data.posts);
@@ -151,7 +152,7 @@ export function Home() {
   }, []);
   useEffect(() => {
     const fetchPosts = async () => {
-      const res = await fetch("/api/post/getposts?category=trending&limit=3");
+      const res = await fetch("/api/post/getposts?category=trending&limit=4");
       const data = await res.json();
       setTrending(data.posts);
     };
@@ -160,7 +161,7 @@ export function Home() {
 
   useEffect(() => {
     const fetchPosts = async () => {
-      const res = await fetch("/api/post/getposts?category=breaking&limit=3");
+      const res = await fetch("/api/post/getposts?category=breaking&limit=4");
       const data = await res.json();
       setBreaking(data.posts);
     };
@@ -176,18 +177,10 @@ export function Home() {
     };
     fetchPosts();
   }, []);
-  useEffect(() => {
-    const fetchPosts = async () => {
-      const res = await fetch("/api/post/getposts?limit=3");
-      const data = await res.json();
-      setRecent(data.posts);
-    };
-    fetchPosts();
-  }, []);
   
   useEffect(() => {
     const fetchPosts = async () => {
-      const res = await fetch("/api/post/getposts?limit=3&category=sports");
+      const res = await fetch("/api/post/getposts?limit=4&category=sports");
       const data = await res.json();
       setSports(data.posts);
     };
@@ -196,23 +189,10 @@ export function Home() {
   
  
 
-  useEffect(() => { 
-    const handleResize = () => {
-       if (window.innerWidth > width) { 
-        setWidth(window.innerWidth);
-       } };
-        window.addEventListener('resize', handleResize); return () => { window.removeEventListener('resize', handleResize); }; }, 
-    [width]);
-
-  useEffect(()=>{
-    const style = getComputedStyle(document.getElementById("parent"));
-    const direction = style.flexDirection;
-    setFlexDirection(direction)
-  },[width])
   
 
   return (
-    <div className="flex flex-col my-5 mx-2 lg:mx-10 min-h-screen">
+    <div className="flex  flex-col my-5 mx-2 lg:mx-10 min-h-screen">
       <Helmet>
         <title>{`ComradeTrends | Home Page`}</title>
         <meta
@@ -224,6 +204,141 @@ export function Home() {
           content="trusted source for the latest news, insightful analysis, and trending stories in Kenya and from around the world."
         />
       </Helmet>
+      <div className=" overflow-x-scroll overflow-y-hidden border  flex w-full border-slate-600 border-x-0 dark:text-slate-500 scrollbar-thin text-nowrap scrollbar-thumb-transparent gap-2 scrollbar-track-transparent justify-between  items-center ">
+        <div className="flex justify-center -mb-2 items-center">
+        <span className="dark:text-slate-700">|</span>
+        <Link
+          to={`/search?category=trending`}
+          className="self-center text-nowrap"
+        >
+          <Button className="focus:ring-0"  color="transparent" size="xs">
+            Trending
+          </Button>
+        </Link><span className="dark:text-slate-700">|</span>
+        <Link
+          to={`/search?category=business`}
+          className="self-center text-nowrap"
+        >
+          <Button className="focus:ring-0"  color="transparent" size="xs">
+            Business
+          </Button>
+        </Link><span className="dark:text-slate-700">|</span>
+        <Link
+          to={`/search?category=technology`}
+          className="self-center text-nowrap"
+        >
+          <Button className="focus:ring-0"  color="transparent" size="xs">
+            Technology
+          </Button>
+        </Link><span className="dark:text-slate-700">|</span>
+        <Link
+          to={`/search?category=sports`}
+          className="self-center text-nowrap"
+        >
+          <Button className="focus:ring-0"  color="transparent" size="xs">
+            Sports
+          </Button>
+        </Link><span className="dark:text-slate-700">|</span>
+        <Link
+          to={`/search?category=politics`}
+          className="self-center text-nowrap"
+        >
+          <Button className="focus:ring-0"  color="transparent" size="xs">
+            Politics
+          </Button>
+        </Link><span className="dark:text-slate-700">|</span>
+        <Link
+          to={`/search?category=people`}
+          className="self-center text-nowrap"
+        >
+          <Button className="focus:ring-0"  color="transparent" size="xs">
+            People
+          </Button>
+        </Link><span className="dark:text-slate-700">|</span>
+        <Link
+          to={`/search?category=market`}
+          className="self-center text-nowrap"
+        >
+          <Button className="focus:ring-0"  color="transparent" size="xs">
+            Market
+          </Button>
+        </Link><span className="dark:text-slate-700">|</span>
+        <Link
+          to={`/search?category=health`}
+          className="self-center text-nowrap"
+        >
+          <Button className="focus:ring-0"  color="transparent" size="xs">
+            Health
+          </Button>
+        </Link><span className="dark:text-slate-700">|</span>
+        <Link
+          to={`/search?category=general`}
+          className="self-center text-nowrap"
+        >
+          <Button className="focus:ring-0"  color="transparent" size="xs">
+            General
+          </Button>
+        </Link><span className="dark:text-slate-700">|</span>
+        <Link
+          to={`/search?category=entertainment`}
+          className="self-center text-nowrap"
+        >
+          <Button className="focus:ring-0"  color="transparent" size="xs">
+            Entertainment
+          </Button>
+        </Link><span className="dark:text-slate-700">|</span>
+        <Link
+          to={`/search?category=education`}
+          className="self-center text-nowrap"
+        >
+          <Button className="focus:ring-0"  color="transparent" size="xs">
+            Education
+          </Button>
+        </Link><span className="dark:text-slate-700">|</span>
+        <Link
+          to={`/search?category=climate`}
+          className="self-center text-nowrap"
+        >
+          <Button className="focus:ring-0"  color="transparent" size="xs">
+            Climate
+          </Button>
+        </Link><span className="dark:text-slate-700">|</span>
+        <Link
+          to={`/search?category=business`}
+          className="self-center text-nowrap"
+        >
+          <Button className="focus:ring-0"  color="transparent" size="xs">
+            Business
+          </Button>
+        </Link><span className="dark:text-slate-700">|</span>
+        <Link
+          to={`/search?category=agriculture`}
+          className="self-center text-nowrap"
+        >
+          <Button className="focus:ring-0"  color="transparent" size="xs">
+            Agriculture
+          </Button>
+        </Link><span className="dark:text-slate-700">|</span>
+        </div>
+        <div className="flex gap-5 ml-10 -mb-2 justify-center items-center">
+        <span className="flex items-center gap-1">
+            <a href="tel:+254759117496">
+            <FaPhoneAlt className="text-slate-300 text-sm" />
+            </a>
+          </span>
+          <span className="flex items-center gap-1">
+            <a href="https://wa.me/+254753868958?text=Hello!">
+            <IoLogoWhatsapp className="text-slate-300 text-sm" />
+            </a>
+          </span>
+          <span className="flex items-center gap-1">
+            <a href="mailto:comradetrends.info@gmail.com">
+            <IoMdMail className="text-slate-300 text-sm" />
+            </a>
+          </span>
+        </div>
+                
+      </div>
       <div id="parent" className="flex flex-col md:flex-row gap-2">
         <div className="md:w-1/2 text-center">
           {breaking && breaking.length > 0 ? (
@@ -278,7 +393,7 @@ export function Home() {
         )}
         <div className="flex md:flex-row md:w-1/2 gap-2 flex-col">
           <div className="md:w-1/2 w-full">
-            {trending && trending.length > 0 && (
+            {(trending && trending.length > 0) ? (
               <>
                 <div className="flex flex-col gap-6">
                   <h1 className=" text-2xl font-semibold text-center">
@@ -291,25 +406,25 @@ export function Home() {
                   </div>
                 </div>
               </>
-            )}
-          </div>
-          {breaking && breaking.length > 0 ? (
-            <div className="md:w-1/2 w-full">
-              <div className="flex flex-col gap-6">
-                <h1 className=" text-2xl font-semibold text-center">
-                  Breaking News
-                </h1>
-                <div className="flex justify-center flex-wrap gap-4">
-                  {breaking.map((post) => (
-                    <PostBar post={post} key={post._id} />
-                  ))}
+            ) : 
+              <div>
+                <>
+                <div className="flex flex-col gap-6">
+                  <h1 className=" text-2xl font-semibold text-center">
+                    Business News
+                  </h1>
+                  <div className="flex justify-center flex-wrap gap-4">
+                    {business.map((post) => (
+                      <PostBar post={post} key={post._id} />
+                    ))}
+                  </div>
                 </div>
+              </>
               </div>
-            </div>
-          ) : (
-           <div className="md:w-1/2 w-full">
-              {sports && sports.length > 0 ? (
-                <div className="flex flex-col  gap-6">
+              }
+          </div>
+          {sports && sports.length > 0 ? (
+                <div className="flex flex-col md:w-1/2 w-full gap-6">
                   <h1 className=" text-2xl font-semibold text-center">
                     Sports News
                   </h1>
@@ -320,10 +435,21 @@ export function Home() {
                   </div>
                 </div>
               ) : (
-                <div></div>
+                <div>
+                  <>
+                <div className="flex flex-col gap-6">
+                  <h1 className=" text-2xl font-semibold text-center">
+                    Tech News
+                  </h1>
+                  <div className="flex justify-center flex-wrap gap-4">
+                    {technology.map((post) => (
+                      <PostBar post={post} key={post._id} />
+                    ))}
+                  </div>
+                </div>
+              </>
+                </div>
               )}
-            </div>
-          )}
         </div>
       </div>
     <div className="flex flex-col my-5 mx-2 lg:mx-10 min-h-screen">
@@ -363,7 +489,7 @@ export function Home() {
       
 
       {/* Entertainment Section */}
-      <div ref={entertainmentRef} className={`flex flex-col gap-3 min-h-[200px] text-center ${entertainment.length === 0 && "!h-0"}`}>
+      <div ref={entertainmentRef} className={`flex flex-col gap-3 min-h-[200px] text-center ${(entertainment.length === 0) && "!min-h-override"}`}>
         {entertainment.length > 0 ? (
         <div>
           <h1 className="text-2xl font-semibold">Entertainment</h1>
@@ -379,7 +505,7 @@ export function Home() {
         )}
       </div>
       {/* Entertainment Section */}
-      <div ref={technologyRef} className={`flex flex-col min-h-[200px] gap-3 text-center ${ (technology.length === 0) && "!h-0"}`}>
+      <div ref={technologyRef} className={`flex flex-col min-h-[200px]  gap-3 text-center ${ (technology.length === 0) && "!min-h-override"}`}>
         {technology.length > 0 ? (
         <div>
           <h1 className="text-2xl font-semibold">Technology</h1>
@@ -395,7 +521,7 @@ export function Home() {
         )}
       </div>
       {/* Entertainment Section */}
-      <div ref={educationRef} className={`flex flex-col min-h-[200px] gap-3 text-center ${ (education.length === 0) && "!h-0"}`}>
+      <div ref={educationRef} className={`flex flex-col min-h-[200px] gap-3 text-center ${ (education.length === 0) && "!min-h-override"}`}>
         {education.length > 0 ? (
         <div>
           <h1 className="text-2xl font-semibold">Education</h1>
@@ -411,7 +537,7 @@ export function Home() {
         )}
       </div>
       {/* Entertainment Section */}
-      <div ref={climateRef} className={`flex flex-col min-h-[200px] gap-3 text-center ${ (climate.length === 0) && "!h-0"}`}>
+      <div ref={climateRef} className={`flex flex-col min-h-[200px] gap-3 text-center ${ (climate.length === 0) && "!min-h-override"}`}>
         {climate.length > 0 ? (
       <div>
           <h1 className="text-2xl font-semibold">Climate</h1>
@@ -427,7 +553,7 @@ export function Home() {
         )}
       </div>
       {/* Entertainment Section */}
-      <div ref={healthRef} className={`flex flex-col min-h-[200px] gap-3 text-center ${ (health.length === 0) && "!h-0"}`}>
+      <div ref={healthRef} className={`flex flex-col min-h-[200px] gap-3 text-center ${ (health.length === 0) && "!min-h-override"}`}>
         {health.length > 0 ? (
         <div>
           <h1 className="text-2xl font-semibold">Health</h1>
@@ -443,7 +569,7 @@ export function Home() {
         )}
       </div>
       {/* Entertainment Section */}
-      <div ref={generalRef} className={`flex flex-col min-h-[200px] gap-0 text-center ${ (general.length === 0) && "!h-0"}`}>
+      <div ref={generalRef} className={`flex flex-col min-h-[200px] gap-0 text-center ${ (general.length === 0) && "!min-h-override"}`}>
         {general.length > 0 ? (
        <div>
          <h1 className="text-2xl font-semibold">General News</h1>
@@ -459,7 +585,7 @@ export function Home() {
         )}
       </div>
       {/* Entertainment Section */}
-      <div ref={businessRef} className={`flex flex-col min-h-[200px] gap-0 text-center ${ (business.length === 0)  && "!h-0"}`}>
+      <div ref={businessRef} className={`flex flex-col min-h-[200px] gap-0 text-center ${ (business.length === 0)  && "!min-h-override"}`}>
         {business.length > 0 ? (
         <div>
           <h1 className="text-2xl font-semibold">Business</h1>
@@ -476,7 +602,7 @@ export function Home() {
       </div>
 
       {/* Recent Posts Section */}
-      <div ref={recentRef} className={`flex flex-col min-h-[200px] gap-3 text-center ${ recent.length === 0  && "!h-0"}`}>
+      <div ref={recentRef} className={`flex flex-col min-h-[200px] gap-3 text-center ${ recent.length === 0  && "!min-h-override"}`}>
         {recent.length > 0 ? (
         <div>
           <h1 className="text-2xl font-semibold">Recent Posts</h1>

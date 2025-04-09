@@ -8,7 +8,11 @@ export default {
     flowbite.content(),
   ],
   theme: {
-    extend: {},
+    extend: {
+      minHeight:{
+        "override": "0px"
+      },
+    },
   },
   plugins: [
     flowbite.plugin(),require('tailwind-scrollbar')
