@@ -1,5 +1,6 @@
 import { Helmet } from "react-helmet";
 import { BiRightArrow } from "react-icons/bi";
+import { PageIndicator } from "../components/PageIndicator";
 
 export function PolicyPage() {
   return (
@@ -11,6 +12,7 @@ export function PolicyPage() {
           content="We're your trusted source for the latest news, insightful analysis, and trending stories from around the world."
         />
       </Helmet>
+      <PageIndicator />
       <div className="sm:mx-10 mx-2">
         <div>
           <div className="max-w-4xl mx-auto">

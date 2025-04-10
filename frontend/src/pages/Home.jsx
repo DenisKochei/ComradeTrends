@@ -26,6 +26,7 @@ export function Home() {
   const [climate, setClimate] = useState([]);
   const [general, setGeneral] = useState([]);
   const [education, setEducation] = useState([]);
+   const [hashtags,setHashTags] = useState(null)
   const [loadedSections, setLoadedSections] = useState({
     //politics: false,
     //international: false,
@@ -142,6 +143,14 @@ export function Home() {
   }, []);
   useEffect(() => {
     const fetchPosts = async () => {
+      const res = await fetch("/api/post/getposts?limit=9");
+      const data = await res.json();
+      setHashTags(data.allHashtags);
+    };
+    fetchPosts();
+  }, []);
+  useEffect(() => {
+    const fetchPosts = async () => {
       const res = await fetch(
         "/api/post/getposts?limit=4&category=international"
       );
@@ -186,10 +195,15 @@ export function Home() {
     };
     fetchPosts();
   }, []);
-  
- 
+  /*useEffect(()=>{
+    const fetchHashTags = async ()=>{
+      const res = await fetch("/api/post/getposts?limit=9&hashtag=")
+      const data = await res.json();
+      setHashTags(data.posts);
+    }
+    fetchHashTags();
+  })*/
 
-  
 
   return (
     <div className="flex  flex-col my-5 mx-2 lg:mx-10 min-h-screen">
@@ -204,7 +218,7 @@ export function Home() {
           content="trusted source for the latest news, insightful analysis, and trending stories in Kenya and from around the world."
         />
       </Helmet>
-      <div className=" overflow-x-scroll overflow-y-hidden border  flex w-full border-slate-600 border-x-0 dark:text-slate-500 scrollbar-thin text-nowrap scrollbar-thumb-transparent gap-2 scrollbar-track-transparent justify-between  items-center ">
+      <div className=" overflow-x-scroll overflow-y-hidden border p-1 flex w-full border-slate-600 border-x-0 dark:text-slate-500 scrollbar-thin text-nowrap scrollbar-thumb-transparent gap-2 scrollbar-track-transparent justify-between  items-center ">
         <div className="flex justify-center md:-mb-2 items-center">
         <span className="dark:text-slate-700">|</span>
         <Link
@@ -323,17 +337,17 @@ export function Home() {
         <div className="flex gap-5 ml-10 md:-mb-2 justify-center items-center">
         <span className="flex items-center gap-1">
             <a href="tel:+254759117496">
-            <FaPhoneAlt className="text-slate-300 text-sm" />
+            <FaPhoneAlt className="dark:text-slate-300 text-sm" />
             </a>
           </span>
           <span className="flex items-center gap-1">
             <a href="https://wa.me/+254753868958?text=Hello!">
-            <IoLogoWhatsapp className="text-slate-300 text-sm" />
+            <IoLogoWhatsapp className="dark:text-slate-300 text-sm" />
             </a>
           </span>
           <span className="flex items-center gap-1">
             <a href="mailto:comradetrends.info@gmail.com">
-            <IoMdMail className="text-slate-300 text-sm" />
+            <IoMdMail className="dark:text-slate-300 text-sm" />
             </a>
           </span>
         </div>
@@ -372,9 +386,9 @@ export function Home() {
             <div></div>
           )}
         </div>
-        {recent.length === 0 &&
+        {(recent.length === 0 &&
         mostTrending.length === 0 &&
-        breaking.length === 0 ? (
+        breaking.length === 0) ? (
           <div className="min-h-screen">
             <div className="flex flex-col gap-3 items-center justify-center py-8 md:py-20 px-3 max-w-6xl mx-auto">
               <h1 className="text-3xl font-bold md:text-nowrap lg:text-6xl">
@@ -601,6 +615,25 @@ export function Home() {
         )}
       </div>
 
+      {hashtags && 
+        <div className="flex overflow-x-scroll scrollbar-thin text-nowrap scrollbar-thumb-transparent scrollbar-track-transparent overflow-y-hidden gap-2 flex-wrap items-center justify-start "><span className="text-4xl text-orange-500">#</span>
+          {hashtags.map((post)=>(
+              <Link
+              to={`/search?hashtag=${post}&limit=2`}
+              className="self-center mt-2"
+            >
+              <Button
+                className="focus:ring-0  rounded-full p-0 border border-gray-400 hover:border-blue-500 transition duration-300 ease-in-out"
+                pill
+                color="gray"
+                size="xs"
+              >       
+                #{post}         
+              </Button>
+            </Link>
+          ))}
+        </div>
+      }
       {/* Recent Posts Section */}
       <div ref={recentRef} className={`flex flex-col min-h-[200px] gap-3 text-center ${ recent.length === 0  && "!min-h-override"}`}>
         {recent.length > 0 ? (

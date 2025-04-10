@@ -17,6 +17,7 @@ import { FaShare,FaLink } from "react-icons/fa6";
 import { FaWhatsapp,FaTelegramPlane } from "react-icons/fa";
 import { CiFacebook } from "react-icons/ci";
 import { FaXTwitter } from "react-icons/fa6";
+import { PageIndicator } from "../components/PageIndicator";
 
 export function PostPage() {
   const { postslug } = useParams();
@@ -147,12 +148,13 @@ export function PostPage() {
           />
           <meta name="twitter:image" content={post.image} />
         </Helmet>
-        <div className="hidden lg:sticky lg:py-4 lg:px-1 lg:justify-center lg:items-center lg:flex lg:flex-col lg:my-10 lg:mx-1 md:top-20">
+        <PageIndicator />
+        <div className="hidden lg:sticky lg:py-4 lg:px-1 lg:justify-center lg:items-center lg:flex lg:flex-col lg:mb-10 lg:mx-1 md:top-20">
           <div>
           <FaShareFromSquare className="w-6 h-6"/>
           <h1 className="">Share</h1>
           </div>
-         <div className=" border w-16 bg-slate-900 justify-between items-center border-gray-600 rounded-md py-5 gap-10 px-1 flex flex-col ">
+         <div className=" border w-16 dark:bg-slate-900 bg-slate-400 justify-between items-center border-gray-600 rounded-md py-5 gap-10 px-1 flex flex-col ">
          <div>
          <FacebookShareButton
             url={currentPageURL}
@@ -197,18 +199,24 @@ export function PostPage() {
          </div>
          </div>
         </div>
-        <main className="min-h-screen lg:w-2/3 m-5 flex flex-col mx-auto p-1 max-w-6xl">
+        <main className="min-h-screen lg:w-2/3 mb-5 flex flex-col mx-auto p-1 max-w-6xl">
           <h1 className="sm:text-3xl text-xl text-center mt-1 p-1  self-center font-serif max-w-4xl mx-auto lg:text-4xl">
             {post && post.title}
           </h1>
+          <div className="flex items-center justify-around">
+          {post && post.hashtag && 
+          <div className="dark:text-slate-500">
+          {(post && post.hashtag) ? `#${post.hashtag}` : "" }
+        </div>}
           <Link
             to={`/search?category=${post && post.category}`}
             className="self-center mt-2"
           >
-            <Button className="focus:ring-0" pill color="gray" size="xs">
+            <Button className="focus:ring-0 p-0" pill color="gray" size="xs">
               {post && post.category}
             </Button>
           </Link>
+          </div>
           <div className="max-w-4xl self-center w-full">
             {auther ? 
             <div className="flex justify-start gap-1 my-0 text-gray-500 text-xs items-center">

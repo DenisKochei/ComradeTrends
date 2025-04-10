@@ -107,12 +107,20 @@ export default function CreatePost() {
               setFormData({ ...formData, title: e.target.value })
             }
           />
+          <TextInput
+            placeholder="Hashtag"
+            id="Hashtag"
+            className="flex-1"
+            onChange={(e) =>
+              setFormData({ ...formData, hashtag: e.target.value })
+            }
+          />
           <Select
             onChange={(e) =>
               setFormData({ ...formData, category: e.target.value })
             }
           >
-            <option value="uncategorized">Select category</option>
+            <option value="">Select category</option>
             <option value="breaking">Breaking news</option>
             <option value="business">Business</option>
             <option value="climate">Climate</option>

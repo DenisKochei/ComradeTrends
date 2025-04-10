@@ -1,8 +1,11 @@
 import { useNavigate } from "react-router-dom";
+import { PageIndicator } from "../components/PageIndicator";
 
 const TermsAndConditions = () => {
   const navigate = useNavigate();
   return (
+<div>
+<PageIndicator />
     <div className="max-w-4xl mx-auto py-8 px-4 sm:px-6 lg:px-8">
       <h1 className="text-3xl font-bold mb-6">Terms and Conditions of Use</h1>
 
@@ -348,6 +351,7 @@ const TermsAndConditions = () => {
         </ul>
       </section>
     </div>
+</div>
   );
 };
 

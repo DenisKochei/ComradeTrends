@@ -1,6 +1,7 @@
 import React from "react";
 import { CallToAction } from "../components/CallToAction";
 import { Helmet } from "react-helmet";
+import { PageIndicator } from "../components/PageIndicator";
 
 export function About() {
   return (
@@ -12,6 +13,7 @@ export function About() {
           content="We're your trusted source for the latest news, insightful analysis, and trending stories from around the world."
         />
       </Helmet>
+      <PageIndicator />
       <div className="min-h-screen flex items-center justify-center">
         <div className="max-w-2xl mx-auto p-3 text-center">
           <div>

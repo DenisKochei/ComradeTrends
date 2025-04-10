@@ -16,6 +16,7 @@ export function Search() {
   const [showMore, setShowMore] = useState(false);
   const [readMoreLoading, setReadMoreLoading] = useState(false);
   const [totalPosts,setTotalPosts] = useState(null)
+ 
 
   const location = useLocation();
   const navigate = useNavigate();
@@ -44,7 +45,8 @@ export function Search() {
       if (res.ok) {
         const data = await res.json();
         setPosts(data.posts);
-        setTotalPosts(data.totalPosts)
+        console.log(data.posts)
+        setTotalPosts(data.length)
         setLoading(false);
         if (data.posts.length === 9) {
           setShowMore(true);
@@ -102,9 +104,10 @@ export function Search() {
       }
     }
   };
+  
 
   return (
-    <div className="flex flex-col min-h-screen md:flex-row">
+    <div className="flex flex-col min-h-screen w-full md:flex-row">
       <Helmet>
         <title>{`ComradeTrends | Search Page`}</title>
         <meta
@@ -112,22 +115,23 @@ export function Search() {
           content="We're your trusted source for the latest news, insightful analysis, and trending stories from around the world."
         />
       </Helmet>
-      <div className="p-3 border-b md:border-r md:min-h-screen border-gray-500">
+      <div className="flex flex-col w-full justify-center md:items-start md:flex-row">
+      <div className="p-3 border-b md:w-1/4 md:border-r md:min-h-screen  border-gray-500">
         <form
-          className="flex flex-col gap-2 justify-start"
+          className="flex flex-col md:sticky top-5 gap-2 justify-start"
           onSubmit={handleSubmit}
         >
-          <div className="w-full flex gap-0">
+          <div className="w-full flex-col md:flex gap-0">
             <input
               id="searchTerm"
               type="text"
               value={sidebarData.searchTerm}
               onChange={handleChange}
               placeholder="Search..."
-              className=" w-1/2 dark:bg-slate-800 rounded-lg border-b-slate-500"
+              className=" w-1/2 md:w-full dark:bg-slate-800 rounded-lg border-b-slate-500"
             />
             <select
-              className=" border-none w-1/4 focus:ring-0 dark:bg-slate-800 "
+              className=" border-none w-1/4 md:w-full focus:ring-0 dark:bg-slate-800 "
               onChange={handleChange}
               value={sidebarData.sort}
               id="sort"
@@ -139,18 +143,24 @@ export function Search() {
               onChange={handleChange}
               value={sidebarData.category}
               id="category"
-              className=" dark:bg-slate-800 border-none focus:ring-0 w-1/4"
+              className=" dark:bg-slate-800 border-none focus:ring-0 w-1/4 md:w-full"
             >
-              <option value="">uncategorized</option>
-              <option value="sports">sports</option>
-              <option value="business">business</option>
-              <option value="health">health</option>
-              <option value="politics">politics</option>
-              <option value="entertainment">entertainment</option>
-              <option value="general">general</option>
-              <option value="Technology">technology</option>
-              <option value="international">international</option>
-              <option value="education">education</option>
+            <option value="">Select category</option>
+            <option value="breaking">Breaking news</option>
+            <option value="business">Business</option>
+            <option value="climate">Climate</option>
+            <option value="education">Education</option>
+            <option value="entertainment">Entertainment</option>
+            <option value="general">General</option>
+            <option value="health">Health</option>
+            <option value="market">Market</option>
+            <option value="most-trending">Most trending</option>
+            <option value="people">People</option>
+            <option value="politics">Politics</option>
+            <option value="sports">Sports</option>
+            <option value="technology">Technology</option>
+            <option value="trending">Trending</option>
+            <option value="agriculture">Trending</option>
             </select>
           </div>
           <Button
@@ -188,6 +198,7 @@ export function Search() {
             </button>
           )}
         </div>
+      </div>
       </div>
     </div>
   );

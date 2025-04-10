@@ -30,12 +30,14 @@ export const getposts = async (req, res, next) => {
       ...(req.query.userId && { userId: req.query.userId }),
       ...(req.query.category && { category: req.query.category }),
       ...(req.query.slug && { slug: req.query.slug }),
+      ...(req.query.hashtag && { hashtag: req.query.hashtag }),
       ...(req.query.postId && { _id: req.query.postId }),
       ...(req.query.searchTerm && {
         $or: [
           { title: { $regex: req.query.searchTerm, $options: 'i' } },
           { content1: { $regex: req.query.searchTerm, $options: 'i' } },
           { content2: { $regex: req.query.searchTerm, $options: 'i' } },
+          { hashtag: { $regex: req.query.searchTerm, $options: 'i' } },
           
         ],
       }),
@@ -46,6 +48,31 @@ export const getposts = async (req, res, next) => {
     const totalPosts = await Post.countDocuments();
     const now = new Date();
 
+    const searchTotal = await Post.find({
+      ...(req.query.userId && { userId: req.query.userId }),
+      ...(req.query.category && { category: req.query.category }),
+      ...(req.query.hashtag && { hashtag: req.query.hashtag }),
+      ...(req.query.slug && { slug: req.query.slug }),
+      ...(req.query.postId && { _id: req.query.postId }),
+      ...(req.query.searchTerm && {
+        $or: [
+          { title: { $regex: req.query.searchTerm, $options: 'i' } },
+          { content1: { $regex: req.query.searchTerm, $options: 'i' } },
+          { content2: { $regex: req.query.searchTerm, $options: 'i' } },
+          
+        ],
+      }),
+    })
+
+    const allHashtags = Array.from(
+      new Set(
+        searchTotal
+          .filter(post => post.hashtag)
+          .map(post => post.hashtag)
+      )
+    );
+
+    const length = searchTotal.length
     const oneMonthAgo = new Date(
       now.getFullYear(),
       now.getMonth() - 1,
@@ -60,6 +87,8 @@ export const getposts = async (req, res, next) => {
       posts,
       totalPosts,
       lastMonthPosts,
+      length,
+      allHashtags
     });
   } catch (error) {
     next(error);

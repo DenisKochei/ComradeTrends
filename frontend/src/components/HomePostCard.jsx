@@ -10,7 +10,7 @@ export function HomePostCard({ post }) {
           to={`/search?category=${post.category}`}
           className="self-center mt-2"
         >
-          <Button className="focus:ring-0" pill color="gray" size="xs">
+          <Button className="focus:ring-0 p-0" pill color="gray" size="xs">
             {post.category === "most-trending"
               ? "Most Trending"
               : post.category}

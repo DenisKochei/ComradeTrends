@@ -140,7 +140,7 @@ export function Header() {
               )}
               <Button
                 color="gray"
-                className="w-9 h-9 focus:ring-0"
+                className="w-5 h-5 flex justify-center items-center p-3 focus:ring-0"
                 pill
                 onClick={() => dispatch(toggleTheme())}
               >
@@ -155,6 +155,9 @@ export function Header() {
                       alt="User"
                       img={currentUser.profilePicture}
                       rounded
+                      status="online" statusPosition="top-right"
+                      size="sm"
+                      className=""
                     />
                   }
                 >

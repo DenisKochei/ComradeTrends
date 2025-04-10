@@ -1,9 +1,13 @@
 import { BsFacebook, BsTiktok } from "react-icons/bs";
 import { RiTwitterXFill } from "react-icons/ri";
 import { CallToAction } from "../components/CallToAction";
+import { PageIndicator } from "../components/PageIndicator";
 export function Contacts() {
   return (
-    <div className="min-h-screen flex flex-col justify-start m-10 items-center">
+      
+    <div>
+      <PageIndicator />
+      <div className="min-h-screen flex flex-col justify-start m-10 items-center">
       <div className="w-full border border-x-0 border-t-0 border-gray-700 mb-5 flex justify-center">
         <h1 className="text-2xl m-4 font-bold">Contact Us</h1>
       </div>
@@ -62,6 +66,7 @@ export function Contacts() {
         </a>
       </div>
       <CallToAction />
+    </div>
     </div>
   );
 }
