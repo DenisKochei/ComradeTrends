@@ -10,9 +10,11 @@ export function PageIndicator() {
   ).join(" » ");
   console.log(breadcrumb);
   return (
-    <div className='text-lg mx-5 mt-2'>
+    <div className='text-sm mx-5 text-slate-600 mt-2'>
+      <div className='line-clamp-1'>
       <span>{"Home » "}</span>
       {breadcrumb}
+      </div>
     </div>
   )
 }
