@@ -470,7 +470,8 @@ export function Home() {
         <div className="flex flex-col  justify-center items-center">
           <h1 className="text-2xl font-semibold">Politics</h1>
           <div className=" overflow-x-scroll overflow-y-hidden p-1 flex w-full scrollbar-thin 2xl:justify-center scrollbar-thumb-transparent gap-2 scrollbar-track-transparent justify-between  items-center ">
-            <div className="flex flex-col gap-2 justify-around sm:flex-row items-center"> 
+                      <div className="flex w-full sm:w-auto flex-col gap-2 justify-around sm:flex-row items-center"> 
+ 
               {politics.map((post) => <PostCard key={post._id} post={post} />)}
             </div>
           </div>
@@ -489,7 +490,8 @@ export function Home() {
         <div className="flex flex-col justify-center items-center">
           <h1 className="text-2xl font-semibold">International News</h1>
           <div className=" overflow-x-scroll overflow-y-hidden p-1 flex w-full scrollbar-thin 2xl:justify-center scrollbar-thumb-transparent gap-2 scrollbar-track-transparent justify-between  items-center ">
-          <div className="flex flex-col gap-2 justify-around sm:flex-row items-center"> 
+                    <div className="flex w-full sm:w-auto flex-col gap-2 justify-around sm:flex-row items-center"> 
+ 
             {international.map((post) => <PostCard key={post._id} post={post} />)}
           </div>
           </div>
@@ -503,12 +505,12 @@ export function Home() {
       
 
       {/* Entertainment Section */}
-      <div ref={entertainmentRef} className={`flex flex-col gap-3 min-h-[200px] text-center ${(entertainment.length === 0) && "!min-h-override"}`}>
+      <div ref={entertainmentRef} className={`flex w-full flex-col gap-3 min-h-[200px] text-center ${(entertainment.length === 0) && "!min-h-override"}`}>
         {entertainment.length > 0 ? (
         <div>
           <h1 className="text-2xl font-semibold">Entertainment</h1>
           <div className=" overflow-x-scroll overflow-y-hidden p-1 flex w-full scrollbar-thin 2xl:justify-center scrollbar-thumb-transparent gap-2 scrollbar-track-transparent justify-between  items-center ">
-          <div className="flex flex-col gap-2 justify-around sm:flex-row items-center"> 
+          <div className="flex w-full sm:w-auto flex-col gap-2 justify-around sm:flex-row items-center"> 
             {entertainment.map((post) => <PostCard key={post._id} post={post} />)}
           </div>
           </div>
@@ -526,7 +528,8 @@ export function Home() {
         <div>
           <h1 className="text-2xl font-semibold">Technology</h1>
           <div className=" overflow-x-scroll overflow-y-hidden p-1 flex w-full scrollbar-thin 2xl:justify-center scrollbar-thumb-transparent gap-2 scrollbar-track-transparent justify-between  items-center ">
-          <div className="flex flex-col gap-2 justify-around sm:flex-row items-center">  
+                    <div className="flex w-full sm:w-auto flex-col gap-2 justify-around sm:flex-row items-center"> 
+  
             {technology.map((post) => <PostCard key={post._id} post={post} />)}
           </div>
           </div>
@@ -544,7 +547,8 @@ export function Home() {
         <div>
           <h1 className="text-2xl font-semibold">Education</h1>
           <div className=" overflow-x-scroll overflow-y-hidden p-1 flex w-full scrollbar-thin 2xl:justify-center scrollbar-thumb-transparent gap-2 scrollbar-track-transparent justify-between  items-center ">
-          <div className="flex flex-col gap-2 justify-around sm:flex-row items-center">  
+                    <div className="flex w-full sm:w-auto flex-col gap-2 justify-around sm:flex-row items-center"> 
+  
             {education.map((post) => <PostCard key={post._id} post={post} />)}
           </div>
           </div>
@@ -562,7 +566,8 @@ export function Home() {
       <div>
           <h1 className="text-2xl font-semibold">Climate</h1>
           <div className=" overflow-x-scroll overflow-y-hidden p-1 flex w-full scrollbar-thin 2xl:justify-center scrollbar-thumb-transparent gap-2 scrollbar-track-transparent justify-between  items-center ">
-          <div className="flex flex-col gap-2 justify-around sm:flex-row items-center">  
+                    <div className="flex w-full sm:w-auto flex-col gap-2 justify-around sm:flex-row items-center"> 
+  
             {climate.map((post) => <PostCard key={post._id} post={post} />)}
           </div>
           </div>
@@ -580,7 +585,8 @@ export function Home() {
         <div>
           <h1 className="text-2xl font-semibold">Health</h1>
           <div className=" overflow-x-scroll overflow-y-hidden p-1 flex w-full scrollbar-thin 2xl:justify-center scrollbar-thumb-transparent gap-2 scrollbar-track-transparent justify-between  items-center ">
-          <div className="flex flex-col gap-2 justify-around sm:flex-row items-center">  
+                    <div className="flex w-full sm:w-auto flex-col gap-2 justify-around sm:flex-row items-center"> 
+  
             {health.map((post) => <PostCard key={post._id} post={post} />)}
           </div>
           </div>
@@ -598,7 +604,8 @@ export function Home() {
        <div>
          <h1 className="text-2xl font-semibold">General News</h1>
          <div className=" overflow-x-scroll overflow-y-hidden p-1 flex w-full scrollbar-thin 2xl:justify-center scrollbar-thumb-transparent gap-2 scrollbar-track-transparent justify-between  items-center ">
-         <div className="flex flex-col gap-2 justify-around sm:flex-row items-center">  
+                   <div className="flex w-full sm:w-auto flex-col gap-2 justify-around sm:flex-row items-center"> 
+  
             {general.map((post) => <PostCard key={post._id} post={post} />)}
           </div>
           </div>
@@ -616,7 +623,8 @@ export function Home() {
         <div>
           <h1 className="text-2xl font-semibold">Business</h1>
           <div className=" overflow-x-scroll overflow-y-hidden p-1 flex w-full scrollbar-thin 2xl:justify-center scrollbar-thumb-transparent gap-2 scrollbar-track-transparent justify-between  items-center ">
-          <div className="flex flex-col gap-2 justify-around sm:flex-row items-center">  
+                    <div className="flex w-full sm:w-auto flex-col gap-2 justify-around sm:flex-row items-center"> 
+  
             {business.map((post) => <PostCard key={post._id} post={post} />)}
           </div>
           </div>
@@ -654,7 +662,8 @@ export function Home() {
         <div>
           <h1 className="text-2xl font-semibold">Recent Posts</h1>
           <div className=" overflow-x-scroll overflow-y-hidden p-1 flex w-full scrollbar-thin 2xl:justify-center scrollbar-thumb-transparent gap-2 scrollbar-track-transparent justify-between  items-center ">
-          <div className="flex flex-col gap-2 justify-around sm:flex-row items-center">  
+                    <div className="flex w-full sm:w-auto flex-col gap-2 justify-around sm:flex-row items-center"> 
+  
             {recent.map((post) => <PostCard key={post._id} post={post} />)}
           </div>
           </div>
