@@ -9,6 +9,8 @@ import { Helmet } from "react-helmet";
 import { FaPhoneAlt } from "react-icons/fa";
 import { IoLogoWhatsapp } from "react-icons/io";
 import { IoMdMail } from "react-icons/io";
+import { IoTrendingUp } from "react-icons/io5";
+
 
 export function Home() {
   const navigate = useNavigate();
@@ -211,7 +213,7 @@ export function Home() {
       </Helmet>
       <div className=" overflow-x-scroll overflow-y-hidden border p-1 flex w-full border-slate-600 border-x-0 dark:text-slate-500 scrollbar-thin text-nowrap scrollbar-thumb-transparent gap-2 scrollbar-track-transparent justify-between  items-center ">
         <div className="flex justify-center md:-mb-2 items-center">
-        <span className="dark:text-slate-700">|</span>
+        <IoTrendingUp className="w-5 h-5 text-purple-600"/>
         <Link
           to={`/search?category=trending`}
           className="self-center text-nowrap"
