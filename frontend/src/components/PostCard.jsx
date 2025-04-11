@@ -15,7 +15,7 @@ export function PostCard({ post }) {
         />
       </div>
       <div className="p-3 flex flex-col gap-2">
-        <p className="text-md font-semibold line-clamp-2">{post.title}</p>
+        <p className="text-lg font-semibold line-clamp-2">{post.title}</p>
        <div className="flex justify-start items-center">
        <span className="italic text-slate-600 text-xs">{post.category}</span>
        <span className="text-slate-600">{post.subcategory ? `/ ${post.subcategory}` : ""}</span>
