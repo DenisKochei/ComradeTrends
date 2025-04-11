@@ -15,6 +15,7 @@ export function PageIndicator() {
       <span>{"Home » "}</span>
       {breadcrumb}
       </div>
+      
     </div>
   )
 }

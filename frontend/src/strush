@@ -1108,12 +1108,65 @@ checkLength()
 
 
 
+
 <div>
 <option value="people">People</option>
             <option value="general">General</option>
             <option value="technology">Technology</option>
+                    <div className="hidden lg:sticky lg:py-4 lg:px-1 lg:justify-center lg:items-center lg:flex lg:flex-col lg:mb-10 lg:mx-1 md:top-20">
+                      <div>
+                      <FaShareFromSquare className="w-6 h-6"/>
+                      <h1 className="">Share</h1>
+                      </div>
+                     <div className=" border w-16 dark:bg-slate-900 bg-slate-400 justify-between items-center border-gray-600 rounded-md py-5 gap-10 px-1 flex flex-col ">
+                     <div>
+                     <FacebookShareButton
+                        url={currentPageURL}
+                        quote={post.title}
+                        hashtag="#ComradeTrends"
+                      >
+                        <CiFacebook fill="rgb(74,70,70)" className="text-3xl hover:fill-slate-300" />
+                      </FacebookShareButton>
+                     </div>
+                      <div>
+                      <TwitterShareButton url={currentPageURL}>
+                        <FaXTwitter fill="rgb(74,70,70)" className="text-2xl hover:fill-slate-300" />
+                      </TwitterShareButton>
+                      </div>
+                     <div>
+                     <WhatsappShareButton
+                        url={currentPageURL}
+                        separator="::"
+                        title={post.title}
+                      >
+                        <FaWhatsapp fill="rgb(74,70,70)" className="text-2xl hover:fill-slate-300" />
+                      </WhatsappShareButton>
+                     </div>
+                     <div>
+                      <TelegramShareButton
+                        title={post.title}
+                        url={currentPageURL}
+                      >
+                        <FaTelegramPlane fill="rgb(74,70,70)" className="text-2xl hover:fill-slate-300" />
+                      </TelegramShareButton>
+                     </div>
+                     <div className="flex flex-col justify-center items-center">
+                      <FaLink onClick={handleCopyLink} fill="rgb(74,70,70)" className="text-2xl hover:fill-slate-300 hover:cursor-pointer"/>
+                      {copied && (
+                    <span className={`
+                      text-sm text-green-500 mt-1 transition-opacity duration-500
+                      ${copied ? 'opacity-100' : 'opacity-0'}
+                    `}>
+                      Copied!
+                    </span>
+                  )}
+                     </div>
+                     </div>
+                    </div>
 
 </div>
+
+
 
 
 

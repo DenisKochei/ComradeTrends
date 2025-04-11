@@ -93,7 +93,7 @@ export function PostPage() {
   }, [post]);
    useEffect(() => {
       const fetchRecent = async () => {
-        const res = await fetch("/api/post/getposts?limit=4");
+        const res = await fetch("/api/post/getposts?limit=5");
         const data = await res.json();
         setRecent(data.posts);
       };
@@ -121,7 +121,9 @@ export function PostPage() {
     );
   } else {
     return (
-      <div className="lg:flex min-h-screen items-start">
+      <div className="mt-3">
+        <PageIndicator />
+        <div className="lg:flex min-h-screen items-start">
         <Helmet>
           <title>{`Comrade Trends | ${post.title}`}</title>
           <meta name="description" content={post.title} />
@@ -148,7 +150,6 @@ export function PostPage() {
           />
           <meta name="twitter:image" content={post.image} />
         </Helmet>
-        <PageIndicator />
         <div className="hidden lg:sticky lg:py-4 lg:px-1 lg:justify-center lg:items-center lg:flex lg:flex-col lg:mb-10 lg:mx-1 md:top-20">
           <div>
           <FaShareFromSquare className="w-6 h-6"/>
@@ -259,35 +260,35 @@ export function PostPage() {
             dangerouslySetInnerHTML={{ __html: post && post.content2 }}
           ></div>
           <div className="w-full block lg:hidden">
-          <div className="m-4 max-w-4xl self-center gap-3 flex justify-start items-center">
+          <div className="m-4 max-w-4xl border borber-gray-600 dark:bg-slate-900 bg-slate-400 justify-around self-center gap-3 flex rounded-md items-center">
             <div className="flex flex-col justify-start items-center">
               <FaShareFromSquare fill="rgb(192, 193, 194)" className="w-6 h-6" />
               <p>Share:</p>
             </div>
             <div className="flex  gap-3">
-              <FacebookShareButton
+            <FacebookShareButton
                 url={currentPageURL}
                 quote={post.title}
                 hashtag="#ComradeTrends"
               >
-                <CiFacebook fill="rgb(7,101,254,100)" className="text-3xl" />
+                <CiFacebook fill="rgb(74,70,70)" className="text-3xl hover:fill-slate-300" />
               </FacebookShareButton>
               <TwitterShareButton url={currentPageURL}>
-                <FaXTwitter fill="rgb(0,0,0,100)" className="text-2xl" />
+                <FaXTwitter fill="rgb(74,70,70)" className="text-2xl hover:fill-slate-300" />
               </TwitterShareButton>
               <WhatsappShareButton
                 url={currentPageURL}
                 separator="::"
                 title={post.title}
               >
-                <FaWhatsapp fill="rgb(36,196,96,100)" className="text-2xl" />
+                <FaWhatsapp fill="rgb(74,70,70)" className="text-2xl hover:fill-slate-300" />
               </WhatsappShareButton>
               <TelegramShareButton
-            title={post.title}
-            url={currentPageURL}
-          >
-            <FaTelegramPlane fill="rgb(53, 92, 140)" className="text-2xl" />
-          </TelegramShareButton>
+                title={post.title}
+                url={currentPageURL}
+              >
+                <FaTelegramPlane fill="rgb(74,70,70)" className="text-2xl hover:fill-slate-300" />
+              </TelegramShareButton>
           <div className="flex justify-center items-center">
           <FaLink onClick={handleCopyLink} fill="rgb(74,70,70)" className="text-2xl hover:fill-slate-300 hover:cursor-pointer"/>
           {copied && (
@@ -331,7 +332,7 @@ export function PostPage() {
                 <h1 className=" text-2xl font-semibold text-center">
                   Latest
                 </h1>
-                <div className="flex justify-center flex-wrap gap-4">
+                <div className="flex justify-center flex-wrap gap-0">
                   {recent.map((post) => (
                     <PostBar post={post} key={post._id} />
                   ))}
@@ -340,6 +341,7 @@ export function PostPage() {
             </>
           )}
         </div>
+      </div>
       </div>
     );
   }

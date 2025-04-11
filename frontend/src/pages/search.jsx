@@ -28,7 +28,7 @@ export function Search() {
     if (searchTermFromUrl || sortFromUrl || categoryFromUrl) {
       setSidebarData({
         ...sidebarData,
-        searchTerm: searchTermFromUrl,
+        searchTerm: searchTermFromUrl || "",
         sort: sortFromUrl,
         category: categoryFromUrl,
       });
@@ -45,7 +45,6 @@ export function Search() {
       if (res.ok) {
         const data = await res.json();
         setPosts(data.posts);
-        console.log(data.posts)
         setTotalPosts(data.length)
         setLoading(false);
         if (data.posts.length === 9) {

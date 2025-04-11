@@ -57,7 +57,7 @@ export function Home() {
 
     try {
       const res = await fetch(
-        category ? `/api/post/getposts?category=${category}&limit=4` : `/api/post/getposts?limit=4`
+        category ? `/api/post/getposts?category=${category}&limit=5` : `/api/post/getposts?limit=5`
       );
       const data = await res.json();
       setter(data.posts);
@@ -135,7 +135,7 @@ export function Home() {
   
   useEffect(() => {
     const fetchPosts = async () => {
-      const res = await fetch("/api/post/getposts?limit=4&category=politics");
+      const res = await fetch("/api/post/getposts?limit=5&category=politics");
       const data = await res.json();
       setPolitics(data.posts);
     };
@@ -195,15 +195,6 @@ export function Home() {
     };
     fetchPosts();
   }, []);
-  /*useEffect(()=>{
-    const fetchHashTags = async ()=>{
-      const res = await fetch("/api/post/getposts?limit=9&hashtag=")
-      const data = await res.json();
-      setHashTags(data.posts);
-    }
-    fetchHashTags();
-  })*/
-
 
   return (
     <div className="flex  flex-col my-5 mx-2 lg:mx-10 min-h-screen">
@@ -413,7 +404,7 @@ export function Home() {
                   <h1 className=" text-2xl font-semibold text-center">
                     Trending News
                   </h1>
-                  <div className="flex justify-center flex-wrap gap-4">
+                  <div className="flex justify-center flex-wrap gap-0">
                     {trending.map((post) => (
                       <PostBar post={post} key={post._id} />
                     ))}
@@ -423,16 +414,17 @@ export function Home() {
             ) : 
               <div>
                 <>
+                {business && business.length &&
                 <div className="flex flex-col gap-6">
-                  <h1 className=" text-2xl font-semibold text-center">
-                    Business News
-                  </h1>
-                  <div className="flex justify-center flex-wrap gap-4">
-                    {business.map((post) => (
-                      <PostBar post={post} key={post._id} />
-                    ))}
-                  </div>
+                <h1 className=" text-2xl font-semibold text-center">
+                  Business News
+                </h1>
+                <div className="flex justify-center flex-wrap gap-0">
+                  {business.map((post) => (
+                    <PostBar post={post} key={post._id} />
+                  ))}
                 </div>
+              </div>}
               </>
               </div>
               }
@@ -442,7 +434,7 @@ export function Home() {
                   <h1 className=" text-2xl font-semibold text-center">
                     Sports News
                   </h1>
-                  <div className="flex justify-center flex-wrap gap-4">
+                  <div className="flex justify-center flex-wrap gap-0">
                     {sports.map((post) => (
                       <PostBar post={post} key={post._id} />
                     ))}
@@ -450,31 +442,35 @@ export function Home() {
                 </div>
               ) : (
                 <div>
+                  {technology && technology.length &&
                   <>
-                <div className="flex flex-col gap-6">
-                  <h1 className=" text-2xl font-semibold text-center">
-                    Tech News
-                  </h1>
-                  <div className="flex justify-center flex-wrap gap-4">
-                    {technology.map((post) => (
-                      <PostBar post={post} key={post._id} />
-                    ))}
+                  <div className="flex flex-col gap-6">
+                    <h1 className=" text-2xl font-semibold text-center">
+                      Tech News
+                    </h1>
+                    <div className="flex justify-center flex-wrap gap-0">
+                      {technology.map((post) => (
+                        <PostBar post={post} key={post._id} />
+                      ))}
+                    </div>
                   </div>
-                </div>
-              </>
+                </>}
                 </div>
               )}
         </div>
       </div>
-    <div className="flex flex-col my-5 mx-2 lg:mx-10 min-h-screen">
+      <div className="mx-a">
+      <div className="flex flex-col my-5 mx-2 lg:mx-10 min-h-screen">
       
       {/* Politics Section */}
       
         {politics.length > 0 ? (
-        <div className="flex flex-col justify-center items-center">
+        <div className="flex flex-col  justify-center items-center">
           <h1 className="text-2xl font-semibold">Politics</h1>
-          <div className="flex justify-center flex-wrap gap-1">
-            {politics.map((post) => <PostCard key={post._id} post={post} />)}
+          <div className=" overflow-x-scroll overflow-y-hidden p-1 flex w-full scrollbar-thin 2xl:justify-center scrollbar-thumb-transparent gap-2 scrollbar-track-transparent justify-between  items-center ">
+            <div className="flex flex-col gap-2 justify-around sm:flex-row items-center"> 
+              {politics.map((post) => <PostCard key={post._id} post={post} />)}
+            </div>
           </div>
         <Link to="/search?category=politics" className="text-teal-500 hover:underline">
           More Politics News
@@ -490,8 +486,10 @@ export function Home() {
         {international.length > 0 ? (
         <div className="flex flex-col justify-center items-center">
           <h1 className="text-2xl font-semibold">International News</h1>
-          <div className="flex justify-center flex-wrap gap-1">
+          <div className=" overflow-x-scroll overflow-y-hidden p-1 flex w-full scrollbar-thin 2xl:justify-center scrollbar-thumb-transparent gap-2 scrollbar-track-transparent justify-between  items-center ">
+          <div className="flex flex-col gap-2 justify-around sm:flex-row items-center"> 
             {international.map((post) => <PostCard key={post._id} post={post} />)}
+          </div>
           </div>
         <Link to="/search?category=international" className="text-teal-500 hover:underline">
           More International News
@@ -507,8 +505,10 @@ export function Home() {
         {entertainment.length > 0 ? (
         <div>
           <h1 className="text-2xl font-semibold">Entertainment</h1>
-          <div className="flex justify-center flex-wrap gap-1">
+          <div className=" overflow-x-scroll overflow-y-hidden p-1 flex w-full scrollbar-thin 2xl:justify-center scrollbar-thumb-transparent gap-2 scrollbar-track-transparent justify-between  items-center ">
+          <div className="flex flex-col gap-2 justify-around sm:flex-row items-center"> 
             {entertainment.map((post) => <PostCard key={post._id} post={post} />)}
+          </div>
           </div>
         <Link to="/search?category=entertainment" className="text-teal-500 hover:underline">
           More Entertainment News
@@ -523,8 +523,10 @@ export function Home() {
         {technology.length > 0 ? (
         <div>
           <h1 className="text-2xl font-semibold">Technology</h1>
-          <div className="flex justify-center flex-wrap gap-1">
+          <div className=" overflow-x-scroll overflow-y-hidden p-1 flex w-full scrollbar-thin 2xl:justify-center scrollbar-thumb-transparent gap-2 scrollbar-track-transparent justify-between  items-center ">
+          <div className="flex flex-col gap-2 justify-around sm:flex-row items-center">  
             {technology.map((post) => <PostCard key={post._id} post={post} />)}
+          </div>
           </div>
         <Link to="/search?category=technology" className="text-teal-500 hover:underline">
           More Technology News
@@ -539,8 +541,10 @@ export function Home() {
         {education.length > 0 ? (
         <div>
           <h1 className="text-2xl font-semibold">Education</h1>
-          <div className="flex justify-center flex-wrap gap-1">
+          <div className=" overflow-x-scroll overflow-y-hidden p-1 flex w-full scrollbar-thin 2xl:justify-center scrollbar-thumb-transparent gap-2 scrollbar-track-transparent justify-between  items-center ">
+          <div className="flex flex-col gap-2 justify-around sm:flex-row items-center">  
             {education.map((post) => <PostCard key={post._id} post={post} />)}
+          </div>
           </div>
         <Link to="/search?category=education" className="text-teal-500 hover:underline">
           More Education News
@@ -555,8 +559,10 @@ export function Home() {
         {climate.length > 0 ? (
       <div>
           <h1 className="text-2xl font-semibold">Climate</h1>
-          <div className="flex justify-center flex-wrap gap-1">
+          <div className=" overflow-x-scroll overflow-y-hidden p-1 flex w-full scrollbar-thin 2xl:justify-center scrollbar-thumb-transparent gap-2 scrollbar-track-transparent justify-between  items-center ">
+          <div className="flex flex-col gap-2 justify-around sm:flex-row items-center">  
             {climate.map((post) => <PostCard key={post._id} post={post} />)}
+          </div>
           </div>
         <Link to="/search?category=climate" className="text-teal-500 hover:underline">
           More Climate News
@@ -571,8 +577,10 @@ export function Home() {
         {health.length > 0 ? (
         <div>
           <h1 className="text-2xl font-semibold">Health</h1>
-          <div className="flex justify-center flex-wrap gap-1">
+          <div className=" overflow-x-scroll overflow-y-hidden p-1 flex w-full scrollbar-thin 2xl:justify-center scrollbar-thumb-transparent gap-2 scrollbar-track-transparent justify-between  items-center ">
+          <div className="flex flex-col gap-2 justify-around sm:flex-row items-center">  
             {health.map((post) => <PostCard key={post._id} post={post} />)}
+          </div>
           </div>
         <Link to="/search?category=health" className="text-teal-500 hover:underline">
           More Health News
@@ -587,8 +595,10 @@ export function Home() {
         {general.length > 0 ? (
        <div>
          <h1 className="text-2xl font-semibold">General News</h1>
-          <div className="flex justify-center flex-wrap gap-1">
+         <div className=" overflow-x-scroll overflow-y-hidden p-1 flex w-full scrollbar-thin 2xl:justify-center scrollbar-thumb-transparent gap-2 scrollbar-track-transparent justify-between  items-center ">
+         <div className="flex flex-col gap-2 justify-around sm:flex-row items-center">  
             {general.map((post) => <PostCard key={post._id} post={post} />)}
+          </div>
           </div>
         <Link to="/search?category=general" className="text-teal-500 hover:underline">
           More General News
@@ -603,8 +613,10 @@ export function Home() {
         {business.length > 0 ? (
         <div>
           <h1 className="text-2xl font-semibold">Business</h1>
-          <div className="flex justify-center flex-wrap gap-1">
+          <div className=" overflow-x-scroll overflow-y-hidden p-1 flex w-full scrollbar-thin 2xl:justify-center scrollbar-thumb-transparent gap-2 scrollbar-track-transparent justify-between  items-center ">
+          <div className="flex flex-col gap-2 justify-around sm:flex-row items-center">  
             {business.map((post) => <PostCard key={post._id} post={post} />)}
+          </div>
           </div>
         <Link to="/search?category=business" className="text-teal-500 hover:underline">
           More Business News
@@ -619,7 +631,7 @@ export function Home() {
         <div className="flex overflow-x-scroll scrollbar-thin text-nowrap scrollbar-thumb-transparent scrollbar-track-transparent overflow-y-hidden gap-2 flex-wrap items-center justify-start "><span className="text-4xl text-orange-500">#</span>
           {hashtags.map((post)=>(
               <Link
-              to={`/search?hashtag=${post}&limit=2`}
+              to={`/search?hashtag=${post}&searchTerm=${post}`}
               className="self-center mt-2"
             >
               <Button
@@ -639,8 +651,10 @@ export function Home() {
         {recent.length > 0 ? (
         <div>
           <h1 className="text-2xl font-semibold">Recent Posts</h1>
-          <div className="flex justify-center flex-wrap gap-1">
+          <div className=" overflow-x-scroll overflow-y-hidden p-1 flex w-full scrollbar-thin 2xl:justify-center scrollbar-thumb-transparent gap-2 scrollbar-track-transparent justify-between  items-center ">
+          <div className="flex flex-col gap-2 justify-around sm:flex-row items-center">  
             {recent.map((post) => <PostCard key={post._id} post={post} />)}
+          </div>
           </div>
         </div>
         ) : (
@@ -648,6 +662,7 @@ export function Home() {
         )}
       </div>
     </div>
+      </div>
       
       <div className=" mb-5 text-xl text-center hover:underline text-teal-500">
         <Link to="/search ">View All Posts</Link>

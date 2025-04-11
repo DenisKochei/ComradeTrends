@@ -59,6 +59,7 @@ export const getposts = async (req, res, next) => {
           { title: { $regex: req.query.searchTerm, $options: 'i' } },
           { content1: { $regex: req.query.searchTerm, $options: 'i' } },
           { content2: { $regex: req.query.searchTerm, $options: 'i' } },
+          { hashtag: { $regex: req.query.searchTerm, $options: 'i' } },
           
         ],
       }),
