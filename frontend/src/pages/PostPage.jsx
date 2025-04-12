@@ -233,11 +233,13 @@ export function PostPage() {
             : 
             <div></div>}
           </div>
+          <div className="min-h-[200px]">
           <img
             src={post && post.image}
             alt={post.title}
-            className="object-cover self-center mt-1 pt-1 p-1 max-h-[600px] w-full !max-w-4xl"
+            className="object-cover max-h-[300px] self-center mt-1 pt-1 p-1 sm:max-h-[600px] w-full !max-w-4xl"
           />
+          </div>
           <div className="flex justify-between p-3 border-b border-slate-500 mx-auto w-full max-w-4xl text-xs">
             <span>{post && new Date(post.createdAt).toLocaleDateString()}</span>
             <span className="italic">
