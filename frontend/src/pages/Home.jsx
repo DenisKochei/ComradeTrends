@@ -164,7 +164,8 @@ console.log(international)
   }, []);
 
   return (
-    <div className="flex  flex-col my-5 mx-2 lg:mx-10 min-h-screen">
+   <div>
+     <div className="flex  flex-col my-5 mx-2 lg:mx-10 min-h-screen">
       <Helmet>
         <title>{`ComradeTrends | Home Page`}</title>
         <meta
@@ -474,8 +475,8 @@ console.log(international)
           </div>
           <div className="sm:mx-3 w-full sm:!w-9/12">
             <div onClick={() => navigate(`/post/${international[0].slug}`)} className="sm:flex sm:border-none border-b dark:border-slate-600 rounded-b-md border-slate-300 cursor-pointer">
-                <div className="w-full mt-2 sm:mt-0 sm:w-2/3 ">
-                  <img className="w-fit h-72 sm:h-60 mx-auto object-cover" src={international[0].image} />
+                <div className="w-full  mt-2 sm:mt-0 sm:w-2/3 ">
+                  <img className="object-cover self-center mt-1 pt-1 p-1 h-[310px] w-full !max-w-4xl" src={international[0].image} />
                 </div>
                 <div className="gap-3 sm:flex flex-col mx-2 w-full sm:w-1/3">
                   <h1 className="text-2xl line-clamp-3">{international[0].title}</h1>
@@ -535,8 +536,8 @@ console.log(international)
                 </>
               )}
             </div>
-            <div className=" object-cover my-2 overflow-hidden">
-              <img className="w-full h-72 sm:h-86 object-cover" src={politics[0].image} />
+            <div className="my-2 object-cover self-center mt-1 pt-1 p-1 w-full !max-w-4xl overflow-hidden">
+              <img className="object-cover self-center mt-1 pt-1 p-1 h-[380px] w-full !max-w-4xl" src={politics[0].image} />
             </div>
             <div
               className="line-clamp-4 mb-3 sm:mb-0 text-l"
@@ -545,7 +546,7 @@ console.log(international)
               </div>
               <div className="flex w-full sm:border-none border-b dark:border-slate-600 border-slate-800 rounded-b-md pb-2 sm:w-3/12 flex-col">
               <div className="cursor-pointer" onClick={() => navigate(`/post/${politics[1].slug}`)}>
-                <img className="w-full h-60 sm:h-70 object-cover" src={politics[1].image} />
+                <img className="object-cover self-center mt-1 pt-1 p-1 h-[430px] w-full !max-w-4xl" src={politics[1].image} />
               <div className=" text-wrap line-clamp-4 text-2xl flex justify-start font-serif">
                 {politics[1].title}
               </div>
@@ -587,9 +588,11 @@ console.log(international)
       <div ref={businessRef} className={`flex flex-col min-h-[200px] gap-0 text-center ${ (business.length === 0)  && "!min-h-override"}`}>
         {business.length > 0 ? (
         <div>
-          <h1 className="text-2xl font-semibold">Business</h1>
+         <Link to={"/search?category=business"}>
+         <div className="flex justify-start my-2 gap-1 items-center"><IoTrendingUp className="w-5 h-5 text-purple-600" /><h1 className="text-lg">Business</h1><div className="mt-1"><FaAngleRight/></div></div>
+         </Link>
           <div className=" overflow-x-scroll overflow-y-hidden p-1 flex w-full scrollbar-thin 2xl:justify-center scrollbar-thumb-transparent gap-2 scrollbar-track-transparent justify-between  items-center ">
-                    <div className="flex w-full sm:w-auto flex-col gap-2 justify-around sm:flex-row items-center"> 
+            <div className="flex w-full sm:w-auto flex-col gap-2 justify-around sm:flex-row items-center"> 
   
             {business.map((post) => <PostCard key={post._id} post={post} />)}
           </div>
@@ -604,9 +607,10 @@ console.log(international)
       </div>
     </div>
       </div> 
-      <div className=" mb-5 text-xl text-center hover:underline text-teal-500">
-        <Link to="/search ">View All Posts</Link>
-      </div>
     </div>
+    <Link to={`/search`}>
+      <div className="flex justify-start gap-1 my-3 mx-5 items-center"><IoTrendingUp className="w-5 h-5 text-purple-600" /><h1 className="text-lg hover:underline text-teal-500">All Posts</h1><div className="mt-1 text-teal-500"><FaAngleRight/></div></div>
+    </Link>
+   </div>
   );
 }
