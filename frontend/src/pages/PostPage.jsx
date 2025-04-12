@@ -160,7 +160,7 @@ export function PostPage() {
          <FacebookShareButton
             url={currentPageURL}
             quote={post.title}
-            hashtag="#ComradeTrends"
+            hashtag={post.hashtag}
           >
             <CiFacebook fill="rgb(74,70,70)" className="text-3xl hover:fill-slate-300" />
           </FacebookShareButton>
@@ -261,10 +261,10 @@ export function PostPage() {
             className="p-3 w-full max-w-4xl select-none post-content mx-auto"
             dangerouslySetInnerHTML={{ __html: post && post.content2 }}
           ></div>
-          <div className="w-full block lg:hidden">
-          <div className="m-4 max-w-4xl border borber-gray-600 dark:bg-slate-900 bg-slate-400 justify-around self-center gap-3 flex rounded-md items-center">
+          <div className="w-full  block lg:hidden">
+          <div className="m-4 max-w-4xl py-2 border borber-gray-600 dark:bg-slate-900 bg-slate-400 justify-around self-center gap-3 flex rounded-md items-center">
             <div className="flex flex-col justify-start items-center">
-              <FaShareFromSquare fill="rgb(192, 193, 194)" className="w-6 h-6" />
+              <FaShareFromSquare className="w-6 h-6" />
               <p>Share:</p>
             </div>
             <div className="flex  gap-3">
