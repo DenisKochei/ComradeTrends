@@ -123,6 +123,8 @@ export const updatepost = async (req, res, next) => {
           content2: req.body.content2,
           category: req.body.category,
           image: req.body.image,
+          hashtag:req.body.hashtag,
+          subcategory:req.body.subcategory
         },
       },
       { new: true }

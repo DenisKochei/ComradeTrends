@@ -23,6 +23,7 @@ export default function UpdatePost() {
   const [formData, setFormData] = useState({});
   const [fetchError, setFetchError] = useState();
   const { postId } = useParams();
+  console.log(formData)
 
   useEffect(() => {
     try {
@@ -135,26 +136,38 @@ export default function UpdatePost() {
               setFormData({ ...formData, title: e.target.value })
             }
           />
+          <TextInput
+            placeholder="Hashtag"
+            id="Hashtag"
+            className="flex-1"
+            value={formData.hashtag}
+            onChange={(e) =>
+              setFormData({ ...formData, hashtag: e.target.value })
+            }
+          />
           <Select
             value={formData.category}
             onChange={(e) =>
               setFormData({ ...formData, category: e.target.value })
             }
           >
-            <option value="uncategorized">Select category</option>
-            <option value="sports">Sports</option>
+            <option value="">Select category</option>
+            <option value="breaking">Breaking news</option>
             <option value="business">Business</option>
-            <option value="health">Health</option>
-            <option value="health">People</option>
-            <option value="politics">Politics</option>
+            <option value="climate">Climate</option>
+            <option value="education">Education</option>
             <option value="entertainment">Entertainment</option>
             <option value="general">General</option>
-            <option value="Technology">Technology</option>
+            <option value="health">Health</option>
             <option value="international">International</option>
-            <option value="education">Education</option>
-            <option value="breaking">Breaking news</option>
+            <option value="market">Market</option>
+            <option value="most-trending">Most trending</option>
+            <option value="people">People</option>
+            <option value="politics">Politics</option>
+            <option value="sports">Sports</option>
+            <option value="technology">Technology</option>
             <option value="trending">Trending</option>
-            <option value="most-trending">Most Trending</option>
+            <option value="agriculture">Trending</option>
           </Select>
           {formData && (formData.category=== "business" || formData.category ==="sports" || formData.category ==="health" || formData.category ==="politics" || formData.category ==="entertainment" || formData.category ==="education" || formData.category ==="breaking" || formData.category ==="market" || formData.category ==="trending" || formData.category ==="international") && 
           <Select

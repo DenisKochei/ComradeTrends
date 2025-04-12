@@ -7,7 +7,7 @@ export function Contacts() {
       
     <div>
       <PageIndicator />
-      <div className="min-h-screen flex flex-col justify-start m-10 items-center">
+      <div className="min-h-screen flex flex-col justify-start sm:m-10 mx-2 items-center">
       <div className="w-full border border-x-0 border-t-0 border-gray-700 mb-5 flex justify-center">
         <h1 className="text-2xl m-4 font-bold">Contact Us</h1>
       </div>

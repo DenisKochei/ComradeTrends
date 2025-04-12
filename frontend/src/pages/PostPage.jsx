@@ -223,7 +223,7 @@ export function PostPage() {
             <div className="flex justify-start gap-1 my-0 text-gray-500 text-xs items-center">
             <p>Auther: </p>
             <img
-              className="rounded-full mx-1 object-cover w-5 h-5"
+              className="rounded-full mx-1 min-h-7 object-cover w-5 h-5"
               src={auther.profilePicture}
             />
             <p className="text-xs text-cyan-500 hover:underline">

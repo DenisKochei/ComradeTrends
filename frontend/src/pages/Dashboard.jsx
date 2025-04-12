@@ -19,7 +19,7 @@ export function Dashboard() {
   }, [location.search]);
   return (
     <div className="min-h-screen flex flex-col sm:flex-row">
-      <div className="sm:w-52  ">
+      <div className="sm:w-52 sm:flex flex-col justify-start ">
         <DashSidebar />
       </div>
       {tab === "profile" && <DashProfile />}

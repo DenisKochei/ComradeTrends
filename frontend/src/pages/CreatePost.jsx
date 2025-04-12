@@ -128,6 +128,7 @@ export default function CreatePost() {
             <option value="entertainment">Entertainment</option>
             <option value="general">General</option>
             <option value="health">Health</option>
+            <option value="international">International</option>
             <option value="market">Market</option>
             <option value="most-trending">Most trending</option>
             <option value="people">People</option>
