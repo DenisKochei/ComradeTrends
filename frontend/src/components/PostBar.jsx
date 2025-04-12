@@ -8,7 +8,7 @@ export function PostBar({ post }) {
   return (
     <div
     onClick={() => navigate(`/post/${post.slug}`)}
-    className="flex px-2 hover:cursor-pointer border-b w-full dark:border-slate-700 border-slate-300 py-2 justify-start gap-2 sm:gap-5"
+    className="flex px-2 hover:cursor-pointer w-full border-b dark:border-slate-700 border-slate-300 py-2 justify-start gap-2 sm:gap-5"
     >     
       <div className="w-full flex flex-col justify-center gap-3">
 <div className="flex justify-start items-center text-slate-600 text-xs space-x-1">

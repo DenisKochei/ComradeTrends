@@ -458,22 +458,22 @@ console.log(international)
           </Link>
         <div className="w-full sm:flex">
           <div className="sm:!w-3/12 w-full flex flex-col bg-emerald-700 p-3 gap-10">
-            <h1 className="text-2xl my-5 font-light font-serif">
+            <h1 className="text-2xl my-5 text-slate-900 dark:text-slate-300 font-light font-serif">
             Discover the future today, right here !
             </h1>
-            <p>
+            <p className="text-slate-900 dark:text-slate-300">
             Comrade Trends is your go-to source for timely, reliable, and engaging news. From breaking stories and in-depth analysis to entertainment, politics, campus updates, and tech trends, we keep you informed 24/7. Whether you're a student or a professional, Comrade Trends delivers news that matters to you, all in one place. Stay ahead with real-time updates and fresh perspectives from a platform built for the modern, connected reader.
             </p>
             <Link to={"/contacts"}>
             <button
-                className="focus:ring-0 w-1/2 rounded-md p-0 border mb-4 border-gray-400 transition duration-300 ease-in-out"
+                className="focus:ring-0 w-1/2 text-slate-900 dark:text-slate-300 py-1 rounded-md p-0 border mb-4 border-slate-900 transition duration-300 ease-in-out"
               >       
                 Contact us         
               </button>
             </Link>
           </div>
           <div className="sm:mx-3 w-full sm:!w-9/12">
-            <div onClick={() => navigate(`/post/${international[0].slug}`)} className="sm:flex cursor-pointer">
+            <div onClick={() => navigate(`/post/${international[0].slug}`)} className="sm:flex sm:border-none border-b dark:border-slate-600 rounded-b-md border-slate-300 cursor-pointer">
                 <div className="w-full mt-2 sm:mt-0 sm:w-2/3 ">
                   <img className="w-fit h-72 sm:h-60 mx-auto object-cover" src={international[0].image} />
                 </div>
@@ -524,8 +524,8 @@ console.log(international)
           <div className="flex justify-start gap-1 items-center"><IoTrendingUp className="w-5 h-5 text-purple-600" /><h1 className="text-lg">Politics</h1><div className="mt-1"><FaAngleRight/></div></div>
           </Link>
           <div className="w-full flex flex-col sm:flex-row gap-3 justify-start items-start">
-              <div onClick={() => navigate(`/post/${politics[0].slug}`)} className="sm:w-5/12 cursor-pointer w-full">
-                <h1 className="text-4xl font-light line-clamp-3 font-serif">{politics[0].title}</h1>
+              <div onClick={() => navigate(`/post/${politics[0].slug}`)} className="sm:w-5/12 sm:border-none border-b dark:border-slate-600 border-slate-800 rounded-b-md cursor-pointer w-full">
+                <h1 className="text-2xl font-light line-clamp-3 font-serif">{politics[0].title}</h1>
               <div className="flex justify-start items-center text-slate-600 text-xs space-x-1">
               <span className="italic">{politics[0].category}</span>
               {politics[0].subcategory && (
@@ -543,7 +543,7 @@ console.log(international)
               dangerouslySetInnerHTML={{ __html: politics[0].content1 }}
             ></div>
               </div>
-              <div className="flex w-full sm:w-3/12 flex-col">
+              <div className="flex w-full sm:border-none border-b dark:border-slate-600 border-slate-800 rounded-b-md pb-2 sm:w-3/12 flex-col">
               <div className="cursor-pointer" onClick={() => navigate(`/post/${politics[1].slug}`)}>
                 <img className="w-full h-60 sm:h-70 object-cover" src={politics[1].image} />
               <div className=" text-wrap line-clamp-4 text-2xl flex justify-start font-serif">
