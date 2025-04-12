@@ -457,7 +457,7 @@ console.log(international)
           <div className="flex justify-start my-2 gap-1 items-center"><IoTrendingUp className="w-5 h-5 text-purple-600" /><h1 className="text-lg">International</h1><div className="mt-1"><FaAngleRight/></div></div>
           </Link>
         <div className="w-full sm:flex">
-          <div className="sm:!w-3/12 w-full flex flex-col bg-emerald-700 p-3 gap-10">
+          <div className="sm:!w-3/12 w-full flex flex-col rounded-md bg-emerald-700 p-3 gap-10">
             <h1 className="text-2xl my-5 text-slate-900 dark:text-slate-300 font-light font-serif">
             Discover the future today, right here !
             </h1>
