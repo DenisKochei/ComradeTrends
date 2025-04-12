@@ -16,7 +16,7 @@ export function MarketPlace() {
         />
       </Helmet>
       <p className="text-2xl self-center">ComradeTrends Market Place, Coming Soon 🙂</p>
-      <div className="w-full p-4">
+      <div className="w-full flex justify-center items-center p-4">
       <CallToAction/>
       </div>
     </div>

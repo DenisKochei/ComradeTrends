@@ -2,7 +2,7 @@ import { Helmet } from "react-helmet";
 import { CallToAction } from "../components/CallToAction";
 export function Cart() {
   return (
-    <div className="min-h-screen flex flex-col gap-10 justify-center items-center">
+    <div className="min-h-screen flex flex-col sm:gap-10 justify-center items-center">
       <Helmet>
         <title>{`ComradeTrends | MyCart`}</title>
         <meta
@@ -16,7 +16,7 @@ export function Cart() {
       </Helmet>
       
       <p className="text-2xl self-center">ComradeTrends Market Place, Coming Soon 🙂</p>
-      <div className="w-full p-4">
+      <div className="w-full flex justify-center items-center p-4">
         <CallToAction/>
       </div>
     </div>
