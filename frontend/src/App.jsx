@@ -21,7 +21,7 @@ import { Cart } from "./pages/Cart.jsx";
 
 export default function App() {
   return (
-    <div className="min-h-screen">
+    <div className="min-h-screen max-w-[1500px] mx-auto">
       <BrowserRouter>
         <ScrollToTop />
         <Header />

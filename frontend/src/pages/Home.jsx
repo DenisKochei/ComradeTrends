@@ -428,7 +428,7 @@ console.log(international)
         </div>
       </div>
       <div className="mx-a">
-      <div className="flex flex-col my-5 mx-2 lg:mx-10 min-h-screen">
+      <div className="flex flex-col my-5 mx-2 lg:mx-2 min-h-screen">
       
       
         {education.length > 0 ? (
@@ -437,7 +437,7 @@ console.log(international)
           <div className="flex justify-start my-2 gap-1 items-center"><IoTrendingUp className="w-5 h-5 text-purple-600" /><h1 className="text-lg">Education</h1><div className="mt-1"><FaAngleRight/></div></div>
           </Link>
         <div className="flex flex-col  justify-center items-center">
-          <div className=" overflow-x-scroll overflow-y-hidden p-1 flex w-full scrollbar-thin 2xl:justify-center scrollbar-thumb-transparent gap-2 scrollbar-track-transparent justify-between  items-center ">
+          <div className=" overflow-x-scroll overflow-y-hidden p-1 flex w-full scrollbar-thin 5xl:justify-center scrollbar-thumb-transparent gap-2 scrollbar-track-transparent justify-between  items-center ">
               <div className="flex w-full sm:w-auto flex-col gap-2 justify-around sm:flex-row items-center"> 
  
               {education.map((post) => <PostCard key={post._id} post={post} />)}
@@ -506,7 +506,7 @@ console.log(international)
           <Link to={`/search?category=entertainment`}>
           <div className="flex justify-start my-2 gap-1 items-center"><IoTrendingUp className="w-5 h-5 text-purple-600" /><h1 className="text-lg">Entertainment</h1><div className="mt-1"><FaAngleRight/></div></div>
           </Link>
-          <div className=" overflow-x-scroll overflow-y-hidden p-1 flex w-full scrollbar-thin 2xl:justify-center scrollbar-thumb-transparent gap-2 scrollbar-track-transparent justify-between  items-center ">
+          <div className=" overflow-x-scroll overflow-y-hidden p-1 flex w-full scrollbar-thin 5xl:justify-center scrollbar-thumb-transparent gap-2 scrollbar-track-transparent justify-between  items-center ">
           <div className="flex w-full sm:w-auto flex-col gap-2 justify-around sm:flex-row items-center"> 
             {entertainment.map((post) => <PostCard key={post._id} post={post} />)}
           </div>
@@ -591,7 +591,7 @@ console.log(international)
          <Link to={"/search?category=business"}>
          <div className="flex justify-start my-2 gap-1 items-center"><IoTrendingUp className="w-5 h-5 text-purple-600" /><h1 className="text-lg">Business</h1><div className="mt-1"><FaAngleRight/></div></div>
          </Link>
-          <div className=" overflow-x-scroll overflow-y-hidden p-1 flex w-full scrollbar-thin 2xl:justify-center scrollbar-thumb-transparent gap-2 scrollbar-track-transparent justify-between  items-center ">
+          <div className=" overflow-x-scroll overflow-y-hidden p-1 flex w-full scrollbar-thin 5xl:justify-center scrollbar-thumb-transparent gap-2 scrollbar-track-transparent justify-between  items-center ">
             <div className="flex w-full sm:w-auto flex-col gap-2 justify-around sm:flex-row items-center"> 
   
             {business.map((post) => <PostCard key={post._id} post={post} />)}

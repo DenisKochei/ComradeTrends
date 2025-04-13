@@ -12,6 +12,9 @@ export default {
       minHeight:{
         "override": "0px"
       },
+      minWidth:{
+        "5xl:": "1500px"
+      }
     },
   },
   plugins: [

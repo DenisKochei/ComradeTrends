@@ -1,4 +1,5 @@
 import { useNavigate } from "react-router-dom";
+import moment from "moment";
 
 export function PostCard({ post }) {
   const navigate = useNavigate();
@@ -16,7 +17,8 @@ export function PostCard({ post }) {
       </div>
       <div className="p-3 flex flex-col gap-2">
         <p className="text-lg font-semibold line-clamp-2">{post.title}</p>
-        <div className="flex justify-start items-center text-slate-600 text-xs space-x-1">
+        <div className="flex justify-between mx-2 items-center text-slate-600 text-xs space-x-1">
+          <div className="space-x-1 mt-1">
           <span className="italic">{post.category}</span>
           {post.subcategory && (
             <>
@@ -24,6 +26,8 @@ export function PostCard({ post }) {
               <span>{post.subcategory}</span>
             </>
           )}
+          </div>
+          <span className=" mt-1 mr-2">{moment(post.createdAt).fromNow()}</span>
         </div>
 
         <span className="z-10 group-hover:bottom-0 absolute bottom-[-200px] left-0 right-0 border border-teal-500 text-teal-500 hover:bg-teal-500 hover:text-white transition-all duration-300 text-center py-2 rounded-md !rounded-tl-none m-2">
