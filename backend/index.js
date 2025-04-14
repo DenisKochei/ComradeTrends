@@ -34,7 +34,8 @@ app.listen(5000,()=>{
 prerender.set('prerenderToken', 'ZscnX2pSLfXnxZlepdsN'); // paste your token here
 
 // Optional: add whitelist or blacklist if needed
-// prerender.whitelisted(['^/post']); // only pre-render specific routes
+prerender.whitelisted(['^/post', '^/$']); // only pre-render specific routes
+prerender.blacklisted(['^/api', '\\.js$', '\\.css$']);
 
 app.use(prerender);
 
