@@ -6,6 +6,7 @@ import { useDispatch } from "react-redux";
 import { useEffect } from "react";
 import { refresh } from "../../redux/user/userSlice";
 import { Helmet } from "react-helmet";
+import { HiEye, HiEyeOff } from "react-icons/hi";
 
 export function Signup() {
   const dispatch = useDispatch();
@@ -17,6 +18,7 @@ export function Signup() {
   const [error, setError] = useState(null);
   const [loading, setLoading] = useState(false);
   const navigate = useNavigate();
+  const [showPassword, setShowPassword] = useState(false);
   const changeHandler = (e) => {
     setFormData({ ...formData, [e.target.id]: e.target.value.trim() });
   };
@@ -76,32 +78,48 @@ export function Signup() {
         </div>
         <div className="flex-1">
           <form className="flex flex-col gap-4" onSubmit={handleSubmit}>
-            <div className="">
-              <Label value="Your username" />
-              <TextInput
+            <Label value="Your username" />
+            <div className="flex flex-col">
+              <input
+                className=" border dark:border-none border-slate-400 dark:bg-slate-700 rounded-lg w-full focus:ring-0"
                 type="text"
-                placeholder="Username"
+                placeholder="user"
                 id="username"
                 onChange={changeHandler}
               />
             </div>
-            <div className="">
-              <Label value="Your email" />
-              <TextInput
+            <Label value="Your email" />
+            <div className="flex flex-col">
+              <input
+                className=" border dark:border-none border-slate-400 dark:bg-slate-700 rounded-lg w-full focus:ring-0"
                 type="email"
                 placeholder="name@gmail.com"
                 id="email"
                 onChange={changeHandler}
               />
             </div>
-            <div className="">
-              <Label value="Your password" />
-              <TextInput
-                type="password"
-                placeholder="Password"
+            <Label value="Your password" />
+            <div className="flex justify-between border dark:border-none border-slate-400 items-center rounded-lg  dark:bg-slate-700">
+              <input
+                className="bg-transparent border-none w-full focus:ring-0"
+                type={showPassword ? "text" : "password"}
+                placeholder="*******"
                 id="password"
                 onChange={changeHandler}
               />
+              <div>
+                {showPassword ? (
+                  <HiEyeOff
+                    className="text-slate-500 mr-2 w-4 h-4"
+                    onClick={() => setShowPassword((prev) => !prev)}
+                  />
+                ) : (
+                  <HiEye
+                    className="text-slate-500 mr-2 w-4 h-4"
+                    onClick={() => setShowPassword((prev) => !prev)}
+                  />
+                )}
+              </div>
             </div>
             {error && (
               <Alert className="mt-5" color="failure">

@@ -7,6 +7,7 @@ import {
   signinSuccess,
   signinStart,
 } from "../../redux/user/userSlice";
+import { HiEye, HiEyeOff } from "react-icons/hi";
 import Oauth from "../components/Oauth";
 import { refresh } from "../../redux/user/userSlice";
 import { Helmet } from "react-helmet";
@@ -17,13 +18,11 @@ export function Signin() {
     dispatch(refresh());
   }, []);
   const [formData, setFormData] = useState({});
+  const [showPassword, setShowPassword] = useState(false);
   const { loading, error: errorMessage } = useSelector((state) => state.user);
   const navigate = useNavigate();
   const changeHandler = (e) => {
     setFormData({ ...formData, [e.target.id]: e.target.value.trim() });
-  };
-  const goBack = () => {
-    window.history.back();
   };
 
   const handleSubmit = async (e) => {
@@ -79,29 +78,44 @@ export function Signin() {
         </div>
         <div className="flex-1">
           <form className="flex flex-col gap-4" onSubmit={handleSubmit}>
-            <div className="">
-              <Label value="Your email" />
-              <TextInput
+            <Label value="Your email" />
+            <div className="flex flex-col">
+              <input
+                className=" border dark:border-none border-slate-400 dark:bg-slate-700 rounded-lg w-full focus:ring-0"
                 type="email"
                 placeholder="name@gmail.com"
                 id="email"
                 onChange={changeHandler}
               />
             </div>
-            <div className="">
-              <Label value="Your password" />
-              <TextInput
-                type="password"
+            <Label value="Your password" />
+            <div className="flex justify-between border dark:border-none border-slate-400 items-center rounded-lg  dark:bg-slate-700">
+              <input
+                className="bg-transparent border-none w-full focus:ring-0"
+                type={showPassword ? "text" : "password"}
                 placeholder="*******"
                 id="password"
                 onChange={changeHandler}
               />
+              <div>
+                {showPassword ? (
+                  <HiEyeOff
+                    className="text-slate-500 mr-2 w-4 h-4"
+                    onClick={() => setShowPassword((prev) => !prev)}
+                  />
+                ) : (
+                  <HiEye
+                    className="text-slate-500 mr-2 w-4 h-4"
+                    onClick={() => setShowPassword((prev) => !prev)}
+                  />
+                )}
+              </div>
+              {errorMessage && (
+                <Alert className="mt-5" color="failure">
+                  {errorMessage}
+                </Alert>
+              )}
             </div>
-            {errorMessage && (
-              <Alert className="mt-5" color="failure">
-                {errorMessage}
-              </Alert>
-            )}
             <Button
               className="bg-gradient-to-r from-cyan-500 to-blue-600 focus:ring-0"
               type="submit"
