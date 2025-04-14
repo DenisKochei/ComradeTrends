@@ -125,33 +125,33 @@ export function PostPage() {
         <PageIndicator />
         <div className="lg:flex min-h-screen items-start">
         <Helmet>
-          {/* Dynamic Page Title */}
-          <title>{post ? `Comrade Trends | ${post.title}` : "Comrade Trends"}</title>
-          <meta name="description" content={post?.title || "Stay updated with Comrade Trends."} />
+        {/* Dynamic Page Title */}
+        <title>{post ? `Comrade Trends | ${post.title}` : "Comrade Trends"}</title>
+        <meta name="description" content={post?.title || "Stay updated with Comrade Trends."} />
 
-          {/* ✅ Open Graph Meta Tags — used by Facebook, Telegram, LinkedIn, etc. */}
-          <meta property="og:type" content="article" />
-          <meta property="og:url" content={currentUrl} />
-          <meta property="og:title" content={post?.title || "Comrade Trends"} />
-          <meta property="og:description" content={post?.title || "Latest from Comrade Trends"} />
-          {post?.image && (
-            <>
-              <meta property="og:image" content={post.image} />
-              <meta property="og:image:type" content="image/jpeg" />
-              <meta property="og:image:width" content="1200" />
-              <meta property="og:image:height" content="630" />
-            </>
-          )}
+        {/* ✅ Open Graph Meta Tags — used by Facebook, Telegram, LinkedIn, etc. */}
+        <meta property="og:type" content="article" />
+        <meta property="og:url" content={currentUrl} />
+        <meta property="og:title" content={post?.title || "Comrade Trends"} />
+        <meta property="og:description" content={post?.title || "Latest from Comrade Trends"} />
+        {post?.image && (
+          <>
+            <meta property="og:image" content={post.image} />
+            <meta property="og:image:type" content="image/jpeg" />
+            <meta property="og:image:width" content="1200" />
+            <meta property="og:image:height" content="630" />
+          </>
+        )}
 
-          {/* ✅ Twitter (X) Meta Tags */}
-          <meta name="twitter:card" content="summary_large_image" />
-          <meta name="twitter:site" content="@comradetrends" />
-          <meta name="twitter:creator" content="@comradetrends" />
-          <meta name="twitter:url" content={currentUrl} />
-          <meta name="twitter:title" content={post?.title || "Comrade Trends"} />
-          <meta name="twitter:description" content={post?.title || "Stay informed with Comrade Trends."} />
-          {post?.image && <meta name="twitter:image" content={post.image} />}
-        </Helmet>
+        {/* ✅ Twitter (X) Meta Tags */}
+        <meta name="twitter:card" content="summary_large_image" />
+        <meta name="twitter:site" content="@comradetrends" />
+        <meta name="twitter:creator" content="@comradetrends" />
+        <meta name="twitter:url" content={currentUrl} />
+        <meta name="twitter:title" content={post?.title || "Comrade Trends"} />
+        <meta name="twitter:description" content={post?.title || "Stay informed with Comrade Trends."} />
+        {post?.image && <meta name="twitter:image" content={post.image} />}
+      </Helmet>
 
 
         <div className="hidden lg:sticky lg:py-4 lg:px-1 lg:justify-center lg:items-center lg:flex lg:flex-col lg:mb-10 lg:mx-1 md:top-20">
@@ -282,13 +282,11 @@ export function PostPage() {
               <TwitterShareButton url={currentPageURL}>
                 <FaXTwitter fill="rgb(74,70,70)" className="text-2xl hover:fill-slate-300" />
               </TwitterShareButton>
-              <WhatsappShareButton
-                url={currentPageURL}
-                separator="::"
-                title={post.title}
+              <a
+                href={`whatsapp://send?text=${encodeURIComponent(post.title + " " + currentPageURL)}`}
               >
                 <FaWhatsapp fill="rgb(74,70,70)" className="text-2xl hover:fill-slate-300" />
-              </WhatsappShareButton>
+              </a>
               <TelegramShareButton
                 title={post.title}
                 url={currentPageURL}
