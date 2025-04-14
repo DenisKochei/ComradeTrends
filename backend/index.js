@@ -7,6 +7,7 @@ import cookieParser from 'cookie-parser'
 import postRoutes from './routes/post.route.js'
 import commentRoutes from './routes/comment.route.js'
 import path from 'path'
+import prerender from 'prerender-node'
 //you must add the '.js' at the end 
 
 dotenv.config();
@@ -28,6 +29,15 @@ app.use(cookieParser());
 app.listen(5000,()=>{
   console.log("The Server is listening to port 5000")
 })
+
+
+prerender.set('prerenderToken', 'ZscnX2pSLfXnxZlepdsN'); // paste your token here
+
+// Optional: add whitelist or blacklist if needed
+// prerender.whitelisted(['^/post']); // only pre-render specific routes
+
+app.use(prerender);
+
 
 app.use('/api/user', userRoute);
 app.use('/api/auth', authRoute);
