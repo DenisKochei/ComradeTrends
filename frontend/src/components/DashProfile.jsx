@@ -2,6 +2,7 @@ import { Alert, Button, TextInput, Spinner, Modal } from "flowbite-react";
 //import {MdAdd} from 'react-icons/md'
 import { useEffect, useRef, useState } from "react";
 import { useSelector } from "react-redux";
+import { HiEye, HiEyeOff } from "react-icons/hi";
 import {
   getDownloadURL,
   getStorage,
@@ -42,6 +43,7 @@ export function DashProfile() {
   const [showModal, setShowModal] = useState(false);
   const { loading, error: errorMessage } = useSelector((state) => state.user);
   const [formData, setFormData] = useState({});
+  const [showPassword, setShowPassword] = useState(false);
   const filePickerRef = useRef();
   const handleImageClick = (e) => {
     const file = e.target.files[0];
@@ -221,26 +223,48 @@ export function DashProfile() {
         {updateUserSuccess && (
           <Alert color="success">{updateUserSuccess}</Alert>
         )}
-        <TextInput
-          type="text"
-          id="username"
-          placeholder="Username"
-          defaultValue={currentUser.username}
-          onChange={handleChange}
-        />
-        <TextInput
-          type="email"
-          id="email"
-          placeholder="email"
-          defaultValue={currentUser.email}
-          onChange={handleChange}
-        />
-        <TextInput
-          type="password"
-          id="password"
-          placeholder="password"
-          onChange={handleChange}
-        />
+        <div className="flex flex-col">
+          <input
+            className=" border dark:border-none border-slate-400 dark:bg-slate-700 rounded-lg w-full focus:ring-0"
+            type="text"
+            placeholder="user"
+            id="username"
+            defaultValue={currentUser.username}
+            onChange={handleChange}
+          />
+        </div>
+        <div className="flex flex-col">
+          <input
+            className=" border dark:border-none border-slate-400 dark:bg-slate-700 rounded-lg w-full focus:ring-0"
+            type="email"
+            placeholder="name@gmail.com"
+            id="email"
+            defaultValue={currentUser.email}
+            onChange={handleChange}
+          />
+        </div>
+        <div className="flex justify-between border dark:border-none border-slate-400 items-center rounded-lg  dark:bg-slate-700">
+          <input
+            className="bg-transparent border-none w-full focus:ring-0"
+            type={showPassword ? "text" : "password"}
+            placeholder="*******"
+            id="password"
+            onChange={handleChange}
+          />
+          <div>
+            {showPassword ? (
+              <HiEyeOff
+                className="text-slate-500 cursor-pointer mr-2 w-4 h-4"
+                onClick={() => setShowPassword((prev) => !prev)}
+              />
+            ) : (
+              <HiEye
+                className="text-slate-500 cursor-pointer mr-2 w-4 h-4"
+                onClick={() => setShowPassword((prev) => !prev)}
+              />
+            )}
+          </div>
+        </div>
 
         {errorMessage && (
           <Alert className="mt-5" color="failure">

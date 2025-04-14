@@ -110,12 +110,12 @@ export function Signup() {
               <div>
                 {showPassword ? (
                   <HiEyeOff
-                    className="text-slate-500 mr-2 w-4 h-4"
+                    className="text-slate-500 cursor-pointer mr-2 w-4 h-4"
                     onClick={() => setShowPassword((prev) => !prev)}
                   />
                 ) : (
                   <HiEye
-                    className="text-slate-500 mr-2 w-4 h-4"
+                    className="text-slate-500 cursor-pointer mr-2 w-4 h-4"
                     onClick={() => setShowPassword((prev) => !prev)}
                   />
                 )}

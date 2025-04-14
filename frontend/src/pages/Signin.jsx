@@ -100,22 +100,22 @@ export function Signin() {
               <div>
                 {showPassword ? (
                   <HiEyeOff
-                    className="text-slate-500 mr-2 w-4 h-4"
+                    className="text-slate-500 cursor-pointer mr-2 w-4 h-4"
                     onClick={() => setShowPassword((prev) => !prev)}
                   />
                 ) : (
                   <HiEye
-                    className="text-slate-500 mr-2 w-4 h-4"
+                    className="text-slate-500 cursor-pointer mr-2 w-4 h-4"
                     onClick={() => setShowPassword((prev) => !prev)}
                   />
                 )}
               </div>
+            </div>
               {errorMessage && (
                 <Alert className="mt-5" color="failure">
                   {errorMessage}
                 </Alert>
               )}
-            </div>
             <Button
               className="bg-gradient-to-r from-cyan-500 to-blue-600 focus:ring-0"
               type="submit"
