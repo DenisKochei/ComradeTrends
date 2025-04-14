@@ -92,7 +92,7 @@ export default function CreatePost() {
       ["clean"],
     ],
   };
-  
+
   return (
     <div className="p-3 mx-auto max-w-3xl min-h-screen">
       <h1 className="text-center font-semibold text-3xl my-7">Create Post</h1>
@@ -138,88 +138,102 @@ export default function CreatePost() {
             <option value="trending">Trending</option>
             <option value="agriculture">Trending</option>
           </Select>
-          {formData && (formData.category=== "business" || formData.category ==="sports" || formData.category ==="health" || formData.category ==="politics" || formData.category ==="entertainment" || formData.category ==="education" || formData.category ==="breaking" || formData.category ==="market" || formData.category ==="trending" || formData.category ==="international" || formData.category ==="agriculture" ) && 
-          <Select
-          onChange={(e)=>{
-            setFormData({ ...formData, subcategory: e.target.value })
-          }}
-          >
-            {(formData.category ==="business" ? 
-             <div>
-               <option value="international">International</option>
-               <option value="local">Local</option>
-             </div>
-             :(formData.category ==="sports") ? 
-             <div>
-              <option>Select Subcategory</option>
-              <option value="international">International</option>
-              <option value="local">Local</option>
-              <option value="county">County</option>
-              <option value="athletics">Athletics</option>
-              <option value="football">Football</option>
-             </div>
-             :(formData.category === "politics") ?
-             <div>
-              <option>Select Subcategory</option>
-              <option value="international">International</option>
-              <option value="local">Local</option>
-              <option value="county">County</option>
-             </div>
-             :(formData.category === "entertainment") ?
-             <div>
-              <option>Select Subcategory</option>
-              <option value="international">International</option>
-              <option value="local">Local</option>
-              <option value="celebrity">Celebrity</option>
-              <option value="podcast">Podcast</option>
-             </div>
-             :(formData.category === "health") ?
-             <div>
-              <option>Select Subcategory</option>
-              <option value="mantal health">Mental Health</option>
-              <option value="physical therapy">Physical Therapy</option>
-             </div>
-             :(formData.category === "education") ?
-             <div>
-              <option>Select Subcategory</option>
-              <option value="international">International</option>
-              <option value="local">Local</option>
-              <option value="county">County</option>
-             </div>:(formData.category === "trending") ?
-             <div>
-              <option>Select Subcategory</option>
-              <option value="international">International</option>
-              <option value="local">Local</option>
-             </div>
-             :(formData.category === "market") ?
-             <div>
-              <option>Select Subcategory</option>
-              <option value="international">International</option>
-              <option value="local">Local</option>
-              <option value="county">County</option>
-             </div>
-             :(formData.category === "breaking") ?
-             <div>
-              <option>Select Subcategory</option>
-              <option value="international">International</option>
-              <option value="local">Local</option>
-             </div>
-             :(formData.category === "agriculture") ?
-             <div>
-              <option>Select Subcategory</option>
-              <option value="local">Local</option>
-              <option value="africa">Africa</option>
-              <option value="overseas">Overseas</option>
-             </div>
-             :(formData.category === "international") ?
-             <div>
-              <option>Select Subcategory</option>
-              <option value="africa">Africa</option>
-              <option value="overseas">Overseas</option>
-             </div>
-             :<div></div>
+          {formData &&
+            (formData.category === "business" ||
+              formData.category === "sports" ||
+              formData.category === "health" ||
+              formData.category === "politics" ||
+              formData.category === "entertainment" ||
+              formData.category === "education" ||
+              formData.category === "breaking" ||
+              formData.category === "market" ||
+              formData.category === "trending" ||
+              formData.category === "international" ||
+              formData.category === "agriculture") && (
+              <Select
+                onChange={(e) => {
+                  setFormData({ ...formData, subcategory: e.target.value });
+                }}
+              >
+                {formData.category === "business" ? (
+                  <div>
+                    <option value="international">International</option>
+                    <option value="local">Local</option>
+                  </div>
+                ) : formData.category === "sports" ? (
+                  <div>
+                    <option>Select Subcategory</option>
+                    <option value="international">International</option>
+                    <option value="local">Local</option>
+                    <option value="county">County</option>
+                    <option value="athletics">Athletics</option>
+                    <option value="football">Football</option>
+                  </div>
+                ) : formData.category === "politics" ? (
+                  <div>
+                    <option>Select Subcategory</option>
+                    <option value="international">International</option>
+                    <option value="local">Local</option>
+                    <option value="county">County</option>
+                  </div>
+                ) : formData.category === "entertainment" ? (
+                  <div>
+                    <option>Select Subcategory</option>
+                    <option value="international">International</option>
+                    <option value="local">Local</option>
+                    <option value="celebrity">Celebrity</option>
+                    <option value="podcast">Podcast</option>
+                  </div>
+                ) : formData.category === "health" ? (
+                  <div>
+                    <option>Select Subcategory</option>
+                    <option value="mantal health">Mental Health</option>
+                    <option value="physical therapy">Physical Therapy</option>
+                  </div>
+                ) : formData.category === "education" ? (
+                  <div>
+                    <option>Select Subcategory</option>
+                    <option value="international">International</option>
+                    <option value="local">Local</option>
+                    <option value="county">County</option>
+                  </div>
+                ) : formData.category === "trending" ? (
+                  <div>
+                    <option>Select Subcategory</option>
+                    <option value="international">International</option>
+                    <option value="local">Local</option>
+                  </div>
+                ) : formData.category === "market" ? (
+                  <div>
+                    <option>Select Subcategory</option>
+                    <option value="international">International</option>
+                    <option value="local">Local</option>
+                    <option value="county">County</option>
+                  </div>
+                ) : formData.category === "breaking" ? (
+                  <div>
+                    <option>Select Subcategory</option>
+                    <option value="international">International</option>
+                    <option value="local">Local</option>
+                  </div>
+                ) : formData.category === "agriculture" ? (
+                  <div>
+                    <option>Select Subcategory</option>
+                    <option value="local">Local</option>
+                    <option value="africa">Africa</option>
+                    <option value="overseas">Overseas</option>
+                  </div>
+                ) : formData.category === "international" ? (
+                  <div>
+                    <option>Select Subcategory</option>
+                    <option value="africa">Africa</option>
+                    <option value="overseas">Overseas</option>
+                  </div>
+                ) : (
+                  <div></div>
+                )}
+              </Select>
             )}
-          </Select>}
         </div>
         <div className="flex gap-4 items-center justify-between border-4 border-dotted border-teal-500 p-3">
           <FileInput

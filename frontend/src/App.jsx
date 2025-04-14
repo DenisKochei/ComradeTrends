@@ -45,8 +45,8 @@ export default function App() {
           <Route path="/post/:postslug" element={<PostPage />} />
           <Route path="/search" element={<Search />} />
           <Route path="/privacy-policy" element={<PolicyPage />} />
-          <Route path="/marketplace" element={<MarketPlace/>} />
-          <Route path="/marketplace/cart" element={<Cart/>} />
+          <Route path="/marketplace" element={<MarketPlace />} />
+          <Route path="/marketplace/cart" element={<Cart />} />
         </Routes>
         <Footer />
       </BrowserRouter>

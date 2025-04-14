@@ -58,7 +58,8 @@ export const signin = async (req, res, next) => {
     //When comparing both the email and the password it is best to make the message not clear by saying that either or both the email or the password is incorrect
     const token = jwt.sign(
       { id: validUser._id, isAdmin: validUser.isAdmin },
-      process.env.JWT_SECRET,{expiresIn:"1y"}
+      process.env.JWT_SECRET,
+      { expiresIn: "1y" }
     );
 
     const { password: pass, ...rest } = validUser._doc;
@@ -87,9 +88,9 @@ export const google = async (req, res, next) => {
         process.env.JWT_SECRET,
         { expiresIn: "10y" } // JWT expiration (not the cookie expiration)
       );
-      
+
       const { password, ...rest } = user._doc;
-      
+
       res
         .status(200)
         .cookie("access_token", token, {
@@ -97,7 +98,6 @@ export const google = async (req, res, next) => {
           maxAge: 10 * 365 * 24 * 60 * 60 * 1000, // 10 years in milliseconds
         })
         .json(rest);
-      
     } else {
       const generatedPassword =
         Math.random().toString(36).slice(-8) +
@@ -114,7 +114,8 @@ export const google = async (req, res, next) => {
       await newUser.save();
       const token = jwt.sign(
         { id: newUser._id, isAdmin: newUser.isAdmin },
-        process.env.JWT_SECRET,{expiresIn:"1y"}
+        process.env.JWT_SECRET,
+        { expiresIn: "1y" }
       );
       const { password, ...rest } = newUser._doc;
       res

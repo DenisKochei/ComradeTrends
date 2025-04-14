@@ -15,8 +15,7 @@ export function Search() {
   const [loading, setLoading] = useState(false);
   const [showMore, setShowMore] = useState(false);
   const [readMoreLoading, setReadMoreLoading] = useState(false);
-  const [totalPosts,setTotalPosts] = useState(null)
- 
+  const [totalPosts, setTotalPosts] = useState(null);
 
   const location = useLocation();
   const navigate = useNavigate();
@@ -45,7 +44,7 @@ export function Search() {
       if (res.ok) {
         const data = await res.json();
         setPosts(data.posts);
-        setTotalPosts(data.length)
+        setTotalPosts(data.length);
         setLoading(false);
         if (data.posts.length === 9) {
           setShowMore(true);
@@ -103,7 +102,6 @@ export function Search() {
       }
     }
   };
-  
 
   return (
     <div className="flex flex-col min-h-screen w-full md:flex-row">
@@ -115,89 +113,89 @@ export function Search() {
         />
       </Helmet>
       <div className="flex flex-col w-full justify-center md:items-start md:flex-row">
-      <div className="p-3 border-b md:w-1/4 md:border-r md:min-h-screen  border-gray-500">
-        <form
-          className="flex flex-col md:sticky top-5 gap-2 justify-start"
-          onSubmit={handleSubmit}
-        >
-          <div className="w-full flex-col md:flex gap-0">
-            <input
-              id="searchTerm"
-              type="text"
-              value={sidebarData.searchTerm}
-              onChange={handleChange}
-              placeholder="Search..."
-              className=" w-1/2 md:w-full dark:bg-slate-800 rounded-lg border-b-slate-500"
-            />
-            <select
-              className=" border-none w-1/4 md:w-full focus:ring-0 dark:bg-slate-800 "
-              onChange={handleChange}
-              value={sidebarData.sort}
-              id="sort"
-            >
-              <option value="desc">Latest</option>
-              <option value="asc">Oldest</option>
-            </select>
-            <select
-              onChange={handleChange}
-              value={sidebarData.category}
-              id="category"
-              className=" dark:bg-slate-800 border-none focus:ring-0 w-1/4 md:w-full"
-            >
-            <option value="">Select category</option>
-            <option value="breaking">Breaking news</option>
-            <option value="business">Business</option>
-            <option value="climate">Climate</option>
-            <option value="education">Education</option>
-            <option value="entertainment">Entertainment</option>
-            <option value="general">General</option>
-            <option value="health">Health</option>
-            <option value="market">Market</option>
-            <option value="most-trending">Most trending</option>
-            <option value="people">People</option>
-            <option value="politics">Politics</option>
-            <option value="sports">Sports</option>
-            <option value="technology">Technology</option>
-            <option value="trending">Trending</option>
-            <option value="agriculture">Trending</option>
-            </select>
-          </div>
-          <Button
-            outline
-            type="submit"
-            color="transparent"
-            gradientDuoTone="purpleToBlue"
-            className="focus:ring-0"
+        <div className="p-3 border-b md:w-1/4 md:border-r md:min-h-screen  border-gray-500">
+          <form
+            className="flex flex-col md:sticky top-5 gap-2 justify-start"
+            onSubmit={handleSubmit}
           >
-            <span className="text-nowrap">Apply Filter</span>
-          </Button>
-        </form>
-      </div>
-      <div className="w-full">
-        <div className="flex justify-start sm:border-b border-gray-500 items-center gap-1">
-        <h1 className="text-xl font-semibold   p-1 m-1 ">
-          Search results:
-        </h1>
-          <span className="text-teal-500 text-xl">{totalPosts}</span>
-        </div>
-        <div className="p-2 flex justify-center flex-wrap gap-4">
-          {!loading && posts.length === 0 && (
-            <p className="text-xl text-gray-500">No posts found.</p>
-          )}
-          {loading && <p className="text-xl text-gray-500">Loading...</p>}
-          {!loading &&
-            posts &&
-            posts.map((post) => <PostCard key={post._id} post={post} />)}
-          {showMore && !loading && (
-            <button
-              onClick={handleShowMore}
-              className="text-teal-500 text-lg hover:underline p-2 w-full"
+            <div className="w-full flex-col md:flex gap-0">
+              <input
+                id="searchTerm"
+                type="text"
+                value={sidebarData.searchTerm}
+                onChange={handleChange}
+                placeholder="Search..."
+                className=" w-1/2 md:w-full dark:bg-slate-800 rounded-lg border-b-slate-500"
+              />
+              <select
+                className=" border-none w-1/4 md:w-full focus:ring-0 dark:bg-slate-800 "
+                onChange={handleChange}
+                value={sidebarData.sort}
+                id="sort"
+              >
+                <option value="desc">Latest</option>
+                <option value="asc">Oldest</option>
+              </select>
+              <select
+                onChange={handleChange}
+                value={sidebarData.category}
+                id="category"
+                className=" dark:bg-slate-800 border-none focus:ring-0 w-1/4 md:w-full"
+              >
+                <option value="">Select category</option>
+                <option value="breaking">Breaking news</option>
+                <option value="business">Business</option>
+                <option value="climate">Climate</option>
+                <option value="education">Education</option>
+                <option value="entertainment">Entertainment</option>
+                <option value="general">General</option>
+                <option value="health">Health</option>
+                <option value="market">Market</option>
+                <option value="most-trending">Most trending</option>
+                <option value="people">People</option>
+                <option value="politics">Politics</option>
+                <option value="sports">Sports</option>
+                <option value="technology">Technology</option>
+                <option value="trending">Trending</option>
+                <option value="agriculture">Trending</option>
+              </select>
+            </div>
+            <Button
+              outline
+              type="submit"
+              color="transparent"
+              gradientDuoTone="purpleToBlue"
+              className="focus:ring-0"
             >
-              {readMoreLoading ? <Spinner /> : "Show More"}
-            </button>
-          )}
+              <span className="text-nowrap">Apply Filter</span>
+            </Button>
+          </form>
         </div>
-      </div>
+        <div className="w-full">
+          <div className="flex justify-start sm:border-b border-gray-500 items-center gap-1">
+            <h1 className="text-xl font-semibold   p-1 m-1 ">
+              Search results:
+            </h1>
+            <span className="text-teal-500 text-xl">{totalPosts}</span>
+          </div>
+          <div className="p-2 flex justify-center flex-wrap gap-4">
+            {!loading && posts.length === 0 && (
+              <p className="text-xl text-gray-500">No posts found.</p>
+            )}
+            {loading && <p className="text-xl text-gray-500">Loading...</p>}
+            {!loading &&
+              posts &&
+              posts.map((post) => <PostCard key={post._id} post={post} />)}
+            {showMore && !loading && (
+              <button
+                onClick={handleShowMore}
+                className="text-teal-500 text-lg hover:underline p-2 w-full"
+              >
+                {readMoreLoading ? <Spinner /> : "Show More"}
+              </button>
+            )}
+          </div>
+        </div>
       </div>
     </div>
   );

@@ -14,7 +14,7 @@ export function DashPosts() {
   useEffect(() => {
     const fetchPosts = async () => {
       try {
-        if(currentUser.isSuperAdmin){
+        if (currentUser.isSuperAdmin) {
           const res = await fetch(`/api/post/getposts`);
           const data = await res.json();
           if (res.ok) {
@@ -23,18 +23,18 @@ export function DashPosts() {
               setShowMore(false);
             }
           }
-        }
-        else{
-          const res = await fetch(`/api/post/getposts?userId=${currentUser._id}`);
+        } else {
+          const res = await fetch(
+            `/api/post/getposts?userId=${currentUser._id}`
+          );
           const data = await res.json();
-        if (res.ok) {
-          setPosts(data.posts);
-          if (data.posts.length < 9) {
-            setShowMore(false);
+          if (res.ok) {
+            setPosts(data.posts);
+            if (data.posts.length < 9) {
+              setShowMore(false);
+            }
           }
         }
-        }
-        
       } catch (error) {
         console.log(error.message);
       }
@@ -47,10 +47,24 @@ export function DashPosts() {
   const handleShowMore = async () => {
     const startIndex = posts.length;
     setShowMoreLoading(true);
-    if(currentUser.isAdmin && currentUser.isSuperAdmin){
+    if (currentUser.isAdmin && currentUser.isSuperAdmin) {
+      try {
+        const res = await fetch(`/api/post/getposts?startIndex=${startIndex}`);
+        const data = await res.json();
+        if (res.ok) {
+          setShowMoreLoading(false);
+          setPosts((prev) => [...prev, ...data.posts]);
+          if (data.posts.length < 9) {
+            setShowMore(false);
+          }
+        }
+      } catch (err) {
+        console.log(err);
+      }
+    } else {
       try {
         const res = await fetch(
-          `/api/post/getposts?startIndex=${startIndex}`
+          `/api/post/getposts?userId=${currentUser._id}&startIndex=${startIndex}`
         );
         const data = await res.json();
         if (res.ok) {
@@ -63,22 +77,6 @@ export function DashPosts() {
       } catch (err) {
         console.log(err);
       }
-    }else{
-    try {
-      const res = await fetch(
-        `/api/post/getposts?userId=${currentUser._id}&startIndex=${startIndex}`
-      );
-      const data = await res.json();
-      if (res.ok) {
-        setShowMoreLoading(false);
-        setPosts((prev) => [...prev, ...data.posts]);
-        if (data.posts.length < 9) {
-          setShowMore(false);
-        }
-      }
-    } catch (err) {
-      console.log(err);
-    }
     }
   };
   const handleDeletePost = async () => {

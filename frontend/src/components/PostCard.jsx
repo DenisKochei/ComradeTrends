@@ -19,13 +19,13 @@ export function PostCard({ post }) {
         <p className="text-lg font-semibold line-clamp-2">{post.title}</p>
         <div className="flex justify-between mx-2 items-center text-slate-600 text-xs space-x-1">
           <div className="space-x-1 mt-1">
-          <span className="italic">{post.category}</span>
-          {post.subcategory && (
-            <>
-              <span className="text-slate-300">/</span>
-              <span>{post.subcategory}</span>
-            </>
-          )}
+            <span className="italic">{post.category}</span>
+            {post.subcategory && (
+              <>
+                <span className="text-slate-300">/</span>
+                <span>{post.subcategory}</span>
+              </>
+            )}
           </div>
           <span className=" mt-1 mr-2">{moment(post.createdAt).fromNow()}</span>
         </div>

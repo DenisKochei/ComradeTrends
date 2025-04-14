@@ -14,10 +14,12 @@ export function Cart() {
           content="trusted source for the latest news, insightful analysis, and trending stories in Kenya and from around the world."
         />
       </Helmet>
-      
-      <p className="text-2xl self-center">ComradeTrends Market Place, Coming Soon 🙂</p>
+
+      <p className="text-2xl self-center">
+        ComradeTrends Market Place, Coming Soon 🙂
+      </p>
       <div className="w-full flex justify-center items-center p-4">
-        <CallToAction/>
+        <CallToAction />
       </div>
     </div>
   );

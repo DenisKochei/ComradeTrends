@@ -43,24 +43,22 @@ export function PolicyPage() {
               <ul>
                 <li className="m-5">
                   <p className="md:text-xl">
-                    <strong className="text-xl">Account:</strong> 
+                    <strong className="text-xl">Account:</strong>
                     <div>
-                    means a unique
-                    account created for You to access our Service or parts of
-                    our Service.
+                      means a unique account created for You to access our
+                      Service or parts of our Service.
                     </div>
                   </p>
                 </li>
                 <li className="m-5">
                   <p className="md:text-xl">
-                    <strong className="text-xl">Affiliate:</strong> 
+                    <strong className="text-xl">Affiliate:</strong>
                     <div>
-                    means an
-                    entity that controls, is controlled by or is under common
-                    control with a party, where "control" means ownership of 50%
-                    or more of the shares, equity interest or other securities
-                    entitled to vote for election of directors or other managing
-                    authority.
+                      means an entity that controls, is controlled by or is
+                      under common control with a party, where "control" means
+                      ownership of 50% or more of the shares, equity interest or
+                      other securities entitled to vote for election of
+                      directors or other managing authority.
                     </div>
                   </p>
                 </li>
@@ -68,9 +66,8 @@ export function PolicyPage() {
                   <p className="md:text-xl">
                     <strong className="text-xl">Company:</strong>
                     <div>
-                    (referred to
-                    as either "the Company", "We", "Us" or "Our" in this
-                    Agreement) refers to Comrade Trends.
+                      (referred to as either "the Company", "We", "Us" or "Our"
+                      in this Agreement) refers to Comrade Trends.
                     </div>
                   </p>
                 </li>
@@ -78,62 +75,54 @@ export function PolicyPage() {
                   <p className="md:text-xl">
                     <strong className="text-xl">Cookies:</strong>
                     <div>
-                    are small
-                    files that are placed on Your computer, mobile device or any
-                    other device by a website, containing the details of Your
-                    browsing history on that website among its many uses.
+                      are small files that are placed on Your computer, mobile
+                      device or any other device by a website, containing the
+                      details of Your browsing history on that website among its
+                      many uses.
                     </div>
                   </p>
                 </li>
                 <li className="m-5">
                   <p className="md:text-xl">
-                    <strong className="text-xl">Country:</strong> 
+                    <strong className="text-xl">Country:</strong>
+                    <div>refers to: Kenya</div>
+                  </p>
+                </li>
+                <li className="m-5">
+                  <p className="md:text-xl">
+                    <strong className="text-xl">Device:</strong>
                     <div>
-                    refers to:
-                    Kenya
+                      means any device that can access the Service such as a
+                      computer, a cellphone or a digital tablet.
                     </div>
                   </p>
                 </li>
                 <li className="m-5">
                   <p className="md:text-xl">
-                    <strong className="text-xl">Device:</strong> 
+                    <strong className="text-xl">Personal Data:</strong>
                     <div>
-                    means any
-                    device that can access the Service such as a computer, a
-                    cellphone or a digital tablet.
-                    </div>
-                  </p>
-                </li>
-                <li className="m-5">
-                  <p className="md:text-xl">
-                    <strong className="text-xl">Personal Data:</strong> 
-                    <div>
-                    is any
-                    information that relates to an identified or identifiable
-                    individual.
+                      is any information that relates to an identified or
+                      identifiable individual.
                     </div>
                   </p>
                 </li>
                 <li className="m-5">
                   <p className="md:text-xl">
                     <strong className="text-xl">Service:</strong>
-                    <div>
-                    refers to the
-                    Website.
-                    </div>
+                    <div>refers to the Website.</div>
                   </p>
                 </li>
                 <li className="m-5">
                   <p className="md:text-xl">
                     <strong className="text-xl">Service Provider:</strong>
                     <div>
-                    means
-                    any natural or legal person who processes the data on behalf
-                    of the Company. It refers to third-party companies or
-                    individuals employed by the Company to facilitate the
-                    Service, to provide the Service on behalf of the Company, to
-                    perform services related to the Service or to assist the
-                    Company in analyzing how the Service is used.
+                      means any natural or legal person who processes the data
+                      on behalf of the Company. It refers to third-party
+                      companies or individuals employed by the Company to
+                      facilitate the Service, to provide the Service on behalf
+                      of the Company, to perform services related to the Service
+                      or to assist the Company in analyzing how the Service is
+                      used.
                     </div>
                   </p>
                 </li>
@@ -141,10 +130,10 @@ export function PolicyPage() {
                   <p className="md:text-xl">
                     <strong className="text-xl">Usage Data:</strong>
                     <div>
-                    refers to
-                    data collected automatically, either generated by the use of
-                    the Service or from the Service infrastructure itself (for
-                    example, the duration of a page visit).
+                      refers to data collected automatically, either generated
+                      by the use of the Service or from the Service
+                      infrastructure itself (for example, the duration of a page
+                      visit).
                     </div>
                   </p>
                 </li>
@@ -152,16 +141,15 @@ export function PolicyPage() {
                   <p className="md:text-xl">
                     <strong className="text-xl">Website:</strong>
                     <div>
-                    refers to
-                    Comrade Trends, accessible from{" "}
-                    <a
-                      href="comradetrends.com"
-                      rel="external nofollow noopener"
-                      target="_blank"
-                      className="text-[rgb(2,132,199,100)]"
-                    >
-                      comradetrends.com
-                    </a>
+                      refers to Comrade Trends, accessible from{" "}
+                      <a
+                        href="comradetrends.com"
+                        rel="external nofollow noopener"
+                        target="_blank"
+                        className="text-[rgb(2,132,199,100)]"
+                      >
+                        comradetrends.com
+                      </a>
                     </div>
                   </p>
                 </li>
@@ -169,10 +157,10 @@ export function PolicyPage() {
                   <p className="md:text-xl">
                     <strong className="text-xl">You:</strong>
                     <div>
-                    means the
-                    individual accessing or using the Service, or the company,
-                    or other legal entity on behalf of which such individual is
-                    accessing or using the Service, as applicable.
+                      means the individual accessing or using the Service, or
+                      the company, or other legal entity on behalf of which such
+                      individual is accessing or using the Service, as
+                      applicable.
                     </div>
                   </p>
                 </li>
@@ -669,7 +657,10 @@ export function PolicyPage() {
                 <li className="mx-5">
                   <p className="md:text-xl">
                     By email:{" "}
-                    <a className="text-[rgb(2,132,199,100)] cursor-pointer" href="mailto:comradetrends.info@gmail.com">
+                    <a
+                      className="text-[rgb(2,132,199,100)] cursor-pointer"
+                      href="mailto:comradetrends.info@gmail.com"
+                    >
                       comradetrends.info@gmail.com
                     </a>
                   </p>
@@ -677,7 +668,12 @@ export function PolicyPage() {
                 <li className="mx-5">
                   <p className="md:text-xl ">
                     By phone number:{" "}
-                    <a className="text-[rgb(2,132,199,100)] cursor-pointer" href="tel:+254759117496">+(254)759117496</a>
+                    <a
+                      className="text-[rgb(2,132,199,100)] cursor-pointer"
+                      href="tel:+254759117496"
+                    >
+                      +(254)759117496
+                    </a>
                   </p>
                 </li>
               </ul>

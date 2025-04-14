@@ -4,7 +4,7 @@ import { Button } from "flowbite-react";
 export function HomePostCard({ post }) {
   return (
     <div>
-      <div className="flex flex-col mt-5 justify-start items-center">
+      <div className="flex flex-col sm:mt-5 mt-2 justify-start items-center">
         <h1 className="font-semi font-serif text-xl">{post.title}</h1>
         <Link
           to={`/search?category=${post.category}`}

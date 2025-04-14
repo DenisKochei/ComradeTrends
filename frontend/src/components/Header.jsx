@@ -155,7 +155,8 @@ export function Header() {
                       alt="User"
                       img={currentUser.profilePicture}
                       rounded
-                      status="online" statusPosition="top-right"
+                      status="online"
+                      statusPosition="top-right"
                       size="sm"
                       className=""
                     />
