@@ -45,7 +45,7 @@ export function Signin() {
 
       if (res.ok) {
         dispatch(signinSuccess(data));
-        goBack();
+        navigate("/")
       }
     } catch (err) {
       dispatch(signinFailure(err.message));

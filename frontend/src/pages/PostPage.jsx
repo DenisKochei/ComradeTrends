@@ -125,31 +125,24 @@ export function PostPage() {
         <PageIndicator />
         <div className="lg:flex min-h-screen items-start">
         <Helmet>
-          <title>{`Comrade Trends | ${post.title}`}</title>
-          <meta name="description" content={post.title} />
+          <title>{post ? `Comrade Trends | ${post.title}` : "Comrade Trends"}</title>
+          <meta name="description" content={post?.title || "Stay updated with Comrade Trends."} />
 
+          {/* Open Graph Meta Tags for Facebook, LinkedIn, etc. */}
+          <meta property="og:type" content="article" />
           <meta property="og:url" content={currentUrl} />
-          <meta property="og:type" content="website" />
-          <meta property="og:title" content={post.title} />
-          <meta
-            property="og:description"
-            content={`Comrade Trends | ${post.title}`}
-          />
-          <meta property="og:image" content={post.image} />
-
+          <meta property="og:title" content={post?.title || "Comrade Trends"} />
+          <meta property="og:description" content={post?.title || "Latest from Comrade Trends"} />
+          {post?.image && <meta property="og:image" content={post.image} />}
+          
+          {/* Twitter Card Meta Tags */}
           <meta name="twitter:card" content="summary_large_image" />
-          <meta
-            property="twitter:domain"
-            content="comradetrends.onrender.com"
-          />
-          <meta property="twitter:url" content={currentUrl} />
-          <meta name="twitter:title" content="Comrade Trends" />
-          <meta
-            name="twitter:description"
-            content={`Comrade Trends | ${post.title}`}
-          />
-          <meta name="twitter:image" content={post.image} />
+          <meta name="twitter:site" content="@comradetrends" />
+          <meta name="twitter:title" content={post?.title || "Comrade Trends"} />
+          <meta name="twitter:description" content={post?.title || "Stay informed with Comrade Trends"} />
+          {post?.image && <meta name="twitter:image" content={post.image} />}
         </Helmet>
+
         <div className="hidden lg:sticky lg:py-4 lg:px-1 lg:justify-center lg:items-center lg:flex lg:flex-col lg:mb-10 lg:mx-1 md:top-20">
           <div>
           <FaShareFromSquare className="w-6 h-6"/>
@@ -271,7 +264,7 @@ export function PostPage() {
             <FacebookShareButton
                 url={currentPageURL}
                 quote={post.title}
-                hashtag="#ComradeTrends"
+                hashtag={post.hashtag}
               >
                 <CiFacebook fill="rgb(74,70,70)" className="text-3xl hover:fill-slate-300" />
               </FacebookShareButton>
