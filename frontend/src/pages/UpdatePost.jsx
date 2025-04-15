@@ -6,6 +6,7 @@ import {
   getDownloadURL,
   getStorage,
   ref,
+  updateMetadata,
   uploadBytesResumable,
 } from "firebase/storage";
 import { app } from "../firebase";
@@ -48,16 +49,21 @@ export default function UpdatePost() {
   }, [postId]);
 
   const handleauploadImage = async () => {
+    
     try {
-      if (!file) {
-        setImageUploadError("please Select an image");
-        return;
-      }
-      setImageUploadError(null);
       const storage = getStorage(app);
       const fileName = new Date().getTime() + "-" + file.name;
       const storageRef = ref(storage, fileName);
-      const uploadTask = uploadBytesResumable(storageRef, file);
+    
+      // Defining metadata here
+      const metadata = {
+        contentType: file.type,
+        cacheControl: 'public, max-age=31536000' // Cache for 1 year
+      };
+    
+      // Passing metadata as the 3rd argument to uploadBytesResumable
+      const uploadTask = uploadBytesResumable(storageRef, file, metadata);
+    
       uploadTask.on(
         "state_changed",
         (snapshot) => {
@@ -66,7 +72,7 @@ export default function UpdatePost() {
           setImageUploudProgress(progress.toFixed(0));
         },
         (error) => {
-          setImageUploadError("image Upload failed");
+          setImageUploadError("Image upload failed");
           setImageUploudProgress(null);
         },
         () => {
@@ -78,10 +84,11 @@ export default function UpdatePost() {
         }
       );
     } catch (err) {
-      setImageUploadError("image upload failed");
+      setImageUploadError("Image upload failed");
       setImageUploudProgress(null);
       console.log(err);
     }
+    
   };
   const handleSubmit = async (e) => {
     e.preventDefault();
