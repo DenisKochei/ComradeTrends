@@ -27,14 +27,14 @@ transporter.verify((error, success) => {
 
 const sendVerificationEmail = async ({ _id, email }, res) => {
   try {
-    const currentUrl = "https://";
+    const currentUrl = "https://comradetrends.com/api/auth";
     const uniqueString = uuidv4() + _id;
     const mailOptions = {
       from: process.env.AUTH_MAIL,
       to: email,
       subject: "Verify email",
       html: `<p>Verify your email to finish setting up your account</p><p>Click <a href=${
-        currentUrl + "comradetrends.com/api/auth" + "/verify/" + _id + "/" + uniqueString
+        currentUrl + "/verify/" + _id + "/" + uniqueString
       }>Here</a> to verify</p><p>Welcome to comrade Trends</p><p>A bustling hub of breaking news, Kenya's and the globe's heartbeat echoing across the digital savanna.</p>`,
     };
     console.log(currentUrl + "/verify/" + _id + "/" + uniqueString)
