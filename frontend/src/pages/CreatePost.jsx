@@ -33,7 +33,8 @@ export default function CreatePost() {
       };
     
       // Passing metadata as the 3rd argument to uploadBytesResumable
-      const uploadTask = uploadBytesResumable(storageRef, file, metadata);
+      const uploadTask = uploadBytesResumable(storageRef, file, metadata)
+      .then((metadata)=>console.log(metadata))
     
       uploadTask.on(
         "state_changed",

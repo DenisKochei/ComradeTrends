@@ -28,6 +28,10 @@ const userSchema = new mongoose.Schema(
       type: Boolean,
       default: false,
     },
+    verified : {
+      type:Boolean,
+      default:false,
+    },
   },
   { timestamps: true }
   //timestamp is used to save the time of creation and the time af update

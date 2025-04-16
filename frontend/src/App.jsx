@@ -47,6 +47,7 @@ export default function App() {
           <Route path="/privacy-policy" element={<PolicyPage />} />
           <Route path="/marketplace" element={<MarketPlace />} />
           <Route path="/marketplace/cart" element={<Cart />} />
+          <Route path="api/auth/verify/*" element={<Signin />} />
         </Routes>
         <Footer />
       </BrowserRouter>

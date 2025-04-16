@@ -20,7 +20,9 @@
     "express": "^4.21.0",
     "jsonwebtoken": "^9.0.2",
     "mongoose": "^8.6.2",
-    "prerender-node": "^3.8.0"
+    "nodemailer": "^6.10.1",
+    "prerender-node": "^3.8.0",
+    "uuid": "^11.1.0"
   },
   "devDependencies": {
     "nodemon": "^3.1.4"
