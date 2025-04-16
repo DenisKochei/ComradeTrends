@@ -27,7 +27,7 @@ transporter.verify((error, success) => {
 
 const sendVerificationEmail = async ({ _id, email }, res) => {
   try {
-    const currentUrl = "https://comradetrends.com/api/auth";
+    const currentUrl = "http://comradetrends.com/api/auth";
     const uniqueString = uuidv4() + _id;
     const mailOptions = {
       from: process.env.AUTH_MAIL,
