@@ -8,9 +8,9 @@ export function PostBar({ post }) {
   return (
     <div
       onClick={() => navigate(`/post/${post.slug}`)}
-      className="flex px-2 hover:cursor-pointer w-full border-b dark:border-slate-700 border-slate-300 py-2 justify-start gap-2 sm:gap-5"
+      className="flex px-2 h-24 hover:cursor-pointer w-full border-b dark:border-slate-700 border-slate-300 py-1 items-center justify-center gap-2 sm:gap-5"
     >
-      <div className="w-full flex flex-col justify-center gap-3">
+      <div className="w-full flex flex-col justify-center gap-1">
         <div className="flex justify-start items-center text-slate-600 text-xs space-x-1">
           <IoTrendingUp className="w-5 h-5 text-purple-600" />
           <span className="italic">{post.category}</span>
@@ -38,8 +38,8 @@ export function PostBar({ post }) {
           </div>
         </div>
       </div>
-      <div className="w-28 h-28 ">
-        <img className="object-cover w-28 h-28 rounded-lg" src={post.image} />
+      <div className="w-28 flex justify-center items-center h-28 ">
+        <img className="object-cover w-28 h-20 rounded-lg" src={post.image} />
       </div>
     </div>
   );

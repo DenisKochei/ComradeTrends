@@ -20,7 +20,9 @@ export default function CreatePost() {
   const [imageUploadError, setImageUploadError] = useState(null);
   const [formData, setFormData] = useState({});
   const [publishError, setPublishError] = useState();
+  
   const handleauploadImage = async () => {
+  
     try {
       const storage = getStorage(app);
       const fileName = new Date().getTime() + "-" + file.name;
@@ -33,8 +35,7 @@ export default function CreatePost() {
       };
     
       // Passing metadata as the 3rd argument to uploadBytesResumable
-      const uploadTask = uploadBytesResumable(storageRef, file, metadata)
-      .then((metadata)=>console.log(metadata))
+      const uploadTask = uploadBytesResumable(storageRef, file, metadata);
     
       uploadTask.on(
         "state_changed",
@@ -114,7 +115,7 @@ export default function CreatePost() {
             }
           />
           <TextInput
-            placeholder="Hashtag"
+            placeholder="hashtag (don't include the'#' sign)"
             id="Hashtag"
             className="flex-1"
             onChange={(e) =>

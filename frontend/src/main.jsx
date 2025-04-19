@@ -6,6 +6,12 @@ import { store, persistor } from "../redux/store";
 import { Provider } from "react-redux";
 import { PersistGate } from "redux-persist/es/integration/react";
 import ThemeProvider from "./components/ThemeProvider.jsx";
+import { registerSW } from 'virtual:pwa-register';
+
+
+registerSW();
+
+
 
 createRoot(document.getElementById("root")).render(
   <PersistGate persistor={persistor}>

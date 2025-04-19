@@ -87,7 +87,7 @@ export function Home() {
 
   useEffect(() => {
     const fetchPosts = async () => {
-      const res = await fetch("/api/post/getposts?limit=6&category=politics");
+      const res = await fetch("/api/post/getposts?limit=7&category=politics");
       const data = await res.json();
       setPolitics(data.posts);
     };
@@ -121,7 +121,7 @@ export function Home() {
   }, []);
   useEffect(() => {
     const fetchPosts = async () => {
-      const res = await fetch("/api/post/getposts?category=trending&limit=4");
+      const res = await fetch("/api/post/getposts?category=trending&limit=5");
       const data = await res.json();
       setTrending(data.posts);
     };
@@ -129,7 +129,7 @@ export function Home() {
   }, []);
   useEffect(() => {
     const fetchPosts = async () => {
-      const res = await fetch("/api/post/getposts?category=technology&limit=4");
+      const res = await fetch("/api/post/getposts?category=technology&limit=5");
       const data = await res.json();
       setTechnology(data.posts);
     };
@@ -138,7 +138,7 @@ export function Home() {
 
   useEffect(() => {
     const fetchPosts = async () => {
-      const res = await fetch("/api/post/getposts?category=breaking&limit=4");
+      const res = await fetch("/api/post/getposts?category=breaking&limit=5");
       const data = await res.json();
       setBreaking(data.posts);
     };
@@ -157,7 +157,7 @@ export function Home() {
 
   useEffect(() => {
     const fetchPosts = async () => {
-      const res = await fetch("/api/post/getposts?limit=4&category=sports");
+      const res = await fetch("/api/post/getposts?limit=5&category=sports");
       const data = await res.json();
       setSports(data.posts);
     };
@@ -384,10 +384,10 @@ export function Home() {
             <div></div>
           )}
           <div className="flex md:flex-row md:w-1/2 gap-2 flex-col">
-            <div className="md:w-1/2 w-full">
+            <div className="md:w-1/2 md:mt-2 w-full">
               {trending && trending.length > 0 ? (
                 <>
-                  <h1 className=" text-2xl font-semibold text-center">
+                  <h1 className=" text-lg font-semibold text-center">
                     Trending News
                   </h1>
                   <div className="flex flex-col gap-1 sm:gap-6">
@@ -403,7 +403,7 @@ export function Home() {
                   <>
                     {business && business.length && (
                       <div className="flex flex-col gap-1 sm:gap-6">
-                        <h1 className=" text-2xl font-semibold text-center">
+                        <h1 className=" text-lg font-semibold text-center">
                           Business News
                         </h1>
                         <div className="flex justify-center flex-wrap gap-0">
@@ -417,10 +417,10 @@ export function Home() {
                 </div>
               )}
             </div>
-            <div className="md:w-1/2 w-full">
+            <div className="md:w-1/2 md:mt-2 w-full">
               {sports && sports.length > 0 ? (
                 <div className="flex flex-col w-full">
-                  <h1 className=" text-2xl font-semibold text-center">
+                  <h1 className=" text-lg font-semibold text-center">
                     Sports News
                   </h1>
                   <div className="flex justify-center flex-wrap gap-0">
@@ -434,7 +434,7 @@ export function Home() {
                   {technology && technology.length && (
                     <>
                       <div className="flex flex-col w-full">
-                        <h1 className=" text-2xl font-semibold text-center">
+                        <h1 className=" text-lg font-semibold text-center">
                           Tech News
                         </h1>
                         <div className="flex justify-center flex-wrap gap-0">
@@ -496,7 +496,7 @@ export function Home() {
                 </Link>
                 <div className="w-full sm:flex">
                   <div className="sm:!w-3/12 w-full flex flex-col rounded-md bg-emerald-700 p-3 gap-10">
-                    <h1 className="text-2xl my-5 text-slate-900 dark:text-slate-300 font-light font-serif">
+                    <h1 className="text-lg my-5 text-slate-900 dark:text-slate-300 font-light font-serif">
                       Discover the future today, right here !
                     </h1>
                     <p className="text-slate-900 dark:text-slate-300">
@@ -527,7 +527,7 @@ export function Home() {
                         />
                       </div>
                       <div className="gap-3 sm:flex flex-col mx-2 w-full sm:w-1/3">
-                        <h1 className="text-2xl line-clamp-3">
+                        <h1 className="text-lg line-clamp-3">
                           {international[0].title}
                         </h1>
                         <div
@@ -602,7 +602,7 @@ export function Home() {
                     onClick={() => navigate(`/post/${politics[0].slug}`)}
                     className="sm:w-5/12 sm:border-none border-b dark:border-slate-600 border-slate-800 rounded-b-md cursor-pointer w-full"
                   >
-                    <h1 className="text-2xl font-light line-clamp-3 font-serif">
+                    <h1 className="text-lg font-light line-clamp-3 font-serif">
                       {politics[0].title}
                     </h1>
                     <div className="flex justify-start items-center text-slate-600 text-xs space-x-1">
@@ -634,7 +634,7 @@ export function Home() {
                         className="object-cover self-center mt-1 pt-1 p-1 h-[430px] w-full !max-w-4xl"
                         src={politics[1].image}
                       />
-                      <div className=" text-wrap line-clamp-4 text-2xl flex justify-start font-serif">
+                      <div className=" text-wrap line-clamp-4 text-lg flex justify-start font-serif">
                         {politics[1].title}
                       </div>
                     </div>
@@ -652,7 +652,7 @@ export function Home() {
             )}
 
             {hashtags && (
-              <div className="flex justify-center items-center gap-3">
+              <div className="flex justify-center mt-2 items-center gap-3">
                 <span className="text-4xl text-orange-500">#</span>
                 <div className="flex flex-nowrap overflow-x-scroll scrollbar-thin text-nowrap scrollbar-thumb-transparent scrollbar-track-transparent overflow-y-hidden gap-2 items-center justify-start ">
                   {hashtags.map((post, index) => (

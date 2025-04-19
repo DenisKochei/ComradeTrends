@@ -91,7 +91,7 @@ export function PostPage() {
   }, [post]);
   useEffect(() => {
     const fetchRecent = async () => {
-      const res = await fetch("/api/post/getposts?limit=5");
+      const res = await fetch("/api/post/getposts?limit=6");
       const data = await res.json();
       setRecent(data.posts);
     };
@@ -119,7 +119,7 @@ export function PostPage() {
     );
   } else {
     return (
-      <div className="mt-3">
+      <div className="mt-2">
         <PageIndicator />
         <div className="lg:flex min-h-screen items-start">
           <Helmet>
@@ -232,32 +232,52 @@ export function PostPage() {
             <h1 className="sm:text-3xl text-xl text-center mt-1 p-1  self-center font-serif max-w-4xl mx-auto lg:text-4xl">
               {post && post.title}
             </h1>
-            <div className="flex items-center justify-around">
+            <div className={`flex items-center ${post.hashtag && "justify-around"} ${!post.hashtag && "justify-start"}`}>
               {post && post.hashtag && (
                 <div className="dark:text-slate-500">
                   {post && post.hashtag ? `#${post.hashtag}` : ""}
                 </div>
               )}
               <Link
-                to={`/search?category=${post && post.category}`}
-                className="self-center mt-2"
+                to={`/search?category=${post.category}`}
+                className=" mt-0 flex justify-start items-center gap-1"
               >
-                <Button
+                <div
+                  className={`w-3 h-3 ${
+                    post.category === "breaking"
+                      ? "bg-red-400"
+                      : post.category === "most-trending"
+                      ? "bg-blue-400"
+                      : "bg-green-400"
+                  } rounded-full`}
+                ></div>
+                <button
                   className="focus:ring-0 p-0"
                   pill
                   color="gray"
                   size="xs"
                 >
-                  {post && post.category}
-                </Button>
+                  {post.category === "most-trending"
+                    ? "Most Trending"
+                    : post.category === "breaking"
+                    ? "Breaking News"
+                    : post.category}
+                </button>
               </Link>
+            </div>
+            <div className="min-h-[200px]">
+              <img
+                src={post && post.image}
+                alt={post.title}
+                className="object-cover max-h-[300px] self-center mt-1 pt-1 p-1 sm:max-h-[600px] w-full !max-w-4xl"
+              />
             </div>
             <div className="max-w-4xl self-center w-full">
               {auther ? (
                 <div className="flex justify-start gap-1 my-0 text-gray-500 text-xs items-center">
                   <p>Auther: </p>
                   <img
-                    className="rounded-full mx-1 min-h-7 object-cover w-5 h-5"
+                    className="rounded-full mx-1 min-h-7 object-cover w-7 h-5"
                     src={auther.profilePicture}
                   />
                   <p className="text-xs text-cyan-500 hover:underline">
@@ -267,13 +287,6 @@ export function PostPage() {
               ) : (
                 <div></div>
               )}
-            </div>
-            <div className="min-h-[200px]">
-              <img
-                src={post && post.image}
-                alt={post.title}
-                className="object-cover max-h-[300px] self-center mt-1 pt-1 p-1 sm:max-h-[600px] w-full !max-w-4xl"
-              />
             </div>
             <div className="flex justify-between p-3 border-b border-slate-500 mx-auto w-full max-w-4xl text-xs">
               <span>
@@ -289,14 +302,14 @@ export function PostPage() {
               </span>
             </div>
             <div
-              className="p-3 w-full max-w-4xl select-none post-content mx-auto"
+              className="py-3 px-1 w-full max-w-4xl select-none post-content mx-auto"
               dangerouslySetInnerHTML={{ __html: post && post.content1 }}
             ></div>
             <div className="w-full mx-auto max-w-4xl">
               <CallToAction />
             </div>
             <div
-              className="p-3 w-full max-w-4xl select-none post-content mx-auto"
+              className="py-3 px-1 w-full max-w-4xl select-none post-content mx-auto"
               dangerouslySetInnerHTML={{ __html: post && post.content2 }}
             ></div>
             <div className="w-full  block lg:hidden">
@@ -386,7 +399,7 @@ export function PostPage() {
           >
             {recent && recent.length > 0 && (
               <>
-                <div className="flex flex-col gap-6">
+                <div className="flex flex-col gap-5">
                   <h1 className=" text-2xl font-semibold text-center">
                     Latest
                   </h1>

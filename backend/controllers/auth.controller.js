@@ -21,7 +21,7 @@ transporter.verify((error, success) => {
   if (error) {
     console.log(error);
   } else {
-    console.log("Ready for sending");
+    console.log("nodemailer activated");
   }
 });
 
@@ -37,7 +37,6 @@ const sendVerificationEmail = async ({ _id, email }, res) => {
         currentUrl + "/verify/" + _id + "/" + uniqueString
       }>Here</a> to verify</p><p>Welcome to comrade Trends</p><p>A bustling hub of breaking news, Kenya's and the globe's heartbeat echoing across the digital savanna.</p>`,
     };
-    console.log(currentUrl + "/verify/" + _id + "/" + uniqueString)
 
     const hashedString = bcryptjs.hashSync(uniqueString, 10);
     const newVerification = new UserVerificaion({
