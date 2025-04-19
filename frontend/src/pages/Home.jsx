@@ -515,19 +515,19 @@ export function Home() {
                       </button>
                     </Link>
                   </div>
-                  <div className="sm:mx-3 w-full sm:!w-9/12">
+                  <div className="sm:mx-1 w-full sm:!w-9/12">
                     <div
                       onClick={() => navigate(`/post/${international[0].slug}`)}
                       className="sm:flex sm:border-none border-b dark:border-slate-600 rounded-b-md border-slate-300 cursor-pointer"
                     >
-                      <div className="w-full  mt-2 sm:mt-0 sm:w-2/3 ">
+                      <div className="w-full  mt-2 sm:mt-0 sm:w-5/8 ">
                         <img
                           className="object-cover self-center mt-1 pt-1 p-1 h-[310px] w-full !max-w-4xl"
                           src={international[0].image}
                         />
                       </div>
-                      <div className="gap-3 sm:flex flex-col mx-2 w-full sm:w-1/3">
-                        <h1 className="text-lg line-clamp-3">
+                      <div className="gap-3 sm:flex flex-col mx-2 w-full sm:w-3/8">
+                        <h1 className="text-lg font-bold line-clamp-3">
                           {international[0].title}
                         </h1>
                         <div

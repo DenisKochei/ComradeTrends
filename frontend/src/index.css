@@ -6,6 +6,18 @@ body{
   height: 100vh;
   font-size:0.8rem;
 }
+body p{
+  font-size: 0.8rem;
+}
+body h1{
+  font-size: 0.8rem;
+}
+body h2{
+  font-size: 0.8rem;
+}
+body span{
+  font-size: 0.8rem;
+}
 .ql-editor{
   font-size: 1.05rem;
   min-height: 150px;
@@ -28,23 +40,19 @@ margin-bottom: 0.5rem;
   margin-left: auto;
   margin-right: auto;
   width: 100%;
-  height:320px;
-  height: 350px;
+  height: 280px;
 }
 .post-content object{
   margin-left: auto;
   margin-right: auto;
   width: 100%;
-  height:320px;
-  height: 350px;
+  height: 280px;
 }
 .post-content embed{
   margin-left: auto;
   margin-right: auto;
   width: 100%;
-  height:320px;
-
-  height: 350px;
+  height: 280px;
 
 }
 .post-content a{

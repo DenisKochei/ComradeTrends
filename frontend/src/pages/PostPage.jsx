@@ -269,7 +269,7 @@ export function PostPage() {
               <img
                 src={post && post.image}
                 alt={post.title}
-                className="object-cover max-h-[300px] self-center mt-1 pt-1 p-1 sm:max-h-[600px] w-full !max-w-4xl"
+                className="object-cover max-h-[300px] self-center mt-1 pt-1 p-1 sm:max-h-[500px] w-full !max-w-4xl"
               />
             </div>
             <div className="max-w-4xl self-center w-full">

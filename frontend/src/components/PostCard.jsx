@@ -6,7 +6,7 @@ export function PostCard({ post }) {
   return (
     <div
       onClick={() => navigate(`/post/${post.slug}`)}
-      className="group relative border border-teal-500 h-[310px] overflow-hidden rounded-lg w-full sm:!w-[300px]  hover:cursor-pointer transition-all"
+      className="group relative border border-teal-500 h-[290px] overflow-hidden rounded-lg w-full sm:!w-[300px]  hover:cursor-pointer transition-all"
     >
       <div>
         <img
@@ -16,7 +16,7 @@ export function PostCard({ post }) {
         />
       </div>
       <div className="p-3 flex flex-col gap-2">
-        <p className="text-lg font-semibold line-clamp-2">{post.title}</p>
+        <p className=" font-semibold line-clamp-2">{post.title}</p>
         <div className="flex justify-between mx-2 items-center text-slate-600 text-xs space-x-1">
           <div className="space-x-1 mt-1">
             <span className="italic">{post.category}</span>
