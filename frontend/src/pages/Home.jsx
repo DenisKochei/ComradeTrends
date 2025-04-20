@@ -495,7 +495,7 @@ export function Home() {
                   </div>
                 </Link>
                 <div className="w-full sm:flex">
-                  <div className="sm:!w-3/12 w-full flex flex-col rounded-md bg-emerald-700 p-3 gap-10">
+                  <div className="sm:!w-2/12 w-full flex flex-col rounded-md bg-orange-800 p-3 gap-10">
                     <h1 className="text-lg my-5 text-slate-900 dark:text-slate-300 font-light font-serif">
                       Discover the future today, right here !
                     </h1>
@@ -515,7 +515,7 @@ export function Home() {
                       </button>
                     </Link>
                   </div>
-                  <div className="sm:mx-1 w-full sm:!w-9/12">
+                  <div className="sm:mx-1 w-full sm:!w-10/12">
                     <div
                       onClick={() => navigate(`/post/${international[0].slug}`)}
                       className="sm:flex sm:border-none border-b dark:border-slate-600 rounded-b-md border-slate-300 cursor-pointer"
@@ -527,6 +527,22 @@ export function Home() {
                         />
                       </div>
                       <div className="gap-3 sm:flex flex-col mx-2 w-full sm:w-3/8">
+                        <div className="flex justify-start gap-4 mx-2 items-center text-slate-400 text-xs space-x-1">
+                          <div className="space-x-1 mt-1">
+                            <span className="italic">
+                              {international[0].category}
+                            </span>
+                            {international[0].subcategory && (
+                              <>
+                                <span className="text-slate-300">/</span>
+                                <span>{international[0].subcategory}</span>
+                              </>
+                            )}
+                          </div>
+                          <span className=" mt-1 mr-2">
+                            {moment(international[0].createdAt).fromNow()}
+                          </span>
+                        </div>
                         <h1 className="text-lg font-bold line-clamp-3">
                           {international[0].title}
                         </h1>
