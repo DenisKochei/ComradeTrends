@@ -12,6 +12,8 @@ import {
   WhatsappShareButton,
   TelegramShareButton,
 } from "react-share";
+import { IoTrendingUp } from "react-icons/io5";
+import { FaAngleRight } from "react-icons/fa";
 import { FaShareFromSquare } from "react-icons/fa6";
 import { FaShare, FaLink } from "react-icons/fa6";
 import { FaWhatsapp, FaTelegramPlane } from "react-icons/fa";
@@ -232,7 +234,11 @@ export function PostPage() {
             <h1 className="sm:text-3xl text-xl text-center mt-1 p-1  self-center font-serif max-w-4xl mx-auto lg:text-4xl">
               {post && post.title}
             </h1>
-            <div className={`flex items-center ${post.hashtag && "justify-around"} ${!post.hashtag && "justify-start"}`}>
+            <div
+              className={`flex items-center ${
+                post.hashtag && "justify-around"
+              } ${!post.hashtag && "justify-start"}`}
+            >
               {post && post.hashtag && (
                 <div className="dark:text-slate-500">
                   {post && post.hashtag ? `#${post.hashtag}` : ""}
@@ -399,10 +405,16 @@ export function PostPage() {
           >
             {recent && recent.length > 0 && (
               <>
-                <div className="flex flex-col gap-5">
-                  <h1 className=" text-2xl font-semibold text-center">
-                    Latest
-                  </h1>
+                <div className="flex flex-col gap-2">
+                  <Link to={`/search`}>
+                    <div className="flex justify-start gap-1 items-center">
+                      <IoTrendingUp className="w-5 h-5 text-purple-600" />
+                      <h1 className="text-lg">Latest</h1>
+                      <div className="mt-1">
+                        <FaAngleRight />
+                      </div>
+                    </div>
+                  </Link>
                   <div className="flex justify-center flex-wrap gap-0">
                     {recent.map((post) => (
                       <PostBar post={post} key={post._id} />
