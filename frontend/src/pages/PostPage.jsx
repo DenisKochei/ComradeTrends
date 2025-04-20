@@ -400,7 +400,7 @@ export function PostPage() {
             {recent && recent.length > 0 && (
               <>
                 <div className="flex flex-col gap-5">
-                  <h1 className=" font-semibold text-center">
+                  <h1 className="text-lg md:text-xl font-semibold text-center">
                     Latest
                   </h1>
                   <div className="flex justify-center flex-wrap gap-0">
