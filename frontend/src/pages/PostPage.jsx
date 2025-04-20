@@ -405,6 +405,7 @@ export function PostPage() {
           >
             {recent && recent.length > 0 && (
               <>
+<<<<<<< HEAD
                 <div className="flex flex-col gap-2">
                   <Link to={`/search`}>
                     <div className="flex justify-start gap-1 items-center">
@@ -415,6 +416,12 @@ export function PostPage() {
                       </div>
                     </div>
                   </Link>
+=======
+                <div className="flex flex-col gap-5">
+                  <h1 className="text-lg md:text-xl font-semibold text-center">
+                    Latest
+                  </h1>
+>>>>>>> 65b29e1d3fd4df36166168586c7297d7736d6fa1
                   <div className="flex justify-center flex-wrap gap-0">
                     {recent.map((post) => (
                       <PostBar post={post} key={post._id} />
