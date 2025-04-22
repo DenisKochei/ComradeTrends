@@ -397,7 +397,7 @@ export function Home() {
           )}
           <div className="flex md:flex-row md:w-1/2 gap-2 flex-col">
             <div className="md:w-1/2 md:mt-2 w-full">
-              {trending && trending.length > 0 ? (
+              {(trending && trending.length > 0) ? (
                 <>
                   <h1 className=" text-lg font-semibold text-center">
                     Trending News
@@ -413,7 +413,7 @@ export function Home() {
               ) : (
                 <div>
                   <>
-                    {business && business.length && (
+                    {(business && business.length > 0) && (
                       <div className="flex flex-col gap-1 sm:gap-6">
                         <h1 className=" text-lg font-semibold text-center">
                           Business News
@@ -430,7 +430,7 @@ export function Home() {
               )}
             </div>
             <div className="md:w-1/2 md:mt-2 w-full">
-              {sports && sports.length > 0 ? (
+              {(sports && sports.length > 0) ? (
                 <div className="flex flex-col w-full">
                   <h1 className=" text-lg font-semibold text-center">
                     Sports News
@@ -443,7 +443,7 @@ export function Home() {
                 </div>
               ) : (
                 <div>
-                  {technology && technology.length && (
+                  {(technology && technology.length > 0) && (
                     <>
                       <div className="flex flex-col w-full">
                         <h1 className=" text-lg font-semibold text-center">
@@ -464,7 +464,7 @@ export function Home() {
         </div>
         <div>
           <div className="flex flex-col sm:my-5 my-1 mx-2 lg:mx-2 min-h-screen">
-            {education.length > 0 ? (
+            {(education.length > 0) ? (
               <div>
                 <Link to={`/search?category=education`}>
                   <div className="flex justify-start my-2 gap-1 items-center">
@@ -495,7 +495,7 @@ export function Home() {
               <div></div>
             )}
 
-            {international && international.length !== 0 && (
+            {(international && international.length !== 0) && (
               <div>
                 <Link to={`/search?category=international`}>
                   <div className="flex justify-start my-2 gap-1 items-center">
@@ -613,7 +613,7 @@ export function Home() {
                 <div></div>
               )}
             </div>
-            {politics.length && (
+            {(politics.length > 0) && (
               <div>
                 <Link to={`/search?category=politics`}>
                   <div className="flex justify-start gap-1 items-center">
