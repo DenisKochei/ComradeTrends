@@ -572,7 +572,7 @@ export function PolicyPage() {
                 The Company may disclose Your Personal Data in the good faith
                 belief that such action is necessary to:
               </p>
-              <ul>
+              <ul className="text-lg">
                 <li className="mx-5">1. Comply with a legal obligation</li>
                 <li className="mx-5">
                   2. Protect and defend the rights or property of the Company

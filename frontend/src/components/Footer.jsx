@@ -3,7 +3,7 @@ import { BsFacebook, BsTiktok } from "react-icons/bs";
 import { RiTwitterXFill } from "react-icons/ri";
 import { Link } from "react-router-dom";
 import { Logo } from "./Logo";
-import { FaPhone, FaWhatsapp } from "react-icons/fa";
+import { FaPhone, FaWhatsapp,FaYoutube } from "react-icons/fa";
 import { CiMail } from "react-icons/ci";
 import { IoIosArrowForward } from "react-icons/io";
 
@@ -59,7 +59,7 @@ export default function FooterComp() {
             <a href="tel:+254759117496">+(254)759117496</a>
           </span>
           <span className="flex items-center gap-1">
-            <FaWhatsapp className="text-sky-600" />
+            <FaWhatsapp className=" text-sky-600" />
             <a href="https://wa.me/+254753868958?text=Hello!">
               +(254)753868958
             </a>
@@ -100,6 +100,18 @@ export default function FooterComp() {
                 <div className="flex gap-1">
                   <Footer.Icon fill="rgb(2,132,199,100)" icon={BsFacebook} />
                   Facebook
+                </div>
+              </Footer.Link>
+            </Footer.LinkGroup>
+            <Footer.LinkGroup col>
+              <Footer.Link
+                href="https://www.youtube.com/@ComradeTrends"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                <div className="flex gap-1">
+                  <Footer.Icon fill="rgb(2,132,199,100)" icon={FaYoutube} />
+                  YouTube
                 </div>
               </Footer.Link>
             </Footer.LinkGroup>
