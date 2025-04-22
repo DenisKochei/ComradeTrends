@@ -27,18 +27,16 @@ export function Home() {
   const [technology, setTechnology] = useState([]);
   const [education, setEducation] = useState([]);
   const [hashtags, setHashTags] = useState(null);
-  const [limit,setLimit] = useState();
   const width = window.innerWidth;
-  useEffect(() => {
-    const getFetchLimit = () => {
-      const width = window.innerWidth;
-      if (width < 640) setLimit(3);
-      if (width < 768) setLimit (6);
-      if (width < 1024) setLimit(8);
-      return 10;
-    };
-    getFetchLimit()
-  },[width])
+
+  const getFetchLimit = () => {
+    const width = window.innerWidth;
+    if (width < 640) return 3;
+    if (width < 768) return 6;
+    if (width < 1024) return 8;
+    return 10;
+  };
+ 
   const [loadedSections, setLoadedSections] = useState({
     entertainment: false,
     business: false,
@@ -52,6 +50,7 @@ export function Home() {
     if (loadedSections[key]) return;
 
     try {
+      const limit =  getFetchLimit();
       const res = await fetch(
         category
           ? `/api/post/getposts?category=${category}&limit=${limit}`
@@ -115,8 +114,9 @@ export function Home() {
   }, []);
   useEffect(() => {
     const fetchPosts = async () => {
+      const limit =  getFetchLimit();
       const res = await fetch(
-        "/api/post/getposts?limit=5&category=international"
+        `/api/post/getposts?limit=${limit}&category=international`
       );
       const data = await res.json();
       setInternational(data.posts);
@@ -125,6 +125,7 @@ export function Home() {
   }, []);
   useEffect(() => {
     const fetchPosts = async () => {
+      const limit =  getFetchLimit();
       const res = await fetch(`/api/post/getposts?limit=${limit}&category=education`);
       const data = await res.json();
       setEducation(data.posts);
