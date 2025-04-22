@@ -10,17 +10,18 @@ export function PostCard2({ post }) {
     >
       <div>
         <img
+          loading="lazy"
           src={post.image}
           alt="Post-card"
           className="h-[190px] w-full  object-cover "
         />
       </div>
-      <div className="flex justify-between mx-2 items-center text-slate-600 text-xs space-x-1">
+      <div className="flex justify-between mx-2 items-center text-slate-400 text-xs space-x-1">
         <div className="space-x-1 mt-1">
           <span className="italic">{post.category}</span>
           {post.subcategory && (
             <>
-              <span className="text-slate-300">/</span>
+              <span className="text-slate-600">/</span>
               <span>{post.subcategory}</span>
             </>
           )}

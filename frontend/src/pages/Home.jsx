@@ -27,6 +27,18 @@ export function Home() {
   const [technology, setTechnology] = useState([]);
   const [education, setEducation] = useState([]);
   const [hashtags, setHashTags] = useState(null);
+  const [limit,setLimit] = useState();
+  const width = window.innerWidth;
+  useEffect(() => {
+    const getFetchLimit = () => {
+      const width = window.innerWidth;
+      if (width < 640) setLimit(3);
+      if (width < 768) setLimit (6);
+      if (width < 1024) setLimit(8);
+      return 10;
+    };
+    getFetchLimit()
+  },[width])
   const [loadedSections, setLoadedSections] = useState({
     entertainment: false,
     business: false,
@@ -42,8 +54,8 @@ export function Home() {
     try {
       const res = await fetch(
         category
-          ? `/api/post/getposts?category=${category}&limit=5`
-          : `/api/post/getposts?limit=5`
+          ? `/api/post/getposts?category=${category}&limit=${limit}`
+          : `/api/post/getposts?limit=${limit}`
       );
       const data = await res.json();
       setter(data.posts);
@@ -113,7 +125,7 @@ export function Home() {
   }, []);
   useEffect(() => {
     const fetchPosts = async () => {
-      const res = await fetch("/api/post/getposts?limit=5&category=education");
+      const res = await fetch(`/api/post/getposts?limit=${limit}&category=education`);
       const data = await res.json();
       setEducation(data.posts);
     };
@@ -339,8 +351,8 @@ export function Home() {
               <div></div>
             )}
             {mostTrending &&
-            mostTrending.length > 0 &&
-            breaking.length === 0 ? (
+              mostTrending.length > 0 &&
+              breaking.length === 0 ? (
               <div
                 onClick={() => navigate(`/post/${mostTrending[0].slug}`)}
                 className="!sm:w-1/2 h-auto hover:cursor-pointer w-full flex"
@@ -365,8 +377,8 @@ export function Home() {
             )}
           </div>
           {recent.length === 0 &&
-          mostTrending.length === 0 &&
-          breaking.length === 0 ? (
+            mostTrending.length === 0 &&
+            breaking.length === 0 ? (
             <div className="min-h-screen">
               <div className="flex flex-col gap-3 items-center justify-center py-8 md:py-20 px-3 max-w-6xl mx-auto">
                 <h1 className="text-3xl font-bold md:text-nowrap lg:text-6xl">
@@ -495,7 +507,7 @@ export function Home() {
                   </div>
                 </Link>
                 <div className="w-full sm:flex">
-                  <div className="sm:!w-2/12 w-full flex flex-col rounded-md bg-orange-800 p-3 gap-10">
+                  <div className="sm:!w-3/12  w-full flex flex-col rounded-md bg-orange-800 p-3 gap-10">
                     <h1 className="text-lg my-5 text-slate-900 dark:text-slate-300 font-light font-serif">
                       Discover the future today, right here !
                     </h1>
@@ -515,13 +527,13 @@ export function Home() {
                       </button>
                     </Link>
                   </div>
-                  <div className="sm:mx-1 w-full sm:!w-10/12">
+                  <div className="sm:mx-1 w-full sm:!w-9/12">
                     <div
                       onClick={() => navigate(`/post/${international[0].slug}`)}
                       className="sm:flex sm:border-none border-b dark:border-slate-600 rounded-b-md border-slate-300 cursor-pointer"
                     >
                       <div className="w-full  mt-2 sm:mt-0 sm:w-5/8 ">
-                        <img
+                        <img loading="lazy"
                           className="object-cover self-center mt-1 pt-1 p-1 h-[310px] w-full !max-w-4xl"
                           src={international[0].image}
                         />
@@ -569,9 +581,8 @@ export function Home() {
 
             <div
               ref={entertainmentRef}
-              className={`flex w-full flex-col gap-3 min-h-[200px] text-center ${
-                entertainment.length === 0 && "!min-h-override"
-              }`}
+              className={`flex w-full flex-col gap-3 min-h-[200px] text-center ${entertainment.length === 0 && "!min-h-override"
+                }`}
             >
               {entertainment.length > 0 ? (
                 <div>
@@ -631,7 +642,7 @@ export function Home() {
                       )}
                     </div>
                     <div className="my-2 object-cover self-center mt-1 pt-1 p-1 w-full !max-w-4xl overflow-hidden">
-                      <img
+                      <img loading="lazy"
                         className="object-cover self-center mt-1 pt-1 p-1 h-[380px] w-full !max-w-4xl"
                         src={politics[0].image}
                       />
@@ -646,7 +657,7 @@ export function Home() {
                       className="cursor-pointer"
                       onClick={() => navigate(`/post/${politics[1].slug}`)}
                     >
-                      <img
+                      <img loading="lazy"
                         className="object-cover self-center mt-1 pt-1 p-1 h-[430px] w-full !max-w-4xl"
                         src={politics[1].image}
                       />
@@ -693,9 +704,8 @@ export function Home() {
             )}
             <div
               ref={businessRef}
-              className={`flex flex-col min-h-[200px] gap-0 text-center ${
-                business.length === 0 && "!min-h-override"
-              }`}
+              className={`flex flex-col min-h-[200px] gap-0 text-center ${business.length === 0 && "!min-h-override"
+                }`}
             >
               {business.length > 0 ? (
                 <div>

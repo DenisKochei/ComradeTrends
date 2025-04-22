@@ -19,7 +19,7 @@ export function HomePostCard({ post }) {
           </button>
         </Link>
         <div className=" object-cover my-2 overflow-hidden">
-          <img className="w-full h-64 sm:h-96 object-cover" src={post.image} />
+          <img loading="lazy" className="w-full h-64 sm:h-96 object-cover" src={post.image} />
         </div>
        </div>
         <div

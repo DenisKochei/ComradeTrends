@@ -11,12 +11,12 @@ export function PostBar({ post }) {
       className="flex px-2 h-24 hover:cursor-pointer w-full border-b dark:border-slate-700 border-slate-300 py-1 items-center justify-center gap-2 sm:gap-5"
     >
       <div className="w-full flex flex-col justify-center gap-1">
-        <div className="flex justify-start items-center text-slate-600 text-xs space-x-1">
+        <div className="flex justify-start items-center text-slate-400 text-xs space-x-1">
           <IoTrendingUp className="w-5 h-5 text-purple-600" />
           <span className="italic">{post.category}</span>
           {post.subcategory && (
             <>
-              <span className=" dark:text-slate-300">/</span>
+              <span className=" dark:text-slate-600">/</span>
               <span>{post.subcategory}</span>
             </>
           )}
@@ -25,7 +25,7 @@ export function PostBar({ post }) {
         <div className="">
           <h3 className="line-clamp-2 font-serif">{post.title}</h3>
         </div>
-        <div className="text-gray-600">
+        <div className="text-gray-400">
           <div className=" text-sm flex  justify-between">
             <span className="flex gap-1 text-xs items-center justify-center">
               <span className="mt-1 text-xs">
@@ -39,7 +39,7 @@ export function PostBar({ post }) {
         </div>
       </div>
       <div className="w-28 flex justify-center items-center h-28 ">
-        <img className="object-cover w-28 h-20 rounded-lg" src={post.image} />
+        <img loading="lazy" className="object-cover w-28 h-20 rounded-lg" src={post.image} />
       </div>
     </div>
   );
