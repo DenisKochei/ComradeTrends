@@ -3,7 +3,6 @@ import { useEffect, useState } from "react";
 import { useLocation, useNavigate } from "react-router-dom";
 import { PostCard } from "../components/PostCard";
 import { Helmet } from "react-helmet";
-import { PostCard2 } from "../components/PostCard2";
 
 export function Search() {
   const [sidebarData, setSidebarData] = useState({
@@ -186,12 +185,7 @@ export function Search() {
             {loading && <p className="text-xl text-gray-500">Loading...</p>}
             {!loading &&
               posts &&
-              posts.map((post) =>
-                <div>
-                  <div>
-                    <PostCard post={post} key={post._id} />
-                  </div>
-                </div>)}
+              posts.map((post) => <PostCard key={post._id} post={post} />)}
             {showMore && !loading && (
               <button
                 onClick={handleShowMore}

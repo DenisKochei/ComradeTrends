@@ -51,7 +51,7 @@ export function DashSidebar() {
               icon={HiUser}
               label={
                 currentUser.isAdmin && currentUser.isSuperAdmin
-                  ? "Super.Admin"
+                  ? <span className="text-nowrap">Super Admin</span>
                   : !currentUser.isSuperAdmin && currentUser.isAdmin
                   ? "Admin"
                   : "User"
