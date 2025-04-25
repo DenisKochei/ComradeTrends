@@ -66,7 +66,7 @@ export function Signup() {
             to="/"
             className=" whitespace-nowrap sm:text-4xl text-xl  font-bold dark:text-white"
           >
-            <span className=" px-2 py-1 bg-gradient-to-r text-3xl from-cyan-500 to-blue-600 rounded-md text-white">
+            <span className=" px-2 py-1 bg-gradient-to-r sm:text-3xl from-cyan-500 to-blue-600 rounded-md text-white">
               Comrade
             </span>
             Trends
