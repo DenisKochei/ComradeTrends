@@ -71,8 +71,8 @@ export default function FooterComp() {
             </a>
           </span>
         </div>
-        <div className="md:w-1/3 mt-5 sm:mt-0 w-full flex flex-col">
-          <Footer.Title className="mb-4 " title="Socials" />
+        <div className="md:w-1/3 mt-5 sm:mt-10 w-full flex flex-col">
+          <Footer.Title className="mb-1 " title="Socials" />
           <Footer.Divider className="mt-0" />
           <div className="flex flex-col mt-2  gap-2">
             <Footer.LinkGroup>
