@@ -147,7 +147,7 @@ export function Home() {
       setTechnology(data.posts);
     };
     fetchPosts();
-  }, []);console.log(Object.keys(politics));
+  }, []);
   
 
 
