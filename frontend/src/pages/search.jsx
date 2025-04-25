@@ -116,7 +116,7 @@ console.log(posts)
           content="We're your trusted source for the latest news, insightful analysis, and trending stories from around the world."
         />
       </Helmet>
-      <div className="flex flex-col sm:flex-row p-2 ">
+      <div className="flex overflow-x-scroll scrollbar-thin scrollbar-thumb-transparent  scrollbar-track-transparent overflow-y-hidden flex-col sm:flex-row p-2 ">
         <div className=" border-b sm:w-1/4 w-full md:border-r md:min-h-screen  border-gray-500">
           <form
             className="flex flex-col md:sticky top-10 p-1 gap-2 justify-start"
@@ -195,7 +195,7 @@ console.log(posts)
                 <div className="flex flex-col sm:flex-row gap-2">
                   <Heropost posts={posts[0]} />
                   <div className="flex">
-                    <div className="flex flex-col">
+                    <div className="flex w-full sm:w-auto flex-col">
                       {posts.splice(1, 2).map((post) => (
                         <PostCard2 key={post._id} post={post} />
                       ))}
