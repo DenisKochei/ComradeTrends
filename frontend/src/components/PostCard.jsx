@@ -28,7 +28,7 @@ export function PostCard({ post }) {
               </>
             )}
           </div>
-          <span className=" mt-1 mr-2">{moment(post.createdAt).fromNow()}</span>
+          <span className=" mt-1 text-nowrap mr-2">{moment(post.createdAt).fromNow()}</span>
         </div>
 
         <span className="z-10 group-hover:bottom-0 absolute bottom-[-200px] left-0 right-0 border border-teal-500 text-teal-500 hover:bg-teal-500 hover:text-white transition-all duration-300 text-center py-2 rounded-md !rounded-tl-none m-2">
