@@ -3,6 +3,9 @@ import { useEffect, useState } from "react";
 import { useLocation, useNavigate } from "react-router-dom";
 import { PostCard } from "../components/PostCard";
 import { Helmet } from "react-helmet";
+import { Heropost } from "../components/Heropost";
+import { Link } from "react-router-dom";
+import { PostCard2 } from "../components/PostCard2";
 
 export function Search() {
   const [sidebarData, setSidebarData] = useState({
@@ -112,10 +115,10 @@ export function Search() {
           content="We're your trusted source for the latest news, insightful analysis, and trending stories from around the world."
         />
       </Helmet>
-      <div className="flex flex-col w-full justify-center md:items-start md:flex-row">
-        <div className="p-3 border-b md:w-1/4 md:border-r md:min-h-screen  border-gray-500">
+      <div className="flex flex-col sm:flex-row p-2 ">
+        <div className=" border-b sm:w-1/4 w-full md:border-r md:min-h-screen  border-gray-500">
           <form
-            className="flex flex-col md:sticky top-5 gap-2 justify-start"
+            className="flex flex-col md:sticky top-10 p-1 gap-2 justify-start"
             onSubmit={handleSubmit}
           >
             <div className="w-full flex-col md:flex gap-0">
@@ -171,30 +174,92 @@ export function Search() {
             </Button>
           </form>
         </div>
-        <div className="w-full">
-          <div className="flex justify-start sm:border-b border-gray-500 items-center gap-1">
+        <div className="w-full mx-auto p-0 md:p-2 m-1">
+          <div className="flex justify-start sm:border-b mb-2 border-gray-500 items-center gap-1">
             <h1 className="text-xl font-semibold   p-1 m-1 ">
               Search results:
             </h1>
             <span className="text-teal-500 text-xl">{totalPosts}</span>
           </div>
-          <div className="p-2 flex justify-center flex-wrap gap-4">
+          <div>
             {!loading && posts.length === 0 && (
               <p className="text-xl text-gray-500">No posts found.</p>
             )}
             {loading && <p className="text-xl text-gray-500">Loading...</p>}
-            {!loading &&
-              posts &&
-              posts.map((post) => <PostCard key={post._id} post={post} />)}
-            {showMore && !loading && (
-              <button
-                onClick={handleShowMore}
-                className="text-teal-500 text-lg hover:underline p-2 w-full"
-              >
-                {readMoreLoading ? <Spinner /> : "Show More"}
-              </button>
-            )}
+
           </div>
+          {(!loading && (posts.length > 0)) &&
+            <div className="flex flex-col sm:flex-row justify-between items-center gap-1">
+              <div className="flex flex-col w-full gap-2">
+                <div className="flex flex-col sm:flex-row gap-2">
+                  <Heropost posts={posts[0]} />
+                  <div className="flex">
+                    <div className="flex flex-col">
+                      {posts.splice(1, 2).map((post) => (
+                        <PostCard2 key={post._id} post={post} />
+                      ))}
+                    </div>
+
+                    <div className="w-full hidden sm:w-[200px] ml-2 sm:flex md:hidden lg:flex flex-wrap rounded-md bg-orange-800 p-3 gap-10">
+                      <h1 className="text-lg my-1 text-slate-900 dark:text-slate-300 font-light font-serif">
+                        Discover the future today, right here !
+                      </h1>
+                      <p className="text-slate-900 dark:text-slate-300">
+                      Comrade Trends is your go-to source for timely, reliable, and
+                      engaging news. From breaking stories and in-depth analysis to
+                      entertainment, politics, campus updates, and tech trends, we keep
+                      you informed 24/7. Whether you're a student or a professional,
+                      Comrade Trends delivers news that matters to you, all in one place.
+                      Stay ahead with real-time updates and fresh perspectives from a
+                      platform built for the modern, connected reader.
+                      </p>
+                      <Link to={"/contacts"}>
+                        <button className="focus:ring-0 w-full p-2 text-slate-900 dark:text-slate-300 py-1 rounded-md border mb-4 border-slate-900 transition duration-300 ease-in-out">
+                          Contact us
+                        </button>
+                      </Link>
+                    </div>
+
+                  </div>
+                  <div className="w-full sm:hidden flex flex-wrap rounded-md bg-orange-800 p-3 gap-10">
+                    <h1 className="text-lg my-5 text-slate-900 dark:text-slate-300 font-light font-serif">
+                      Discover the future today, right here !
+                    </h1>
+                    <p className="text-slate-900 dark:text-slate-300">
+                      Comrade Trends is your go-to source for timely, reliable, and
+                      engaging news. From breaking stories and in-depth analysis to
+                      entertainment, politics, campus updates, and tech trends, we keep
+                      you informed 24/7. Whether you're a student or a professional,
+                      Comrade Trends delivers news that matters to you, all in one place.
+                      Stay ahead with real-time updates and fresh perspectives from a
+                      platform built for the modern, connected reader.
+                    </p>
+                    <Link to={"/contacts"}>
+                      <button className="focus:ring-0 w-full text-slate-900 dark:text-slate-300 py-1 rounded-md p-2 border mb-4 border-slate-900 transition duration-300 ease-in-out">
+                        Contact us
+                      </button>
+                    </Link>
+                  </div>
+                </div>
+                <div>
+                  {posts.splice(3).map((post) => (
+                    <PostCard post={post} key={post._id} />
+                  ))}
+                </div>
+                {showMore && !loading && (
+                  <div className="w-full flex justify-center items-center">
+                    <button
+                      onClick={handleShowMore}
+                      className="text-teal-500 text-lg hover:underline p-2 w-full"
+                    >
+                      {readMoreLoading ? <Spinner /> : "Show More"}
+                    </button>
+                  </div>
+                )}
+              </div>
+            </div>
+          }
+
         </div>
       </div>
     </div>
