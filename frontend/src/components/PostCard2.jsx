@@ -26,7 +26,7 @@ export function PostCard2({ post }) {
             </>
           )}
         </div>
-        <span className=" mt-1 mr-2">{moment(post.createdAt).fromNow()}</span>
+        <span className=" mt-1 text-nowrap mr-2">{moment(post.createdAt).fromNow()}</span>
       </div>
       <div className="p-3 flex flex-col gap-2">
         <p className=" mb-0.5 line-clamp-2">{post.title}</p>

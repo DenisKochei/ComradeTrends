@@ -19,6 +19,8 @@ export function Search() {
   const [showMore, setShowMore] = useState(false);
   const [readMoreLoading, setReadMoreLoading] = useState(false);
   const [totalPosts, setTotalPosts] = useState(null);
+console.log(posts)
+
 
   const location = useLocation();
   const navigate = useNavigate();
@@ -35,7 +37,6 @@ export function Search() {
         category: categoryFromUrl,
       });
     }
-
     const fetchPosts = async () => {
       setLoading(true);
       setReadMoreLoading(false);
@@ -98,7 +99,7 @@ export function Search() {
       setReadMoreLoading(false);
       const data = await res.json();
       setPosts([...posts, ...data.posts]);
-      if (data.posts.length === 9) {
+      if (data.posts.length > 9) {
         setShowMore(true);
       } else {
         setShowMore(false);
@@ -241,7 +242,7 @@ export function Search() {
                     </Link>
                   </div>
                 </div>
-                <div>
+                <div className="flex flex-wrap gap-1">
                   {posts.splice(3).map((post) => (
                     <PostCard post={post} key={post._id} />
                   ))}
