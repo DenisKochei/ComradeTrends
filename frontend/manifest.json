@@ -3,7 +3,7 @@
   "short_name": "ComradeTrends",
   "start_url": "/",
   "display": "standalone",
-  "background_color": "#ffffff",
+  "background_color": "#1e273b",
   "theme_color": "#2b486e",
   "icons": [
     {
