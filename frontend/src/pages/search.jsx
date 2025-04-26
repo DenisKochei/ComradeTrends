@@ -114,8 +114,9 @@ export function Search() {
           content="We're your trusted source for the latest news, insightful analysis, and trending stories from around the world."
         />
       </Helmet>
-      <div className="flex overflow-x-scroll w-full scrollbar-thin scrollbar-thumb-transparent  scrollbar-track-transparent overflow-y-hidden flex-col sm:flex-row p-2 ">
-        <div className=" border-b sm:w-1/4 w-full md:border-r md:min-h-screen  border-gray-500">
+      <div className="flex w-full flex-col md:flex-row min-h-screen">
+
+        <div className="relative sm:w-1/4 min-w-[250px] w-full md:border-r md:min-h-screen border-b border-gray-500">
           <form
             className="flex flex-col md:sticky top-10 p-1 gap-2 justify-start"
             onSubmit={handleSubmit}
@@ -204,13 +205,13 @@ export function Search() {
                         Discover the future today, right here !
                       </h1>
                       <p className="text-slate-900 dark:text-slate-300">
-                      Comrade Trends is your go-to source for timely, reliable, and
-                      engaging news. From breaking stories and in-depth analysis to
-                      entertainment, politics, campus updates, and tech trends, we keep
-                      you informed 24/7. Whether you're a student or a professional,
-                      Comrade Trends delivers news that matters to you, all in one place.
-                      Stay ahead with real-time updates and fresh perspectives from a
-                      platform built for the modern, connected reader.
+                        Comrade Trends is your go-to source for timely, reliable, and
+                        engaging news. From breaking stories and in-depth analysis to
+                        entertainment, politics, campus updates, and tech trends, we keep
+                        you informed 24/7. Whether you're a student or a professional,
+                        Comrade Trends delivers news that matters to you, all in one place.
+                        Stay ahead with real-time updates and fresh perspectives from a
+                        platform built for the modern, connected reader.
                       </p>
                       <Link to={"/contacts"}>
                         <button className="focus:ring-0 w-full p-2 text-slate-900 dark:text-slate-300 py-1 rounded-md border mb-4 border-slate-900 transition duration-300 ease-in-out">
