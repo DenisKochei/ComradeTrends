@@ -130,7 +130,7 @@ export function PostPage() {
             </title>
             <meta
               name="description"
-              content={post?.title || "Stay updated with Comrade Trends."}
+              content={post?.content1 || "Stay updated with Comrade Trends."}
             />
 
             <meta property="og:type" content="article" />
@@ -141,7 +141,7 @@ export function PostPage() {
             />
             <meta
               property="og:description"
-              content={post?.title || "Latest from Comrade Trends"}
+              content={post?.content1 || "Latest from Comrade Trends"}
             />
             {post?.image && <meta property="og:image" content={post.image} />}
             {post?.image && (
@@ -160,7 +160,7 @@ export function PostPage() {
             />
             <meta
               name="twitter:description"
-              content={post?.title || "Stay informed with Comrade Trends"}
+              content={post?.content1 || "Stay informed with Comrade Trends"}
             />
             {post?.image && <meta name="twitter:image" content={post.image} />}
           </Helmet>
