@@ -24,6 +24,8 @@ export function Header() {
   const [searchTerm, setSearchTerm] = useState("");
   const [open, SetOpen] = useState(false);
   const searchref = useRef();
+  const [deferredPrompt, setDeferredPrompt] = useState(null);
+  const [showInstallButton, setShowInstallButton] = useState(false);
 
   useEffect(() => {
     const urlParams = new URLSearchParams(location.search);
@@ -32,6 +34,29 @@ export function Header() {
       setSearchTerm(searchTermFromUrl);
     }
   }, [location.search]);
+
+  useEffect(() => {
+    window.addEventListener('beforeinstallprompt', (e) => {
+      e.preventDefault();
+      setDeferredPrompt(e);
+      setShowInstallButton(true);
+    });
+  }, []);
+
+  const handleInstallClick = () => {
+    if (deferredPrompt) {
+      deferredPrompt.prompt();
+      deferredPrompt.userChoice.then((choiceResult) => {
+        if (choiceResult.outcome === 'accepted') {
+          console.log('User accepted the install prompt');
+        } else {
+          console.log('User dismissed the install prompt');
+        }
+        setDeferredPrompt(null);
+        setShowInstallButton(false);
+      });
+    }
+  };
 
   const handleSignout = async () => {
     try {
@@ -185,6 +210,18 @@ export function Header() {
                   <Dropdown.Item onClick={handleSignout}>
                     Sign Out
                   </Dropdown.Item>
+                  {showInstallButton && (
+                    <div
+                      id="install-button"
+                      onClick={handleInstallClick}
+                      className=""
+                    >
+                      <Dropdown.Divider />
+                      <Dropdown.Item onClick={handleSignout}>
+                        Install ComradeTrends
+                      </Dropdown.Item>
+                    </div>
+                  )}
                 </Dropdown>
               ) : (
                 <Link to="sign-in">

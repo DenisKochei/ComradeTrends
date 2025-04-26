@@ -7,6 +7,20 @@ import { Provider } from "react-redux";
 import { PersistGate } from "redux-persist/es/integration/react";
 import ThemeProvider from "./components/ThemeProvider.jsx";
 
+let deferredPrompt;
+
+window.addEventListener('beforeinstallprompt', (e) => {
+  e.preventDefault();
+  deferredPrompt = e;
+  
+  // Optionally show your custom install button
+  const installButton = document.getElementById('install-button');
+  if (installButton) {
+    installButton.style.display = 'block';
+  }
+});
+ 
+
 
 
 createRoot(document.getElementById("root")).render(
@@ -18,3 +32,14 @@ createRoot(document.getElementById("root")).render(
     </Provider>
   </PersistGate>
 );
+if ('serviceWorker' in navigator) {
+  window.addEventListener('load', () => {
+    navigator.serviceWorker.register('/service-worker.js')
+      .then(registration => {
+        console.log('Service Worker registered with scope:', registration.scope);
+      })
+      .catch(error => {
+        console.log('Service Worker registration failed:', error);
+      });
+  });
+}
