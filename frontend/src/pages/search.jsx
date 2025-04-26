@@ -39,7 +39,7 @@ export function Search() {
       setLoading(true);
       setReadMoreLoading(false);
       const searchQuery = urlParams.toString();
-      const res = await fetch(`/api/post/getposts?${searchQuery}`);
+      const res = await fetch(`/api/post/getposts?${searchQuery}&limit=7`);
       if (!res.ok) {
         return;
       }
@@ -48,7 +48,7 @@ export function Search() {
         setPosts(data.posts);
         setTotalPosts(data.length);
         setLoading(false);
-        if (data.posts.length === 9) {
+        if (data.posts.length >= 7) {
           setShowMore(true);
         } else {
           setShowMore(false);
@@ -89,7 +89,7 @@ export function Search() {
     urlParams.set("startIndex", startIndex);
     const searchQuery = urlParams.toString();
     setReadMoreLoading(true);
-    const res = await fetch(`/api/post/getposts?${searchQuery}`);
+    const res = await fetch(`/api/post/getposts?${searchQuery}&limit=4`);
     if (!res.ok) {
       return;
     }
@@ -97,7 +97,7 @@ export function Search() {
       setReadMoreLoading(false);
       const data = await res.json();
       setPosts([...posts, ...data.posts]);
-      if (data.posts.length > 9) {
+      if (data.posts.length < totalPosts) {
         setShowMore(true);
       } else {
         setShowMore(false);
@@ -241,7 +241,7 @@ export function Search() {
                     </Link>
                   </div>
                 </div>
-                <div className="flex flex-wrap gap-1">
+                <div className="flex justify-center flex-wrap gap-1">
                   {posts.slice(3).map((post) => (
                     <PostCard post={post} key={post._id} />
                   ))}
