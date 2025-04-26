@@ -19,8 +19,6 @@ export function Search() {
   const [showMore, setShowMore] = useState(false);
   const [readMoreLoading, setReadMoreLoading] = useState(false);
   const [totalPosts, setTotalPosts] = useState(null);
-console.log(posts)
-
 
   const location = useLocation();
   const navigate = useNavigate();
