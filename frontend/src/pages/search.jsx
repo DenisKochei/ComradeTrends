@@ -116,7 +116,7 @@ console.log(posts)
           content="We're your trusted source for the latest news, insightful analysis, and trending stories from around the world."
         />
       </Helmet>
-      <div className="flex overflow-x-scroll scrollbar-thin scrollbar-thumb-transparent  scrollbar-track-transparent overflow-y-hidden flex-col sm:flex-row p-2 ">
+      <div className="flex overflow-x-scroll w-full scrollbar-thin scrollbar-thumb-transparent  scrollbar-track-transparent overflow-y-hidden flex-col sm:flex-row p-2 ">
         <div className=" border-b sm:w-1/4 w-full md:border-r md:min-h-screen  border-gray-500">
           <form
             className="flex flex-col md:sticky top-10 p-1 gap-2 justify-start"
@@ -196,7 +196,7 @@ console.log(posts)
                   <Heropost posts={posts[0]} />
                   <div className="flex">
                     <div className="flex w-full sm:w-auto flex-col">
-                      {posts.splice(1, 2).map((post) => (
+                      {posts.slice(1, 3).map((post) => (
                         <PostCard2 key={post._id} post={post} />
                       ))}
                     </div>
@@ -243,11 +243,11 @@ console.log(posts)
                   </div>
                 </div>
                 <div className="flex flex-wrap gap-1">
-                  {posts.splice(3).map((post) => (
+                  {posts.slice(3).map((post) => (
                     <PostCard post={post} key={post._id} />
                   ))}
                 </div>
-                {showMore && !loading && (
+                {(showMore && !loading) && (
                   <div className="w-full flex justify-center items-center">
                     <button
                       onClick={handleShowMore}

@@ -72,7 +72,7 @@ export const getposts = async (req, res, next) => {
       new Set(
         searchTotal.filter((post) => post.hashtag).map((post) => post.hashtag)
       )
-    ).slice(0, 20);
+    ).slice(0,20);
 
     const length = searchTotal.length;
     const oneMonthAgo = new Date(
