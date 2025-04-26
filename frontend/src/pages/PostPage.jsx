@@ -192,16 +192,16 @@ export function PostPage() {
                 </TwitterShareButton>
               </div>
               <div>
-                <WhatsappShareButton
-                  url={currentPageURL}
-                  separator="::"
-                  title={post.title}
-                >
-                  <FaWhatsapp
-                    fill="rgb(74,70,70)"
-                    className="text-2xl hover:fill-slate-300"
-                  />
-                </WhatsappShareButton>
+              <a
+                    href={`whatsapp://send?text=${encodeURIComponent(
+                      currentPageURL
+                    )}`}
+                  >
+                    <FaWhatsapp
+                      fill="rgb(74,70,70)"
+                      className="text-2xl hover:fill-slate-300"
+                    />
+                  </a>
               </div>
               <div>
                 <TelegramShareButton title={post.title} url={currentPageURL}>
@@ -343,7 +343,7 @@ export function PostPage() {
                   </TwitterShareButton>
                   <a
                     href={`whatsapp://send?text=${encodeURIComponent(
-                      post.title + " " + currentPageURL
+                      currentPageURL
                     )}`}
                   >
                     <FaWhatsapp
