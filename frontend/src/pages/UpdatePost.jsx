@@ -174,7 +174,7 @@ export default function UpdatePost() {
             <option value="sports">Sports</option>
             <option value="technology">Technology</option>
             <option value="trending">Trending</option>
-            <option value="agriculture">Trending</option>
+            <option value="agriculture">Agriculture</option>
           </Select>
           {formData &&
             (formData.category === "business" ||

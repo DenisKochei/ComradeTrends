@@ -249,6 +249,14 @@ export function Home() {
                 People
               </Button>
             </Link>
+            <Link
+              to={`/search?category=international`}
+              className="self-center text-nowrap"
+            >
+              <Button className="focus:ring-0" color="transparent" size="xs">
+                International
+              </Button>
+            </Link>
             <span className="dark:text-slate-700">|</span>
             <Link
               to={`/search?category=market`}
