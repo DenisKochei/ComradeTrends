@@ -97,10 +97,10 @@ export function Search() {
       setReadMoreLoading(false);
       const data = await res.json();
       setPosts([...posts, ...data.posts]);
-      if (data.posts.length < totalPosts) {
-        setShowMore(true);
-      } else {
+      if (data.posts.length < 4) {
         setShowMore(false);
+      } else {
+        setShowMore(true);
       }
     }
   };
