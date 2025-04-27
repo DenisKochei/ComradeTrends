@@ -229,7 +229,6 @@ export function Header() {
                     className="focus:ring-0"
                     gradientDuoTone="purpleToBlue"
                     outline
-                    size="sm"
                   >
                     SignIn
                   </Button>
