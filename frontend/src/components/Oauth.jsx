@@ -11,7 +11,7 @@ export default function Oauth() {
   const navigate = useNavigate()
   const dispatch = useDispatch();
   const goBack = () => {
-    ()=>navigate("/")
+    navigate("/")
   };
 
   const handleGoogleClick = async () => {
