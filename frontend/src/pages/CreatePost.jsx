@@ -1,5 +1,6 @@
 import { Alert, Button, FileInput, Select, TextInput } from "flowbite-react";
 import { useState } from "react";
+import NProgress from 'nprogress';
 import ReactQuill from "react-quill";
 import "react-quill/dist/quill.snow.css";
 import {
@@ -20,23 +21,23 @@ export default function CreatePost() {
   const [imageUploadError, setImageUploadError] = useState(null);
   const [formData, setFormData] = useState({});
   const [publishError, setPublishError] = useState();
-  
+
   const handleauploadImage = async () => {
-  
+
     try {
       const storage = getStorage(app);
       const fileName = new Date().getTime() + "-" + file.name;
       const storageRef = ref(storage, fileName);
-    
+
       // Defining metadata here
       const metadata = {
         contentType: file.type,
         cacheControl: 'public, max-age=31536000' // Cache for 1 year
       };
-    
+
       // Passing metadata as the 3rd argument to uploadBytesResumable
       const uploadTask = uploadBytesResumable(storageRef, file, metadata);
-    
+
       uploadTask.on(
         "state_changed",
         (snapshot) => {
@@ -61,11 +62,12 @@ export default function CreatePost() {
       setImageUploudProgress(null);
       console.log(err);
     }
-    
+
   };
   const handleSubmit = async (e) => {
     e.preventDefault();
     try {
+      NProgress.start();
       const res = await fetch("/api/post/create", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
@@ -83,6 +85,7 @@ export default function CreatePost() {
     } catch (err) {
       setPublishError("Something went wrong.");
     }
+    NProgress.start();
   };
 
   const modules = {

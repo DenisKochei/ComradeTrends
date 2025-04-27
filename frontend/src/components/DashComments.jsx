@@ -1,4 +1,5 @@
 import { Modal, Table, Button, Spinner } from "flowbite-react";
+import NProgress from 'nprogress';
 import { useEffect, useState } from "react";
 import { useSelector } from "react-redux";
 import { HiOutlineExclamationCircle } from "react-icons/hi";
@@ -15,6 +16,7 @@ export function DashComments() {
   useEffect(() => {
     const fetchComments = async () => {
       try {
+        NProgress.start();
         const res = await fetch(`/api/comment/getAllComments?sort=desc`);
         const data = await res.json();
         if (res.ok) {
@@ -22,6 +24,7 @@ export function DashComments() {
           setTotalComments(data.totalComments);
           if (data.comments.length < 9) {
             setShowMore(false);
+            NProgress.done();
           }
         }
       } catch (error) {
@@ -37,6 +40,7 @@ export function DashComments() {
     const startIndex = comments.length;
     setShowMoreLoading(true);
     try {
+      NProgress.start();
       const res = await fetch(
         `/api/comment/getAllComments?startIndex=${startIndex}`
       );
@@ -49,6 +53,7 @@ export function DashComments() {
           setShowMore(false);
         }
       }
+      NProgress.done();
     } catch (error) {
       console.log(error.message);
     }
@@ -57,6 +62,7 @@ export function DashComments() {
   const handleDeleteComment = async () => {
     setShowModal(false);
     try {
+      NProgress.start();
       const res = await fetch(
         `/api/comment/deleteComment/${commentIdToDelete}`,
         {
@@ -69,6 +75,7 @@ export function DashComments() {
           prev.filter((comment) => comment._id !== commentIdToDelete)
         );
         setShowModal(false);
+        NProgress.done();
       } else {
         console.log(data.message);
       }

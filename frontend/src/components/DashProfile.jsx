@@ -1,6 +1,6 @@
 import { Alert, Button, TextInput, Spinner, Modal } from "flowbite-react";
-//import {MdAdd} from 'react-icons/md'
 import { useEffect, useRef, useState } from "react";
+import NProgress from 'nprogress';
 import { useSelector } from "react-redux";
 import { HiEye, HiEyeOff } from "react-icons/hi";
 import {
@@ -119,6 +119,7 @@ export function DashProfile() {
       );
     }
     try {
+      NProgress.start();
       dispatch(updateStart());
       const res = await fetch(`/api/user/update/${currentUser._id}`, {
         method: "PUT",
@@ -134,6 +135,7 @@ export function DashProfile() {
         dispatch(updateSuccess(data));
         setUpdateUserSuccess("UserProfile Updated successfully");
       }
+      NProgress.done();
     } catch (err) {
       dispatch(updateFail(err.message));
     }
@@ -141,6 +143,7 @@ export function DashProfile() {
   const handleDeleteUser = async () => {
     setShowModal(false);
     try {
+      NProgress.start();
       dispatch(deleteStart());
       const res = await fetch(`/api/user/delete/${currentUser._id}`, {
         method: "DELETE",
@@ -154,9 +157,11 @@ export function DashProfile() {
     } catch (err) {
       dispatch(deleteFail(err.message));
     }
+    NProgress.done();
   };
   const handleSignout = async (req, res, next) => {
     try {
+      NProgress.start();
       const res = await fetch("/api/user/sign-out", {
         method: "POST",
       });
@@ -169,6 +174,7 @@ export function DashProfile() {
     } catch (err) {
       console.log(err.message);
     }
+    NProgress.done();
   };
   return (
     <div className="max-w-lg mx-auto p-3 w-full">

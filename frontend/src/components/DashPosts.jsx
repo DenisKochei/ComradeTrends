@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from "react";
 import { useSelector } from "react-redux";
+import NProgress from 'nprogress';
 import { Table, Modal, Button, Spinner } from "flowbite-react";
 import { Link } from "react-router-dom";
 import { HiOutlineExclamationCircle } from "react-icons/hi";
@@ -14,6 +15,7 @@ export function DashPosts() {
   useEffect(() => {
     const fetchPosts = async () => {
       try {
+        NProgress.start();
         if (currentUser.isSuperAdmin) {
           const res = await fetch(`/api/post/getposts`);
           const data = await res.json();
@@ -38,6 +40,7 @@ export function DashPosts() {
       } catch (error) {
         console.log(error.message);
       }
+      NProgress.done();
     };
     if (currentUser.isAdmin) {
       fetchPosts();
@@ -49,6 +52,7 @@ export function DashPosts() {
     setShowMoreLoading(true);
     if (currentUser.isAdmin && currentUser.isSuperAdmin) {
       try {
+        NProgress.start();
         const res = await fetch(`/api/post/getposts?startIndex=${startIndex}`);
         const data = await res.json();
         if (res.ok) {
@@ -61,8 +65,10 @@ export function DashPosts() {
       } catch (err) {
         console.log(err);
       }
+      NProgress.done();
     } else {
       try {
+        NProgress.start();
         const res = await fetch(
           `/api/post/getposts?userId=${currentUser._id}&startIndex=${startIndex}`
         );
@@ -77,12 +83,14 @@ export function DashPosts() {
       } catch (err) {
         console.log(err);
       }
+      NProgress.done();
     }
   };
   const handleDeletePost = async () => {
     setShowModal(false);
 
     try {
+      NProgress.start();
       const res = await fetch(
         `/api/post/deletepost/${postIdToDelete}/${currentUser._id}`,
         {
@@ -98,6 +106,7 @@ export function DashPosts() {
     } catch (error) {
       console.log(error.message);
     }
+    NProgress.done();
   };
 
   return (

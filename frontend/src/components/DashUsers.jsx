@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from "react";
 import { useSelector } from "react-redux";
+import NProgress from 'nprogress';
 import { Table, Modal, Button, Spinner } from "flowbite-react";
 import { FaCheck, FaTimes } from "react-icons/fa";
 import { HiOutlineExclamationCircle } from "react-icons/hi";
@@ -14,6 +15,7 @@ export function DashUsers() {
   useEffect(() => {
     const fetchUsers = async () => {
       try {
+        NProgress.start();
         const res = await fetch(`/api/user/getusers`);
         const data = await res.json();
 
@@ -26,6 +28,7 @@ export function DashUsers() {
       } catch (error) {
         console.log(error.message);
       }
+      NProgress.done();
     };
     if (currentUser.isAdmin) {
       fetchUsers();
@@ -36,6 +39,7 @@ export function DashUsers() {
     const startIndex = users.length;
     setShowMoreloading(true);
     try {
+      NProgress.start();
       const res = await fetch(`/api/user/getusers?startIndex=${startIndex}`);
       const data = await res.json();
       if (res.ok) {
@@ -46,9 +50,11 @@ export function DashUsers() {
         }
       }
     } catch (err) {}
+    NProgress.done();
   };
   const handleDeleteUser = async () => {
     try {
+      NProgress.start();
       const res = await fetch(`/api/user/delete/${userIdToDelete}`, {
         method: "DELETE",
       });
@@ -62,6 +68,7 @@ export function DashUsers() {
     } catch (error) {
       console.log(error.message);
     }
+    NProgress.done();
   };
 
   return (

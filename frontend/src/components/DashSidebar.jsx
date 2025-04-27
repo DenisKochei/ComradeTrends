@@ -9,6 +9,7 @@ import {
 } from "react-icons/hi";
 import { Link, useLocation } from "react-router-dom";
 import { useState, useEffect } from "react";
+import NProgress from 'nprogress';
 import { signoutSuccess } from "../../redux/user/userSlice";
 import { useDispatch } from "react-redux";
 import { useSelector } from "react-redux";
@@ -27,6 +28,7 @@ export function DashSidebar() {
   }, [location.search]);
   const handleSignout = async (req, res, next) => {
     try {
+      NProgress.start();
       const res = await fetch("/api/user/sign-out", {
         method: "POST",
       });
@@ -39,6 +41,7 @@ export function DashSidebar() {
     } catch (err) {
       console.log(err.message);
     }
+    NProgress.done();
   };
 
   return (

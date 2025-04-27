@@ -1,5 +1,6 @@
 import { useEffect, useState } from "react";
 import { useSelector } from "react-redux";
+import NProgress from 'nprogress';
 import {
   HiAnnotation,
   HiArrowNarrowUp,
@@ -23,6 +24,7 @@ export function DashboardComp() {
   useEffect(() => {
     const fetchUsers = async () => {
       try {
+        NProgress.start();
         const res = await fetch("/api/user/getusers?limit=5");
         const data = await res.json();
         if (res.ok) {
@@ -65,6 +67,7 @@ export function DashboardComp() {
       fetchPosts();
       fetchComments();
     }
+    NProgress.done();
   }, [currentUser]);
   return (
     <div className="p-3 md:mx-auto">
