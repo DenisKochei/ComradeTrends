@@ -1,4 +1,5 @@
 import { Button, Spinner } from "flowbite-react";
+import NProgress from 'nprogress';
 import { useEffect, useState } from "react";
 import { useLocation, useNavigate } from "react-router-dom";
 import { PostCard } from "../components/PostCard";
@@ -39,6 +40,7 @@ export function Search() {
       setLoading(true);
       setReadMoreLoading(false);
       const searchQuery = urlParams.toString();
+      NProgress.start();
       const res = await fetch(`/api/post/getposts?${searchQuery}&limit=7`);
       if (!res.ok) {
         return;
@@ -54,6 +56,7 @@ export function Search() {
           setShowMore(false);
         }
       }
+      NProgress.done()
     };
     fetchPosts();
   }, [location.search]);
@@ -74,12 +77,14 @@ export function Search() {
 
   const handleSubmit = (e) => {
     e.preventDefault();
+    NProgress.start();
     const urlParams = new URLSearchParams(location.search);
     urlParams.set("searchTerm", sidebarData.searchTerm);
     urlParams.set("sort", sidebarData.sort || "");
     urlParams.set("category", sidebarData.category || "");
     const searchQuery = urlParams.toString();
     navigate(`/search?${searchQuery}`);
+    NProgress.done();
   };
 
   const handleShowMore = async () => {

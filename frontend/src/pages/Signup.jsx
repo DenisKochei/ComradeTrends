@@ -1,5 +1,6 @@
 import { Alert, Button, Label, Spinner, TextInput } from "flowbite-react";
 import React, { useState } from "react";
+import NProgress from 'nprogress';
 import { Link, useNavigate } from "react-router-dom";
 import Oauth from "../components/Oauth";
 import { useDispatch } from "react-redux";
@@ -31,6 +32,7 @@ export function Signup() {
     try {
       setLoading(true);
       setError(null);
+      NProgress.start();
       const res = await fetch("/api/auth/signup", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
@@ -49,6 +51,7 @@ export function Signup() {
       setError(err.message);
       setLoading(false);
     }
+    NProgress.done();
   };
 
   return (

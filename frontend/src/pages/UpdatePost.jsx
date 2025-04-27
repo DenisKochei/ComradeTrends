@@ -1,4 +1,5 @@
 import { Alert, Button, FileInput, Select, TextInput } from "flowbite-react";
+import NProgress from 'nprogress';
 import { useEffect, useState } from "react";
 import ReactQuill from "react-quill";
 import "react-quill/dist/quill.snow.css";
@@ -29,6 +30,7 @@ export default function UpdatePost() {
   useEffect(() => {
     try {
       const fetchPosts = async () => {
+        NProgress.start();
         const res = await fetch(`/api/post/getposts?postId=${postId}`);
         const data = await res.json();
 
@@ -46,6 +48,7 @@ export default function UpdatePost() {
     } catch (err) {
       console.log(err);
     }
+    NProgress.done()
   }, [postId]);
 
   const handleauploadImage = async () => {
@@ -93,6 +96,7 @@ export default function UpdatePost() {
   const handleSubmit = async (e) => {
     e.preventDefault();
     try {
+      NProgress.start();
       const res = await fetch(
         `/api/post/updatepost/${formData._id}/${currentUser._id}`,
         {
@@ -113,6 +117,7 @@ export default function UpdatePost() {
     } catch (err) {
       setFetchError("Something went wrong.");
     }
+    NProgress.done();
   };
   const modules = {
     toolbar: [

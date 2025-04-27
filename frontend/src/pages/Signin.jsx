@@ -1,4 +1,5 @@
 import { Alert, Button, Label, Spinner, TextInput } from "flowbite-react";
+import NProgress from 'nprogress';
 import React, { useState, useEffect } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
@@ -31,6 +32,7 @@ export function Signin() {
       return dispatch(signinFailure("Please fill out all fields"));
     }
     try {
+      NProgress.start();
       dispatch(signinStart());
       const res = await fetch("/api/auth/signin", {
         method: "POST",
@@ -49,6 +51,7 @@ export function Signin() {
     } catch (err) {
       dispatch(signinFailure(err.message));
     }
+    NProgress.done();
   };
 
   return (

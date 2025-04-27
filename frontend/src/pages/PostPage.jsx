@@ -1,4 +1,5 @@
 import { Button, Spinner } from "flowbite-react";
+import NProgress from 'nprogress';
 import { useEffect, useState } from "react";
 import { Link, useParams } from "react-router-dom";
 import { CallToAction } from "../components/CallToAction";
@@ -49,6 +50,7 @@ export function PostPage() {
   useEffect(() => {
     const fetchPost = async () => {
       try {
+        NProgress.start();
         setLoading(true);
         const res = await fetch(`/api/post/getposts?slug=${postslug}`);
         const data = await res.json();
