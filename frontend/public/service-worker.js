@@ -1,6 +1,8 @@
-const CACHE_NAME = 'comradetrends-cache-v1';
+const CACHE_NAME = 'comradetrends-cache-v1.1.0.0';
 const urlsToCache = [
   '/',
+  '/index.html',
+  '/manifest.json',
   '/icons/ComradeTrendsLogo192.png',
   '/icons/ComradeTrendsLogo512.png'
 ];
