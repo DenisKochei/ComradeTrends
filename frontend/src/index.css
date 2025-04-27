@@ -25,6 +25,11 @@ body span{
 .post-content p{
 margin-bottom: 0.5rem;
 }
+#nprogress .bar {
+  background: linear-gradient(to right, #ea2020, #a0a8f2) !important;
+  height: 2px;
+  border-radius: 5PX;
+}
 .post-content h1{
   font-family: sans-serif;
   font-size: 1.5rem;

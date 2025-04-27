@@ -1,4 +1,5 @@
 import { BrowserRouter, Routes, Route } from "react-router-dom";
+import { ProgressBar } from "./components/ProgressBar.jsx";
 import { Home } from "./pages/Home";
 import { About } from "./pages/About";
 import { Signin } from "./pages/Signin";
@@ -21,9 +22,10 @@ import { Cart } from "./pages/Cart.jsx";
 
 export default function App() {
   return (
-    <div className="min-h-screen  max-w-[1500px] mx-auto">
+    <div className="min-h-screen max-w-[1500px] mx-auto">
       <BrowserRouter>
         <ScrollToTop />
+        <ProgressBar />
         <Header />
         <Routes>
           <Route path="/" element={<Home />} />
@@ -31,10 +33,7 @@ export default function App() {
           <Route path="/sign-in" element={<Signin />} />
           <Route path="/sign-up" element={<Signup />} />
           <Route path="/Contacts" element={<Contacts />} />
-          <Route
-            path="/terms-and-conditions"
-            element={<TermsAndConditions />}
-          />
+          <Route path="/terms-and-conditions" element={<TermsAndConditions />} />
           <Route element={<PrivateRoute />}>
             <Route path="/dashboard" element={<Dashboard />} />
           </Route>
