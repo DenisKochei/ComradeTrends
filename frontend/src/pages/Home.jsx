@@ -519,7 +519,7 @@ export function Home() {
                 </Link>
                 <div className="w-full sm:flex">
                   <div className="sm:!w-3/12  w-full flex flex-col rounded-md bg-orange-800 p-3 gap-10">
-                    <h1 className="text-lg my-5 text-slate-900 dark:text-slate-300 font-light font-serif">
+                    <h1 className="text-lg my-5 text-slate-300 font-light font-serif">
                       Discover the future today, right here !
                     </h1>
                     <p className="text-slate-300">

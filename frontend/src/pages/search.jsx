@@ -201,7 +201,7 @@ export function Search() {
                     </div>
 
                     <div className="w-full hidden sm:w-[200px] ml-2 sm:flex md:hidden lg:flex flex-wrap rounded-md bg-orange-800 p-3 gap-10">
-                      <h1 className="text-lg my-1 text-slate-900 dark:text-slate-300 font-light font-serif">
+                      <h1 className="text-lg my-1 text-slate-300 font-light font-serif">
                         Discover the future today, right here !
                       </h1>
                       <p className="text-slate-300">
@@ -222,7 +222,7 @@ export function Search() {
 
                   </div>
                   <div className="w-full sm:hidden flex flex-wrap rounded-md bg-orange-800 p-3 gap-10">
-                    <h1 className="text-lg my-5 text-slate-900 dark:text-slate-300 font-light font-serif">
+                    <h1 className="text-lg my-5 text-slate-300 font-light font-serif">
                       Discover the future today, right here !
                     </h1>
                     <p className="text-slate-300">
