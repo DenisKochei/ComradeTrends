@@ -10,7 +10,7 @@ export function ProgressBar() {
   useEffect(() => {
     NProgress.configure({ 
       showSpinner: false,   
-      trickleSpeed: 200,
+      trickleSpeed: 10,
       minimum: 0.08,
       easing: "ease",
       speed: 500,

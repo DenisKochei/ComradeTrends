@@ -116,12 +116,14 @@ export function PostPage() {
   const currentUrl = window.location.href;
 
   if (loading) {
+    NProgress.start();
     return (
       <div className="flex justify-center items-center min-h-screen">
         <Spinner size="xl" />
       </div>
     );
   } else {
+    NProgress.done();
     return (
       <div className="mt-2">
         <PageIndicator />
