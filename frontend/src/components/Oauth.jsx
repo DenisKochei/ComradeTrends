@@ -12,6 +12,7 @@ export default function Oauth() {
   const goBack = () => {
     window.history.back();
   };
+  
 
   const handleGoogleClick = async () => {
     const provider = new GoogleAuthProvider();
