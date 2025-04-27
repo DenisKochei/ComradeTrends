@@ -4,13 +4,12 @@ import { GoogleAuthProvider, signInWithPopup, getAuth } from "firebase/auth";
 import { app } from "../firebase";
 import { useDispatch } from "react-redux";
 import { signinSuccess } from "../../redux/user/userSlice";
+import { useNavigate } from "react-router-dom";
 
 export default function Oauth() {
   const auth = getAuth(app);
   const dispatch = useDispatch();
-  const goBack = () => {
-    window.history.back();
-  };
+    const navigate = useNavigate();
 
   const handleGoogleClick = async () => {
     const provider = new GoogleAuthProvider();
@@ -29,7 +28,7 @@ export default function Oauth() {
       const data = await res.json();
       if (res.ok) {
         dispatch(signinSuccess(data));
-        goBack();
+        navigate("/")
       }
     } catch (err) {
       console.log(err);
