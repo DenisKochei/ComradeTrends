@@ -522,7 +522,7 @@ export function Home() {
                     <h1 className="text-lg my-5 text-slate-900 dark:text-slate-300 font-light font-serif">
                       Discover the future today, right here !
                     </h1>
-                    <p className="text-slate-900 dark:text-slate-300">
+                    <p className="text-slate-300">
                       Comrade Trends is your go-to source for timely, reliable,
                       and engaging news. From breaking stories and in-depth
                       analysis to entertainment, politics, campus updates, and
@@ -533,7 +533,7 @@ export function Home() {
                       built for the modern, connected reader.
                     </p>
                     <Link to={"/contacts"}>
-                      <button className="focus:ring-0 w-1/2 text-slate-900 dark:text-slate-300 py-1 rounded-md p-0 border mb-4 border-slate-900 transition duration-300 ease-in-out">
+                      <button className="focus:ring-0 w-1/2 text-slate-300 py-1 rounded-md p-0 border mb-4 border-slate-900 transition duration-300 ease-in-out">
                         Contact us
                       </button>
                     </Link>
