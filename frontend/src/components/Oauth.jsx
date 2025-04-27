@@ -9,7 +9,7 @@ export default function Oauth() {
   const auth = getAuth(app);
   const dispatch = useDispatch();
   const goBack = () => {
-    window.history.go(-2);
+    window.history.back();
   };
 
   const handleGoogleClick = async () => {
