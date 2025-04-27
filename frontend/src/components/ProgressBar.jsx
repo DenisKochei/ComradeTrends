@@ -3,6 +3,7 @@ import NProgress from 'nprogress';
 import 'nprogress/nprogress.css';
 import { useEffect } from 'react';
 
+
 export function ProgressBar() {
   const location = useLocation();
 
