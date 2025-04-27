@@ -8,7 +8,7 @@ export function CallToAction() {
         </p>
         <div className="flex gap-5 justify-center">
           <a href="tel:+254759117496">+(254)759117496</a>
-          <a href="tel:+254753868958">+(254)753868958 Yes</a>
+          <a href="tel:+254753868958">+(254)753868958</a>
         </div>
       </div>
       <div className="p-1 flex-1">
