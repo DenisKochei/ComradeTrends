@@ -474,7 +474,7 @@ export function Home() {
           </div>
         </div>
         <div>
-          <div className="flex flex-col my-1 mx-2 lg:mx-1 w-full min-h-screen">
+          <div className="flex flex-col my-1 mx-2 lg:mx-1 min-h-screen">
             {(education.length > 0) ? (
               <div>
                 <Link to={`/search?category=education`}>
