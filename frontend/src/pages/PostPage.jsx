@@ -404,7 +404,7 @@ export function PostPage() {
           </main>
           <div
             className={`${
-              recent && recent.length !== 0 && "lg:w-1/3 m-3 sticky top-0"
+              recent && recent.length !== 0 && "lg:w-1/3 m-3 sticky top-10"
             }`}
           >
             {recent && recent.length > 0 && (

@@ -23,6 +23,7 @@ export function Home() {
   const [recent, setRecent] = useState([]);
   const [sports, setSports] = useState([]);
   const [politics, setPolitics] = useState([]);
+  const [agriculture, setAgriculture] = useState([]);
   const [international, setInternational] = useState([]);
   const [entertainment, setEntertainment] = useState([]);
   const [business, setBusiness] = useState([]);
@@ -41,13 +42,13 @@ export function Home() {
 
   const [loadedSections, setLoadedSections] = useState({
     entertainment: false,
-    business: false,
+    agriculture: false,
     recent: false,
   });
 
   const recentRef = useRef(null);
   const entertainmentRef = useRef(null);
-  const businessRef = useRef(null);
+  const agricultureRef = useRef(null);
   const loadPosts = async (category, setter, key) => {
     if (loadedSections[key]) return;
 
@@ -72,8 +73,8 @@ export function Home() {
           if (entry.target === entertainmentRef.current) {
             loadPosts("entertainment", setEntertainment, "entertainment");
           }
-          if (entry.target === businessRef.current) {
-            loadPosts("business", setBusiness, "business");
+          if (entry.target === agricultureRef.current) {
+            loadPosts("agriculture", setAgriculture, "agriculture");
           }
           if (entry.target === recentRef.current) {
             loadPosts("", setRecent, "recent");
@@ -87,13 +88,13 @@ export function Home() {
     });
 
     if (entertainmentRef.current) observer.observe(entertainmentRef.current);
-    if (businessRef.current) observer.observe(businessRef.current);
+    if (agricultureRef.current) observer.observe(agricultureRef.current);
     if (recentRef.current) observer.observe(recentRef.current);
 
     return () => {
       if (entertainmentRef.current)
         observer.unobserve(entertainmentRef.current);
-      if (businessRef.current) observer.unobserve(businessRef.current);
+      if (agricultureRef.current) observer.unobserve(agricultureRef.current);
       if (recentRef.current) observer.unobserve(recentRef.current);
     };
   }, [loadedSections]);
@@ -108,13 +109,14 @@ export function Home() {
 
         // Create fetch requests
         const requests = [
-          fetch("/api/post/getposts?limit=7&category=politics"),
+          fetch("/api/post/getposts?limit=8&category=politics"),
           fetch("/api/post/getposts?limit=9"),
           fetch(`/api/post/getposts?limit=${getFetchLimit()}&category=international`),
           fetch(`/api/post/getposts?limit=${getFetchLimit()}&category=education`),
           fetch("/api/post/getposts?category=trending&limit=5"),
           fetch("/api/post/getposts?category=technology&limit=5"),
           fetch("/api/post/getposts?category=breaking&limit=5"),
+          fetch("/api/post/getposts?category=business&limit=5"),
           fetch("/api/post/getposts?category=most-trending&limit=1"),
           fetch("/api/post/getposts?limit=5&category=sports")
         ];
@@ -133,8 +135,9 @@ export function Home() {
         setTrending(data[4].posts);
         setTechnology(data[5].posts);
         setBreaking(data[6].posts);
-        setMostTrending(data[7].posts);
-        setSports(data[8].posts);
+        setBusiness(data[7].posts);
+        setMostTrending(data[8].posts);
+        setSports(data[9].posts);
 
       } catch (error) {
         console.error("Error fetching posts:", error);
@@ -149,7 +152,7 @@ export function Home() {
 
   return (
     <div>
-      <div className="flex  flex-col sm:my-5 my-2 mx-2 lg:mx-3 min-h-screen">
+      <div className="flex  flex-col sm:my-0 my-0 mx-2 lg:mx-3 min-h-screen">
         <Helmet>
           <title>{`ComradeTrends | Home Page`}</title>
           <meta
@@ -161,7 +164,7 @@ export function Home() {
             content="trusted source for the latest news, insightful analysis, and trending stories in Kenya and from around the world."
           />
         </Helmet>
-        <div className=" overflow-x-scroll overflow-y-hidden border p-1 flex w-full border-slate-600 border-x-0 dark:text-slate-500 scrollbar-thin text-nowrap scrollbar-thumb-transparent gap-2 scrollbar-track-transparent justify-between  items-center ">
+        <div className=" overflow-x-scroll overflow-y-hidden border p-0 flex w-full border-slate-600 border-x-0 dark:text-slate-500 scrollbar-thin text-nowrap scrollbar-thumb-transparent gap-2 scrollbar-track-transparent justify-between  items-center ">
           <div className="flex justify-center md:-mb-2 items-center">
             <IoTrendingUp className="w-5 h-5 text-purple-600" />
             <Link
@@ -375,10 +378,10 @@ export function Home() {
             <div></div>
           )}
           <div className="flex md:flex-row md:w-1/2 gap-2 flex-col">
-            <div className="md:w-1/2 md:mt-2 w-full">
+            <div className="md:w-1/2 md:mt-1 w-full">
               {(trending && trending.length > 0) ? (
                 <>
-                  <h1 className=" text-lg font-semibold text-center">
+                  <h1 className=" md:text-lg text-lg md:font-semibold text-center">                    
                     Trending News
                   </h1>
                   <div className="flex flex-col gap-1 sm:gap-6">
@@ -392,26 +395,24 @@ export function Home() {
               ) : (
                 <div>
                   <>
-                    {(business && business.length > 0) && (
-                      <div className="flex flex-col gap-1 sm:gap-6">
-                        <h1 className=" text-lg font-semibold text-center">
-                          Business News
-                        </h1>
-                        <div className="flex justify-center flex-wrap gap-0">
-                          {business.map((post) => (
-                            <PostBar post={post} key={post._id} />
-                          ))}
-                        </div>
-                      </div>
-                    )}
-                  </>
+                  <h1 className=" md:text-lg text-lg md:font-semibold text-center">                    
+                    Business News
+                  </h1>
+                  <div className="flex flex-col gap-1 sm:gap-6">
+                    <div className="flex justify-center flex-wrap gap-0">
+                      {business.map((post) => (
+                        <PostBar post={post} key={post._id} />
+                      ))}
+                    </div>
+                  </div>
+                </>
                 </div>
               )}
             </div>
-            <div className="md:w-1/2 md:mt-2 w-full">
+            <div className="md:w-1/2 md:mt-1 w-full">
               {(sports && sports.length > 0) ? (
                 <div className="flex flex-col w-full">
-                  <h1 className=" text-lg font-semibold text-center">
+                  <h1 className=" md:text-lg text-lg md:font-semibold text-center">                    
                     Sports News
                   </h1>
                   <div className="flex justify-center flex-wrap gap-0">
@@ -425,7 +426,7 @@ export function Home() {
                   {(technology && technology.length > 0) && (
                     <>
                       <div className="flex flex-col w-full">
-                        <h1 className=" text-lg font-semibold text-center">
+                        <h1 className=" md:text-lg text-lg md:font-semibold text-center">                         
                           Tech News
                         </h1>
                         <div className="flex justify-center flex-wrap gap-0">
@@ -444,8 +445,8 @@ export function Home() {
         <div>
           <div className="flex flex-col my-1 mx-2 lg:mx-1 min-h-screen">
             {(education.length > 0) ? (
-              <div>
-                <Link to={`/search?category=education`}>
+              <div className="md:-mt-4">
+                <Link className="flex w-fit" to={`/search?category=education`}>
                   <div className="flex justify-start my-2 gap-1 items-center">
                     <IoTrendingUp className="w-5 h-5 text-purple-600" />
                     <h1 className="text-lg">Education</h1>
@@ -475,8 +476,8 @@ export function Home() {
             )}
 
             {(international && international.length !== 0) && (
-              <div>
-                <Link to={`/search?category=international`}>
+              <div className="md:-mt-4">
+                <Link className="flex w-fit" to={`/search?category=international`}>
                   <div className="flex justify-start my-2 gap-1 items-center">
                     <IoTrendingUp className="w-5 h-5 text-purple-600" />
                     <h1 className="text-lg">International</h1>
@@ -486,7 +487,7 @@ export function Home() {
                   </div>
                 </Link>
                 <div className="w-full sm:flex">
-                  <div className="sm:!w-3/12  w-full flex flex-col rounded-md bg-orange-800 p-3 gap-10">
+                  <div className="sm:!w-3/12 w-full flex flex-col rounded-md bg-orange-800 p-1 gap-10">
                     <h1 className="text-lg my-5 text-slate-300 font-light font-serif">
                       Discover the future today, right here !
                     </h1>
@@ -506,14 +507,14 @@ export function Home() {
                       </button>
                     </Link>
                   </div>
-                  <div className="sm:mx-1 w-full sm:!w-9/12">
+                  <div className="sm:mx-1 w-full md:-mt-3 sm:!w-9/12">
                     <div
                       onClick={() => navigate(`/post/${international[0].slug}`)}
                       className="sm:flex sm:border-none border-b dark:border-slate-600 rounded-b-md border-slate-300 cursor-pointer"
                     >
-                      <div className="w-full  mt-2 sm:mt-0 sm:w-5/8 ">
+                      <div className="w-full sm:mt-0 sm:w-5/8 ">
                         <img loading="lazy"
-                          className="object-cover self-center mt-1 pt-1 p-1 h-[310px] w-full !max-w-4xl"
+                          className="object-cover self-center  mt-1 pt-1 p-1 h-[310px] w-full !max-w-4xl"
                           src={international[0].image}
                         />
                       </div>
@@ -565,7 +566,7 @@ export function Home() {
             >
               {entertainment.length > 0 ? (
                 <div>
-                  <Link to={`/search?category=entertainment`}>
+                  <Link className="flex w-fit" to={`/search?category=entertainment`}>
                     <div className="flex justify-start my-2 gap-1 items-center">
                       <IoTrendingUp className="w-5 h-5 text-purple-600" />
                       <h1 className="text-lg">Entertainment</h1>
@@ -594,7 +595,7 @@ export function Home() {
             </div>
             {(politics.length > 0) && (
               <div>
-                <Link to={`/search?category=politics`}>
+                <Link className="flex w-fit" to={`/search?category=politics`}>
                   <div className="flex justify-start gap-1 items-center">
                     <IoTrendingUp className="w-5 h-5 text-purple-600" />
                     <h1 className="text-lg">Politics</h1>
@@ -631,7 +632,7 @@ export function Home() {
                       dangerouslySetInnerHTML={{ __html: politics[0].content1 }}
                     ></div>
                   </div>
-                  <div className="flex w-full sm:border-none border-b dark:border-slate-600 border-slate-800 rounded-b-md pb-2 sm:w-3/12 flex-col">
+                  <div className="flex w-full -mt-0 sm:border-none border-b dark:border-slate-600 border-slate-800 rounded-b-md pb-2 sm:w-3/12 flex-col">
                     <div
                       className="cursor-pointer"
                       onClick={() => navigate(`/post/${politics[1].slug}`)}
@@ -648,7 +649,7 @@ export function Home() {
                       {moment(politics[1].createdAt).fromNow()}
                     </span>
                   </div>
-                  <div className="w-full sm:w-4/12">
+                  <div className="w-full -mt-5 sm:w-4/12">
                     {politics.slice(2).map((post) => (
                       <PostBar post={post} key={post._id} />
                     ))}
@@ -682,16 +683,16 @@ export function Home() {
               </div>
             )}
             <div
-              ref={businessRef}
-              className={`flex flex-col min-h-[200px] gap-0 text-center ${business.length === 0 && "!min-h-override"
+              ref={agricultureRef}
+              className={`flex flex-col min-h-[200px] gap-0 text-center ${agriculture.length === 0 && "!min-h-override"
                 }`}
             >
-              {business.length > 0 ? (
+              {agriculture.length > 0 ? (
                 <div>
-                  <Link to={"/search?category=business"}>
-                    <div className="flex justify-start my-2 gap-1 items-center">
+                  <Link className="flex w-fit" to={"/search?category=agriculture"}>
+                    <div className="flex justify-start my-1 gap-1 items-center">
                       <IoTrendingUp className="w-5 h-5 text-purple-600" />
-                      <h1 className="text-lg">Business</h1>
+                      <h1 className="text-lg">Agriculture</h1>
                       <div className="mt-1">
                         <FaAngleRight />
                       </div>
@@ -699,16 +700,16 @@ export function Home() {
                   </Link>
                   <div className=" overflow-x-scroll overflow-y-hidden p-1 flex w-full scrollbar-thin 5xl:justify-center scrollbar-thumb-transparent gap-2 scrollbar-track-transparent justify-between  items-center ">
                     <div className="flex w-full sm:w-auto flex-col gap-2 justify-around sm:flex-row items-center">
-                      {business.map((post) => (
+                      {agriculture.map((post) => (
                         <PostCard key={post._id} post={post} />
                       ))}
                     </div>
                   </div>
                   <Link
-                    to="/search?category=business"
+                    to="/search?category=agriculture"
                     className="text-teal-500 hover:underline"
                   >
-                    More Business News
+                    More Agriculture News
                   </Link>
                 </div>
               ) : (
@@ -718,7 +719,7 @@ export function Home() {
           </div>
         </div>
       </div>
-      <Link to={`/search`}>
+      <Link className="flex w-fit" to={`/search`}>
         <div className="flex justify-start gap-1 my-3 mx-5 items-center">
           <IoTrendingUp className="w-5 h-5 text-purple-600" />
           <h1 className="text-lg hover:underline text-teal-500">All Posts</h1>

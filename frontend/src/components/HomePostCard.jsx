@@ -4,7 +4,7 @@ import moment from "moment";
 export function HomePostCard({ post }) {
   return (
     <div>
-      <div className="flex flex-col sm:mt-5 mt-2 justify-start items-center">
+      <div className="flex flex-col sm:mt-1 mt-2 justify-start items-center">
         <div className="flex flex-col-reverse text-start sm:flex-col">
           <h1 className="font-semi font-serif font-bold text-xl">{post.title}</h1>
           <div className=" flex justify-between items-center mx-1">
@@ -21,12 +21,12 @@ export function HomePostCard({ post }) {
             </Link>
             <span className=" mt-1 text-nowrap mr-2">{moment(post.createdAt).fromNow()}</span>
           </div>
-          <div className=" object-cover my-2 overflow-hidden">
+          <div className=" object-cover md:my-2 overflow-hidden">
             <img loading="lazy" className="w-full h-64 sm:h-96 object-cover" src={post.image} />
           </div>
         </div>
         <div
-          className="md:line-clamp-3 text-start line-clamp-2"
+          className=" text-start line-clamp-2"
           dangerouslySetInnerHTML={{ __html: post.content1 }}
         ></div>
         <span className="text-cyan-500 text-nowrap">Read More</span>
