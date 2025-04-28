@@ -1,5 +1,4 @@
 import { BrowserRouter, Routes, Route } from "react-router-dom";
-import { ProgressBar } from "./components/ProgressBar.jsx";
 import { Home } from "./pages/Home";
 import { About } from "./pages/About";
 import { Signin } from "./pages/Signin";
@@ -25,7 +24,6 @@ export default function App() {
     <div className="min-h-screen max-w-[1500px] mx-auto">
       <BrowserRouter>
         <ScrollToTop />
-        <ProgressBar />
         <Header />
         <Routes>
           <Route path="/" element={<Home />} />

@@ -39,8 +39,9 @@ export function DashPosts() {
         }
       } catch (error) {
         console.log(error.message);
+      }finally{
+        NProgress.done();
       }
-      NProgress.done();
     };
     if (currentUser.isAdmin) {
       fetchPosts();

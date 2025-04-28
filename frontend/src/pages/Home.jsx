@@ -1,4 +1,6 @@
 import React, { useEffect, useState, useRef } from "react";
+import NProgress from 'nprogress';
+import { ProgressBar } from "../components/ProgressBar.jsx";
 import { Link } from "react-router-dom";
 import { PostBar } from "../components/PostBar.jsx";
 import { HomePostCard } from "../components/HomePostCard.jsx";
@@ -36,7 +38,7 @@ export function Home() {
     if (width < 1024) return 8;
     return 10;
   };
- 
+
   const [loadedSections, setLoadedSections] = useState({
     entertainment: false,
     business: false,
@@ -50,7 +52,7 @@ export function Home() {
     if (loadedSections[key]) return;
 
     try {
-      const limit =  getFetchLimit();
+      const limit = getFetchLimit();
       const res = await fetch(
         category
           ? `/api/post/getposts?category=${category}&limit=${limit}`
@@ -96,88 +98,54 @@ export function Home() {
     };
   }, [loadedSections]);
 
-  useEffect(() => {
-    const fetchPosts = async () => {
-      const res = await fetch("/api/post/getposts?limit=7&category=politics");
-      const data = await res.json();
-      setPolitics(data.posts);
-    };
-    fetchPosts();
-  }, []);
-  useEffect(() => {
-    const fetchPosts = async () => {
-      const res = await fetch("/api/post/getposts?limit=9");
-      const data = await res.json();
-      setHashTags(data.allHashtags);
-    };
-    fetchPosts();
-  }, []);
-  useEffect(() => {
-    const fetchPosts = async () => {
-      const limit =  getFetchLimit();
-      const res = await fetch(
-        `/api/post/getposts?limit=${limit}&category=international`
-      );
-      const data = await res.json();
-      setInternational(data.posts);
-    };
-    fetchPosts();
-  }, []);
-  useEffect(() => {
-    const fetchPosts = async () => {
-      const limit =  getFetchLimit();
-      const res = await fetch(`/api/post/getposts?limit=${limit}&category=education`);
-      const data = await res.json();
-      setEducation(data.posts);
-    };
-    fetchPosts();
-  }, []);
-  useEffect(() => {
-    const fetchPosts = async () => {
-      const res = await fetch("/api/post/getposts?category=trending&limit=5");
-      const data = await res.json();
-      setTrending(data.posts);
-    };
-    fetchPosts();
-  }, []);
-  useEffect(() => {
-    const fetchPosts = async () => {
-      const res = await fetch("/api/post/getposts?category=technology&limit=5");
-      const data = await res.json();
-      setTechnology(data.posts);
-    };
-    fetchPosts();
-  }, []);
-  
+
 
 
   useEffect(() => {
-    const fetchPosts = async () => {
-      const res = await fetch("/api/post/getposts?category=breaking&limit=5");
-      const data = await res.json();
-      setBreaking(data.posts);
+    const fetchData = async () => {
+      try {
+        NProgress.start();
+
+        // Create fetch requests
+        const requests = [
+          fetch("/api/post/getposts?limit=7&category=politics"),
+          fetch("/api/post/getposts?limit=9"),
+          fetch(`/api/post/getposts?limit=${getFetchLimit()}&category=international`),
+          fetch(`/api/post/getposts?limit=${getFetchLimit()}&category=education`),
+          fetch("/api/post/getposts?category=trending&limit=5"),
+          fetch("/api/post/getposts?category=technology&limit=5"),
+          fetch("/api/post/getposts?category=breaking&limit=5"),
+          fetch("/api/post/getposts?category=most-trending&limit=1"),
+          fetch("/api/post/getposts?limit=5&category=sports")
+        ];
+
+        // Await all requests simultaneously
+        const responses = await Promise.all(requests);
+
+        // Convert all responses to JSON
+        const data = await Promise.all(responses.map(res => res.json()));
+
+        // Set state with corresponding data
+        setPolitics(data[0].posts);
+        setHashTags(data[1].allHashtags);
+        setInternational(data[2].posts);
+        setEducation(data[3].posts);
+        setTrending(data[4].posts);
+        setTechnology(data[5].posts);
+        setBreaking(data[6].posts);
+        setMostTrending(data[7].posts);
+        setSports(data[8].posts);
+
+      } catch (error) {
+        console.error("Error fetching posts:", error);
+      } finally {
+        NProgress.done();
+      }
     };
-    fetchPosts();
-  }, []);
-  useEffect(() => {
-    const fetchPosts = async () => {
-      const res = await fetch(
-        "/api/post/getposts?category=most-trending&limit=1"
-      );
-      const data = await res.json();
-      setMostTrending(data.posts);
-    };
-    fetchPosts();
+
+    fetchData();
   }, []);
 
-  useEffect(() => {
-    const fetchPosts = async () => {
-      const res = await fetch("/api/post/getposts?limit=5&category=sports");
-      const data = await res.json();
-      setSports(data.posts);
-    };
-    fetchPosts();
-  }, []);
 
   return (
     <div>

@@ -25,6 +25,33 @@ body span{
 .post-content p{
 margin-bottom: 0.5rem;
 }
+/* Style the spinner */
+#nprogress .spinner {
+  display: block;
+  position: fixed;
+  z-index: 1031;
+  top: 15px;
+  right: 15px;
+}
+
+/* Customize the spinner icon itself */
+#nprogress .spinner-icon {
+  width: 24px;
+  height: 24px;
+  border: solid 3px transparent;
+  border-top-color: transparent; /* 💥 fully transparent */
+  border-left-color: transparent; /* Only left border visible (or set this too if you want) */
+  border-radius: 50%;
+  animation: nprogress-spinner 400ms linear infinite;
+}
+
+
+/* Spinner rotation animation */
+@keyframes nprogress-spinner {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
+
 #nprogress .bar {
   background: linear-gradient(to right, #ea2020, #a0a8f2) !important;
   height: 2px;

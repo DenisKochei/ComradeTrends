@@ -9,6 +9,7 @@ import {
 } from "react-icons/hi";
 import { Button, Table } from "flowbite-react";
 import { Link } from "react-router-dom";
+import { ProgressBar } from "./ProgressBar";
 
 export function DashboardComp() {
   const [users, setUsers] = useState([]);
@@ -71,6 +72,7 @@ export function DashboardComp() {
   }, [currentUser]);
   return (
     <div className="p-3 md:mx-auto">
+      <ProgressBar/>
       <div className="flex-wrap flex gap-4 justify-center">
         <div className="flex flex-col p-3 dark:bg-slate-800 gap-4 md:w-72 w-full rounded-md shadow-md">
           <div className="flex justify-between">

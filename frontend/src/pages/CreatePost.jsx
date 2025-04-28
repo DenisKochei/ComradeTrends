@@ -13,6 +13,7 @@ import { app } from "../firebase";
 import { CircularProgressbar } from "react-circular-progressbar";
 import "react-circular-progressbar/dist/styles.css";
 import { useNavigate } from "react-router-dom";
+import { ProgressBar } from "../components/ProgressBar";
 
 export default function CreatePost() {
   const navigate = useNavigate();
@@ -105,6 +106,7 @@ export default function CreatePost() {
 
   return (
     <div className="p-3 mx-auto max-w-3xl min-h-screen">
+      <ProgressBar/>
       <h1 className="text-center font-semibold text-3xl my-7">Create Post</h1>
       <form className="flex flex-col gap-4" onSubmit={handleSubmit}>
         <div className="flex flex-col gap-4 sm:flex-row justify-between">
