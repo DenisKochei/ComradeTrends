@@ -165,7 +165,7 @@ export function Search() {
                 <option value="sports">Sports</option>
                 <option value="technology">Technology</option>
                 <option value="trending">Trending</option>
-                <option value="agriculture">Trending</option>
+                <option value="agriculture">Agriculture</option>
               </select>
             </div>
             <Button
