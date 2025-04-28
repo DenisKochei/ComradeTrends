@@ -164,7 +164,7 @@ export function Home() {
             content="trusted source for the latest news, insightful analysis, and trending stories in Kenya and from around the world."
           />
         </Helmet>
-        <div className=" overflow-x-scroll overflow-y-hidden border p-0 flex w-full border-slate-600 border-x-0 dark:text-slate-500 scrollbar-thin text-nowrap scrollbar-thumb-transparent gap-2 scrollbar-track-transparent justify-between  items-center ">
+        <div className=" overflow-x-scroll overflow-y-hidden border p-0 flex w-full border-b-slate-600 border-t-0 border-x-0 dark:text-slate-500 scrollbar-thin text-nowrap scrollbar-thumb-transparent gap-2 scrollbar-track-transparent justify-between  items-center ">
           <div className="flex justify-center md:-mb-2 items-center">
             <IoTrendingUp className="w-5 h-5 text-purple-600" />
             <Link
@@ -381,7 +381,7 @@ export function Home() {
             <div className="md:w-1/2 md:mt-1 w-full">
               {(trending && trending.length > 0) ? (
                 <>
-                  <h1 className=" md:text-lg text-lg md:font-semibold text-center">                    
+                  <h1 className=" md:text-lg text-lg md:font-semibold text-center">
                     Trending News
                   </h1>
                   <div className="flex flex-col gap-1 sm:gap-6">
@@ -394,25 +394,29 @@ export function Home() {
                 </>
               ) : (
                 <div>
-                  <>
-                  <h1 className=" md:text-lg text-lg md:font-semibold text-center">                    
-                    Business News
-                  </h1>
-                  <div className="flex flex-col gap-1 sm:gap-6">
-                    <div className="flex justify-center flex-wrap gap-0">
-                      {business.map((post) => (
-                        <PostBar post={post} key={post._id} />
-                      ))}
-                    </div>
-                  </div>
-                </>
+                  {(business && business.length > 0) &&
+                    (
+                      <>
+                        <h1 className=" md:text-lg text-lg md:font-semibold text-center">
+                          Business News
+                        </h1>
+                        <div className="flex flex-col gap-1 sm:gap-6">
+                          <div className="flex justify-center flex-wrap gap-0">
+                            {business.map((post) => (
+                              <PostBar post={post} key={post._id} />
+                            ))}
+                          </div>
+                        </div>
+                      </>
+                    )
+                  }
                 </div>
               )}
             </div>
             <div className="md:w-1/2 md:mt-1 w-full">
               {(sports && sports.length > 0) ? (
                 <div className="flex flex-col w-full">
-                  <h1 className=" md:text-lg text-lg md:font-semibold text-center">                    
+                  <h1 className=" md:text-lg text-lg md:font-semibold text-center">
                     Sports News
                   </h1>
                   <div className="flex justify-center flex-wrap gap-0">
@@ -426,7 +430,7 @@ export function Home() {
                   {(technology && technology.length > 0) && (
                     <>
                       <div className="flex flex-col w-full">
-                        <h1 className=" md:text-lg text-lg md:font-semibold text-center">                         
+                        <h1 className=" md:text-lg text-lg md:font-semibold text-center">
                           Tech News
                         </h1>
                         <div className="flex justify-center flex-wrap gap-0">
