@@ -4,7 +4,7 @@ import moment from "moment";
 export function HomePostCard({ post }) {
   return (
     <div>
-      <div className="flex flex-col sm:mt-1 mt-2 justify-start items-center">
+      <div className="flex flex-col sm:mt-1 -mb-4 sm:mb-0 mt-2 justify-start items-center">
         <div className="flex flex-col-reverse text-start sm:flex-col">
           <h1 className="font-semi font-serif font-bold text-xl">{post.title}</h1>
           <div className=" flex justify-between items-center mx-1">
@@ -29,7 +29,7 @@ export function HomePostCard({ post }) {
           className=" text-start line-clamp-2"
           dangerouslySetInnerHTML={{ __html: post.content1 }}
         ></div>
-        <span className="text-cyan-500 text-nowrap">Read More</span>
+        <span className="text-cyan-500 -mt-1 text-nowrap">Read More</span>
       </div>
     </div>
   );

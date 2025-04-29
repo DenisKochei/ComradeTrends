@@ -450,7 +450,7 @@ export function Home() {
           <div className="flex flex-col my-1 mx-2 lg:mx-1 min-h-screen">
             {(education.length > 0) ? (
               <div className="md:-mt-4">
-                <Link className="flex w-fit" to={`/search?category=education`}>
+                <Link className="flex -mb-3 w-fit" to={`/search?category=education`}>
                   <div className="flex justify-start my-2 gap-1 items-center">
                     <IoTrendingUp className="w-5 h-5 text-purple-600" />
                     <h1 className="text-lg">Education</h1>
@@ -491,7 +491,7 @@ export function Home() {
                   </div>
                 </Link>
                 <div className="w-full sm:flex">
-                  <div className="sm:!w-3/12 w-full flex flex-col rounded-md bg-orange-800 p-1 gap-10">
+                  <div className="sm:!w-3/12 w-full mb-4 flex flex-col rounded-md bg-orange-800 p-1 gap-10">
                     <h1 className="text-lg my-5 text-slate-300 font-light font-serif">
                       Discover the future today, right here !
                     </h1>
@@ -563,9 +563,11 @@ export function Home() {
               </div>
             )}
 
-            <div
+            {(entertainment.length > 0) && 
+            (
+              <div
               ref={entertainmentRef}
-              className={`flex w-full flex-col gap-3 min-h-[200px] text-center ${entertainment.length === 0 && "!min-h-override"
+              className={`flex w-full flex-col gap-3 min-h-[200px] sm:-mt-6 -mt-4 text-center ${entertainment.length === 0 && "!min-h-override"
                 }`}
             >
               {entertainment.length > 0 ? (
@@ -597,6 +599,8 @@ export function Home() {
                 <div></div>
               )}
             </div>
+            )
+            }
             {(politics.length > 0) && (
               <div>
                 <Link className="flex w-fit" to={`/search?category=politics`}>
@@ -688,7 +692,7 @@ export function Home() {
             )}
             <div
               ref={agricultureRef}
-              className={`flex flex-col min-h-[200px] gap-0 text-center ${agriculture.length === 0 && "!min-h-override"
+              className={`flex flex-col -mt-4 min-h-[200px] gap-0 text-center ${agriculture.length === 0 && "!min-h-override"
                 }`}
             >
               {agriculture.length > 0 ? (

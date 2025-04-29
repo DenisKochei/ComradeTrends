@@ -190,7 +190,7 @@ export function Search() {
             {!loading && posts.length === 0 && (
               <p className="text-xl text-gray-500">No posts found.</p>
             )}
-            {loading && <p className="text-xl text-gray-500">Loading...</p>}
+            {loading && <p className="text-xl mt-3 ml-3 text-gray-500">Loading...</p>}
 
           </div>
           {(!loading && (posts.length > 0)) &&
