@@ -29,7 +29,7 @@ app.listen(5000, () => {
   console.log("The Server is listening to port 5000");
 });
 
-prerender.set("prerenderToken", process.env.PRERENDERTOKEN);
+prerender.set("prerenderToken","ZscnX2pSLfXnxZlepdsN");
 prerender.whitelisted(["^/post", "^/$"]);
 prerender.blacklisted(["^/api", "\\.js$", "\\.css$"]);
 
