@@ -1,0 +1,13 @@
+User-agent: *
+Allow: /
+
+# Block access to backend and internal routes
+Disallow: /api/
+Disallow: /dashboard
+Disallow: /sign-im
+Disallow: /sign-up
+
+
+# Sitemap location
+Sitemap: https://comradetrends.com/sitemap.xml
+

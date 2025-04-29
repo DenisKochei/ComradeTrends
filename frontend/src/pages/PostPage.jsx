@@ -76,10 +76,9 @@ export function PostPage() {
   useEffect(() => {
     const fetchAlsoRead = async () => {
       const res = await fetch(
-        `/api/post/getposts?limit=4&category=${
-          post.category === "most-trending" || post.category === "breaking"
-            ? "trending"
-            : post.category
+        `/api/post/getposts?limit=4&category=${post.category === "most-trending" || post.category === "breaking"
+          ? "trending"
+          : post.category
         }`
       );
       const data = await res.json();
@@ -129,45 +128,68 @@ export function PostPage() {
         <PageIndicator />
         <div className="lg:flex min-h-screen items-start">
           <Helmet>
-            <title>
-              {post ? `Comrade Trends | ${post.title}` : "Comrade Trends"}
-            </title>
-            <meta
-              name="description"
-              content={post?.content1 || "Stay updated with Comrade Trends."}
-            />
+            {/* Page Title */}
+            <title>{post?.title ? `Comrade Trends | ${post.title}` : "Comrade Trends"}</title>
 
+            {/* SEO Meta */}
+            <meta name="description" content={post?.content1?.slice(0, 150) || "Stay informed with the latest news, stories, and trending topics from Comrade Trends."} />
+            <meta name="keywords" content={`${post?.title}, ${post?.category}, Comrade Trends, news`} />
+            <meta name="author" content={auther?.username || "Comrade Trends"} />
+
+            {/* Canonical URL */}
+            <link rel="canonical" href={currentUrl} />
+
+            {/* Open Graph (Facebook, WhatsApp) */}
             <meta property="og:type" content="article" />
             <meta property="og:url" content={currentUrl} />
-            <meta
-              property="og:title"
-              content={post?.title || "Comrade Trends"}
-            />
-            <meta
-              property="og:description"
-              content={post?.content1 || "Latest from Comrade Trends"}
-            />
+            <meta property="og:title" content={post?.title || "Comrade Trends"} />
+            <meta property="og:description" content={post?.content1?.slice(0, 150) || "Latest stories and trends from Comrade Trends"} />
             {post?.image && <meta property="og:image" content={post.image} />}
-            {post?.image && (
-              <meta property="og:image:type" content="image/jpeg" />
-            )}
+            {post?.image && <meta property="og:image:type" content="image/jpeg" />}
             {post?.image && <meta property="og:image:width" content="1200" />}
             {post?.image && <meta property="og:image:height" content="630" />}
+            <meta property="og:site_name" content="Comrade Trends" />
 
+            {/* Twitter Meta */}
             <meta name="twitter:card" content="summary_large_image" />
             <meta name="twitter:site" content="@comradetrends" />
             <meta name="twitter:creator" content="@comradetrends" />
-            <meta name="twitter:url" content={currentUrl} />
-            <meta
-              name="twitter:title"
-              content={post?.title || "Comrade Trends"}
-            />
-            <meta
-              name="twitter:description"
-              content={post?.content1 || "Stay informed with Comrade Trends"}
-            />
+            <meta name="twitter:title" content={post?.title || "Comrade Trends"} />
+            <meta name="twitter:description" content={post?.content1?.slice(0, 150) || "Explore trends and breaking news from Comrade Trends."} />
             {post?.image && <meta name="twitter:image" content={post.image} />}
+
+            {/* ✅ JSON-LD structured data at the end */}
+            <script type="application/ld+json">
+              {JSON.stringify({
+                "@context": "https://schema.org",
+                "@type": "NewsArticle",
+                "headline": post?.title || "Comrade Trends",
+                "image": [post?.image || "https://comradetrends.com/default-image.jpg"],
+                "datePublished": post?.createdAt,
+                "dateModified": post?.updatedAt || post?.createdAt,
+                "author": {
+                  "@type": "Person",
+                  "name": auther?.username || "Comrade Trends",
+                  "url": `https://comradetrends.com/user/${auther?.username || "author"}`
+                },
+                "publisher": {
+                  "@type": "Organization",
+                  "name": "Comrade Trends",
+                  "logo": {
+                    "@type": "ImageObject",
+                    "url": "https://firebasestorage.googleapis.com/v0/b/comrade-trends.appspot.com/o/ComradeTrendsLogo2.png?alt=media&token=4dabb883-ef77-4e0a-98fb-1a02b315ee3a"
+                  }
+                },
+                "description": post?.content1?.slice(0, 150) || "Stay updated with news, trends, and opinions on Comrade Trends.",
+                "mainEntityOfPage": {
+                  "@type": "WebPage",
+                  "@id": currentUrl
+                }
+              })}
+            </script>
+
           </Helmet>
+
 
           <div className="hidden lg:sticky lg:py-4 lg:px-1 lg:justify-center lg:items-center lg:flex lg:flex-col lg:mb-10 lg:mx-1 md:top-20">
             <div>
@@ -196,16 +218,16 @@ export function PostPage() {
                 </TwitterShareButton>
               </div>
               <div>
-              <a
-                    href={`whatsapp://send?text=${encodeURIComponent(
-                      currentPageURL
-                    )}`}
-                  >
-                    <FaWhatsapp
-                      fill="rgb(74,70,70)"
-                      className="text-2xl hover:fill-slate-300"
-                    />
-                  </a>
+                <a
+                  href={`whatsapp://send?text=${encodeURIComponent(
+                    currentPageURL
+                  )}`}
+                >
+                  <FaWhatsapp
+                    fill="rgb(74,70,70)"
+                    className="text-2xl hover:fill-slate-300"
+                  />
+                </a>
               </div>
               <div>
                 <TelegramShareButton title={post.title} url={currentPageURL}>
@@ -239,9 +261,8 @@ export function PostPage() {
               {post && post.title}
             </h1>
             <div
-              className={`flex items-center ${
-                post.hashtag && "justify-around"
-              } ${!post.hashtag && "justify-start"}`}
+              className={`flex items-center ${post.hashtag && "justify-around"
+                } ${!post.hashtag && "justify-start"}`}
             >
               {post && post.hashtag && (
                 <div className="dark:text-slate-500">
@@ -253,13 +274,12 @@ export function PostPage() {
                 className=" mt-0 flex justify-start items-center gap-1"
               >
                 <div
-                  className={`w-3 h-3 ${
-                    post.category === "breaking"
-                      ? "bg-red-400"
-                      : post.category === "most-trending"
+                  className={`w-3 h-3 ${post.category === "breaking"
+                    ? "bg-red-400"
+                    : post.category === "most-trending"
                       ? "bg-blue-400"
                       : "bg-green-400"
-                  } rounded-full`}
+                    } rounded-full`}
                 ></div>
                 <button
                   className="focus:ring-0 p-0"
@@ -270,8 +290,8 @@ export function PostPage() {
                   {post.category === "most-trending"
                     ? "Most Trending"
                     : post.category === "breaking"
-                    ? "Breaking News"
-                    : post.category}
+                      ? "Breaking News"
+                      : post.category}
                 </button>
               </Link>
             </div>
@@ -403,9 +423,8 @@ export function PostPage() {
             )}
           </main>
           <div
-            className={`${
-              recent && recent.length !== 0 && "lg:w-1/3 m-3 sticky top-10"
-            }`}
+            className={`${recent && recent.length !== 0 && "lg:w-1/3 m-3 sticky top-10"
+              }`}
           >
             {recent && recent.length > 0 && (
               <>

@@ -154,16 +154,72 @@ export function Home() {
     <div>
       <div className="flex  flex-col sm:my-0 my-0 mx-2 lg:mx-3 min-h-screen">
         <Helmet>
-          <title>{`ComradeTrends | Home Page`}</title>
+          {/* Basic SEO */}
+          <title>Comrade Trends | Kenya's Trusted News, Trends & Analysis</title>
           <meta
             name="description"
-            content="We're your trusted source for the latest news, insightful analysis, and trending stories from around the world."
+            content="Comrade Trends is your trusted source for real-time news, insightful stories, and trending topics across Kenya and the world."
           />
           <meta
             name="keywords"
-            content="trusted source for the latest news, insightful analysis, and trending stories in Kenya and from around the world."
+            content="Kenya news, trending stories, breaking news, student updates, campus life, politics, tech news, agriculture, Comrade Trends"
           />
+          <meta name="author" content="Comrade Trends Team" />
+          <link rel="canonical" href="https://comradetrends.com/" />
+
+          {/* Open Graph / Facebook / WhatsApp */}
+          <meta property="og:type" content="website" />
+          <meta property="og:title" content="Comrade Trends | Kenya's Trusted News Source" />
+          <meta property="og:description" content="Stay informed with breaking stories, trending topics, and expert analysis. News that matters to you, updated 24/7." />
+          <meta property="og:image" content="https://firebasestorage.googleapis.com/v0/b/comrade-trends.appspot.com/o/comradetrendslogo.jpg?alt=media&token=53653236-5cce-40a9-989e-e8959335bf63" />
+          <meta property="og:url" content="https://comradetrends.com/" />
+          <meta property="og:site_name" content="Comrade Trends" />
+
+          {/* Twitter Card */}
+          <meta name="twitter:card" content="summary_large_image" />
+          <meta name="twitter:title" content="Comrade Trends | Kenya's Trusted News Source" />
+          <meta name="twitter:description" content="Real-time updates on Kenya's top news, campus life, tech, politics, and more. Your voice, your trends." />
+          <meta name="twitter:image" content="https://firebasestorage.googleapis.com/v0/b/comrade-trends.appspot.com/o/comradetrendslogo.jpg?alt=media&token=53653236-5cce-40a9-989e-e8959335bf63" />
+          <meta name="twitter:site" content="@comradetrends" />
+          <meta name="twitter:creator" content="@comradetrends" />
+
+          {/* JSON-LD Structured Data */}
+          <script type="application/ld+json">
+            {JSON.stringify({
+              "@context": "https://schema.org",
+              "@type": "WebSite",
+              "name": "Comrade Trends",
+              "url": "https://comradetrends.com/",
+              "potentialAction": {
+                "@type": "SearchAction",
+                "target": "https://comradetrends.com/search?searchTerm={search_term_string}",
+                "query-input": "required name=search_term_string"
+              }
+            })}
+          </script>
+          <script type="application/ld+json">
+            {JSON.stringify({
+              "@context": "https://schema.org",
+              "@type": "Organization",
+              "name": "Comrade Trends",
+              "url": "https://comradetrends.com",
+              "logo": "https://firebasestorage.googleapis.com/v0/b/comrade-trends.appspot.com/o/ComradeTrendsLogo2.png?alt=media&token=4dabb883-ef77-4e0a-98fb-1a02b315ee3a",
+              "sameAs": [
+                "https://www.facebook.com/profile.php?id=61566437698996",
+                "https://www.x.com/@ComradeTrends",
+                "https://www.youtube.com/@ComradeTrends"
+              ],
+              "contactPoint": {
+                "@type": "ContactPoint",
+                "telephone": "+254759117496",
+                "contactType": "Customer Support",
+                "areaServed": "KE",
+                "availableLanguage": ["English", "Swahili"]
+              }
+            })}
+          </script>
         </Helmet>
+
         <div className=" overflow-x-scroll overflow-y-hidden border p-0 flex w-full border-b-slate-600 border-t-0 border-x-0 dark:text-slate-500 scrollbar-thin text-nowrap scrollbar-thumb-transparent gap-2 scrollbar-track-transparent justify-between  items-center ">
           <div className="flex justify-center md:-mb-2 items-center">
             <IoTrendingUp className="w-5 h-5 text-purple-600" />
@@ -563,43 +619,43 @@ export function Home() {
               </div>
             )}
 
-            {(entertainment.length > 0) && 
-            (
-              <div
-              ref={entertainmentRef}
-              className={`flex w-full flex-col gap-3 min-h-[200px] sm:-mt-6 -mt-4 text-center ${entertainment.length === 0 && "!min-h-override"
-                }`}
-            >
-              {entertainment.length > 0 ? (
-                <div>
-                  <Link className="flex w-fit" to={`/search?category=entertainment`}>
-                    <div className="flex justify-start my-2 gap-1 items-center">
-                      <IoTrendingUp className="w-5 h-5 text-purple-600" />
-                      <h1 className="text-lg">Entertainment</h1>
-                      <div className="mt-1">
-                        <FaAngleRight />
+            {(entertainment.length > 0) &&
+              (
+                <div
+                  ref={entertainmentRef}
+                  className={`flex w-full flex-col gap-3 min-h-[200px] sm:-mt-6 -mt-4 text-center ${entertainment.length === 0 && "!min-h-override"
+                    }`}
+                >
+                  {entertainment.length > 0 ? (
+                    <div>
+                      <Link className="flex w-fit" to={`/search?category=entertainment`}>
+                        <div className="flex justify-start my-2 gap-1 items-center">
+                          <IoTrendingUp className="w-5 h-5 text-purple-600" />
+                          <h1 className="text-lg">Entertainment</h1>
+                          <div className="mt-1">
+                            <FaAngleRight />
+                          </div>
+                        </div>
+                      </Link>
+                      <div className=" overflow-x-scroll overflow-y-hidden p-1 flex w-full scrollbar-thin 5xl:justify-center scrollbar-thumb-transparent gap-2 scrollbar-track-transparent justify-between  items-center ">
+                        <div className="flex w-full sm:w-auto flex-col gap-2 justify-around sm:flex-row items-center">
+                          {entertainment.map((post) => (
+                            <PostCard key={post._id} post={post} />
+                          ))}
+                        </div>
                       </div>
+                      <Link
+                        to="/search?category=entertainment"
+                        className="text-teal-500 hover:underline"
+                      >
+                        More Entertainment News
+                      </Link>
                     </div>
-                  </Link>
-                  <div className=" overflow-x-scroll overflow-y-hidden p-1 flex w-full scrollbar-thin 5xl:justify-center scrollbar-thumb-transparent gap-2 scrollbar-track-transparent justify-between  items-center ">
-                    <div className="flex w-full sm:w-auto flex-col gap-2 justify-around sm:flex-row items-center">
-                      {entertainment.map((post) => (
-                        <PostCard key={post._id} post={post} />
-                      ))}
-                    </div>
-                  </div>
-                  <Link
-                    to="/search?category=entertainment"
-                    className="text-teal-500 hover:underline"
-                  >
-                    More Entertainment News
-                  </Link>
+                  ) : (
+                    <div></div>
+                  )}
                 </div>
-              ) : (
-                <div></div>
-              )}
-            </div>
-            )
+              )
             }
             {(politics.length > 0) && (
               <div>

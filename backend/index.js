@@ -1,6 +1,7 @@
 import express from "express";
 import mongoose from "mongoose";
 import dotenv from "dotenv";
+import sitemapRoute from "./routes/sitemap.route.js"
 import userRoute from "./routes/user.route.js";
 import authRoute from "./routes/auth.route.js";
 import cookieParser from "cookie-parser";
@@ -28,10 +29,8 @@ app.listen(5000, () => {
   console.log("The Server is listening to port 5000");
 });
 
-prerender.set("prerenderToken", "ZscnX2pSLfXnxZlepdsN"); // paste your token here
-
-// Optional: add whitelist or blacklist if needed
-prerender.whitelisted(["^/post", "^/$"]); // only pre-render specific routes
+prerender.set("prerenderToken", process.env.PRERENDERTOKEN);
+prerender.whitelisted(["^/post", "^/$"]);
 prerender.blacklisted(["^/api", "\\.js$", "\\.css$"]);
 
 app.use(prerender);
@@ -40,6 +39,7 @@ app.use("/api/user", userRoute);
 app.use("/api/auth", authRoute);
 app.use("/api/post", postRoutes);
 app.use("/api/comment", commentRoutes);
+app.use('/', sitemapRoute);
 
 app.use(express.static(path.join(__dirname, "../frontend/dist")));
 
