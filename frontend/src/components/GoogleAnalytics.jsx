@@ -4,7 +4,7 @@ import ReactGA from 'react-ga4';
 
 const GoogleAnalytics = () => {
   useEffect(() => {
-    ReactGA.initialize(import.meta.env.ANALYTICS_ID); // Replace with your Measurement ID
+    ReactGA.initialize("G-6TXC5016DE"); // Replace with your Measurement ID
     ReactGA.send('pageview');
   }, []);
 
