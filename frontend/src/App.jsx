@@ -18,11 +18,13 @@ import { PolicyPage } from "./pages/PolicyPage.jsx";
 import TermsAndConditions from "./pages/TermsAndConditions.jsx";
 import { MarketPlace } from "./pages/MarketPlace.jsx";
 import { Cart } from "./pages/Cart.jsx";
+import GoogleAnalytics from "./components/GoogleAnalytics.jsx";
 
 export default function App() {
   return (
     <div className="min-h-screen max-w-[1500px] mx-auto">
       <BrowserRouter>
+        <GoogleAnalytics />
         <ScrollToTop />
         <Header />
         <Routes>
