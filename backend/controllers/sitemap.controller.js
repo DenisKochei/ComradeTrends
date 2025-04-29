@@ -2,10 +2,9 @@ import Post from "../models/post.model.js";
 
 export const  siteMap = async (req, res) => {
   try {
+    console.log("Route Hit")
     const posts = await Post.find({}, "slug updatedAt").lean();
-
     const baseUrl = "https://comradetrends.com";
-
     const urls = posts.map(
       (post) => `
     <url>
