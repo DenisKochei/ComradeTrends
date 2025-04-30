@@ -169,11 +169,11 @@ export function CommentSection({ postId }) {
           </Link>
         </div>
       ) : (
-        <div className="flex justify-start gap-1 my-5 text-gray-500 text-xs items-center">
+        <div className="flex justify-start gap-1 my-5 dark:text-slate-400 text-xs items-center">
           <p>You must Signin to comment</p>
           <div>
             <Link
-              className="text-xs text-cyan-500 hover:underline"
+              className="text-xs dark:text-cyan-500 text-red-700 font-semibold hover:underline"
               to="/sign-in"
             >
               Signin
@@ -217,7 +217,7 @@ export function CommentSection({ postId }) {
         </form>
       )}
       {comments.length === 0 ? (
-        <p className="text-xs my-5 text-gray-500">No comments yet!</p>
+        <p className="text-xs my-5 dark:text-slate-400">No comments yet!</p>
       ) : (
         <>
           <div className="flex items-center my-5 gap-1 text-xs">

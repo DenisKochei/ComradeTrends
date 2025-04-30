@@ -23,6 +23,17 @@ export default function CreatePost() {
   const [formData, setFormData] = useState({});
   const [publishError, setPublishError] = useState();
 
+  const addTitleToIframes = (html, title = 'Embedded content') => {
+    const div = document.createElement('div');
+    div.innerHTML = html;
+    div.querySelectorAll('iframe').forEach((iframe) => {
+      if (!iframe.hasAttribute('title')) {
+        iframe.setAttribute('title', title);
+      }
+    });
+    return div.innerHTML;
+  };
+
   const handleauploadImage = async () => {
 
     try {
@@ -67,6 +78,8 @@ export default function CreatePost() {
   };
   const handleSubmit = async (e) => {
     e.preventDefault();
+    formData.content1 = addTitleToIframes(formData.content1);
+    formData.content2 = addTitleToIframes(formData.content2);   
     try {
       NProgress.start();
       const res = await fetch("/api/post/create", {
@@ -103,6 +116,7 @@ export default function CreatePost() {
       ["clean"],
     ],
   };
+  
 
   return (
     <div className="p-3 mx-auto max-w-3xl min-h-screen">

@@ -54,7 +54,7 @@ const TermsAndConditions = () => {
           <p className="m-2 md:text-xl">
             Please also review our{" "}
             <a
-              className="text-[rgb(2,132,199,100)] cursor-pointer"
+              className="dark:text-cyan-300 text-red-700 cursor-pointer"
               onClick={() => navigate("/privacy-policy")}
             >
               Privacy Policy
@@ -338,7 +338,7 @@ const TermsAndConditions = () => {
             <li className="md:text-xl">
               Email:{" "}
               <a
-                className="text-[rgb(2,132,199,100)] cursor-pointer"
+                className="dark:text-cyan-300 text-red-700 cursor-pointer"
                 href="mailto:comradetrends.info@gmail.com"
               >
                 comradetrends.info@gmail.com
@@ -347,7 +347,7 @@ const TermsAndConditions = () => {
             <li className="md:text-xl">
               Telephone:{" "}
               <a
-                className="text-[rgb(2,132,199,100)] cursor-pointer"
+                className="dark:text-cyan-300 text-red-700 cursor-pointer"
                 href="tel:+254759117496"
               >
                 +(254)759117496

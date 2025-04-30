@@ -146,7 +146,7 @@ export function PolicyPage() {
                         href="comradetrends.com"
                         rel="external nofollow noopener"
                         target="_blank"
-                        className="text-[rgb(2,132,199,100)]"
+                        className="dark:text-cyan-300 text-red-700"
                       >
                         comradetrends.com
                       </a>
@@ -263,7 +263,7 @@ export function PolicyPage() {
                 <a
                   href="https://www.termsfeed.com/blog/cookies/#What_Are_Cookies"
                   target="_blank"
-                  className="text-[rgb(2,132,199,100)]"
+                  className="dark:text-cyan-300 text-red-700"
                 >
                   TermsFeed website
                 </a>{" "}
@@ -658,7 +658,7 @@ export function PolicyPage() {
                   <p className="md:text-xl">
                     By email:{" "}
                     <a
-                      className="text-[rgb(2,132,199,100)] cursor-pointer"
+                      className="dark:text-cyan-300 text-red-700 cursor-pointer"
                       href="mailto:comradetrends.info@gmail.com"
                     >
                       comradetrends.info@gmail.com
@@ -669,7 +669,7 @@ export function PolicyPage() {
                   <p className="md:text-xl ">
                     By phone number:{" "}
                     <a
-                      className="text-[rgb(2,132,199,100)] cursor-pointer"
+                      className="dark:text-cyan-300 text-red-700 cursor-pointer"
                       href="tel:+254759117496"
                     >
                       +(254)759117496

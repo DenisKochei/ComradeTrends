@@ -92,8 +92,7 @@ export function Home() {
     if (recentRef.current) observer.observe(recentRef.current);
 
     return () => {
-      if (entertainmentRef.current)
-        observer.unobserve(entertainmentRef.current);
+      if (entertainmentRef.current) observer.unobserve(entertainmentRef.current);
       if (agricultureRef.current) observer.unobserve(agricultureRef.current);
       if (recentRef.current) observer.unobserve(recentRef.current);
     };
@@ -227,8 +226,8 @@ export function Home() {
               to={`/search?category=trending`}
               className="self-center text-nowrap"
             >
-              <Button className="focus:ring-0" color="transparent" size="xs">
-                Trending
+              <Button area-label="Trending button" className="focus:ring-0" color="transparent" size="xs">
+                <span className="dark:text-slate-400">Trending</span>
               </Button>
             </Link>
             <span className="dark:text-slate-700">|</span>
@@ -236,8 +235,8 @@ export function Home() {
               to={`/search?category=business`}
               className="self-center text-nowrap"
             >
-              <Button className="focus:ring-0" color="transparent" size="xs">
-                Business
+              <Button area-label="Business button" className="focus:ring-0" color="transparent" size="xs">
+                <span className="dark:text-slate-400">Business</span>
               </Button>
             </Link>
             <span className="dark:text-slate-700">|</span>
@@ -245,8 +244,8 @@ export function Home() {
               to={`/search?category=technology`}
               className="self-center text-nowrap"
             >
-              <Button className="focus:ring-0" color="transparent" size="xs">
-                Technology
+              <Button area-label="Technology button" className="focus:ring-0" color="transparent" size="xs">
+                <span className="dark:text-slate-400">Technology</span>
               </Button>
             </Link>
             <span className="dark:text-slate-700">|</span>
@@ -254,8 +253,8 @@ export function Home() {
               to={`/search?category=sports`}
               className="self-center text-nowrap"
             >
-              <Button className="focus:ring-0" color="transparent" size="xs">
-                Sports
+              <Button area-label="Sports button" className="focus:ring-0" color="transparent" size="xs">
+                <span className="dark:text-slate-400">Sports</span>
               </Button>
             </Link>
             <span className="dark:text-slate-700">|</span>
@@ -263,8 +262,8 @@ export function Home() {
               to={`/search?category=politics`}
               className="self-center text-nowrap"
             >
-              <Button className="focus:ring-0" color="transparent" size="xs">
-                Politics
+              <Button area-label="Politics button" className="focus:ring-0" color="transparent" size="xs">
+                <span className="dark:text-slate-400">Politics</span>
               </Button>
             </Link>
             <span className="dark:text-slate-700">|</span>
@@ -272,16 +271,16 @@ export function Home() {
               to={`/search?category=people`}
               className="self-center text-nowrap"
             >
-              <Button className="focus:ring-0" color="transparent" size="xs">
-                People
+              <Button area-label="People button" className="focus:ring-0" color="transparent" size="xs">
+                <span className="dark:text-slate-400">People</span>
               </Button>
             </Link>
             <Link
               to={`/search?category=international`}
               className="self-center text-nowrap"
             >
-              <Button className="focus:ring-0" color="transparent" size="xs">
-                International
+              <Button area-label="International button" className="focus:ring-0" color="transparent" size="xs">
+                <span className="dark:text-slate-400">International</span>
               </Button>
             </Link>
             <span className="dark:text-slate-700">|</span>
@@ -289,8 +288,8 @@ export function Home() {
               to={`/search?category=market`}
               className="self-center text-nowrap"
             >
-              <Button className="focus:ring-0" color="transparent" size="xs">
-                Market
+              <Button area-label="Market button" className="focus:ring-0" color="transparent" size="xs">
+                <span className="dark:text-slate-400">Market</span>
               </Button>
             </Link>
             <span className="dark:text-slate-700">|</span>
@@ -298,8 +297,8 @@ export function Home() {
               to={`/search?category=health`}
               className="self-center text-nowrap"
             >
-              <Button className="focus:ring-0" color="transparent" size="xs">
-                Health
+              <Button area-label="Health button" className="focus:ring-0" color="transparent" size="xs">
+                <span className="dark:text-slate-400">Health</span>
               </Button>
             </Link>
             <span className="dark:text-slate-700">|</span>
@@ -307,8 +306,8 @@ export function Home() {
               to={`/search?category=general`}
               className="self-center text-nowrap"
             >
-              <Button className="focus:ring-0" color="transparent" size="xs">
-                General
+              <Button area-label="General button" className="focus:ring-0" color="transparent" size="xs">
+                <span className="dark:text-slate-400">General</span>
               </Button>
             </Link>
             <span className="dark:text-slate-700">|</span>
@@ -316,8 +315,8 @@ export function Home() {
               to={`/search?category=entertainment`}
               className="self-center text-nowrap"
             >
-              <Button className="focus:ring-0" color="transparent" size="xs">
-                Entertainment
+              <Button area-label="Entertainment button" className="focus:ring-0" color="transparent" size="xs">
+                <span className="dark:text-slate-400">Entertainment</span>
               </Button>
             </Link>
             <span className="dark:text-slate-700">|</span>
@@ -325,8 +324,8 @@ export function Home() {
               to={`/search?category=education`}
               className="self-center text-nowrap"
             >
-              <Button className="focus:ring-0" color="transparent" size="xs">
-                Education
+              <Button area-label="Education button" className="focus:ring-0" color="transparent" size="xs">
+                <span className="dark:text-slate-400"> Education</span>
               </Button>
             </Link>
             <span className="dark:text-slate-700">|</span>
@@ -334,8 +333,8 @@ export function Home() {
               to={`/search?category=climate`}
               className="self-center text-nowrap"
             >
-              <Button className="focus:ring-0" color="transparent" size="xs">
-                Climate
+              <Button area-label="Climate button" className="focus:ring-0" color="transparent" size="xs">
+                <span className="dark:text-slate-400"> Climate</span>
               </Button>
             </Link>
             <span className="dark:text-slate-700">|</span>
@@ -343,8 +342,8 @@ export function Home() {
               to={`/search?category=business`}
               className="self-center text-nowrap"
             >
-              <Button className="focus:ring-0" color="transparent" size="xs">
-                Business
+              <Button area-label="Business button" className="focus:ring-0" color="transparent" size="xs">
+                <span className="dark:text-slate-400"> Business</span>
               </Button>
             </Link>
             <span className="dark:text-slate-700">|</span>
@@ -352,26 +351,26 @@ export function Home() {
               to={`/search?category=agriculture`}
               className="self-center text-nowrap"
             >
-              <Button className="focus:ring-0" color="transparent" size="xs">
-                Agriculture
+              <Button area-label="Agriculture button" className="focus:ring-0" color="transparent" size="xs">
+                <span className="dark:text-slate-400"> Agriculture</span>
               </Button>
             </Link>
             <span className="dark:text-slate-700">|</span>
           </div>
           <div className="flex gap-5 ml-10 md:-mb-2 justify-center items-center">
             <span className="flex items-center gap-1">
-              <a href="tel:+254759117496">
-                <FaPhoneAlt className="dark:text-slate-300 text-sm" />
+              <a aria-label="tell number,call us" href="tel:+254759117496">
+                <FaPhoneAlt className="dark:dark:text-slate-400 text-sm" />
               </a>
             </span>
             <span className="flex items-center gap-1">
-              <a href="https://wa.me/+254753868958?text=Hello!">
-                <IoLogoWhatsapp className="dark:text-slate-300 text-sm" />
+              <a aria-label="what's up us" href="https://wa.me/+254753868958?text=Hello!">
+                <IoLogoWhatsapp className="dark:dark:text-slate-400 text-sm" />
               </a>
             </span>
             <span className="flex items-center gap-1">
-              <a href="mailto:comradetrends.info@gmail.com">
-                <IoMdMail className="dark:text-slate-300 text-sm" />
+              <a aria-label="email us" href="mailto:comradetrends.info@gmail.com">
+                <IoMdMail className="dark:dark:text-slate-400 text-sm" />
               </a>
             </span>
           </div>
@@ -422,7 +421,7 @@ export function Home() {
                 <h1 className="text-3xl font-bold md:text-nowrap lg:text-6xl">
                   Welcome to Comrade Trends!
                 </h1>
-                <p className="text-gray-500 text-xs sm:text-sm">
+                <p className="dark:text-slate-400 text-xs sm:text-sm">
                   At Comrade Trends, we're your trusted source for the latest
                   news, insightful analysis, and trending stories from around
                   the world.
@@ -525,9 +524,9 @@ export function Home() {
                   </div>
                   <Link
                     to="/search?category=education"
-                    className="text-teal-500 hover:underline"
+                    className="dark:text-slate-400 hover:underline"
                   >
-                    More Education News
+                    <span className=" dark:text-cyan-300">More Education News</span>
                   </Link>
                 </div>
               </div>
@@ -548,10 +547,10 @@ export function Home() {
                 </Link>
                 <div className="w-full sm:flex">
                   <div className="sm:!w-3/12 w-full mb-4 flex flex-col rounded-md bg-orange-800 p-1 gap-10">
-                    <h1 className="text-lg my-5 text-slate-300 font-light font-serif">
+                    <h1 className="text-lg my-5 text-slate-400 font-light font-serif">
                       Discover the future today, right here !
                     </h1>
-                    <p className="text-slate-300">
+                    <p className="text-slate-400">
                       Comrade Trends is your go-to source for timely, reliable,
                       and engaging news. From breaking stories and in-depth
                       analysis to entertainment, politics, campus updates, and
@@ -562,7 +561,7 @@ export function Home() {
                       built for the modern, connected reader.
                     </p>
                     <Link to={"/contacts"}>
-                      <button className="focus:ring-0 w-1/2 text-slate-300 py-1 rounded-md p-0 border mb-4 border-slate-900 transition duration-300 ease-in-out">
+                      <button area-label="button" className="focus:ring-0 w-1/2 text-slate-400 py-1 rounded-md p-0 border mb-4 border-slate-900 transition duration-300 ease-in-out">
                         Contact us
                       </button>
                     </Link>
@@ -574,26 +573,25 @@ export function Home() {
                     >
                       <div className="w-full sm:mt-0 sm:w-5/8 ">
                         <img loading="lazy"
+                          alt={international[0].title}
                           className="object-cover self-center  mt-1 pt-1 p-1 h-[310px] w-full !max-w-4xl"
                           src={international[0].image}
                         />
                       </div>
                       <div className="gap-3 sm:flex flex-col mx-2 w-full sm:w-3/8">
-                        <div className="flex justify-start gap-4 mx-2 items-center text-slate-400 text-xs space-x-1">
+                        <div className="flex justify-start gap-4 mx-2 items-center dark:text-slate-400 text-xs space-x-1">
                           <div className="space-x-1 mt-1">
                             <span className="italic">
                               {international[0].category}
                             </span>
                             {international[0].subcategory && (
                               <>
-                                <span className="text-slate-300">/</span>
+                                <span className="dark:text-slate-400">/</span>
                                 <span>{international[0].subcategory}</span>
                               </>
                             )}
                           </div>
-                          <span className=" mt-1 mr-2">
-                            {moment(international[0].createdAt).fromNow()}
-                          </span>
+
                         </div>
                         <h1 className="text-lg font-bold line-clamp-3">
                           {international[0].title}
@@ -604,7 +602,7 @@ export function Home() {
                             __html: international[0].content1,
                           }}
                         ></div>
-                        <span className=" text-slate-500 text-xs">
+                        <span className=" dark:text-slate-400 text-xs">
                           {moment(international[0].createdAt).fromNow()}
                         </span>
                       </div>
@@ -619,44 +617,46 @@ export function Home() {
               </div>
             )}
 
-            {(entertainment.length > 0) &&
-              (
-                <div
-                  ref={entertainmentRef}
-                  className={`flex w-full flex-col gap-3 min-h-[200px] sm:-mt-6 -mt-4 text-center ${entertainment.length === 0 && "!min-h-override"
-                    }`}
-                >
-                  {entertainment.length > 0 ? (
-                    <div>
-                      <Link className="flex w-fit" to={`/search?category=entertainment`}>
-                        <div className="flex justify-start my-2 gap-1 items-center">
-                          <IoTrendingUp className="w-5 h-5 text-purple-600" />
-                          <h1 className="text-lg">Entertainment</h1>
-                          <div className="mt-1">
-                            <FaAngleRight />
+            <div
+              ref={entertainmentRef}
+              className={`flex w-full flex-col gap-3 min-h-[200px] sm:-mt-6 -mt-4 text-center ${entertainment.length === 0 && "!min-h-override"
+                }`}
+            >
+              {(entertainment.length > 0) &&
+                (
+                  <>
+                    {entertainment ? (
+                      <div>
+                        <Link className="flex w-fit" to={`/search?category=entertainment`}>
+                          <div className="flex justify-start my-2 gap-1 items-center">
+                            <IoTrendingUp className="w-5 h-5 text-purple-600" />
+                            <h1 className="text-lg">Entertainment</h1>
+                            <div className="mt-1">
+                              <FaAngleRight />
+                            </div>
+                          </div>
+                        </Link>
+                        <div className=" overflow-x-scroll overflow-y-hidden p-1 flex w-full scrollbar-thin 5xl:justify-center scrollbar-thumb-transparent gap-2 scrollbar-track-transparent justify-between  items-center ">
+                          <div className="flex w-full sm:w-auto flex-col gap-2 justify-around sm:flex-row items-center">
+                            {entertainment.map((post) => (
+                              <PostCard key={post._id} post={post} />
+                            ))}
                           </div>
                         </div>
-                      </Link>
-                      <div className=" overflow-x-scroll overflow-y-hidden p-1 flex w-full scrollbar-thin 5xl:justify-center scrollbar-thumb-transparent gap-2 scrollbar-track-transparent justify-between  items-center ">
-                        <div className="flex w-full sm:w-auto flex-col gap-2 justify-around sm:flex-row items-center">
-                          {entertainment.map((post) => (
-                            <PostCard key={post._id} post={post} />
-                          ))}
-                        </div>
+                        <Link
+                          to="/search?category=entertainment"
+                          className="dark:text-slate-400 hover:underline"
+                        >
+                          <span className=" dark:text-cyan-300">More Entertainment News</span>
+                        </Link>
                       </div>
-                      <Link
-                        to="/search?category=entertainment"
-                        className="text-teal-500 hover:underline"
-                      >
-                        More Entertainment News
-                      </Link>
-                    </div>
-                  ) : (
-                    <div></div>
-                  )}
-                </div>
-              )
-            }
+                    ) : (
+                      <div></div>
+                    )}
+                  </>
+                )
+              }
+            </div>
             {(politics.length > 0) && (
               <div>
                 <Link className="flex w-fit" to={`/search?category=politics`}>
@@ -676,17 +676,18 @@ export function Home() {
                     <h1 className="text-lg font-light line-clamp-3 font-serif">
                       {politics[0].title}
                     </h1>
-                    <div className="flex justify-start items-center text-slate-600 text-xs space-x-1">
+                    <div className="flex justify-start items-center dark:text-slate-400 text-xs space-x-1">
                       <span className="italic">{politics[0].category}</span>
                       {politics[0].subcategory && (
                         <>
-                          <span className="text-slate-300">/</span>
+                          <span className="dark:text-slate-400">/</span>
                           <span>{politics[0].subcategory}</span>
                         </>
                       )}
                     </div>
                     <div className="my-2 object-cover self-center mt-1 pt-1 p-1 w-full !max-w-4xl overflow-hidden">
                       <img loading="lazy"
+                        alt={politics[0].title}
                         className="object-cover self-center mt-1 pt-1 p-1 h-[380px] w-full !max-w-4xl"
                         src={politics[0].image}
                       />
@@ -702,6 +703,7 @@ export function Home() {
                       onClick={() => navigate(`/post/${politics[1].slug}`)}
                     >
                       <img loading="lazy"
+                        alt={politics[1].title}
                         className="object-cover self-center mt-1 pt-1 p-1 h-[430px] w-full !max-w-4xl"
                         src={politics[1].image}
                       />
@@ -709,7 +711,7 @@ export function Home() {
                         {politics[1].title}
                       </div>
                     </div>
-                    <span className=" mt-4 text-slate-500 text-xs">
+                    <span className=" mt-4 dark:text-slate-400 text-xs">
                       {moment(politics[1].createdAt).fromNow()}
                     </span>
                   </div>
@@ -732,10 +734,10 @@ export function Home() {
                         to={`/search?hashtag=${post}&searchTerm=${post}`}
                         className="self-center mt-2"
                       >
-                        <Button
+                        <Button area-label="hashtag button"
                           className="focus:ring-0  rounded-full p-0 border border-gray-400 hover:border-blue-500 transition duration-300 ease-in-out"
                           pill
-                          color="gray"
+                          color="white"
                           size="xs"
                         >
                           #{post}
@@ -771,9 +773,9 @@ export function Home() {
                   </div>
                   <Link
                     to="/search?category=agriculture"
-                    className="text-teal-500 hover:underline"
+                    className=" hover:underline"
                   >
-                    More Agriculture News
+                    <span className=" dark:text-cyan-300">More Agriculture News</span>
                   </Link>
                 </div>
               ) : (
@@ -786,8 +788,8 @@ export function Home() {
       <Link className="flex w-fit" to={`/search`}>
         <div className="flex justify-start gap-1 my-3 mx-5 items-center">
           <IoTrendingUp className="w-5 h-5 text-purple-600" />
-          <h1 className="text-lg hover:underline text-teal-500">All Posts</h1>
-          <div className="mt-1 text-teal-500">
+          <h1 className="text-lg hover:underline dark:text-cyan-300">All Posts</h1>
+          <div className="mt-1 dark:text-cyan-300">
             <FaAngleRight />
           </div>
         </div>

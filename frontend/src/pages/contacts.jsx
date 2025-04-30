@@ -12,11 +12,11 @@ export function Contacts() {
         </div>
         <h2 className="font-bold text-xl m-2">General Issues</h2>
         <div className="flex flex-col justify-center items-center">
-          <a className="text-[rgb(2,132,199,100)]" href="tel:+254759117496">
+          <a className="dark:text-cyan-300" href="tel:+254759117496">
             +(254)759117496
           </a>
           <a
-            className="text-[rgb(2,132,199,100)]"
+            className="dark:text-cyan-300"
             href="mailto:comradetrends.info@gmail.com"
           >
             comradetrends.info@gmail.com
@@ -24,11 +24,11 @@ export function Contacts() {
         </div>
         <h2 className="font-bold text-xl m-2">Sales and Marketing</h2>
         <div className="flex flex-col justify-center items-center">
-          <a className="text-[rgb(2,132,199,100)]" href="tel:+254753868958">
+          <a className="dark:text-cyan-300" href="tel:+254753868958">
             +(254)753868958
           </a>
           <a
-            className="text-[rgb(2,132,199,100)]"
+            className="dark:text-cyan-300"
             href="mailto:comradetrends.marketing@gmail.com"
           >
             comradetrends.marketing@gmail.com

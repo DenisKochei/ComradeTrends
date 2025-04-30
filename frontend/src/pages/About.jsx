@@ -20,7 +20,7 @@ export function About() {
             <h1 className="text-3xl font font-semibold text-center my-7">
               About Comrade Trends
             </h1>
-            <div className="text-md text-gray-500 flex flex-col gap-6">
+            <div className="text-md dark:text-slate-400 flex flex-col gap-6">
               <p>
                 We're your trusted source for the latest news, insightful
                 analysis, and trending stories from around the world. Our
@@ -47,19 +47,19 @@ export function About() {
               <h1 className="text-3xl font font-semibold text-center my-7">
                 What Sets Us Apart!
               </h1>
-              <p className="text-md text-gray-500">
+              <p className="text-md dark:text-slate-400">
                 1. In-Depth Reporting: Our team of dedicated journalists dives
                 deep into stories, uncovering hidden angles and shedding light
                 on complex issues. We don't settle for surface-level coverage;
                 we explore the nuances.
               </p>
-              <p className="text-md text-gray-500">
+              <p className="text-md dark:text-slate-400">
                 2. Global Perspective: Whether it's politics, technology,
                 culture, or science, we bring you news from across the globe.
                 Our correspondents are stationed in different regions, ensuring
                 a diverse range of perspectives.
               </p>
-              <p className="text-md text-gray-500">
+              <p className="text-md dark:text-slate-400">
                 3. Community Engagement: We're not just a news outlet; we're a
                 community. Join the conversation in our comments section, share
                 your views, and connect with fellow readers.

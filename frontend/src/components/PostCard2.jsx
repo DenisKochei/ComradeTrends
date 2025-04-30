@@ -12,11 +12,11 @@ export function PostCard2({ post }) {
         <img
           loading="lazy"
           src={post.image}
-          alt="Post-card"
+          alt={post.title}
           className="h-[190px] w-full  object-cover "
         />
       </div>
-      <div className="flex justify-between mx-2 items-center text-slate-400 text-xs space-x-1">
+      <div className="flex justify-between mx-2 items-center dark:text-slate-400 text-xs space-x-1">
         <div className="space-x-1 mt-1">
           <span className="italic">{post.category}</span>
           {post.subcategory && (

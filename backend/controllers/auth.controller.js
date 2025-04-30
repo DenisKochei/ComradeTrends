@@ -27,7 +27,7 @@ transporter.verify((error, success) => {
 
 const sendVerificationEmail = async ({ _id, email }, res) => {
   try {
-    const currentUrl = "https://comradetrends.com/api/auth";
+    const currentUrl = "http://localhost:5173/api/auth";
     const uniqueString = uuidv4() + _id;
     const mailOptions = {
       from: process.env.AUTH_MAIL,
@@ -193,6 +193,7 @@ export const google = async (req, res, next) => {
         email,
         password: hashedPassword,
         profilePicture: googlePhotoUrl,
+        verified : true,
       });
       await newUser.save();
       const token = jwt.sign(

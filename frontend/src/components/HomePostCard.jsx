@@ -13,23 +13,23 @@ export function HomePostCard({ post }) {
               className=" mt-2 flex justify-start items-center gap-1"
             >
               <div className={`w-3 h-3 ${post.category === "breaking" ? "bg-red-400" : post.category === "most-trending" ? "bg-blue-400" : "bg-green-400"} rounded-full`}></div>
-              <button className="focus:ring-0 p-0" pill color="gray" size="xs">
+              <span className="focus:ring-0 " pill color="gray" size="xs">
                 {post.category === "most-trending"
                   ? "Most Trending"
                   : post.category === 'breaking' ? "Breaking News" : post.category}
-              </button>
+              </span>
             </Link>
             <span className=" mt-1 text-nowrap mr-2">{moment(post.createdAt).fromNow()}</span>
           </div>
           <div className=" object-cover md:my-2 overflow-hidden">
-            <img loading="lazy" className="w-full h-64 sm:h-96 object-cover" src={post.image} />
+            <img loading="lazy" alt={post.title} className="w-full h-64 sm:h-96 object-cover" src={post.image} />
           </div>
         </div>
         <div
           className=" text-start line-clamp-2"
           dangerouslySetInnerHTML={{ __html: post.content1 }}
         ></div>
-        <span className="text-cyan-500 -mt-1 text-nowrap">Read More</span>
+        <span className="text-cyan-500 -mt-1 text-nowrap"><p>Read More</p></span>
       </div>
     </div>
   );

@@ -9,7 +9,7 @@ export function PageIndicator() {
     )
     .join(" » ");
   return (
-    <div className="text-sm mx-5 text-slate-600 mt-2">
+    <div className="text-sm mx-5 dark:text-slate-400 mt-2">
       <div className="line-clamp-1">
         <span>{"Home » "}</span>
         {breadcrumb}

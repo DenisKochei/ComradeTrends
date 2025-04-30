@@ -202,6 +202,7 @@ export function PostPage() {
                   url={currentPageURL}
                   quote={post.title}
                   hashtag={post.hashtag}
+                  aria-label="Share via Facebook"
                 >
                   <CiFacebook
                     fill="rgb(74,70,70)"
@@ -210,7 +211,7 @@ export function PostPage() {
                 </FacebookShareButton>
               </div>
               <div>
-                <TwitterShareButton url={currentPageURL}>
+                <TwitterShareButton url={currentPageURL} aria-label="share via X">
                   <FaXTwitter
                     fill="rgb(74,70,70)"
                     className="text-2xl hover:fill-slate-300"
@@ -219,6 +220,7 @@ export function PostPage() {
               </div>
               <div>
                 <a
+                  aria-label="share via whatsapp"
                   href={`whatsapp://send?text=${encodeURIComponent(
                     currentPageURL
                   )}`}
@@ -230,7 +232,7 @@ export function PostPage() {
                 </a>
               </div>
               <div>
-                <TelegramShareButton title={post.title} url={currentPageURL}>
+                <TelegramShareButton title={post.title} aria-label="share via telegram" url={currentPageURL}>
                   <FaTelegramPlane
                     fill="rgb(74,70,70)"
                     className="text-2xl hover:fill-slate-300"
@@ -265,7 +267,7 @@ export function PostPage() {
                 } ${!post.hashtag && "justify-start"}`}
             >
               {post && post.hashtag && (
-                <div className="dark:text-slate-500">
+                <div className="dark:text-slate-400">
                   {post && post.hashtag ? `#${post.hashtag}` : ""}
                 </div>
               )}
@@ -281,7 +283,7 @@ export function PostPage() {
                       : "bg-green-400"
                     } rounded-full`}
                 ></div>
-                <button
+                <span
                   className="focus:ring-0 p-0"
                   pill
                   color="gray"
@@ -292,7 +294,7 @@ export function PostPage() {
                     : post.category === "breaking"
                       ? "Breaking News"
                       : post.category}
-                </button>
+                </span>
               </Link>
             </div>
             <div className="min-h-[200px]">
@@ -304,13 +306,14 @@ export function PostPage() {
             </div>
             <div className="max-w-4xl self-center w-full">
               {auther ? (
-                <div className="flex justify-start gap-1 my-0 text-gray-500 text-xs items-center">
+                <div className="flex justify-start gap-1 my-0 dark:text-slate-400 text-xs items-center">
                   <p>Auther: </p>
                   <img
+                    alt={auther.username}
                     className="rounded-full mx-1 min-h-7 object-cover w-7 h-5"
                     src={auther.profilePicture}
                   />
-                  <p className="text-xs text-cyan-500 hover:underline">
+                  <p className="text-xs dark:text-cyan-300 text-cyan-900 hover:underline">
                     @{auther.username}
                   </p>
                 </div>
@@ -332,40 +335,42 @@ export function PostPage() {
               </span>
             </div>
             <div
-              className="py-3 px-1 w-full max-w-4xl select-none post-content mx-auto"
+              className="py-3 px-1 w-full text-wrap max-w-4xl select-none post-content mx-auto"
               dangerouslySetInnerHTML={{ __html: post && post.content1 }}
             ></div>
             <div className="w-full mx-auto max-w-4xl">
               <CallToAction />
             </div>
             <div
-              className="py-3 px-1 w-full max-w-4xl select-none post-content mx-auto"
+              className="py-3 px-1 w-full text-wrap max-w-4xl select-none post-content mx-auto"
               dangerouslySetInnerHTML={{ __html: post && post.content2 }}
             ></div>
             <div className="w-full  block lg:hidden">
               <div className="m-4 max-w-4xl py-2 border borber-gray-600 dark:bg-slate-900 bg-slate-400 justify-around self-center gap-3 flex rounded-md items-center">
                 <div className="flex flex-col justify-start items-center">
                   <FaShareFromSquare className="w-6 h-6" />
-                  <p>Share:</p>
+                  <p className="text-slate-900 dark:text-slate-300">Share:</p>
                 </div>
                 <div className="flex  gap-3">
                   <FacebookShareButton
                     url={currentPageURL}
                     quote={post.title}
                     hashtag={post.hashtag}
+                    aria-label="share via facebook"
                   >
                     <CiFacebook
                       fill="rgb(74,70,70)"
                       className="text-3xl hover:fill-slate-300"
                     />
                   </FacebookShareButton>
-                  <TwitterShareButton url={currentPageURL}>
+                  <TwitterShareButton url={currentPageURL} aria-label="share via X">
                     <FaXTwitter
                       fill="rgb(74,70,70)"
                       className="text-2xl hover:fill-slate-300"
                     />
                   </TwitterShareButton>
                   <a
+                    aria-label="share via whatsapp"
                     href={`whatsapp://send?text=${encodeURIComponent(
                       currentPageURL
                     )}`}
@@ -375,7 +380,7 @@ export function PostPage() {
                       className="text-2xl hover:fill-slate-300"
                     />
                   </a>
-                  <TelegramShareButton title={post.title} url={currentPageURL}>
+                  <TelegramShareButton title={post.title} aria-label="share via telegram" url={currentPageURL}>
                     <FaTelegramPlane
                       fill="rgb(74,70,70)"
                       className="text-2xl hover:fill-slate-300"

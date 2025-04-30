@@ -12,13 +12,13 @@ export function PostCard({ post }) {
         <img
           loading="lazy"
           src={post.image}
-          alt="Post-card"
+          alt={post.title}
           className="h-[200px] w-full  object-cover group-hover:h-[150px] transition-all duration-300 z-20"
         />
       </div>
       <div className="p-3 flex flex-col gap-2">
         <p className=" font-semibold line-clamp-2">{post.title}</p>
-        <div className="flex justify-between mx-2 items-center text-slate-400 text-xs space-x-1"> 
+        <div className="flex justify-between mx-2 items-center text-slate-800 dark:text-slate-400 text-xs space-x-1"> 
           <span className=" mt-1 text-nowrap mr-2">{moment(post.createdAt).fromNow()}</span>
         </div>
 

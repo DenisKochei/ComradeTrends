@@ -25,7 +25,18 @@ export default function UpdatePost() {
   const [formData, setFormData] = useState({});
   const [fetchError, setFetchError] = useState();
   const { postId } = useParams();
-  console.log(formData);
+
+
+  const addTitleToIframes = (html, title = 'Embedded content') => {
+    const div = document.createElement('div');
+    div.innerHTML = html;
+    div.querySelectorAll('iframe').forEach((iframe) => {
+      if (!iframe.hasAttribute('title')) {
+        iframe.setAttribute('title', title);
+      }
+    });
+    return div.innerHTML;
+  };
 
   useEffect(() => {
     try {
@@ -95,6 +106,8 @@ export default function UpdatePost() {
   };
   const handleSubmit = async (e) => {
     e.preventDefault();
+    formData.content1 = addTitleToIframes(formData.content1);
+    formData.content2 = addTitleToIframes(formData.content2); 
     try {
       NProgress.start();
       const res = await fetch(

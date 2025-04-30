@@ -84,7 +84,7 @@ export function Header() {
   };
   return (
     <Headroom>
-      <Navbar className="w-full p-1 backdrop-blur flex-none transition-colors duration-500  border border-b-slate-500 rounded-bl-lg rounded-br-lg bg-slate-300 supports-backdrop-blur:bg-white/95 dark:bg-slate-900/25">
+      <Navbar className="w-full p-1 backdrop-blur flex-none transition-colors duration-500  border border-b-slate-500 rounded-bl-lg rounded-br-lg bg-slate-400 supports-backdrop-blur:bg-white/95 dark:bg-slate-900/25">
         <div className="flex flex-col gap-1">
           <Link
             to="/"
@@ -93,7 +93,7 @@ export function Header() {
             <span className=" px-2 py-1 bg-gradient-to-r from-cyan-500 to-blue-600 rounded-md text-white">
               Comrade
             </span>
-            Trends
+            <span className=" text-black dark:text-slate-400">Trends</span>
           </Link>
           {(path === "/marketplace" || path === "/marketplace/cart") && (
             <div className="text-slate-600 italic">Market Place</div>
@@ -136,7 +136,7 @@ export function Header() {
           }
           arrow={false}
         >
-          <div className="absolute left-1/2">
+          <div className="absolute hidden left-1/2">
             <div ref={searchref}></div>
           </div>
         </Popover>
@@ -167,6 +167,7 @@ export function Header() {
                 color="gray"
                 className="w-5 h-5 flex justify-center items-center p-3 focus:ring-0"
                 pill
+                aria-label="dark/light mode toggle button"
                 onClick={() => dispatch(toggleTheme())}
               >
                 {theme === "dark" ? <FaMoon /> : <FaSun />}
@@ -177,7 +178,7 @@ export function Header() {
                   inline
                   label={
                     <Avatar
-                      alt="User"
+                      alt={currentUser.username}
                       img={currentUser.profilePicture}
                       rounded
                       status="online"
@@ -230,6 +231,7 @@ export function Header() {
                     gradientDuoTone="purpleToBlue"
                     outline
                     size="sm"
+                    aria-label="Go to SignIn page"
                   >
                     SignIn
                   </Button>
@@ -237,19 +239,19 @@ export function Header() {
               )}
             </div>
 
-            <div className="md:hidden hover:cursor-pointer">
+            <button aria-label="Open navbar" className="md:hidden hover:cursor-pointer">
               <DropDownMenu />
-            </div>
+            </button>
           </div>
-          <Navbar.Collapse className="">
+          <Navbar.Collapse aria-label="Main navigation menu">
             <Navbar.Link active={path === "/"} as={"div"}>
-              <Link to="/">Home</Link>
+              <Link to="/"><span className="dark:text-slate-200 text-black">Home</span></Link>
             </Navbar.Link>
             <Navbar.Link active={path === "/about"} as={"div"}>
-              <Link to="/about">About</Link>
+              <Link to="/about"><span className="dark:text-slate-200 text-black">About</span></Link>
             </Navbar.Link>
             <Navbar.Link active={path === "/contacts"} as={"div"}>
-              <Link to="/contacts">Contacts</Link>
+              <Link to="/contacts"><span className="dark:text-slate-200 text-black">Contacts</span></Link>
             </Navbar.Link>
           </Navbar.Collapse>
         </div>
