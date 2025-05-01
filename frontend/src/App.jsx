@@ -16,8 +16,6 @@ import ScrollToTop from "./components/ScrollToTop";
 import { Search } from "./pages/search";
 import { PolicyPage } from "./pages/PolicyPage.jsx";
 import TermsAndConditions from "./pages/TermsAndConditions.jsx";
-import { MarketPlace } from "./pages/MarketPlace.jsx";
-import { Cart } from "./pages/Cart.jsx";
 import GoogleAnalytics from "./components/GoogleAnalytics.jsx";
 
 export default function App() {
@@ -44,8 +42,6 @@ export default function App() {
           <Route path="/post/:postslug" element={<PostPage />} />
           <Route path="/search" element={<Search />} />
           <Route path="/privacy-policy" element={<PolicyPage />} />
-          <Route path="/marketplace" element={<MarketPlace />} />
-          <Route path="/marketplace/cart" element={<Cart />} />
           <Route path="api/auth/verify/*" element={<Signin />} />
         </Routes>
         <Footer />

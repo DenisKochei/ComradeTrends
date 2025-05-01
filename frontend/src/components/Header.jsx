@@ -154,15 +154,7 @@ export function Header() {
                   />
                 </div>
               )}
-              {path === "/marketplace" ? (
-                <div onClick={() => navigate("/marketplace/cart")}>
-                  <IoCartOutline className="w-5 h-5 dark:text-slate-400 mx-2 sm:mx-4 hover:cursor-pointer" />
-                </div>
-              ) : (
-                <div onClick={() => navigate("/marketplace")}>
-                  <CiShop className="w-5 h-5 mx-2 sm:mx-4 hover:cursor-pointer" />
-                </div>
-              )}
+              
               <Button
                 color="gray"
                 className="w-5 h-5 flex justify-center items-center p-3 focus:ring-0"
