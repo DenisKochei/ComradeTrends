@@ -36,8 +36,8 @@ export function Home() {
     const width = window.innerWidth;
     if (width < 640) return 3;
     if (width < 768) return 6;
-    if (width < 1024) return 8;
-    return 10;
+    if (width < 1024) return 7;
+    return 8;
   };
 
   const [loadedSections, setLoadedSections] = useState({
@@ -503,37 +503,6 @@ export function Home() {
         </div>
         <div>
           <div className="flex flex-col my-1 mx-2 lg:mx-1 min-h-screen">
-            {(education.length > 0) ? (
-              <div className="md:-mt-4">
-                <Link className="flex -mb-3 w-fit" to={`/search?category=education`}>
-                  <div className="flex justify-start my-2 gap-1 items-center">
-                    <IoTrendingUp className="w-5 h-5 text-purple-600" />
-                    <h1 className="text-lg">Education</h1>
-                    <div className="mt-1">
-                      <FaAngleRight />
-                    </div>
-                  </div>
-                </Link>
-                <div className="flex flex-col  justify-center items-center">
-                  <div className=" overflow-x-scroll overflow-y-hidden p-1 flex w-full scrollbar-thin 5xl:justify-center scrollbar-thumb-transparent gap-2 scrollbar-track-transparent justify-between  items-center ">
-                    <div className="flex w-full sm:w-auto flex-col gap-2 justify-around sm:flex-row items-center">
-                      {education.map((post) => (
-                        <PostCard key={post._id} post={post} />
-                      ))}
-                    </div>
-                  </div>
-                  <Link
-                    to="/search?category=education"
-                    className="dark:text-slate-400 hover:underline"
-                  >
-                    <span className=" dark:text-cyan-300">More Education News</span>
-                  </Link>
-                </div>
-              </div>
-            ) : (
-              <div></div>
-            )}
-
             {(international && international.length !== 0) && (
               <div className="md:-mt-4">
                 <Link className="flex w-fit" to={`/search?category=international`}>
@@ -547,10 +516,10 @@ export function Home() {
                 </Link>
                 <div className="w-full sm:flex">
                   <div className="sm:!w-3/12 w-full mb-4 flex flex-col rounded-md bg-orange-800 p-1 gap-10">
-                    <h1 className="text-lg my-5 text-slate-400 font-light font-serif">
+                    <h1 className="text-lg my-5 text-slate-300 font-light font-serif">
                       Discover the future today, right here !
                     </h1>
-                    <p className="text-slate-400">
+                    <p className="text-slate-300">
                       Comrade Trends is your go-to source for timely, reliable,
                       and engaging news. From breaking stories and in-depth
                       analysis to entertainment, politics, campus updates, and
@@ -561,7 +530,7 @@ export function Home() {
                       built for the modern, connected reader.
                     </p>
                     <Link to={"/contacts"}>
-                      <button area-label="button" className="focus:ring-0 w-1/2 text-slate-400 py-1 rounded-md p-0 border mb-4 border-slate-900 transition duration-300 ease-in-out">
+                      <button area-label="button" className="focus:ring-0 w-1/2 text-slate-300 py-1 rounded-md p-0 border mb-4 border-slate-900 transition duration-300 ease-in-out">
                         Contact us
                       </button>
                     </Link>
