@@ -136,9 +136,9 @@ export function Header() {
           }
           arrow={false}
         >
-          <div className="absolute hidden left-1/2">
-            <div ref={searchref}></div>
-          </div>
+          <button aria-label="search" className="absolute  left-1/2">
+            <span ref={searchref}></span>
+          </button>
         </Popover>
 
         <div className="flex gap-2 items-center sm:flex-row-reverse">
