@@ -116,6 +116,7 @@ export function DashPosts() {
         <>
           <Table hoverable className="shadow-mb">
             <Table.Head className="">
+              <Table.HeadCell>No.</Table.HeadCell>
               <Table.HeadCell>Date updated</Table.HeadCell>
               <Table.HeadCell>Post Image</Table.HeadCell>
               <Table.HeadCell>Post Title</Table.HeadCell>
@@ -125,9 +126,12 @@ export function DashPosts() {
                 <span>Edit</span>
               </Table.HeadCell>
             </Table.Head>
-            {posts.map((post) => (
+            {posts.map((post,index) => (
               <Table.Body className="divide-y" key={post._id}>
                 <Table.Row className="bg-white dark:border-gray-700 dark:bg-gray-800">
+                <Table.Cell>
+                    {index + 1 + "."}
+                  </Table.Cell>
                   <Table.Cell>
                     {new Date(post.updatedAt).toLocaleDateString()}
                   </Table.Cell>

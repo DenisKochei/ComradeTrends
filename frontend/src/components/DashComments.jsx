@@ -97,6 +97,7 @@ export function DashComments() {
         <>
           <Table hoverable className="shadow-md">
             <Table.Head>
+              <Table.HeadCell>No.</Table.HeadCell>
               <Table.HeadCell>Date updated</Table.HeadCell>
               <Table.HeadCell>Comment content</Table.HeadCell>
               <Table.HeadCell>Number of likes</Table.HeadCell>
@@ -104,9 +105,12 @@ export function DashComments() {
               <Table.HeadCell>UserId</Table.HeadCell>
               <Table.HeadCell>Delete</Table.HeadCell>
             </Table.Head>
-            {comments.map((comment) => (
+            {comments.map((comment,index) => (
               <Table.Body className="divide-y" key={comment._id}>
                 <Table.Row className="bg-white dark:border-gray-700 dark:bg-gray-800">
+                  <Table.Cell>
+                    {index + 1 + "."}
+                  </Table.Cell>
                   <Table.Cell>
                     {new Date(comment.updatedAt).toLocaleDateString()}
                   </Table.Cell>

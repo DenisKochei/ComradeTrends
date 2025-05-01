@@ -77,6 +77,7 @@ export function DashUsers() {
         <>
           <Table hoverable className="shadow-mb">
             <Table.Head className="">
+              <Table.HeadCell>No.</Table.HeadCell>
               <Table.HeadCell>Date cerated</Table.HeadCell>
               <Table.HeadCell>User Image</Table.HeadCell>
               <Table.HeadCell>Username</Table.HeadCell>
@@ -84,9 +85,12 @@ export function DashUsers() {
               <Table.HeadCell>Admin</Table.HeadCell>
               <Table.HeadCell>Delete</Table.HeadCell>
             </Table.Head>
-            {users.map((user) => (
+            {users.map((user,index) => (
               <Table.Body className="divide-y" key={user._id}>
                 <Table.Row className="bg-white dark:border-gray-700 dark:bg-gray-800">
+                  <Table.Cell>
+                    {index + 1 + "."}
+                  </Table.Cell>
                   <Table.Cell>
                     {new Date(user.createdAt).toLocaleDateString()}
                   </Table.Cell>
