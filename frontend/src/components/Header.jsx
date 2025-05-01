@@ -150,7 +150,7 @@ export function Header() {
                 <div>
                   <AiOutlineSearch
                     onClick={() => SetOpen(!open)}
-                    className="w-5 hover:cursor-pointer sm:mx-4 h-5 dark:text-slate-400"
+                    className="w-5 mx-4 hover:cursor-pointer h-5 dark:text-slate-400"
                   />
                 </div>
               )}
