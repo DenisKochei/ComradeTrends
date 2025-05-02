@@ -7,12 +7,12 @@
   "theme_color": "#212b4f",
   "icons": [
     {
-      "src": "/icons/ComradeTrendsLogo1.1.png",
+      "src": "/icons/ComradeTrendsLogo1.png",
       "sizes": "192x192",
       "type": "image/png"
     },
     {
-      "src": "/icons/ComradeTrendsLogo1.2.png",
+      "src": "/icons/ComradeTrendsLogo2.png",
       "sizes": "512x512",
       "type": "image/png"
     }

@@ -32,6 +32,7 @@ export function PostPage() {
   const [recent, setRecent] = useState(null);
   const [autherId, setAutherId] = useState();
   const [copied, setCopied] = useState(false);
+  const [currentPostID, setcurrentPostID] = useState();
   const currentPageURL = window.location.href;
 
   const handleCopyLink = () => {
@@ -62,6 +63,8 @@ export function PostPage() {
         if (res.ok) {
           setPost(data.posts[0]);
           setAutherId(data.posts[0].userId);
+          setcurrentPostID(data.posts[0]._id)
+          console.log(data.posts[0]._id)
           setLoading(false);
           setError(false);
         }
@@ -444,7 +447,7 @@ export function PostPage() {
                     </div>
                   </Link>
                   <div className="flex justify-center flex-wrap gap-0">
-                    {recent.map((post) => (
+                    {recent.filter((recentpost)=>recentpost._id !== currentPostID).map((post) => (
                       <PostBar post={post} key={post._id} />
                     ))}
                   </div>
