@@ -310,7 +310,7 @@ export function PostPage() {
             <div className="max-w-4xl self-center w-full">
               {auther ? (
                 <div className="flex justify-start gap-1 my-0 dark:text-slate-400 text-xs items-center">
-                  <p>Auther: </p>
+                  <p>Author: </p>
                   <img
                     alt={auther.username}
                     className="rounded-full mx-1 min-h-7 object-cover w-7 h-5"
