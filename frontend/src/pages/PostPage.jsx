@@ -64,7 +64,6 @@ export function PostPage() {
           setPost(data.posts[0]);
           setAutherId(data.posts[0].userId);
           setcurrentPostID(data.posts[0]._id)
-          console.log(data.posts[0]._id)
           setLoading(false);
           setError(false);
         }
