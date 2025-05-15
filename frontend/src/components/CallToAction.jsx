@@ -1,17 +1,20 @@
 import { useEffect, useState } from "react";
+import { useLocation } from "react-router-dom";
 
 export function CallToAction() {
 
+   const location = useLocation();
+
   const [error,setError] = useState(false)
   useEffect(() => {
-    try {
-      (window.adsbygoogle = window.adsbygoogle || []).push({});
-    } catch (e) {
-      setError(true)
-      console.error('AdSense error', e);
-    }
-  }, []);
-
+    setTimeout(() => {
+      try {
+        (window.adsbygoogle = window.adsbygoogle || []).push({});
+      } catch (e) {
+        console.error("AdSense push error:", e);
+      }
+    }, 500);
+  }, [location]);
  if(error){
   return (
     <div className="flex flex-col sm:flex-row p-1 border max-w-6xl border-teal-500 justify-center items-center rounded-tl-3xl rounded-br-3xl text-center">
