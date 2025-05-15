@@ -32,7 +32,7 @@ export function CallToAction() {
   );
  }else{
   return(
-    <ins className="adsbygoogle flex flex-col sm:flex-row p-1 border min-h-[200px] max-w-6xl border-teal-500 justify-center items-center rounded-tl-3xl rounded-br-3xl text-center"
+    <ins className="adsbygoogle flex flex-col sm:flex-row p-1  max-w-6xl  justify-center items-center text-center"
       data-ad-client="ca-pub-2272683616359766"
       data-ad-slot="3353766500"
       data-ad-format="auto"
