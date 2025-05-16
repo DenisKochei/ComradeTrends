@@ -20,7 +20,7 @@ import GoogleAnalytics from "./components/GoogleAnalytics.jsx";
 
 export default function App() {
   return (
-    <div className="min-h-screen max-w-[1500px] mx-auto">z
+    <div className="min-h-screen max-w-[1500px] mx-auto">
       <BrowserRouter>
         <GoogleAnalytics />
         <ScrollToTop />
