@@ -17,18 +17,10 @@ import { Search } from "./pages/search";
 import { PolicyPage } from "./pages/PolicyPage.jsx";
 import TermsAndConditions from "./pages/TermsAndConditions.jsx";
 import GoogleAnalytics from "./components/GoogleAnalytics.jsx";
-import { Helmet } from "react-helmet";
 
 export default function App() {
   return (
-    <div className="min-h-screen max-w-[1500px] mx-auto">
-      <Helmet>
-        <meta
-          name="theme-color"
-          content="#121212"
-          media="(prefers-color-scheme: dark)"
-        />
-      </Helmet>
+    <div className="min-h-screen max-w-[1500px] mx-auto">z
       <BrowserRouter>
         <GoogleAnalytics />
         <ScrollToTop />
