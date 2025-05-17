@@ -10,7 +10,7 @@ export function Logo() {
         <span className=" px-2 py-1 bg-gradient-to-r from-cyan-500 to-blue-600 rounded-md text-white">
           Comrade
         </span>
-        Trends
+        <span className="text-black dark:text-white">Trends</span>
       </Link>
     </div>
   );

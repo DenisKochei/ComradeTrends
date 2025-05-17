@@ -119,10 +119,10 @@ export function CommentSection({ postId }) {
           comments.map((comment) =>
             comment._id === commentId
               ? {
-                  ...comment,
-                  likes: data.likes,
-                  numberOfLikes: data.likes.length,
-                }
+                ...comment,
+                likes: data.likes,
+                numberOfLikes: data.likes.length,
+              }
               : comment
           )
         );
@@ -169,7 +169,40 @@ export function CommentSection({ postId }) {
           </Link>
         </div>
       ) : (
-        <div className="flex justify-start gap-1 my-5 dark:text-slate-400 text-xs items-center">
+        <div className="flex flex-col w-full justify-start gap-1 my-5 dark:text-slate-400 text-xs items-start">
+          <form
+            className="border w-full border-teal-500 rounded-md p-3"
+          >
+            <Textarea
+              disabled={!currentUser}
+              placeholder="Add a comment"
+              maxLength="200"
+              rows="3"
+              onChange={(e) => {
+                setComment(e.target.value);
+              }}
+              value={comment}
+            />
+            <div className="flex justify-between items-center mt-5">
+              <p className="text-xs text-gray-500">
+                {200 - comment.length} characters remaining
+              </p>
+              <Button
+                className="focus:ring-0"
+                disabled={!currentUser}
+                type="submit"
+                gradientDuoTone="purpleToBlue"
+                outline
+              >
+                {submitLoading ? <Spinner className="w-5 h-5" /> : "Submit"}
+              </Button>
+            </div>
+            {commentError && (
+              <Alert color="failure" className="mt-5">
+                {commentError}
+              </Alert>
+            )}
+          </form>
           <p>You must Signin to comment</p>
           <div>
             <Link
@@ -178,7 +211,9 @@ export function CommentSection({ postId }) {
             >
               Signin
             </Link>
+
           </div>
+
         </div>
       )}
       {currentUser && (
@@ -197,7 +232,7 @@ export function CommentSection({ postId }) {
           />
           <div className="flex justify-between items-center mt-5">
             <p className="text-xs text-gray-500">
-              {500 - comment.length} characters remaining
+              {200 - comment.length} characters remaining
             </p>
             <Button
               className="focus:ring-0"

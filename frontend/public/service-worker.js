@@ -1,4 +1,4 @@
-const CACHE_NAME = 'comradetrends-cache-v1.1.3.9';
+const CACHE_NAME = 'comradetrends-cache-v1.1.4.0';
 const urlsToCache = [
   '/',
   '/index.html',

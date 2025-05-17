@@ -3,6 +3,8 @@ import NProgress from 'nprogress';
 import { useEffect, useState } from "react";
 import { Link, useParams } from "react-router-dom";
 import { CallToAction } from "../components/CallToAction";
+import { CallToAction1 } from "../components/CallToAction1";
+import { CallToAction2 } from "../components/CallToAction2";
 import { CommentSection } from "../components/CommentSection";
 import { PostBar } from "../components/PostBar";
 import { PostCard } from "../components/PostCard";
@@ -10,7 +12,6 @@ import { Helmet } from "react-helmet";
 import {
   FacebookShareButton,
   TwitterShareButton,
-  WhatsappShareButton,
   TelegramShareButton,
 } from "react-share";
 import { IoTrendingUp } from "react-icons/io5";
@@ -409,11 +410,11 @@ export function PostPage() {
               </div>
             </div>
             <div className="w-full mx-auto max-w-4xl">
-              <CallToAction />
+              <CallToAction1 />
             </div>
             <CommentSection postId={post._id} />
             <div className="w-full mx-auto max-w-4xl">
-              <CallToAction />
+              <CallToAction2 />
             </div>
             {alsoRead && (
               <div>
