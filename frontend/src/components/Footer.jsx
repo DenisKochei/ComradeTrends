@@ -11,7 +11,7 @@ export default function FooterComp() {
   return (
     <Footer
       container
-      className="flex border  border-t-3 bg-gray-300 rounded-md border-cyan-800 flex-col justify-center p-0 "
+      className="flex border  border-t-3 bg-white rounded-md border-cyan-800 flex-col justify-center p-0 "
     >
       <div className="flex w-full flex-col gap-4  sm:flex-row p-5 sm:justify-around sm:items-center justify-center items-start">
         <div className="flex mt-7 flex-col gap-2 md:w-1/3 w-full">

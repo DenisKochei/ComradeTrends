@@ -447,7 +447,7 @@ export function PostPage() {
                     </div>
                   </Link>
                   <div className="flex justify-center flex-wrap gap-0">
-                    {recent.filter((recentpost)=>recentpost._id !== currentPostID).map((post) => (
+                    {recent.filter((recentpost) => recentpost._id !== currentPostID).map((post) => (
                       <PostBar post={post} key={post._id} />
                     ))}
                   </div>

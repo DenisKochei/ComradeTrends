@@ -22,7 +22,7 @@ export default function ThemeProvider({ children }) {
 
   return (
     <div className={actualTheme}>
-      <div className="text-gray-700 bg-gray-300 dark:text-gray-200 dark:bg-slate-800 min-h-screen">
+      <div className="text-gray-700 bg-white dark:text-gray-200 dark:bg-slate-800 min-h-screen">
         {children}
       </div>
     </div>

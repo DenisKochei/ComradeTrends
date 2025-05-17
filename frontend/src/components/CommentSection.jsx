@@ -158,6 +158,7 @@ export function CommentSection({ postId }) {
         <div className="flex justify-start gap-1 my-5 text-gray-500 text-xs items-center">
           <p>Signed in as:</p>
           <img
+            alt="user"
             className="rounded-full object-cover w-5 h-5"
             src={currentUser.profilePicture}
           />

@@ -2,8 +2,6 @@ import { Avatar, Button, Dropdown, Navbar } from "flowbite-react";
 import { Link, useLocation, useNavigate } from "react-router-dom";
 import { AiOutlineSearch } from "react-icons/ai";
 import { FaMoon, FaSun } from "react-icons/fa";
-import { CiShop } from "react-icons/ci";
-import { IoCartOutline } from "react-icons/io5";
 import { useSelector, useDispatch } from "react-redux";
 import { toggleTheme } from "../../redux/theme/themeSlice";
 import { signoutSuccess } from "../../redux/user/userSlice";
@@ -84,7 +82,7 @@ export function Header() {
   };
   return (
     <Headroom>
-      <Navbar className="w-full p-1 backdrop-blur flex-none transition-colors duration-500  border border-b-slate-500 rounded-bl-lg rounded-br-lg bg-purple-200 supports-backdrop-blur:bg-white/95 dark:bg-slate-900/25">
+      <Navbar className="w-full p-1 backdrop-blur flex-none transition-colors duration-500  border border-b-slate-500 rounded-bl-lg rounded-br-lg bg-purple-300 supports-backdrop-blur:bg-white/95 dark:bg-slate-900/25">
         <div className="flex flex-col gap-1">
           <Link
             to="/"
@@ -162,7 +160,7 @@ export function Header() {
                 aria-label="dark/light mode toggle button"
                 onClick={() => dispatch(toggleTheme())}
               >
-                {theme === "dark" ? <FaMoon /> : <FaSun />}
+                {theme === "dark" ?<FaSun /> : <FaMoon /> }
               </Button>
               {currentUser ? (
                 <Dropdown

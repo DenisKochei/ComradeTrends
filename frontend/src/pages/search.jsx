@@ -143,7 +143,7 @@ export function Search() {
                 className=" w-1/2 md:w-full dark:bg-slate-800 rounded-lg border-b-slate-500"
               />
               <select
-                className=" border-none w-1/4 bg-gray-300 md:w-full focus:ring-0 dark:bg-slate-800 "
+                className=" border-none w-1/4 bg-white md:w-full focus:ring-0 dark:bg-slate-800 "
                 onChange={handleChange}
                 value={sidebarData.sort}
                 id="sort"
@@ -155,7 +155,7 @@ export function Search() {
                 onChange={handleChange}
                 value={sidebarData.category}
                 id="category"
-                className=" dark:bg-slate-800 bg-gray-300 border-none focus:ring-0 w-1/4 md:w-full"
+                className=" dark:bg-slate-800 bg-white border-none focus:ring-0 w-1/4 md:w-full"
               >
                 <option value="">Select category</option>
                 <option value="breaking">Breaking news</option>
