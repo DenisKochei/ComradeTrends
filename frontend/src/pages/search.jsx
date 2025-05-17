@@ -118,7 +118,14 @@ export function Search() {
           name="description"
           content="We're your trusted source for the latest news, insightful analysis, and trending stories from around the world."
         />
+        {posts.length > 0 && (
+          <link
+            rel="canonical"
+            href={`https://comradetrends.com/post/${posts[0].slug || posts[0]._id}`}
+          />
+        )}
       </Helmet>
+
       <div className="flex w-full flex-col md:flex-row min-h-screen">
 
         <div className="relative sm:w-1/4 min-w-[250px] w-full md:border-r md:min-h-screen border-b border-gray-500">
