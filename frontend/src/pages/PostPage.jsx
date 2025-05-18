@@ -22,6 +22,7 @@ import { FaWhatsapp, FaTelegramPlane } from "react-icons/fa";
 import { CiFacebook } from "react-icons/ci";
 import { FaXTwitter } from "react-icons/fa6";
 import { PageIndicator } from "../components/PageIndicator";
+import { useSelector } from "react-redux";
 
 export function PostPage() {
   const { postslug } = useParams();
@@ -34,6 +35,7 @@ export function PostPage() {
   const [autherId, setAutherId] = useState();
   const [copied, setCopied] = useState(false);
   const [currentPostID, setcurrentPostID] = useState();
+  const { currentUser } = useSelector((state) => state.user);
   const currentPageURL = window.location.href;
 
   const handleCopyLink = () => {
@@ -338,14 +340,14 @@ export function PostPage() {
               </span>
             </div>
             <div
-              className="py-3 px-1 w-full text-wrap max-w-4xl select-none post-content mx-auto"
+              className={`py-3 px-1 w-full text-wrap max-w-4xl ${currentUser.isAdmin ? "" : "select-none"} post-content mx-auto`}
               dangerouslySetInnerHTML={{ __html: post && post.content1 }}
             ></div>
             <div className="w-full mx-auto max-w-4xl">
               <CallToAction />
             </div>
             <div
-              className="py-3 px-1 w-full text-wrap max-w-4xl select-none post-content mx-auto"
+              className={`py-3 px-1 w-full text-wrap max-w-4xl ${currentUser.isAdmin ? "" : "select-none"} post-content mx-auto`}
               dangerouslySetInnerHTML={{ __html: post && post.content2 }}
             ></div>
             <div className="w-full  block lg:hidden">

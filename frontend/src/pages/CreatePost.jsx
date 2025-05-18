@@ -150,6 +150,7 @@ export default function CreatePost() {
             <option value="breaking">Breaking news</option>
             <option value="business">Business</option>
             <option value="climate">Climate</option>
+            <option value="documentary">Documentary</option>
             <option value="education">Education</option>
             <option value="entertainment">Entertainment</option>
             <option value="general">General</option>

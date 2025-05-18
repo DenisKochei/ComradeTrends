@@ -63,21 +63,21 @@ export default function UpdatePost() {
   }, [postId]);
 
   const handleauploadImage = async () => {
-    
+
     try {
       const storage = getStorage(app);
       const fileName = new Date().getTime() + "-" + file.name;
       const storageRef = ref(storage, fileName);
-    
+
       // Defining metadata here
       const metadata = {
         contentType: file.type,
         cacheControl: 'public, max-age=31536000' // Cache for 1 year
       };
-    
+
       // Passing metadata as the 3rd argument to uploadBytesResumable
       const uploadTask = uploadBytesResumable(storageRef, file, metadata);
-    
+
       uploadTask.on(
         "state_changed",
         (snapshot) => {
@@ -102,12 +102,12 @@ export default function UpdatePost() {
       setImageUploudProgress(null);
       console.log(err);
     }
-    
+
   };
   const handleSubmit = async (e) => {
     e.preventDefault();
     formData.content1 = addTitleToIframes(formData.content1);
-    formData.content2 = addTitleToIframes(formData.content2); 
+    formData.content2 = addTitleToIframes(formData.content2);
     try {
       NProgress.start();
       const res = await fetch(
@@ -180,6 +180,7 @@ export default function UpdatePost() {
             <option value="breaking">Breaking news</option>
             <option value="business">Business</option>
             <option value="climate">Climate</option>
+            <option value="documentary">Documentary</option>
             <option value="education">Education</option>
             <option value="entertainment">Entertainment</option>
             <option value="general">General</option>
