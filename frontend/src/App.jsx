@@ -17,10 +17,12 @@ import { Search } from "./pages/search";
 import { PolicyPage } from "./pages/PolicyPage.jsx";
 import TermsAndConditions from "./pages/TermsAndConditions.jsx";
 import GoogleAnalytics from "./components/GoogleAnalytics.jsx";
+import { useSelector } from "react-redux";
 
 export default function App() {
+  const {currentUser} = useSelector((state) => state.user);
   return (
-    <div className="min-h-screen max-w-[1500px] mx-auto">
+    <div className={`min-h-screen max-w-[1500px] mx-auto ${(currentUser && currentUser.isAdmin) ? "" : "select-none"}`}>
       <BrowserRouter>
         <GoogleAnalytics />
         <ScrollToTop />

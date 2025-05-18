@@ -340,14 +340,14 @@ export function PostPage() {
               </span>
             </div>
             <div
-              className={`py-3 px-1 w-full text-wrap max-w-4xl ${currentUser.isAdmin ? "" : "select-none"} post-content mx-auto`}
+              className={`py-3 px-1 w-full text-wrap max-w-4xl post-content mx-auto`}
               dangerouslySetInnerHTML={{ __html: post && post.content1 }}
             ></div>
             <div className="w-full mx-auto max-w-4xl">
               <CallToAction />
             </div>
             <div
-              className={`py-3 px-1 w-full text-wrap max-w-4xl ${currentUser.isAdmin ? "" : "select-none"} post-content mx-auto`}
+              className={`py-3 px-1 w-full text-wrap max-w-4xl post-content mx-auto`}
               dangerouslySetInnerHTML={{ __html: post && post.content2 }}
             ></div>
             <div className="w-full  block lg:hidden">
