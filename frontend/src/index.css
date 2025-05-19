@@ -71,12 +71,14 @@ margin-bottom: 0.5rem;
 #nprogress .bar {
   background: linear-gradient(to right, #ea2020, #a0a8f2) !important;
   height: 2px;
-  border-radius: 5PX;
+  border-radius: 5px;
 }
 .post-content strong,
 .post-content b {
-  font-weight: 700 !important;   /* force 700 over inline 600 */
+  font-family: system-ui, sans-serif;   /* or your body font stack */
+  font-weight: 700;
 }
+
 
 .post-content h1{
   font-family: sans-serif;
