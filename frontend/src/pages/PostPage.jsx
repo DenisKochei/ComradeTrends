@@ -117,19 +117,6 @@ export function PostPage() {
     fetchAuther();
   }, [autherId]);
 
-useEffect(() => {
-  if (!post) return;
-
- 
-  const strongTags = document
-    .querySelectorAll('.post-content strong');
-
-  strongTags.forEach(node => {
-    node.classList.add('!font-[700]'); 
-    node.style.fontWeight = '';
-  });
-}, [post]);
-
   const currentUrl = window.location.href;
   if (loading) {
     NProgress.start();
