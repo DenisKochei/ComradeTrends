@@ -116,19 +116,19 @@ export function PostPage() {
     };
     fetchAuther();
   }, [autherId]);
-  // ⬇️ place this just before the component returns JSX
-useEffect(() => {
-  if (!post) return;                 // wait until post is loaded
 
-  // 1) strong tags inside BOTH content blocks
+useEffect(() => {
+  if (!post) return;
+
+ 
   const strongTags = document
     .querySelectorAll('.post-content strong');
 
   strongTags.forEach(node => {
-    node.classList.add('!font-[720]'); // Tailwind 700 weight
-    node.style.fontWeight = '';      // clear Quill's inline 600
+    node.classList.add('!font-[700]'); 
+    node.style.fontWeight = '';
   });
-}, [post]);                          // rerun when post changes
+}, [post]);
 
   const currentUrl = window.location.href;
   if (loading) {
