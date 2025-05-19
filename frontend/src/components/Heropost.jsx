@@ -23,11 +23,11 @@ export function Heropost(post) {
         <div className="text-xs flex justify-between text-gray-400">
           <span className=" mt-1 text-nowrap mr-2">{moment(post.posts.createdAt).fromNow()}</span>
           <div className="space-x-1 mt-1">
-            <span className="italic">{post.posts.category}</span>
+            <span className="italic">{post.posts.category.charAt(0).toUpperCase() + post.posts.category.slice(1)}</span>
             {post.posts.subcategory && (
               <>
                 <span className="text-slate-600">/</span>
-                <span>{post.posts.subcategory}</span>
+                <span>{post.posts.subcategory.charAt(0).toUpperCase() + post.posts.category.slice(1)}</span>
               </>
             )}
           </div>

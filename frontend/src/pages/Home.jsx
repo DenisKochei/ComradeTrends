@@ -551,12 +551,12 @@ export function Home() {
                         <div className="flex justify-start gap-4 mx-2 items-center dark:text-slate-400 text-xs space-x-1">
                           <div className="space-x-1 mt-1">
                             <span className="italic">
-                              {international[0].category}
+                              {international[0].category.charAt(0).toUpperCase() + international[0].category.slice(1)}
                             </span>
                             {international[0].subcategory && (
                               <>
                                 <span className="dark:text-slate-400">/</span>
-                                <span>{international[0].subcategory}</span>
+                                <span>{international[0].subcategory.charAt(0).toUpperCase() + international[0].subcategory.slice(1)}</span>
                               </>
                             )}
                           </div>
@@ -627,7 +627,7 @@ export function Home() {
               }
             </div>
             {(politics.length > 0) && (
-              <div>
+              <div className={`${entertainment.length === 0 && "mt-2"}`}>
                 <Link className="flex w-fit" to={`/search?category=politics`}>
                   <div className="flex justify-start gap-1 items-center">
                     <IoTrendingUp className="w-5 h-5 text-purple-600" />
@@ -646,11 +646,11 @@ export function Home() {
                       {politics[0].title}
                     </h1>
                     <div className="flex justify-start items-center dark:text-slate-400 text-xs space-x-1">
-                      <span className="italic">{politics[0].category}</span>
+                      <span className="italic">{politics[0].category.charAt(0).toUpperCase() + politics[0].category.slice(1)}</span>
                       {politics[0].subcategory && (
                         <>
                           <span className="dark:text-slate-400">/</span>
-                          <span>{politics[0].subcategory}</span>
+                          <span>{politics[0].subcategory.charAt(0).toUpperCase() + politics[0].subcategory.slice(1)}</span>
                         </>
                       )}
                     </div>

@@ -298,7 +298,7 @@ export function PostPage() {
                     ? "Most Trending"
                     : post.category === "breaking"
                       ? "Breaking News"
-                      : post.category}
+                      : post.category.charAt(0).toUpperCase() + post.category.slice(1)}
                 </span>
               </Link>
             </div>

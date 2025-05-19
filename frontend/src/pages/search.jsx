@@ -160,6 +160,7 @@ export function Search() {
                 <option value="">Select category</option>
                 <option value="breaking">Breaking news</option>
                 <option value="business">Business</option>
+                <option value="documentary">Documentary</option>
                 <option value="climate">Climate</option>
                 <option value="education">Education</option>
                 <option value="entertainment">Entertainment</option>

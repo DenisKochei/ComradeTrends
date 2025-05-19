@@ -18,11 +18,11 @@ export function PostCard2({ post }) {
       </div>
       <div className="flex justify-between mx-2 items-center dark:text-slate-400 text-xs space-x-1">
         <div className="space-x-1 mt-1">
-          <span className="italic">{post.category}</span>
+          <span className="italic">{post.category.charAt(0).toUpperCase() + post.category.slice(1)}</span>
           {post.subcategory && (
             <>
               <span className="text-slate-600">/</span>
-              <span>{post.subcategory}</span>
+              <span>{post.subcategory.charAt(0).toUpperCase() + post.subcategory.slice(1)}</span>
             </>
           )}
         </div>

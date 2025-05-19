@@ -13,11 +13,11 @@ export function PostBar({ post }) {
       <div className="w-full flex flex-col justify-center gap-1">
         <div className="flex justify-start max-w-9 lg:max-w-full items-center dark:text-slate-400 text-xs space-x-1">
           <IoTrendingUp className="w-5 h-5 text-purple-600" />
-          <span className="italic text-nowrap">{post.category}</span>
+          <span className="italic text-nowrap">{post.category.charAt(0).toUpperCase() + post.category.slice(1)}</span>
           {post.subcategory && (
             <>
               <span className=" dark:text-slate-600">/</span>
-              <span className="text-nowrap">{post.subcategory}</span>
+              <span className="text-nowrap">{post.subcategory.charAt(0).toUpperCase() + post.subcategory.slice(1)}</span>
             </>
           )}
         </div>

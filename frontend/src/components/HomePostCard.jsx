@@ -16,7 +16,7 @@ export function HomePostCard({ post }) {
               <span className="focus:ring-0 " pill color="gray" size="xs">
                 {post.category === "most-trending"
                   ? "Most Trending"
-                  : post.category === 'breaking' ? "Breaking News" : post.category}
+                  : post.category === 'breaking' ? "Breaking News" : post.category.charAt(0).toUpperCase() + post.category.slice(1)}
               </span>
             </Link>
             <span className=" mt-1 text-nowrap mr-2">{moment(post.createdAt).fromNow()}</span>
