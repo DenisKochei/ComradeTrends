@@ -204,16 +204,16 @@ export function Search() {
           {(!loading && (posts.length > 0)) &&
             <div className="flex flex-col sm:flex-row justify-between items-center gap-1">
               <div className="flex flex-col w-full gap-2">
-                <div className="flex flex-col sm:flex-row gap-2">
+                <div className="flex w-full flex-col lg:flex-row">
                   <Heropost posts={posts[0]} />
-                  <div className="flex">
-                    <div className="flex w-full sm:w-auto flex-col">
+                  <div className="flex flex-col lg:flex-row">
+                    <div className="flex flex-col md:flex-row mx-auto lg:ml-2 lg:flex-col">
                       {posts.slice(1, 3).map((post) => (
                         <PostCard2 key={post._id} post={post} />
                       ))}
                     </div>
 
-                    <div className="w-full hidden sm:w-[200px] ml-2 sm:flex md:hidden lg:flex flex-wrap rounded-md bg-orange-800 p-3 gap-10">
+                    <div className="hidden lg:w-[200px] lg:ml-2 md:flex sm:hidden lg:flex flex-wrap rounded-md bg-orange-800 p-3 gap-10">
                       <h1 className="text-lg my-1 text-slate-300 font-light font-serif">
                         Discover the future today, right here !
                       </h1>

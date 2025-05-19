@@ -10,7 +10,7 @@ export function Heropost(post) {
   return (
     <div
       onClick={() => navigate(`/post/${post.posts.slug}`)}
-      className="lg:max-w-[700px] md:max-w-[450px] w-full  rounded-lg cursor-pointer h-[350px] md:h-[550px] bg-cover bg-center text-white flex items-end"
+      className="lg:max-w-[700px] w-full  rounded-lg cursor-pointer h-[350px] md:h-[550px] bg-cover bg-center text-white flex items-end"
       style={{ backgroundImage: `url(${post.posts.image})` }}
       aria-label={post.posts.altText}
     >
