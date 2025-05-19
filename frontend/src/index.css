@@ -84,7 +84,7 @@ margin-bottom: 0.5rem;
   font-style: italic;
 }
 .post-content strong{
-  font-weight: bold !important;
+  font-weight: 700 !important
 }
 .post-content u{
   text-decoration: underline;
