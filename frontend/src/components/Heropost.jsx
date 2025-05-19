@@ -27,7 +27,7 @@ export function Heropost(post) {
             {post.posts.subcategory && (
               <>
                 <span className="text-slate-600">/</span>
-                <span>{post.posts.subcategory.charAt(0).toUpperCase() + post.posts.category.slice(1)}</span>
+                <span>{post.posts.subcategory.charAt(0).toUpperCase() + post.posts.subcategory.slice(1)}</span>
               </>
             )}
           </div>
