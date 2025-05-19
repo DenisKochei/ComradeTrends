@@ -595,7 +595,7 @@ export function Home() {
                 (
                   <>
                     {entertainment ? (
-                      <div>
+                      <div className="mt-2">
                         <Link className="flex w-fit" to={`/search?category=entertainment`}>
                           <div className="flex justify-start my-2 gap-1 items-center">
                             <IoTrendingUp className="w-5 h-5 text-purple-600" />
