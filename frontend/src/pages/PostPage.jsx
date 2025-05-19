@@ -125,7 +125,7 @@ useEffect(() => {
     .querySelectorAll('.post-content strong');
 
   strongTags.forEach(node => {
-    node.classList.add('font-bold'); // Tailwind 700 weight
+    node.classList.add('!font-[720]'); // Tailwind 700 weight
     node.style.fontWeight = '';      // clear Quill's inline 600
   });
 }, [post]);                          // rerun when post changes
