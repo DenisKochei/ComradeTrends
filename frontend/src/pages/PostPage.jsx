@@ -118,6 +118,7 @@ export function PostPage() {
   }, [autherId]);
 
   const currentUrl = window.location.href;
+  console.log(post.content1)
 
   if (loading) {
     NProgress.start();
