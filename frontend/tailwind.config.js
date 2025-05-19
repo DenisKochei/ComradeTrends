@@ -8,14 +8,19 @@ export default {
     "./src/index.css",
     flowbite.content(),
   ],
-  safelist: ["font-bold", "font-serif", "font-extrabold", "!font-[700]"],
+  safelist: [
+  'font-bold',
+  'font-serif',
+  'font-extrabold',
+  '\\!font-\\[700\\]',
+],
   theme: {
     extend: {
       minHeight: {
         override: "0px",
       },
       minWidth: {
-        "5xl:": "1500px",
+        "5xl": "1500px",
       },
     },
   },
