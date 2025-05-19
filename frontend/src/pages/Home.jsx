@@ -588,7 +588,7 @@ export function Home() {
 
             <div
               ref={entertainmentRef}
-              className={`flex w-full flex-col gap-3 min-h-[200px] sm:-mt-6 -mt-4 text-center ${entertainment.length === 0 && "!min-h-override"
+              className={`flex w-full flex-col gap-3 min-h-[200px] sm:-mt-6 -mt-5 text-center ${entertainment.length === 0 && "!min-h-override"
                 }`}
             >
               {(entertainment.length > 0) &&
@@ -627,7 +627,7 @@ export function Home() {
               }
             </div>
             {(politics.length > 0) && (
-              <div className={`${entertainment.length === 0 && "mt-2"}`}>
+              <div className={`${entertainment.length === 0 ? "mt-4" : "mt-2"} `}>
                 <Link className="flex w-fit" to={`/search?category=politics`}>
                   <div className="flex justify-start gap-1 items-center">
                     <IoTrendingUp className="w-5 h-5 text-purple-600" />
@@ -723,7 +723,7 @@ export function Home() {
                 }`}
             >
               {agriculture.length > 0 ? (
-                <div>
+                <div className="mt-2">
                   <Link className="flex w-fit" to={"/search?category=agriculture"}>
                     <div className="flex justify-start my-1 gap-1 items-center">
                       <IoTrendingUp className="w-5 h-5 text-purple-600" />
