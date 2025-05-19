@@ -73,6 +73,11 @@ margin-bottom: 0.5rem;
   height: 2px;
   border-radius: 5PX;
 }
+.post-content strong,
+.post-content b {
+  font-weight: 700 !important;   /* force 700 over inline 600 */
+}
+
 .post-content h1{
   font-family: sans-serif;
   font-size: 1.5rem;
