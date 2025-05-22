@@ -1,5 +1,4 @@
-import React from "react";
-import { CallToAction } from "../components/CallToAction";
+import { AdvertiseWithUs } from "../components/AdvertiseWithUs";
 import { Helmet } from "react-helmet";
 import { PageIndicator } from "../components/PageIndicator";
 
@@ -69,7 +68,7 @@ export function About() {
         </div>
       </div>
       <div className="flex m-3 justify-center">
-        <CallToAction />
+        <AdvertiseWithUs />
       </div>
     </div>
   );

@@ -1,6 +1,6 @@
 import { BsFacebook, BsTiktok } from "react-icons/bs";
 import { RiTwitterXFill } from "react-icons/ri";
-import { CallToAction } from "../components/CallToAction";
+import { AdvertiseWithUs } from "../components/AdvertiseWithUs";
 import { PageIndicator } from "../components/PageIndicator";
 export function Contacts() {
   return (
@@ -64,7 +64,7 @@ export function Contacts() {
             <span>X</span>
           </a>
         </div>
-        <CallToAction />
+        <AdvertiseWithUs />
       </div>
     </div>
   );

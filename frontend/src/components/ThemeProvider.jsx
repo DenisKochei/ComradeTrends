@@ -5,10 +5,10 @@ export default function ThemeProvider({ children }) {
   const { theme } = useSelector((state) => state.theme);
 
   const actualTheme =
-    theme === "system"
+    theme === "light"
       ? window.matchMedia("(prefers-color-scheme: dark)").matches
-        ? "dark"
-        : "light"
+        ? "light"
+        : "dark"
       : theme;
 
   useEffect(() => {

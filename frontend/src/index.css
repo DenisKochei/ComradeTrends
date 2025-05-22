@@ -2,165 +2,268 @@
 @tailwind components;
 @tailwind utilities;
 
-body {
+body{
   height: 100vh;
+  font-size:0.8rem;
+}
+body p{
   font-size: 0.8rem;
 }
-body p {
+body h1{
   font-size: 0.8rem;
 }
-body h1 {
+body h2{
   font-size: 0.8rem;
 }
-body h2 {
+body span{
   font-size: 0.8rem;
 }
-body span {
-  font-size: 0.8rem;
-}
-.ql-editor {
+.ql-editor{
   font-size: 1.05rem;
   min-height: 150px;
 }
-.post-content p {
-  margin-bottom: 0.5rem;
+.post-content p{
+margin-bottom: 0.5rem;
 }
-.post-content strong,
-.post-content b {
-  @apply font-serif font-bold;
-}
-/* Style the spinner */
-#nprogress .spinner {
-  display: block;
-  position: fixed;
-  z-index: 1031;
-  top: 15px;
-  right: 15px;
-}
-
-/* Customize the spinner icon itself */
-#nprogress .spinner-icon {
-  width: 24px;
-  height: 24px;
-  border: solid 3px transparent;
-  border-top-color: transparent; /* 💥 fully transparent */
-  border-left-color: transparent; /* Only left border visible (or set this too if you want) */
-  border-radius: 50%;
-  animation: nprogress-spinner 400ms linear infinite;
-}
-
-/* Spinner rotation animation */
-@keyframes nprogress-spinner {
-  0% {
-    transform: rotate(0deg);
-  }
-  100% {
-    transform: rotate(360deg);
-  }
-}
-
 #nprogress .bar {
   background: linear-gradient(to right, #ea2020, #a0a8f2) !important;
   height: 2px;
-  border-radius: 5px;
+  border-radius: 5PX;
 }
-.post-content strong,
-.post-content b {
-  font-family: system-ui, sans-serif; /* or your body font stack */
-  font-weight: 700;
-  font-size: 1.3em;
-}
-
-.post-content h1 {
+.post-content h1{
   font-family: sans-serif;
   font-size: 1.5rem;
-  font-weight: 600;
-  margin: 1.5rem 0;
+  font-weight:600;
+  margin:1.5rem 0
 }
-.post-content h2 {
+.post-content h2{
   font-family: sans-serif;
   font-size: 1.4rem;
-  margin: 1.5rem 0;
+  margin:1.5rem 0
 }
-.post-content iframe {
+.post-content iframe{
   margin-left: auto;
   margin-right: auto;
   width: 100%;
   height: 280px;
 }
-.post-content object {
+.post-content object{
   margin-left: auto;
   margin-right: auto;
   width: 100%;
   height: 280px;
 }
-.post-content em {
+.post-content em{
   font-style: italic;
 }
-.post-content u {
+.post-content strong{
+  font-weight: bold;
+  font-size: 1.3em;
+}
+.post-content u{
   text-decoration: underline;
 }
-.post-content s {
+.post-content s{
   text-decoration: line-through;
 }
-.post-content sub {
+.post-content sub{
   vertical-align: sub;
   font-size: smaller;
 }
-.post-content sup {
+.post-content sup{
   vertical-align: super;
   font-size: smaller;
 }
-.post-content ul {
+.post-content ul{
   list-style-type: disc;
+  margin: 2em;             
+  padding-left: 1px;            
+}
+.post-content ol{
+  list-style-type: decimal; 
   margin: 2em;
   padding-left: 1px;
 }
-.post-content ol {
-  list-style-type: decimal;
-  margin: 2em;
-  padding-left: 1px;
-}
-.post-content blockquote {
+.post-content blockquote{
   margin: 1em 40px;
   margin-top: 0.5em;
   font-size: 0.9em;
 }
-.post-content embed {
+.post-content embed{
+  margin-left: auto;
+  margin-right: auto;
+  width: 100%;
+  height: 280px;
+
+}
+.post-content a{
+  color: rgb(63, 159, 223);
+  text-decoration: none;
+  font-weight: bold;
+}
+.post-content a:hover{
+  text-decoration: underline;
+}
+.dark .post-content a{
+  color: rgb(73, 149, 199);
+}
+.ql-syntax{
+padding: 0.5rem;
+border-radius:5px;
+background-color: rgb(59, 58, 58);
+color: azure;
+}
+.dark .ql-syntax{
+  padding: 0.5rem;
+  border-radius:5px;
+  background-color: rgb(59, 58, 58);
+  }
+.ql-intent-1{
+  margin-left: 2em;
+}
+.ql-indent-5{
+  margin-left: 5em;
+}
+.ql-align-center{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.no-scrollbar::-webkit-scrollbar {
+  display: none;
+}
+
+/* Hide scrollbar for IE, Edge, and Firefox */
+.no-scrollbar {
+  -ms-overflow-style: none; /* IE and Edge */
+  scrollbar-width: none; /* Firefox */
+}@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+body{
+  height: 100vh;
+  font-size:0.8rem;
+}
+body p{
+  font-size: 0.8rem;
+}
+body h1{
+  font-size: 0.8rem;
+}
+body h2{
+  font-size: 0.8rem;
+}
+body span{
+  font-size: 0.8rem;
+}
+.ql-editor{
+  font-size: 1.05rem;
+  min-height: 150px;
+}
+.post-content p{
+margin-bottom: 0.5rem;
+}
+#nprogress .bar {
+  background: linear-gradient(to right, #ea2020, #a0a8f2) !important;
+  height: 2px;
+  border-radius: 5PX;
+}
+.post-content h1{
+  font-family: sans-serif;
+  font-size: 1.5rem;
+  font-weight:600;
+  margin:1.5rem 0
+}
+.post-content h2{
+  font-family: sans-serif;
+  font-size: 1.4rem;
+  margin:1.5rem 0
+}
+.post-content iframe{
   margin-left: auto;
   margin-right: auto;
   width: 100%;
   height: 280px;
 }
-.post-content a {
+.post-content object{
+  margin-left: auto;
+  margin-right: auto;
+  width: 100%;
+  height: 280px;
+}
+.post-content em{
+  font-style: italic;
+}
+.post-content strong{
+  font-weight: bold;
+  font-size: 1.3em;
+}
+.post-content u{
+  text-decoration: underline;
+}
+.post-content s{
+  text-decoration: line-through;
+}
+.post-content sub{
+  vertical-align: sub;
+  font-size: smaller;
+}
+.post-content sup{
+  vertical-align: super;
+  font-size: smaller;
+}
+.post-content ul{
+  list-style-type: disc;
+  margin: 2em;             
+  padding-left: 1px;            
+}
+.post-content ol{
+  list-style-type: decimal; 
+  margin: 2em;
+  padding-left: 1px;
+}
+.post-content blockquote{
+  margin: 1em 40px;
+  margin-top: 0.5em;
+  font-size: 0.9em;
+}
+.post-content embed{
+  margin-left: auto;
+  margin-right: auto;
+  width: 100%;
+  height: 280px;
+
+}
+.post-content a{
   color: rgb(63, 159, 223);
   text-decoration: none;
   font-weight: bold;
 }
-.post-content a:hover {
+.post-content a:hover{
   text-decoration: underline;
 }
-.dark .post-content a {
+.dark .post-content a{
   color: rgb(73, 149, 199);
 }
-.ql-syntax {
-  padding: 0.5rem;
-  border-radius: 5px;
-  background-color: rgb(59, 58, 58);
-  color: azure;
+.ql-syntax{
+padding: 0.5rem;
+border-radius:5px;
+background-color: rgb(59, 58, 58);
+color: azure;
 }
-.dark .ql-syntax {
+.dark .ql-syntax{
   padding: 0.5rem;
-  border-radius: 5px;
+  border-radius:5px;
   background-color: rgb(59, 58, 58);
-}
-.ql-intent-1 {
+  }
+.ql-intent-1{
   margin-left: 2em;
 }
-.ql-indent-5 {
+.ql-indent-5{
   margin-left: 5em;
 }
-.ql-align-center {
+.ql-align-center{
   display: flex;
   justify-content: center;
   align-items: center;

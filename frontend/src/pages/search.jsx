@@ -121,7 +121,7 @@ export function Search() {
         {posts.length > 0 && (
           <link
             rel="canonical"
-            href={`https://comradetrends.com/post/${posts[0].slug || posts[0]._id}`}
+            href={`https://comradetrends.com/post/${posts[0].slug}`}
           />
         )}
       </Helmet>
