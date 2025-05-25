@@ -25,145 +25,33 @@ body span{
 .post-content p{
 margin-bottom: 0.5rem;
 }
-#nprogress .bar {
-  background: linear-gradient(to right, #ea2020, #a0a8f2) !important;
-  height: 2px;
-  border-radius: 5PX;
-}
-.post-content h1{
-  font-family: sans-serif;
-  font-size: 1.5rem;
-  font-weight:600;
-  margin:1.5rem 0
-}
-.post-content h2{
-  font-family: sans-serif;
-  font-size: 1.4rem;
-  margin:1.5rem 0
-}
-.post-content iframe{
-  margin-left: auto;
-  margin-right: auto;
-  width: 100%;
-  height: 280px;
-}
-.post-content object{
-  margin-left: auto;
-  margin-right: auto;
-  width: 100%;
-  height: 280px;
-}
-.post-content em{
-  font-style: italic;
-}
-.post-content strong{
-  font-weight: bold;
-  font-size: 1.3em;
-}
-.post-content u{
-  text-decoration: underline;
-}
-.post-content s{
-  text-decoration: line-through;
-}
-.post-content sub{
-  vertical-align: sub;
-  font-size: smaller;
-}
-.post-content sup{
-  vertical-align: super;
-  font-size: smaller;
-}
-.post-content ul{
-  list-style-type: disc;
-  margin: 2em;             
-  padding-left: 1px;            
-}
-.post-content ol{
-  list-style-type: decimal; 
-  margin: 2em;
-  padding-left: 1px;
-}
-.post-content blockquote{
-  margin: 1em 40px;
-  margin-top: 0.5em;
-  font-size: 0.9em;
-}
-.post-content embed{
-  margin-left: auto;
-  margin-right: auto;
-  width: 100%;
-  height: 280px;
-
-}
-.post-content a{
-  color: rgb(63, 159, 223);
-  text-decoration: none;
-  font-weight: bold;
-}
-.post-content a:hover{
-  text-decoration: underline;
-}
-.dark .post-content a{
-  color: rgb(73, 149, 199);
-}
-.ql-syntax{
-padding: 0.5rem;
-border-radius:5px;
-background-color: rgb(59, 58, 58);
-color: azure;
-}
-.dark .ql-syntax{
-  padding: 0.5rem;
-  border-radius:5px;
-  background-color: rgb(59, 58, 58);
-  }
-.ql-intent-1{
-  margin-left: 2em;
-}
-.ql-indent-5{
-  margin-left: 5em;
-}
-.ql-align-center{
-  display: flex;
-  justify-content: center;
-  align-items: center;
-}
-.no-scrollbar::-webkit-scrollbar {
-  display: none;
+/* Style the spinner */
+#nprogress .spinner {
+  display: block;
+  position: fixed;
+  z-index: 1031;
+  top: 15px;
+  right: 15px;
 }
 
-/* Hide scrollbar for IE, Edge, and Firefox */
-.no-scrollbar {
-  -ms-overflow-style: none; /* IE and Edge */
-  scrollbar-width: none; /* Firefox */
-}@tailwind base;
-@tailwind components;
-@tailwind utilities;
+/* Customize the spinner icon itself */
+#nprogress .spinner-icon {
+  width: 24px;
+  height: 24px;
+  border: solid 3px transparent;
+  border-top-color: transparent; /* 💥 fully transparent */
+  border-left-color: transparent; /* Only left border visible (or set this too if you want) */
+  border-radius: 50%;
+  animation: nprogress-spinner 400ms linear infinite;
+}
 
-body{
-  height: 100vh;
-  font-size:0.8rem;
+
+/* Spinner rotation animation */
+@keyframes nprogress-spinner {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
 }
-body p{
-  font-size: 0.8rem;
-}
-body h1{
-  font-size: 0.8rem;
-}
-body h2{
-  font-size: 0.8rem;
-}
-body span{
-  font-size: 0.8rem;
-}
-.ql-editor{
-  font-size: 1.05rem;
-  min-height: 150px;
-}
-.post-content p{
-margin-bottom: 0.5rem;
-}
+
 #nprogress .bar {
   background: linear-gradient(to right, #ea2020, #a0a8f2) !important;
   height: 2px;
